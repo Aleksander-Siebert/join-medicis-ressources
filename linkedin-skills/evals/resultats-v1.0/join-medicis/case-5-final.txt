@@ -1,0 +1,29 @@
+TITRE
+Devis et prospection pour les PME industrielles | Nos devis sortent en 20 min au lieu de 5 h | Fondatrice d'Atelier Devis, écris-moi pour en parler
+
+INFOS
+Tu diriges une PME industrielle et tes devis mangent des heures à ton équipe ?
+Chez Atelier Devis, on prépare tes devis et on prospecte pour toi.
+
+Nos devis sortent en 20 minutes. Il nous fallait 5 heures par devis, jusqu'au jour où on a construit notre propre modèle, en interne.
+
+Côté prospection, on écrit moins. 60 messages en avril : 14 réponses. Le mois d'avant, 412 messages pour 9 réponses.
+
+On a interviewé 47 clients en 2025 pour comprendre {{ce qu'on a appris, en une phrase}}. On est 6.
+
+Pour commencer : {{comment te contacter : message ici, e-mail, lien de rendez-vous}}.
+
+POSTE ACTUEL
+Fondatrice · Atelier Devis · depuis 2022
+Agence de 6 personnes. On prépare les devis et on prospecte pour des PME industrielles françaises.
+
+J'ai construit un modèle interne de devis en {{délai}} : chaque devis passe de 5 h à 20 min, sur {{nombre}} devis par mois.
+Prospection revue en avril : 14 réponses sur 60 messages, contre 9 sur 412 en mars, soit un taux de réponse passé de 2 % à 23 % en un mois.
+47 clients interviewés en 2025. Ce travail a {{conduit à quoi : une nouvelle offre, un process changé, un tarif revu ?}}.
+Agence lancée en 2022 et menée à 6 personnes et {{nombre}} clients, pour {{chiffre d'affaires}} en {{année}}.
+
+POSTE PRÉCÉDENT
+Chargée d'affaires · Groupe Métal Ouest · 2017-2022
+
+J'ai géré un portefeuille de {{nombre}} clients industriels, soit {{chiffre d'affaires annuel}}, passé de {{CA 2017}} à {{CA 2022}} en 5 ans.
+Appels d'offres : {{nombre}} réponses montées en {{période}}, {{taux de gain}} de marchés gagnés, dont le plus gros à {{montant}}.

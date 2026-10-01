@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Carrousel LinkedIn</title>
+<!--
+  Gabarit de carrousel LinkedIn : une <section> = une diapositive 1080 × 1350 px.
+  1. Remplace les textes (garde 6 mots max en couverture, 25 mots max par diapo).
+  2. Change --accent, --fond, --texte et la police si l'utilisateur a une charte.
+  3. Imprime en PDF : chromium --headless --no-pdf-header-footer --print-to-pdf=carrousel.pdf gabarit.html
+-->
+<style>
+  @page { size: 1080px 1350px; margin: 0; }
+  :root {
+    --accent: #1f6f50;
+    --fond: #fbfaf7;
+    --texte: #16201b;
+    --doux: #5b675f;
+    --police: "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--fond); color: var(--texte); font-family: var(--police); }
+  section {
+    width: 1080px; height: 1350px; padding: 110px 96px 140px;
+    position: relative; display: flex; flex-direction: column; justify-content: center;
+    page-break-after: always; break-after: page; overflow: hidden;
+  }
+  section:last-of-type { page-break-after: auto; break-after: auto; }
+  .num { position: absolute; top: 64px; right: 96px; font-size: 30px; color: var(--doux); font-variant-numeric: tabular-nums; }
+  .auteur { position: absolute; bottom: 64px; left: 96px; font-size: 28px; color: var(--doux); }
+  .suite { position: absolute; bottom: 64px; right: 96px; font-size: 28px; color: var(--accent); font-weight: 600; }
+  h1 { font-size: 104px; line-height: 1.05; letter-spacing: -0.02em; }
+  h2 { font-size: 72px; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 40px; }
+  p { font-size: 40px; line-height: 1.4; color: var(--texte); }
+  .promesse { margin-top: 48px; font-size: 44px; color: var(--doux); }
+  .etiquette { font-size: 30px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 28px; }
+  .couverture { background: var(--accent); color: #fff; }
+  .couverture .num, .couverture .auteur, .couverture .promesse { color: rgba(255,255,255,.8); }
+  .couverture .suite { color: #fff; }
+  ul.recap { list-style: none; }
+  ul.recap li { font-size: 38px; line-height: 1.35; padding: 18px 0; border-bottom: 2px solid #e4e1d8; }
+  ul.recap li b { color: var(--accent); margin-right: 16px; }
+</style>
+</head>
+<body>
+
+<section class="couverture">
+  <span class="num">1/8</span>
+  <h1>Titre de six mots maximum</h1>
+  <p class="promesse">Une ligne qui dit ce que le lecteur gagne à faire défiler.</p>
+  <span class="auteur">@prenom-nom</span>
+  <span class="suite">→</span>
+</section>
+
+<section>
+  <span class="num">2/8</span>
+  <div class="etiquette">L'enjeu</div>
+  <h2>Pourquoi ça compte, en une phrase.</h2>
+  <span class="auteur">@prenom-nom</span>
+</section>
+
+<section>
+  <span class="num">3/8</span>
+  <div class="etiquette">Étape 1</div>
+  <h2>Titre de 3 à 7 mots</h2>
+  <p>Vingt-cinq mots maximum sous le titre. Si ça ne tient pas, c'est deux diapositives.</p>
+  <span class="auteur">@prenom-nom</span>
+</section>
+
+<section>
+  <span class="num">4/8</span>
+  <div class="etiquette">Étape 2</div>
+  <h2>Titre de 3 à 7 mots</h2>
+  <p>Une idée par diapositive. Un chiffre vaut mieux qu'un adjectif.</p>
+  <span class="auteur">@prenom-nom</span>
+</section>
+
+<section>
+  <span class="num">5/8</span>
+  <div class="etiquette">Étape 3</div>
+  <h2>Titre de 3 à 7 mots</h2>
+  <p>Texte court, corps 40 px : on lit ces diapositives sur un téléphone.</p>
+  <span class="auteur">@prenom-nom</span>
+</section>
+
+<section>
+  <span class="num">6/8</span>
+  <div class="etiquette">Étape 4</div>
+  <h2>Titre de 3 à 7 mots</h2>
+  <p>Dernière étape avant le récapitulatif.</p>
+  <span class="auteur">@prenom-nom</span>
+</section>
+
+<section>
+  <span class="num">7/8</span>
+  <div class="etiquette">En résumé</div>
+  <ul class="recap">
+    <li><b>1</b>Étape 1 en quelques mots</li>
+    <li><b>2</b>Étape 2 en quelques mots</li>
+    <li><b>3</b>Étape 3 en quelques mots</li>
+    <li><b>4</b>Étape 4 en quelques mots</li>
+  </ul>
+  <span class="auteur">@prenom-nom</span>
+</section>
+
+<section class="couverture">
+  <span class="num">8/8</span>
+  <h2>Une seule action.</h2>
+  <p class="promesse">S'abonner, commenter, ou le lien en commentaire. Pas les trois.</p>
+  <span class="auteur">@prenom-nom</span>
+</section>
+
+</body>
+</html>

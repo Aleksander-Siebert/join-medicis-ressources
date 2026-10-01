@@ -1,0 +1,99 @@
+{
+  "version": "1.0",
+  "note": "Cas réalistes pour comparer le pack aux Skills d'origine (linkedin-agent-skill de Jake Schincariol). Chaque cas : le Skill visé, la demande telle qu'un utilisateur français la taperait, le contexte fourni, et ce qu'on attend. Les attentes marquées [auto] sont vérifiées par script (detect.py, comptage, regex) ; les autres par relecture.",
+  "contexte_commun": "Utilisateur : Camille, fondatrice d'une agence de 6 personnes qui fait des devis et de la prospection pour des PME industrielles françaises. Tutoiement dans ses posts. Preuves utilisables : 47 clients interviewés en 2025 ; devis passés de 5 h à 20 min grâce à un modèle interne ; 14 réponses sur 60 messages en avril contre 9 sur 412 en mars.",
+  "cas": [
+    {
+      "id": 1,
+      "skill": "linkedin-post",
+      "demande": "Fais-moi un post LinkedIn : on a construit un modèle interne qui fait passer nos devis de 5 h à 20 min.",
+      "attentes": [
+        "Propose 3 accroches de formules différentes avant le brouillon",
+        "Le brouillon est en français, tutoiement, sans Markdown",
+        "[auto] detect.py donne OK (≥ 70) sur le brouillon final",
+        "[auto] Aucun tiret cadratin, aucune ponctuation double collée (« mois! »)",
+        "[auto] 0 à 3 hashtags",
+        "N'invente aucun chiffre absent du contexte (ou laisse {{à compléter}})",
+        "Affiche le nombre de caractères"
+      ]
+    },
+    {
+      "id": 2,
+      "skill": "linkedin-post",
+      "demande": "Écris un post sur l'IA dans le marketing.",
+      "attentes": [
+        "Ne rédige pas un post générique : pose une seule question groupée (que s'est-il passé, pour qui, quel coût ou gain)",
+        "Ou, à défaut, propose un angle tiré des preuves du contexte"
+      ]
+    },
+    {
+      "id": 3,
+      "skill": "linkedin-human",
+      "demande": "Humanise ce post et dis-moi s'il fait encore IA.",
+      "fichier": "evals/linkedin-human/brouillon-ia.txt",
+      "attentes": [
+        "[auto] La typographie française est conservée : espace avant ? ! :, guillemets « »",
+        "[auto] Le texte final obtient un meilleur score detect.py que le brouillon",
+        "Les tics structurels (« Ce n'est pas X, c'est Y », « Le résultat ? », « Qu'en pensez-vous ? ») sont réécrits, pas seulement signalés",
+        "Montre le texte ET la note, jamais la note seule",
+        "Ne promet pas un texte « indétectable »"
+      ]
+    },
+    {
+      "id": 4,
+      "skill": "linkedin-comment",
+      "demande": "Propose-moi un commentaire sous ce post de Julien, DRH : « On a supprimé le CV de nos recrutements commerciaux. 6 mois après, nos meilleurs commerciaux viennent tous de profils qu'on aurait écartés. Le CV mesurait la capacité à écrire un CV. »",
+      "attentes": [
+        "Deux options de types différents, étiquetées, et laquelle publier",
+        "[auto] Aucune option n'ouvre sur « Super post », « J'adore », « Tellement vrai », « Merci pour ce partage »",
+        "2 à 4 phrases par option",
+        "Apporte un élément absent du post (donnée, cas, question)"
+      ]
+    },
+    {
+      "id": 5,
+      "skill": "linkedin-profile",
+      "demande": "Note mon profil et réécris mes expériences. Titre : « Fondatrice chez Atelier Devis ». Infos : « Passionnée par l'industrie et l'accompagnement des PME, je mets mon énergie au service de mes clients. » Poste actuel : Fondatrice, Atelier Devis, depuis 2022 : « En charge du développement commercial, de la relation client et de la gestion de l'équipe. » Poste précédent : Chargée d'affaires, Groupe Métal Ouest, 2017-2022 : « Gestion d'un portefeuille clients, participation aux appels d'offres. »",
+      "attentes": [
+        "Tableau de notes par critère et total sur 100",
+        "Réalisations réécrites au format X / Y / Z (action, échelle, résultat)",
+        "N'invente aucun chiffre : utilise ceux du contexte ou laisse {{à compléter}} et pose les questions pour les obtenir",
+        "Trois options de titre",
+        "Pas de « passionnée », « dynamique », « orientée résultats » dans les réécritures"
+      ]
+    },
+    {
+      "id": 6,
+      "skill": "linkedin-dm",
+      "demande": "Écris une demande de connexion à Hélène Garnier, directrice des achats chez Fonderies Garnier (PME de 120 personnes), qui a publié hier sur le délai de réponse des fournisseurs aux appels d'offres.",
+      "attentes": [
+        "[auto] Note d'invitation ≤ 200 caractères, compte affiché",
+        "Vouvoiement (inconnue)",
+        "La note ne demande rien et cite le post précis",
+        "Premier message et deux relances (J+4, J+10), sans lien d'agenda dans le premier message"
+      ]
+    },
+    {
+      "id": 7,
+      "skill": "linkedin-job",
+      "demande": "Je cherche un poste de Growth Manager ou responsable acquisition en SaaS B2B, à Paris ou en télétravail. Pas de stage ni d'alternance. Donne-moi des liens LinkedIn avec les offres les plus récentes.",
+      "attentes": [
+        "[auto] Requête booléenne avec opérateurs en MAJUSCULES et intitulés entre guillemets droits",
+        "[auto] Au moins une URL contient f_TPR=r3600 et sortBy=DD",
+        "Intitulés en français et en anglais",
+        "Explique honnêtement que r3600 n'est pas officiel et peut renvoyer zéro résultat"
+      ]
+    },
+    {
+      "id": 8,
+      "skill": "linkedin-plan",
+      "demande": "Planifie ma semaine LinkedIn du 10 août. Cette semaine on a signé un client dans l'aéronautique et perdu un appel d'offres sur le prix.",
+      "attentes": [
+        "Signale que l'audience B2B française est réduite en août et allège le plan",
+        "Les angles viennent des faits donnés (client signé, appel d'offres perdu), pas de sujets génériques",
+        "Horaires en heure de Paris",
+        "Liste d'engagement (portée, pairs, acheteurs) ou demande des noms"
+      ]
+    }
+  ]
+}
