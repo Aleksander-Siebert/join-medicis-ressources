@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "join-medicis",
+  "description": "Les ressources open-source de Join Médicis : Skills Claude en français pour les marketeurs.",
+  "owner": {
+    "name": "Join Médicis",
+    "url": "https://joinmedicis.com"
+  },
+  "plugins": [
+    {
+      "name": "linkedin-skills",
+      "description": "Douze Skills en français pour tenir un compte LinkedIn, dont un humaniseur qui retire les marques d'écriture IA.",
+      "source": "./linkedin-skills",
+      "category": "productivity",
+      "homepage": "https://joinmedicis.com/ressources/skills/linkedin-skills"
+    }
+  ]
+}

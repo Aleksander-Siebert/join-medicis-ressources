@@ -1,0 +1,13 @@
+{
+  "name": "linkedin-skills",
+  "description": "Douze Skills en français pour tenir un compte LinkedIn : posts sur 21 formules d'accroche, commentaires, réponses, profil noté sur 100 avec expériences chiffrées, plan de la semaine, carrousels, recyclage de contenus, messages privés, tri de la messagerie, audit, recherche d'offres à la dernière heure, et un humaniseur français qui retire les marques d'écriture IA.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Aleksander Siebert",
+    "url": "https://joinmedicis.com/auteurs/aleksander-siebert"
+  },
+  "homepage": "https://joinmedicis.com/ressources/skills/linkedin-skills",
+  "repository": "https://github.com/Aleksander-Siebert/join-medicis-ressources",
+  "license": "MIT",
+  "keywords": ["linkedin", "français", "contenu", "humaniseur", "prospection", "emploi", "marketing"]
+}
