@@ -64,7 +64,7 @@ Format conseillé : « J'ai [verbe d'action] [quoi, X], en [délai, Y], ce qui a
 -
 -
 
-## Mes expériences (pour /li-profile et /li-job)
+## Mes expériences (pour /linkedin-profile et /linkedin-job)
 
 Pour chaque poste récent : intitulé, entreprise, dates, et 2-3 résultats
 chiffrés au format X / Y / Z ci-dessus.

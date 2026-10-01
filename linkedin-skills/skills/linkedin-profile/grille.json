@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "total": 100,
+  "note": "Douze critères, 100 points. Note honnêtement : une note généreuse n'aide personne. La plupart des profils démarrent entre 30 et 45. Adapté de rubric.json (Jake Schincariol, MIT) ; le poids des expériences est relevé pour imposer des résultats chiffrés.",
+  "criteres": [
+    {"id": "titre", "nom": "Titre (headline)", "points": 12, "note_maximale": "Dit qui tu aides et ce qui change pour eux, porte une preuve, et n'est pas juste l'intitulé du poste. Utilise les 220 caractères, pas 60."},
+    {"id": "infos_ouverture", "nom": "Infos : les 2 premières lignes", "points": 10, "note_maximale": "Tout ce qui se lit avant « voir plus » nomme le problème du lecteur. Pas de « passionné par », pas de biographie à la troisième personne, pas d'ouverture par son propre nom."},
+    {"id": "infos_corps", "nom": "Infos : le corps", "points": 8, "note_maximale": "Écrit à une personne : son problème, ce que tu fais, un chiffre comme preuve, ce qu'elle doit faire ensuite. Moins de 1 400 caractères."},
+    {"id": "selection", "nom": "Sélection (Featured)", "points": 6, "note_maximale": "Trois éléments : le meilleur post, une preuve (étude de cas, portfolio), le moyen de te contacter. Rien de vide, rien de périmé."},
+    {"id": "banniere", "nom": "Bannière", "points": 5, "note_maximale": "Une ligne de positionnement et un moyen de te joindre. Ni le dégradé par défaut, ni une photo de ville générique."},
+    {"id": "photo", "nom": "Photo", "points": 5, "note_maximale": "Le visage occupe environ 60% du cadre, les yeux sont visibles, la photo a moins de deux ans, le fond ne distrait pas."},
+    {"id": "poste_actuel", "nom": "Poste actuel", "points": 14, "note_maximale": "Une ligne de périmètre, puis 2 à 4 réalisations au format X / Y / Z : ce que tu as fait (X, chiffré), en combien de temps (Y), ce que ça a rapporté (Z). Des résultats, pas des missions."},
+    {"id": "experiences", "nom": "Expériences précédentes", "points": 10, "note_maximale": "Les deux postes précédents ont chacun au moins deux réalisations chiffrées. Tout ce qui a plus de dix ans tient en une ligne."},
+    {"id": "competences", "nom": "Compétences", "points": 5, "note_maximale": "Les trois premières sont celles pour lesquelles tu veux être recruté ou payé, et elles sont validées. Les 47 autres sont du bruit."},
+    {"id": "recommandations", "nom": "Recommandations", "points": 8, "note_maximale": "Au moins trois reçues ces deux dernières années, chacune cite un résultat précis plutôt qu'un trait de caractère."},
+    {"id": "activite", "nom": "Activité", "points": 10, "note_maximale": "Un post ou un commentaire ces sept derniers jours. Une activité vide fait penser à un profil abandonné."},
+    {"id": "contact", "nom": "Coordonnées et URL", "points": 7, "note_maximale": "URL personnalisée (linkedin.com/in/prenom-nom), un email ou un lien de prise de rendez-vous qui marche, le même pseudo que sur tes autres plateformes."}
+  ]
+}

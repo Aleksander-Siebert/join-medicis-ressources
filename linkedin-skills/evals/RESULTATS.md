@@ -36,10 +36,10 @@ contrôles automatiques viennent de [`noter.py`](noter.py), les scores de
    honnêtement (critères non vus marqués « ? »), plan d'août allégé, aucune
    ouverture interdite, aucun chiffre inventé. La v1 ajoute surtout le
    contexte français (15 août, heure de Paris, CNIL, formules en français),
-   `/li-job` (absent de la référence, qui improvise) et le profil centré sur
+   `/linkedin-job` (absent de la référence, qui improvise) et le profil centré sur
    les réalisations chiffrées.
 4. **Une faiblesse de la v1** : son post du cas 1 contenait 7 `{{à compléter}}`,
-   un squelette plus qu'un post. Corrigé : au-delà de deux trous, `/li-post`
+   un squelette plus qu'un post. Corrigé : au-delà de deux trous, `/linkedin-post`
    pose d'abord la question.
 
 ## Limites de l'exercice
@@ -59,13 +59,13 @@ Remontées par l'agent qui a joué la v1 :
 - `detect.py` : « j' », « m' », « t' » n'étaient pas comptés comme pronoms (bug
   de regex) ; les textes courts (note d'invitation, commentaire) étaient
   bloqués par RYTHME et VOIX, désormais « n/a ».
-- `/li-profile` : réalisations en tête de verbe (« Vendu 340 abonnements… »),
-  sans « J'ai » répété que `/li-human` signalait comme anaphore ; règle de
+- `/linkedin-profile` : réalisations en tête de verbe (« Vendu 340 abonnements… »),
+  sans « J'ai » répété que `/linkedin-human` signalait comme anaphore ; règle de
   notation des critères non fournis ; livraison section par section.
-- `/li-human` : n'ajoute un fait que s'il vient de l'utilisateur.
-- `/li-dm` : objectif par défaut « une conversation » ; relance J+4 sautée
+- `/linkedin-human` : n'ajoute un fait que s'il vient de l'utilisateur.
+- `/linkedin-dm` : objectif par défaut « une conversation » ; relance J+4 sautée
   s'il n'y a rien de nouveau.
-- `/li-job` : `NOT stage` exclut aussi « early stage » ; « Paris ou à
+- `/linkedin-job` : `NOT stage` exclut aussi « early stage » ; « Paris ou à
   distance » demande deux URL.
-- `/li-plan` : 15 août, et alerte si la semaine demandée est passée.
-- `/li-post` : horaires par défaut quand il n'y a pas de plan.
+- `/linkedin-plan` : 15 août, et alerte si la semaine demandée est passée.
+- `/linkedin-post` : horaires par défaut quand il n'y a pas de plan.

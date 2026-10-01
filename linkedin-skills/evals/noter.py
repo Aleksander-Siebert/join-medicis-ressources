@@ -13,7 +13,7 @@ import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", "skills", "li-human"))
+sys.path.insert(0, os.path.join(HERE, "..", "skills", "linkedin-human"))
 from detect import run  # noqa: E402
 from humanize import load_lexicon  # noqa: E402
 
@@ -46,7 +46,7 @@ def checks(folder):
     out["1 · ponctuation collée"] = typo_fr(f1) if f1 else None
     out["1 · hashtags"] = len(re.findall(r"#\w", f1)) if f1 else None
     f3 = read(folder, "case-3-final.txt")
-    src = read(os.path.join(HERE, "li-human"), "brouillon-ia.txt")
+    src = read(os.path.join(HERE, "linkedin-human"), "brouillon-ia.txt")
     out["3 · score brouillon -> final"] = f"{score(src)} -> {score(f3)}" if f3 else None
     out["3 · ponctuation collée"] = typo_fr(f3) if f3 else None
     out["3 · guillemets anglais"] = (f3.count("“") + f3.count("”") + f3.count('"')) if f3 else None

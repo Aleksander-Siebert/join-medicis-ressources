@@ -24,18 +24,18 @@ construit à partir des meilleurs Skills open-source, voir [CREDITS.md](CREDITS.
 
 | commande | ce qu'elle fait |
 |---|---|
-| `/li-post` | Une idée devient un post. Trois accroches, un brouillon complet, humanisé avant que tu le voies. |
-| `/li-comment` | Commentaires sous les posts des autres. Neuf types, choisis selon le post. Jamais « Super post ! ». |
-| `/li-reply` | Le fil sous tes posts. Trie chaque commentaire (prospect, fond, pair, soutien, bruit) avant d'écrire. |
-| `/li-profile` | Note ton profil sur 100, puis t'aide à réécrire ce qui perd des points, avec des expériences chiffrées : « J'ai vendu X, en Y, pour Z de CA ». |
-| `/li-plan` | La semaine : quoi publier, quand, et les dix personnes avec qui interagir. |
-| `/li-human` | L'humaniseur français. Deux scripts qui tournent vraiment, et une grille de relecture. |
-| `/li-carousel` | Carrousels : le texte de chaque diapo, et le PDF à téléverser. |
-| `/li-repurpose` | Une vidéo, un podcast ou une newsletter devient une semaine de posts. |
-| `/li-dm` | La note d'invitation de 200 caractères, le premier message, deux relances. Dans les règles de la CNIL. |
-| `/li-inbox` | Tri de la messagerie : prospect, recruteur, pair, demande, spam. |
-| `/li-audit` | Tes posts publiés, classés par ce qui a vraiment marché. |
-| `/li-job` | Recherche d'offres en requêtes booléennes, et URL qui n'affiche que les offres de la dernière heure. |
+| `/linkedin-post` | Une idée devient un post. Trois accroches, un brouillon complet, humanisé avant que tu le voies. |
+| `/linkedin-comment` | Commentaires sous les posts des autres. Neuf types, choisis selon le post. Jamais « Super post ! ». |
+| `/linkedin-reply` | Le fil sous tes posts. Trie chaque commentaire (prospect, fond, pair, soutien, bruit) avant d'écrire. |
+| `/linkedin-profile` | Note ton profil sur 100, puis t'aide à réécrire ce qui perd des points, avec des expériences chiffrées : « J'ai vendu X, en Y, pour Z de CA ». |
+| `/linkedin-plan` | La semaine : quoi publier, quand, et les dix personnes avec qui interagir. |
+| `/linkedin-human` | L'humaniseur français. Deux scripts qui tournent vraiment, et une grille de relecture. |
+| `/linkedin-carousel` | Carrousels : le texte de chaque diapo, et le PDF à téléverser. |
+| `/linkedin-repurpose` | Une vidéo, un podcast ou une newsletter devient une semaine de posts. |
+| `/linkedin-dm` | La note d'invitation de 200 caractères, le premier message, deux relances. Dans les règles de la CNIL. |
+| `/linkedin-inbox` | Tri de la messagerie : prospect, recruteur, pair, demande, spam. |
+| `/linkedin-audit` | Tes posts publiés, classés par ce qui a vraiment marché. |
+| `/linkedin-job` | Recherche d'offres en requêtes booléennes, et URL qui n'affiche que les offres de la dernière heure. |
 
 ## Installer
 
@@ -52,7 +52,7 @@ Ou à la main :
 
 ```bash
 git clone https://github.com/Aleksander-Siebert/join-medicis-ressources.git
-cp -r join-medicis-ressources/linkedin-skills/skills/li-* ~/.claude/skills/
+cp -r join-medicis-ressources/linkedin-skills/skills/linkedin-* ~/.claude/skills/
 mkdir -p ~/.claude/linkedin
 cp join-medicis-ressources/linkedin-skills/templates/*.md ~/.claude/linkedin/
 ```
@@ -62,16 +62,16 @@ Pour un seul projet, copie les dossiers dans `.claude/skills/` du dépôt.
 ### claude.ai et Claude Desktop
 
 Réglages → Capacités : active l'exécution de code (pour les scripts de
-`/li-human` et `/li-job`). Puis Personnaliser → Skills → importe chaque
-dossier `li-*` en ZIP. Mets `templates/voix.md`, rempli, dans les
+`/linkedin-human` et `/linkedin-job`). Puis Personnaliser → Skills → importe chaque
+dossier `linkedin-*` en ZIP. Mets `templates/voix.md`, rempli, dans les
 connaissances d'un Projet.
 
 ### ChatGPT, Gemini, Mistral
 
 Colle le `SKILL.md` voulu dans les instructions d'un Projet, d'un GPT, d'un
 Gem ou d'un Skill Vibe, avec ton `voix.md`. Tout marche, sauf les deux
-scripts : `/li-human` passe alors par sa grille de relecture
-(`references/marqueurs-ia-fr.md`), et `/li-job` explique comment modifier
+scripts : `/linkedin-human` passe alors par sa grille de relecture
+(`references/marqueurs-ia-fr.md`), et `/linkedin-job` explique comment modifier
 l'URL à la main.
 
 ### Puis : dix minutes sur `voix.md`
@@ -85,24 +85,24 @@ Sans lui, tout sort avec la voix de tout le monde.
 | fichier | rôle | écrit par |
 |---|---|---|
 | `voix.md` | qui tu es, comment tu parles, tes preuves chiffrées | toi |
-| `plan.md` | le plan de la semaine | `/li-plan` |
+| `plan.md` | le plan de la semaine | `/linkedin-plan` |
 | `journal.md` | posts publiés, commentaires, contacts à suivre | les Skills, sur ton « ok » |
 | `apprentissages.md` | ce qui marche pour **ton** compte | les Skills, **après ta validation** |
 
-`apprentissages.md` est la boucle d'amélioration du pack : `/li-audit`,
-`/li-human` et les autres proposent une ligne quand ils apprennent quelque
+`apprentissages.md` est la boucle d'amélioration du pack : `/linkedin-audit`,
+`/linkedin-human` et les autres proposent une ligne quand ils apprennent quelque
 chose sur ton compte, tu valides, et tous les Skills la relisent ensuite.
 Rien ne s'écrit sans toi : un Skill qui se modifie seul finit par dériver.
 
 ## L'humaniseur
 
 ```bash
-cd ~/.claude/skills/li-human
+cd ~/.claude/skills/linkedin-human
 python3 humanize.py brouillon.txt -o propre.txt --rapport   # nettoie + liste ce qui reste à réécrire
 python3 detect.py brouillon.txt propre.txt                  # note avant / après
 ```
 
-Sur un post écrit « à la ChatGPT » et un post humain (dans `evals/li-human/`) :
+Sur un post écrit « à la ChatGPT » et un post humain (dans `evals/linkedin-human/`) :
 
 ```
 brouillon-ia.txt           SCORE HUMAIN  21,5  SIGNALÉ
@@ -111,9 +111,10 @@ brouillon-ia-reecrit.txt   SCORE HUMAIN  83,6  OK        (réécrit à la main d
 post-humain.txt            SCORE HUMAIN  80,2  OK
 ```
 
-Corrigé automatiquement : caractères invisibles, tirets cadratins, guillemets
-anglais, espace manquante avant `; : ! ?`, majuscules non accentuées, gras
-Markdown, formules sûres (« afin de » → « pour »). **Signalé** pour que tu le
+Corrigé automatiquement : caractères invisibles, tirets cadratins (supprimés
+ou remplacés par une virgule, jamais par un point-virgule), pourcentages
+collés au nombre (« 15% »), guillemets anglais, espace manquante avant
+`; : ! ?`, majuscules non accentuées, gras Markdown, formules sûres (« afin de » → « pour »). **Signalé** pour que tu le
 réécrives : parallélismes, « Le résultat ? », connecteurs en pluie, verbes
 vides, appâts à engagement, triades, anaphores. Changer la forme d'une phrase
 demande du jugement : le script ne le fait pas à ta place.
@@ -138,13 +139,13 @@ ton nom sans venir de toi. S'il manque, le brouillon revient avec
 
 **Les règles sur l'algorithme sont marquées** **[données à grande échelle]**,
 **[estimation de praticien]** ou **[à vérifier]**. Les études se contredisent
-(heures, longueur, hashtags) : `/li-audit` sur tes propres posts tranche.
+(heures, longueur, hashtags) : `/linkedin-audit` sur tes propres posts tranche.
 
 ## Tests
 
 ```bash
-python3 evals/li-human/test_humaniseur.py   # 18 tests
-python3 evals/li-job/test_job_url.py        # 7 tests
+python3 evals/linkedin-human/test_humaniseur.py   # 20 tests
+python3 evals/linkedin-job/test_job_url.py        # 7 tests
 ```
 
 `evals/evals.json` contient les cas réalistes utilisés pour comparer ce pack
