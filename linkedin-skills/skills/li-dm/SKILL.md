@@ -25,7 +25,9 @@ Demande, en une seule question groupée :
    job, une vente. Sois honnête en interne, même si le message ne commence
    pas par là.
 
-S'il n'y a aucune raison précise d'écrire à cette personne aujourd'hui, dis-le.
+Si l'objectif n'est pas donné, pars sur « une conversation », dis-le en une
+ligne, et écris quand même la séquence complète. S'il n'y a aucune raison
+précise d'écrire à cette personne aujourd'hui, dis-le.
 Un message sans raison, c'est ce que tout le monde envoie.
 
 Lis `~/.claude/linkedin/voix.md` pour le ton et les preuves. **Vouvoiement par
@@ -67,7 +69,9 @@ Attends un jour. Puis :
 Deux. C'est le nombre.
 
 - **J+4** : apporte quelque chose de nouveau. Jamais « je me permets de
-  revenir vers vous » ni « petite relance ». Rien de nouveau, pas de relance.
+  revenir vers vous » ni « petite relance ». Rien de nouveau dans les preuves
+  de l'utilisateur ? Saute cette relance, ou laisse `{{élément nouveau}}`
+  et demande-le : la séquence passe alors directement à J+10.
 - **J+10** : le message de clôture. Dis que tu t'arrêtes là, et fais-le. Il
   obtient souvent une part surprenante des réponses, parce qu'il retire la
   pression.

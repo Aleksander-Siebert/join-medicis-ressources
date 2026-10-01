@@ -109,6 +109,11 @@ Le verdict pèse la moyenne à 60 % et le contrôle le plus faible à 40 %, parc
 qu'un détecteur n'a besoin que d'un signal. **OK** : 70 et plus sans contrôle
 sous 55. **À REVOIR** : 50 et plus. **SIGNALÉ** en dessous.
 
+Sur un texte court (moins de 25 mots ou de 4 phrases : note d'invitation,
+commentaire), RYTHME, PRÉCISION et VOIX sont marqués « n/a » et sortent du
+verdict. N'allonge jamais un texte pour faire monter la note : on écrit pour
+le lecteur, pas pour le script.
+
 ## Dis-le honnêtement
 
 Ce sont cinq heuristiques locales, construites sur les signaux qu'utilisent
@@ -147,5 +152,8 @@ sans son accord.
   générales : c'est ce qui marche pour ce compte.
 - N'invente aucun chiffre, nom, client ou résultat. S'il manque, écris
   `{{à compléter}}` et signale-le.
-- Ce Skill est le filtre des autres : il ne réécrit jamais le fond, seulement la forme.
+- Ce Skill est le filtre des autres : il change la forme, jamais les faits. Il
+  n'ajoute un fait que s'il vient de l'utilisateur (`voix.md`, « Preuves
+  utilisables ») ; sinon il laisse `{{à compléter}}` à la place de la phrase
+  générique.
 - Rien n'est publié ni envoyé par le Skill. L'utilisateur copie et colle.

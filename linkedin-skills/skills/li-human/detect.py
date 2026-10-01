@@ -41,9 +41,10 @@ WORD_RE = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿœŒ0-9]+(?:['’][A-Za-zÀ-ÖØ-ö
 SENT_RE = re.compile(r"[^.!?\n]+[.!?…]*")
 NUMBERS = re.compile(r"\d+(?:[  .,]\d+)*\s?(?:%|€|k€|M€|K|k|h|min|j|ans?|mois|semaines?|jours?|x)?")
 PROPER = re.compile(r"(?<![.!?]\s)(?<!^)(?<!\n)\b[A-ZÀÂÉÈÊÎÔÛÇ][a-zà-ÿœ]{2,}\b|\b[A-Z]{2,}[a-z]*\b", re.M)
-PRONOUNS = re.compile(r"\b(?:je|j['’]|me|m['’]|moi|mon|ma|mes|on|tu|t['’]|te|toi|ton|ta|tes|vous|votre|vos|nous|notre|nos)(?=\W|$)",
+# Les formes élidées (j', m', t') sont suivies d'une lettre : pas de limite de mot après l'apostrophe.
+PRONOUNS = re.compile(r"\b(?:(?:je|me|moi|mon|ma|mes|on|tu|te|toi|ton|ta|tes|vous|votre|vos|nous|notre|nos)\b|[jmt]['’])",
                       re.IGNORECASE)
-ORAL = re.compile(r"\b(?:ça|on|j['’]|bref|du coup|perso|franchement|clairement pas)(?=\W|$)", re.IGNORECASE)
+ORAL = re.compile(r"\b(?:(?:ça|on|bref|du coup|perso|franchement)\b|j['’])", re.IGNORECASE)
 STRUCTURE_FAMILIES = {"parallelisme", "revelation", "appat", "tic-linkedin", "meta-annonce", "auto-validation",
                       "conclusion", "anaphore", "connecteurs-en-pluie", "artefact", "flatterie", "posture-didactique"}
 CHECKS = ["RYTHME", "PRÉCISION", "TICS", "EMPREINTE", "VOIX"]
@@ -71,7 +72,7 @@ def words(text):
 def check_rythme(text, lex, flags):
     lens = [len(s.split()) for s in sentences(text)]
     if len(lens) < 4:
-        return 50.0, "trop court pour juger"
+        return None, "trop court pour juger (non compté)"
     mean = statistics.mean(lens)
     cv = statistics.pstdev(lens) / mean if mean else 0
     return scale(cv, human=0.55, machine=0.15), f"variation {cv:.2f} sur {len(lens)} phrases (viser 0,5+)"
@@ -80,7 +81,7 @@ def check_rythme(text, lex, flags):
 def check_precision(text, lex, flags):
     w = words(text)
     if len(w) < 25:
-        return 50.0, "trop court pour juger"
+        return None, "trop court pour juger (non compté)"
     body = re.sub(r"#[\wÀ-ÿ]+", "", text)  # les hashtags ne sont pas des faits
     hits = len(NUMBERS.findall(body)) + len(set(PROPER.findall(body)))
     density = hits * 100 / len(w)
@@ -130,7 +131,7 @@ def check_empreinte(text, lex, flags):
 def check_voix(text, lex, flags):
     w = words(text)
     if len(w) < 25:
-        return 50.0, "trop court pour juger"
+        return None, "trop court pour juger (non compté)"
     per100 = 100 / len(w)
     person = len(PRONOUNS.findall(text)) * per100
     oral = len(ORAL.findall(text)) * per100
@@ -148,7 +149,9 @@ def run(text, lex):
     flags = find_flags(text, lex)
     fns = [check_rythme, check_precision, check_tics, check_empreinte, check_voix]
     results = {name: fn(text, lex, flags) for name, fn in zip(CHECKS, fns)}
-    scores = [results[c][0] for c in CHECKS]
+    # Un texte court (note d'invitation, commentaire) n'a pas assez de phrases pour
+    # juger le rythme ou la voix : ces contrôles sont exclus du verdict, pas notés 50.
+    scores = [results[c][0] for c in CHECKS if results[c][0] is not None]
     overall = statistics.mean(scores) * 0.6 + min(scores) * 0.4
     verdict = "OK" if overall >= 70 and min(scores) >= 55 else ("À REVOIR" if overall >= 50 else "SIGNALÉ")
     return results, overall, verdict
@@ -164,10 +167,11 @@ def render(results, overall, verdict, label=None, out=sys.stdout):
         out.write(f"\n{label}\n")
     for name in CHECKS:
         score, detail = results[name]
-        out.write(f"  {name:<10} {bar(score)} {score:5.1f}\n             {detail}\n")
+        shown = f"{bar(score)} {score:5.1f}" if score is not None else f"{'-' * 24}   n/a"
+        out.write(f"  {name:<10} {shown}\n             {detail}\n")
     out.write("  " + "-" * 60 + "\n")
     out.write(f"  SCORE HUMAIN {bar(overall)} {overall:5.1f}   {verdict}\n")
-    weakest = min(CHECKS, key=lambda c: results[c][0])
+    weakest = min((c for c in CHECKS if results[c][0] is not None), key=lambda c: results[c][0])
     if verdict != "OK":
         out.write(f"\n  Signal le plus faible : {weakest}. Commence par lui.\n")
 
@@ -187,7 +191,7 @@ def main():
 
     if args.json:
         json.dump([{"fichier": p, "score": round(o, 1), "verdict": v,
-                    "controles": {k: {"score": round(s, 1), "detail": d} for k, (s, d) in r.items()}}
+                    "controles": {k: {"score": None if s is None else round(s, 1), "detail": d} for k, (s, d) in r.items()}}
                    for p, r, o, v in runs], sys.stdout, ensure_ascii=False, indent=2)
         sys.stdout.write("\n")
         return

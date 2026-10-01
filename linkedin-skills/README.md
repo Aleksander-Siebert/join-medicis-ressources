@@ -143,12 +143,13 @@ ton nom sans venir de toi. S'il manque, le brouillon revient avec
 ## Tests
 
 ```bash
-python3 evals/li-human/test_humaniseur.py   # 16 tests
+python3 evals/li-human/test_humaniseur.py   # 18 tests
 python3 evals/li-job/test_job_url.py        # 7 tests
 ```
 
 `evals/evals.json` contient les cas réalistes utilisés pour comparer ce pack
-aux Skills d'origine.
+aux Skills d'origine ; les résultats et leurs limites sont dans
+[`evals/RESULTATS.md`](evals/RESULTATS.md).
 
 ## Licence
 

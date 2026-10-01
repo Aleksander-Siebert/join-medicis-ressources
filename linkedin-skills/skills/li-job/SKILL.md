@@ -44,7 +44,7 @@ La recherche d'offres LinkedIn comprend :
 | `"expression exacte"` | le groupe de mots tel quel | `"head of growth"` |
 | `OR` | l'un ou l'autre (synonymes, FR/EN) | `"growth manager" OR "responsable acquisition"` |
 | `AND` | les deux (implicite entre deux mots) | `growth AND saas` |
-| `NOT` | exclut | `NOT stage NOT alternance` |
+| `NOT` | exclut | `NOT stagiaire NOT internship NOT alternance` |
 | `( )` | regroupe | `("growth manager" OR "head of growth") AND b2b` |
 
 Règles qui évitent les recherches vides ou polluées :
@@ -56,7 +56,11 @@ Règles qui évitent les recherches vides ou polluées :
   « manager » qui parlent de croissance.
 - **Toujours la version française et anglaise** de l'intitulé.
 - **NOT avec parcimonie** : `NOT junior` exclut aussi les offres « encadrer
-  des juniors ».
+  des juniors », et `NOT stage` exclut les startups « early stage », fréquentes
+  en SaaS. Préfère `NOT stagiaire NOT internship NOT alternance`.
+- **« Paris ou à distance » = deux URL** : une avec `location=Paris`, une avec
+  `location=France` et `f_WT=2` (à distance). Mélanger les deux dans une URL
+  perd soit les offres à distance, soit le filtre de lieu.
 
 ## Les trois recherches à livrer
 
@@ -75,14 +79,14 @@ Règles qui évitent les recherches vides ou polluées :
 # Construire de zéro
 python3 job_url.py construire \
   --titres "growth marketing manager" "head of growth" "responsable acquisition" \
-  --mots-cles saas b2b --exclure stage alternance \
+  --mots-cles saas b2b --exclure stagiaire internship alternance \
   --lieu "Paris" --teletravail hybride distanciel --experience confirme
 
 # Réécrire une URL copiée depuis LinkedIn
 python3 job_url.py reecrire "https://www.linkedin.com/jobs/search/?keywords=growth&f_TPR=r86400"
 
 # Vérifier une requête
-python3 job_url.py verifier '("growth" OR "acquisition") NOT stage'
+python3 job_url.py verifier '("growth" OR "acquisition") NOT stagiaire'
 ```
 
 La réécriture garde les filtres de l'URL (lieu, télétravail, niveau), retire
@@ -120,11 +124,11 @@ RECHERCHES  ·  Growth Marketing Manager, Paris, hybride ou à distance
 
 LARGE
   ("growth marketing manager" OR "head of growth" OR "responsable acquisition"
-   OR "growth manager") NOT stage NOT alternance
+   OR "growth manager") NOT stagiaire NOT internship NOT alternance
   https://www.linkedin.com/jobs/search/?keywords=...&location=Paris&f_TPR=r86400&sortBy=DD
 
 CIBLÉE
-  (...) AND (saas OR b2b) NOT stage NOT alternance
+  (...) AND (saas OR b2b) NOT stagiaire NOT internship NOT alternance
   https://...
 
 DERNIÈRE HEURE  (à ouvrir 2-3 fois par jour)

@@ -7,7 +7,7 @@ Deux usages :
   1. CONSTRUIRE une recherche booléenne à partir de mots-clés :
        python3 job_url.py construire \\
          --titres "growth marketing manager" "head of growth" "responsable acquisition" \\
-         --mots-cles saas b2b --exclure stage alternance \\
+         --mots-cles saas b2b --exclure stagiaire internship alternance \\
          --lieu "Paris" --teletravail hybride distanciel --experience confirme
 
   2. RÉÉCRIRE une URL copiée depuis LinkedIn pour n'afficher que les offres
@@ -16,7 +16,7 @@ Deux usages :
        python3 job_url.py reecrire "<url>" --depuis 7200     # 2 heures
 
   Vérifier une requête booléenne sans construire d'URL :
-       python3 job_url.py verifier '("growth" OR "acquisition") NOT stage'
+       python3 job_url.py verifier '("growth" OR "acquisition") NOT stagiaire'
 
 Paramètres LinkedIn utilisés (constatés dans les URL de recherche, non
 documentés officiellement : LinkedIn peut les changer sans prévenir) :

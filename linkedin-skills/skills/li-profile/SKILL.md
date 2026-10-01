@@ -34,7 +34,11 @@ client.
 ## 1. Noter
 
 Lis `grille.json` : 12 critères, 100 points, avec ce que vaut la note
-maximale. Note chaque critère, montre le tableau, donne le total. Sois
+maximale. Note chaque critère, montre le tableau, donne le total. Ce que
+l'utilisateur n'a pas fourni (photo, bannière, recommandations, activité,
+URL) est noté « ? » : donne le total sur les critères notés et la fourchette
+possible (« 31/72 notés, entre 31 et 59 sur 100 »), puis demande les éléments
+manquants. Sois
 honnête : la plupart des profils démarrent entre 30 et 45, et une note
 généreuse ne sert à rien.
 
@@ -54,11 +58,16 @@ PROFIL  41/100
 
 Les expériences pèsent 24 points sur 100. Elles se jouent sur un format :
 
-> **J'ai [verbe d'action] [X : quoi, combien], en [Y : délai ou moyens], ce qui a [Z : résultat business].**
+> **[Verbe d'action] [X : quoi, combien] en [Y : délai ou moyens] : [Z : résultat business].**
 >
-> « J'ai vendu 340 abonnements annuels en 9 semaines, soit 210 k€ de chiffre d'affaires signé. »
-> « J'ai lancé 12 campagnes d'emailing en un trimestre, ce qui a fait passer le taux de réactivation de 4 % à 11 %. »
-> « J'ai recruté 8 commerciaux en 4 mois, l'équipe a atteint 120 % de son objectif dès le deuxième trimestre. »
+> « Vendu 340 abonnements annuels en 9 semaines : 210 k€ de chiffre d'affaires signé. »
+> « Lancé 12 campagnes d'emailing en un trimestre : taux de réactivation passé de 4 % à 11 %. »
+> « Recruté 8 commerciaux en 4 mois : 120 % de l'objectif dès le deuxième trimestre. »
+
+Dans la liste des réalisations, commence par le verbe, sans « J'ai » : c'est
+l'usage des profils et des CV, et une liste de « J'ai… J'ai… J'ai… » serait
+signalée comme anaphore par `/li-human`. Garde « J'ai » pour une réalisation
+racontée dans la section Infos ou dans un post.
 
 C'est la même logique que la formule « accompli X, mesuré par Y, en faisant
 Z » popularisée par les recruteurs de Google, remise dans l'ordre où on lit
@@ -86,7 +95,7 @@ Si le chiffre est confidentiel ou approximatif :
 Laisse `{{chiffre à confirmer}}` plutôt qu'un nombre plausible inventé, et
 liste à la fin ce qu'il reste à vérifier.
 
-**Verbes d'action** qui ouvrent bien une réalisation : lancé, signé, vendu,
+**Verbes d'action** (au participe, en tête de ligne) : lancé, signé, vendu,
 réduit, doublé, recruté, construit, négocié, automatisé, ouvert (un marché),
 redressé, formé, migré. À éviter : « participé à », « contribué à », « en
 charge de », « accompagné », « optimisé » (sans chiffre).
@@ -94,7 +103,8 @@ charge de », « accompagné », « optimisé » (sans chiffre).
 ## 3. Réécrire, dans l'ordre des points perdus
 
 Ne réécris pas tout d'un coup : l'utilisateur doit coller chaque section
-lui-même.
+lui-même. Livre les deux ou trois sections qui perdent le plus de points,
+dans l'ordre, puis propose la suivante.
 
 **Titre (220 caractères).** La formule qui marche :
 `{ce que tu fais pour qui} | {preuve} | {comment commencer}`. Pas l'intitulé

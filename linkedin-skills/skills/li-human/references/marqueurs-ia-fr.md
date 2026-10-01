@@ -200,4 +200,7 @@ Après la réécriture, pose-toi deux questions, réponds brièvement, corrige :
 
 1. Qu'est-ce qui sonne encore IA dans ce texte ?
 2. Est-ce qu'une seule phrase pourrait figurer dans le post de n'importe qui
-   d'autre ? Si oui, remplace-la par un fait qui n'appartient qu'à l'auteur.
+   d'autre ? Si oui, remplace-la par un fait qui n'appartient qu'à l'auteur,
+   **pris dans ce qu'il a fourni** (`voix.md`, la conversation). S'il n'y en a
+   pas, coupe la phrase ou laisse `{{à compléter}}` : on n'invente jamais un
+   fait pour faire humain.

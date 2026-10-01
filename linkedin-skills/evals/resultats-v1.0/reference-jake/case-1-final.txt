@@ -1,0 +1,19 @@
+Un devis me prenait 5 h. Aujourd'hui, il me prend 20 min.
+
+La différence tient dans un modèle interne qu'on a construit en équipe.
+
+On est 6 à l'agence et on fait des devis pour des PME industrielles. Le devis, c'est notre quotidien, pas une tâche annexe.
+
+Pendant longtemps, chaque devis repartait presque de zéro. On recopiait l'ancien, on reformulait, on recalculait.
+
+Ces 5 h ne partaient pas dans la frappe. Je reprenais les mêmes décisions à chaque fois.
+
+Alors on les a écrites une bonne fois pour toutes dans un modèle: {{à compléter: ce que contient le modèle, ex. structure, grille de prix, clauses types}}.
+
+Il me reste 20 minutes de travail. Vérifier, ajuster au client, envoyer.
+
+Si un devis te prend une demi-journée, regarde d'abord les décisions que tu reprends à chaque fois. Les heures sont cachées là.
+
+Ton dernier devis, il t'a pris combien de temps entre la demande et l'envoi?
+
+#Devis #PME #Industrie

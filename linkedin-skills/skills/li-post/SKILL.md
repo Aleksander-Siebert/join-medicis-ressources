@@ -56,7 +56,10 @@ Affiche toujours le nombre de caractères. **[données à grande échelle,
 trois lignes numérotées, et dis en une phrase laquelle tu publierais et
 pourquoi.
 
-**2. Le brouillon complet** sur l'accroche la plus forte.
+**2. Le brouillon complet** sur l'accroche la plus forte. S'il lui faudrait
+plus de deux `{{à compléter}}`, ne livre pas un squelette à trous : montre les
+trois accroches et pose d'abord la question groupée qui donne les faits
+manquants.
 
 **3. L'humaniser.** Passe le brouillon par `/li-human` avant de le montrer
 (scripts si l'exécution de code est disponible, grille
@@ -72,7 +75,7 @@ accroche :   #17 Le gain de temps
 objectif :   enregistrements
 longueur :   1 140 caractères
 humaniseur : 6 corrections, score 84 OK
-à publier :  mardi 8 h 15 (d'après ton plan)
+à publier :  mardi 8 h 15 (d'après ton plan ; sans plan : mar.-jeu., 7 h 30-9 h 30)
 lien :       dans le premier commentaire (voir ci-dessous)
 
 Réponds « ok » pour l'ajouter au journal, ou dis-moi ce qu'il faut changer.

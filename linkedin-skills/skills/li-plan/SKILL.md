@@ -29,6 +29,9 @@ S'il manque quelque chose, demande en une fois :
 4. Dix à vingt personnes ou entreprises auprès desquelles il veut être
    visible.
 
+Si la semaine demandée est déjà passée, ou sans date précise, signale-le et
+propose la prochaine semaine qui correspond.
+
 ## Quoi publier
 
 Quatre posts par semaine valent mieux que sept. La régularité est un plancher,
@@ -59,8 +62,8 @@ le lundi après-midi et le vendredi matin en second choix. Le week-end, des
 histoires personnelles ou rien. **[données à grande échelle, éditeurs,
 contradictoires : d'autres études donnent 17 h - 18 h]**
 
-Spécificités françaises : l'audience B2B fond en **août**, entre Noël et le
-Nouvel An, et pendant les **ponts de mai**. Allège ces semaines-là ou passe en
+Spécificités françaises : l'audience B2B fond en **août** (15 août férié),
+entre Noël et le Nouvel An, et pendant les **ponts de mai**. Allège ces semaines-là ou passe en
 mode engagement seul.
 
 Mais dis-le clairement : **le jour et l'heure comptent bien moins que la

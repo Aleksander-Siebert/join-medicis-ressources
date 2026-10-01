@@ -112,6 +112,20 @@ def le_post_humain_passe_et_le_post_ia_non():
 
 
 @case
+def les_formes_elidees_comptent_comme_pronoms():
+    from detect import PRONOUNS, ORAL
+    assert len(PRONOUNS.findall("J'ai vu, t'as raison, m'a dit")) == 3
+    assert len(ORAL.findall("J'ai vu ça")) == 2
+
+
+@case
+def un_texte_court_n_est_pas_bloque_par_rythme_et_voix():
+    results, score, verdict = run("Votre post sur les délais parle de mon quotidien : je prépare des devis pour des PME.", LEX)
+    assert results["RYTHME"][0] is None and results["VOIX"][0] is None
+    assert verdict == "OK", (score, verdict)
+
+
+@case
 def la_reecriture_manuelle_passe():
     _, score, verdict = run(read("brouillon-ia-reecrit.txt"), LEX)
     assert verdict == "OK", (score, verdict)
