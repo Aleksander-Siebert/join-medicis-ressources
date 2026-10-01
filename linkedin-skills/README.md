@@ -62,9 +62,17 @@ Pour un seul projet, copie les dossiers dans `.claude/skills/` du dépôt.
 ### claude.ai et Claude Desktop
 
 Réglages → Capacités : active l'exécution de code (pour les scripts de
-`/linkedin-human` et `/linkedin-job`). Puis Personnaliser → Skills → importe chaque
-dossier `linkedin-*` en ZIP. Mets `templates/voix.md`, rempli, dans les
-connaissances d'un Projet.
+`/linkedin-human` et `/linkedin-job`). Puis Personnaliser → Skills → importe :
+
+- **le pack entier en un seul Skill** : `linkedin-skills.zip`, téléchargé
+  depuis [la fiche Join Médicis](https://joinmedicis.com/ressources/skills/linkedin-skills),
+  ou construit avec `claude-ai/build.sh linkedin-skills.zip`. Un seul
+  `SKILL.md` aiguille vers les 12 modules ;
+- **ou un Skill à la fois** : le ZIP d'un seul dossier `skills/linkedin-*`.
+
+claude.ai refuse un ZIP qui contient plusieurs `SKILL.md` ou le manifeste de
+plugin `.claude-plugin/` : n'importe pas le dépôt tel quel. Mets
+`templates/voix.md`, rempli, dans les connaissances d'un Projet.
 
 ### ChatGPT, Gemini, Mistral
 
