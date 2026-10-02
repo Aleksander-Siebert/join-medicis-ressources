@@ -13,6 +13,19 @@ leur adaptation au français par [Boileau](https://github.com/alxbd/boileau)
 
 Chaque famille : ce qu'on cherche, pourquoi ça sonne machine, un avant/après.
 
+## Comment compter (version 2)
+
+- **Par paragraphe, pas mot par mot.** 3 marqueurs ou plus dans un paragraphe :
+  réécris le paragraphe entier. 2 : remplace le plus faible, laisse l'autre.
+  1 marqueur faible isolé : laisse-le, un humain peut écrire « crucial ».
+- **Marqueurs forts** : une seule occurrence suffit pour corriger. Ce sont les
+  mises en scène (révélation, parallélisme négatif, staccato, anaphore),
+  l'annonce de sincérité, les appâts, les fuites de modèle et les formulations
+  retirées de `contexte.md`.
+- **Jamais un synonyme de la même liste** : remplacer « levier » par
+  « catalyseur » ne corrige rien. Dis la chose.
+- Le script `detect.py` applique ces règles ; à la main, fais pareil.
+
 ---
 
 ## 1. Lexique
@@ -193,8 +206,70 @@ reste à venir », « une étape importante a été franchie ».
 - **Appâts à engagement** : « Commentez "OUI" », « Likez si », « Taguez
   quelqu'un », « ♻️ Repostez ». Pénalisés par LinkedIn.
 - **Mur de hashtags** : plus de 3.
-- **Fausse vulnérabilité** : « Je vais être honnête… » sans fait daté et
-  inconfortable derrière.
+- **Fausse vulnérabilité** : « Je vais être honnête… » (voir la section 9).
+
+## 8. Rythme fabriqué (staccato)
+
+Depuis 2026, la variation forcée est devenue le premier tic des textes
+« humanisés ». On ne récompense plus l'alternance de phrases courtes et
+longues : on corrige seulement ce qui est plat ou mis en scène.
+
+- **Paragraphe plat** : 4 phrases ou plus de même longueur, sans aucune
+  subordonnée. Relie UNE phrase à sa voisine par « parce que », « quand »,
+  « qui ». Une seule fois.
+- **Fragments en série** : plus de 2 phrases de moins de 4 mots dans un post.
+- **Rafale d'adjectifs** : « Simple. Rapide. Efficace. »
+- **« Pas de X. Pas de Y. Juste Z. »**, **« Tout le X. Aucun Y. »**
+- **Paragraphe d'un mot** : « Vraiment. », « Exactement. »
+- **Question-réponse mise en scène** : « Pourquoi ? Parce que… »
+- **Chute sèche** : « C'est tout. », « Point final. »
+- **Bascule long/court/long/court** sur tout le post : l'empreinte des
+  humaniseurs.
+
+À ne pas confondre : une phrase par paragraphe, séparée par une ligne vide,
+est la mise en page normale de LinkedIn sur mobile. Ce n'est pas un tic.
+
+> Avant : Pas de réunion. Pas de slides. Juste du terrain.
+> Après : On a passé la semaine chez trois clients au lieu de préparer la présentation.
+
+## 9. Sincérité annoncée
+
+« Honnêtement, », « Pour être transparent », « Je vais être cash », « La
+vérité, c'est que », « Petite confession », « Opinion impopulaire : ».
+L'annonce de sincérité est devenue un tic nommé en 2026 : la vulnérabilité
+mise en scène se lit IA. Le remède : supprime l'annonce et énonce le fait,
+daté, à plat.
+
+> Avant : Je vais être honnête avec vous : ce lancement a été un échec.
+> Après : On a arrêté le comparateur le 14 février, après 3 mois et 11 ventes.
+
+Ne jamais ajouter de précaution (« peut-être que je me trompe, mais ») que
+l'auteur n'a pas écrite.
+
+Tension avec Boileau, qui propose « Honnêtement, je ne sais pas trop quoi en
+penser » pour donner de la voix : on garde l'opinion et le doute réel, sans
+l'annonce.
+
+## 10. Couche LinkedIn 2026
+
+Adaptation française des tics relevés par Serge Bulaev sur LinkedIn en
+anglais (inférence, à confirmer sur corpus français) : « discrètement » pour
+dramatiser, « l'effet composé », « faire le travail », « relisez cette
+phrase », « c'est ça, la vraie histoire », « personne n'en parle ».
+
+## 11. Fuites de modèle (niveau forensique)
+
+Aucun humain ne les produit, une seule suffit :
+
+- jetons de citation (`oaicite`, `contentReference`, `turn0search0`) ;
+- liens avec `utm_source=chatgpt.com` ;
+- « En tant qu'IA », « à ma dernière mise à jour » ;
+- gabarits non remplis : `[Votre nom]`, `[Insérer chiffre]`, `2026-XX-XX` ;
+- phrases adressées à l'assistant : « Voici une version révisée de votre
+  post », « N'hésitez pas à me dire si… ».
+
+Les champs `{{à compléter}}` du pack ne sont pas des fuites : ce sont des trous
+volontaires, signalés à l'utilisateur.
 
 ## La passe finale
 
@@ -203,6 +278,7 @@ Après la réécriture, pose-toi deux questions, réponds brièvement, corrige :
 1. Qu'est-ce qui sonne encore IA dans ce texte ?
 2. Est-ce qu'une seule phrase pourrait figurer dans le post de n'importe qui
    d'autre ? Si oui, remplace-la par un fait qui n'appartient qu'à l'auteur,
-   **pris dans ce qu'il a fourni** (`voix.md`, la conversation). S'il n'y en a
+   **pris dans ce qu'il a fourni** (`reserve.md`, `contexte.md`, la
+   conversation). S'il n'y en a
    pas, coupe la phrase ou laisse `{{à compléter}}` : on n'invente jamais un
    fait pour faire humain.

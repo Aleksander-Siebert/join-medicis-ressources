@@ -220,80 +220,20 @@ def pass_lexical(text, lex):
 
 
 # ------------------------------------------------------------------ passe 4
-def _line_of(text, idx):
-    return text.count("\n", 0, idx) + 1
-
-
-def find_flags(text, lex):
-    """Tout ce qui demande un jugement humain : liste de signalements."""
-    flags = []
-    for e in lex["signaler"]:
-        for m in re.finditer(e["motif"], text, re.IGNORECASE | re.MULTILINE):
-            flags.append({"ligne": _line_of(text, m.start()), "extrait": m.group(0).strip(),
-                          "famille": e["famille"], "conseil": e["conseil"]})
-    for e in lex["structures"]:
-        for m in re.finditer(e["motif"], text, re.IGNORECASE):
-            flags.append({"ligne": _line_of(text, m.start()), "extrait": m.group(0).strip()[:60],
-                          "famille": e["famille"], "conseil": e["conseil"], "id": e["id"]})
-
-    # Listes « Titre : texte » (avec ou sans gras) : signature visuelle des LLM.
-    headed = [m for m in re.finditer(
-        r"^\s*(?:[-•*▪✅👉➡✔🔹▶]\S*\s*)(?:\*\*[^*\n]{1,40}\*\*\s*:|\*\*[^*\n]{1,40}:\s*\*\*|[^\s:][^:\n.!?]{0,30}\s?:\s)"
-        r"|^\s*\*\*[^*\n]{1,40}(?:\*\*\s*:|:\s*\*\*)", text, re.M)]
-    if len(headed) >= 2:
-        for m in headed:
-            flags.append({"ligne": _line_of(text, m.start()), "extrait": m.group(0).strip(),
-                          "famille": "mise-en-forme",
-                          "conseil": "Liste « Titre : texte » : signature visuelle d'IA. Écris des phrases."})
-
-    # Anaphores : 3 phrases ou lignes de suite qui commencent par le même mot.
-    units = [u.strip() for u in re.split(r"(?<=[.!?])\s+|\n+", text) if u.strip()]
-    firsts = [re.sub(r"^[-•*\s]+", "", u).split(" ")[0].lower() for u in units]
-    i = 0
-    while i < len(firsts) - 2:
-        if firsts[i] and firsts[i] == firsts[i + 1] == firsts[i + 2] and len(firsts[i]) > 1:
-            flags.append({"ligne": _line_of(text, text.find(units[i])), "extrait": units[i][:60],
-                          "famille": "anaphore",
-                          "conseil": f"Trois phrases de suite commencent par « {firsts[i]} » : effet slogan."})
-            i += 3
-        else:
-            i += 1
-
-    # Triades : plus d'une énumération « A, B et C » à éléments courts = tic.
-    triads = list(re.finditer(r"\b[\w'-]+(?: [\w'-]+){0,2}, [\w'-]+(?: [\w'-]+){0,2},? et [\w'-]+(?: [\w'-]+){0,2}\b", text))
-    if len(triads) >= 2:
-        for m in triads:
-            flags.append({"ligne": _line_of(text, m.start()), "extrait": m.group(0),
-                          "famille": "triade", "conseil": "Triades en série. Garde la plus forte, casse les autres."})
-
-    # Connecteurs en pluie : 2 débuts de phrase connecteurs ou plus.
-    conn = [c for c in lex.get("connecteurs_debut", [])]
-    hits = [m for m in re.finditer(r"(?:^|(?<=[.!?]\s)|(?<=\n))(" + "|".join(map(re.escape, conn)) + r")\b", text)]
-    if len(hits) >= 2:
-        flags.append({"ligne": _line_of(text, hits[0].start()), "extrait": ", ".join(h.group(1) for h in hits[:4]),
-                      "famille": "connecteurs-en-pluie", "conseil": f"{len(hits)} phrases ouvertes par un connecteur. Supprime-en la plupart."})
-
-    # Rythme uniforme : toutes les phrases de longueur proche.
-    lens = [len(u.split()) for u in units if len(u.split()) > 2]
-    if len(lens) >= 5:
-        mean = sum(lens) / len(lens)
-        sd = (sum((x - mean) ** 2 for x in lens) / len(lens)) ** 0.5
-        if mean and sd / mean < 0.3:
-            flags.append({"ligne": 1, "extrait": f"{len(lens)} phrases, ~{mean:.0f} mots chacune",
-                          "famille": "rythme", "conseil": "Phrases de longueur uniforme. Mélange une phrase très courte et une longue."})
-    flags.sort(key=lambda f: f["ligne"])
-    return flags
+# Le repérage de ce qui demande du jugement vit dans marqueurs.py (partagé
+# avec detect.py) : densité par paragraphe, rythme, triades, sincérité...
+from marqueurs import find_flags, formulations_retirees  # noqa: E402
 
 
 # ------------------------------------------------------------------ pipeline
-def humanize(text, lex, keep_nbsp=False):
+def humanize(text, lex, keep_nbsp=False, niveau="strict", retirees=None):
     text, urls = protect_urls(text)
     text, log1 = pass_invisible(text, keep_nbsp)
     text, log2 = pass_typography(text, lex, keep_nbsp)
     text, log3 = pass_lexical(text, lex)
     text = restore_urls(text, urls)
     # Les signalements portent sur le texte nettoyé : ce qui reste à réécrire.
-    flags = find_flags(text, lex)
+    flags = find_flags(text, lex, niveau, retirees)
     return text, {"invisibles": log1, "typographie": log2, "lexique": log3}, flags
 
 
@@ -311,7 +251,8 @@ def render_report(logs, flags, out):
         title = "4. À RÉÉCRIRE (jugement humain)"
         out.write(f"\n{title}\n{'-' * len(title)}\n")
         for f in flags:
-            out.write(f"  l.{f['ligne']:<3} [{f['famille']}] « {f['extrait']} »\n        -> {f['conseil']}\n")
+            force = " (fort)" if f.get("force") in ("fort", "forensique") else ""
+            out.write(f"  l.{f['ligne']:<3} [{f['famille']}{force}] « {f['extrait']} »\n        -> {f['conseil']}\n")
 
 
 def main():
@@ -323,15 +264,18 @@ def main():
                     help="garde des espaces insécables avant ; : ! ? et dans « » (typographie soignée)")
     ap.add_argument("--json", action="store_true", help="sortie JSON (texte, corrections, signalements)")
     ap.add_argument("--lexique", default=LEX, help="chemin vers tics-ia.json")
+    ap.add_argument("--niveau", choices=["forensique", "strict", "esthetique"], default="strict",
+                    help="forensique : fuites de modèle seulement ; strict (défaut) ; esthétique : tout")
+    ap.add_argument("--contexte", help="contexte.md de l'utilisateur : signale ses formulations retirées")
     args = ap.parse_args()
 
     raw = sys.stdin.read() if args.fichier == "-" else open(args.fichier, encoding="utf-8").read()
     lex = load_lexicon(args.lexique)
-    clean, logs, flags = humanize(raw, lex, args.insecables)
+    clean, logs, flags = humanize(raw, lex, args.insecables, args.niveau, formulations_retirees(args.contexte))
 
     if args.json:
         json.dump({"texte": clean, "corrections": {k: dict(v) for k, v in logs.items()}, "signalements": flags},
-                  sys.stdout, ensure_ascii=False, indent=2)
+                  sys.stdout, ensure_ascii=False, indent=2, default=str)
         sys.stdout.write("\n")
         return
     if args.sortie:
