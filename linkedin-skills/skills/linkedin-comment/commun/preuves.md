@@ -69,6 +69,18 @@ Citées mot pour mot, vérifiées le 2 octobre 2026.
   méthodes automatisées pour ajouter des contacts, envoyer des messages,
   créer, commenter, aimer ou partager des posts ; pas d'extraction de profils ;
   pas de fausse identité ; pas d'informations inexactes.
+- **Annonce LinkedIn du 12 mars 2026** (news.linkedin.com, « How LinkedIn Is
+  Improving the Feed… ») : LinkedIn réduit la diffusion des posts répétitifs et
+  peu substantiels et de l'**engagement bait**, « such as 'comment to agree'
+  prompts », et agit contre les **pods**, l'**automatisation des commentaires**
+  et les outils tiers non autorisés.
+- **Bouton « seems like AI slop »** (30 juillet 2026, presse dont TechCrunch,
+  d'après LinkedIn) : chaque membre peut signaler un post qui semble être du
+  contenu IA de faible qualité ; le post lui est masqué et le signal sert à
+  entraîner les modèles qui réduisent ce contenu dans les recommandations.
+  LinkedIn a aussi retiré son bouton « enhance your post » (réécriture par IA)
+  au profit d'une simple relecture. **Aucun chiffre officiel** sur la perte de
+  vues d'un post signalé : le « −40% » qui circule est **[à vérifier]**.
 - Le chemin autorisé : le planificateur de posts intégré à LinkedIn et les
   partenaires officiels de son API marketing.
 
@@ -102,7 +114,11 @@ LinkedIn par un robot ou un navigateur piloté, pas de pods, pas de
 | Le « … voir plus » coupe vers 140 caractères sur mobile et 210 sur ordinateur | praticien (observation) | position non publiée, varie selon l'appareil et les retours à la ligne |
 | La section Infos se replie après environ 200 à 265 caractères | praticien (observation) | variable ; écrire pour le plus court |
 | Le carrousel PDF obtient plus de portée que l'image seule | étude tierce (vendeurs) | AuthoredUp, MagicPost et autres ; multiplicateurs variables d'une étude à l'autre |
-| Ouvrir sur une question fait baisser les likes d'environ 34% | étude tierce (vendeur) | MagicPost, cité par Serge Bulaev ; à tester sur son propre compte |
+| Ouvrir sur une question fait baisser les likes d'environ 34% ; un chiffre précis en 1re ligne les fait monter d'environ 34% | étude tierce (vendeur) | MagicPost, 1,2 M posts, score propriétaire, cité par Serge Bulaev ; à tester sur son propre compte |
+| « Le résultat ? » (−4,8%), « Ce n'est pas X, c'est Y » (−4,9%), « Arrête X, commence Y » (−6,7%), « Voici comment » en ouverture (−4,3%) par rapport à la moyenne de l'auteur | étude tierce (vendeur) | MagicPost, 287 000 posts, même auteur ; même sens que les listes de tics des lecteurs |
+| Une question précise en fin de post : environ +3% ; un P.-S. d'une ligne : environ +7,5% | étude tierce (vendeur) | MagicPost, cité par Serge Bulaev |
+| Plus de 1 000 caractères : portée ×1,18 ; plus de 20 phrases : ×1,14 | étude tierce (vendeur) | AuthoredUp, 3 M posts, mars 2025 à février 2026 ; corrélation, pas une règle de longueur |
+| 98 à 100% des 100 meilleurs créateurs humains utilisent encore contrastes, triades et questions : la pénalité vient de la densité et du vide, pas du procédé | étude tierce (vendeur) | MagicPost, cité par Serge Bulaev ; d'où la règle de densité du pack |
 | Pseudo-gras Unicode (𝗴𝗿𝗮𝘀) : illisible pour les lecteurs d'écran, non trouvé par la recherche | officiel côté accessibilité | les caractères « Mathematical Alphanumeric Symbols » sont lus comme des symboles par les lecteurs d'écran (norme Unicode, bloc U+1D400) |
 
 ## Invitations et messages
