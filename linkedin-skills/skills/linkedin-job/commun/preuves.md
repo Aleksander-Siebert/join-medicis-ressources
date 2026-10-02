@@ -41,6 +41,8 @@ conclusion. Ce n'est pas une raison de l'écarter, c'est une raison de le dire.
 | Page entreprise : logo | 400 × 400 px recommandés, 268 × 268 minimum, PNG ou JPEG, 3 Mo maximum | Aide LinkedIn a563309 « Image specifications for your LinkedIn Pages » |
 | Page entreprise : image de couverture | 1 512 × 256 px (les guides tiers qui disent 1 128 × 191 sont anciens) | Aide LinkedIn a563309 |
 | Image d'un post avec lien | ratio 1,91:1, soit 1 200 × 627 px | Aide LinkedIn a563309 |
+| Statistiques du profil (créateur) | exportables en fichier .xlsx depuis la section Statistiques du profil | Aide LinkedIn a704175 « View your creator analytics » |
+| Statistiques d'une page | export par période (visiteurs, contenu, abonnés…) | Aide LinkedIn a551206 « Export your LinkedIn Page analytics report » |
 | Page entreprise : slogan et présentation | 120 caractères ; 2 000 caractères | cours LinkedIn Learning et sources tierces **[à vérifier dans l'éditeur]** |
 | Titre du profil | 220 caractères | consensus de sources tierces, compteur de l'éditeur **[à vérifier]** |
 | Section Infos | 2 600 caractères | consensus de sources tierces **[à vérifier]** |
