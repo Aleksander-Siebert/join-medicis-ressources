@@ -13,6 +13,13 @@
       "source": "./linkedin-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/linkedin-skills"
+    },
+    {
+      "name": "seo-skills",
+      "description": "Quatorze Skills SEO en français : du mot-clé à l'article publié, audit, maillage interne, veille, SEO local et social.",
+      "source": "./seo-skills",
+      "category": "productivity",
+      "homepage": "https://joinmedicis.com/ressources/skills/seo-skills"
     }
   ]
 }
