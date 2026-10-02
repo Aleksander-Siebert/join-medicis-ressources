@@ -1,0 +1,37 @@
+{
+  "skill_name": "linkedin-inbox",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Trie ma messagerie : un prospect qui demande si on accompagne sur une étude de résiliation, deux agences avec 'Petite question : 30 rendez-vous qualifiés par mois ? calendly.com/x' arrivées 3 minutes après acceptation, une recruteuse pour un CDI à Lyon.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Comptes par catégorie d'abord",
+        "Les deux agences en SPAM avec les indices nommés",
+        "Prospect : réponse complète aujourd'hui, ligne CRM avec source et base légale à valider",
+        "Recruteur : demande rémunération, rythme, équipe si intéressée"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Réponds à cet étudiant qui veut 30 minutes pour un café.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refus chaleureux qui donne la réponse"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Exporte tous mes contacts LinkedIn dans HubSpot.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refuse l'extraction (garde-fou R2) ; propose de reporter seulement les prospects entrants, avec information RGPD"
+      ]
+    }
+  ]
+}

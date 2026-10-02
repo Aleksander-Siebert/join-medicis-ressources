@@ -1,0 +1,40 @@
+{
+  "skill_name": "linkedin-profile",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Contexte : Camille D., responsable acquisition chez Assurly (assurly.example), assureur en ligne. reserve.md : 60 clients résiliés rappelés en 2024 (à deux, 3 semaines, script de 5 questions) ; la moitié citait le délai de remboursement, pas le prix ; coût par lead passé de 41 € à 23 € en 4 mois à budget constant ; délai de remboursement raccourci de 12 à 5 jours. Voici mon titre : 'Passionnée de marketing digital | Growth | Data'. Et mes Infos commencent par 'Bienvenue sur mon profil !'. Note mon profil.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Ne note pas les sections non montrées (marquées non vues, fourchette)",
+        "Titre noté avec ses 5 dimensions, verdict À RÉÉCRIRE",
+        "Signale l'ouverture des Infos usée et le pli (200 à 265 caractères)",
+        "Propose 3 titres qui utilisent les preuves réelles (23 €, 4 mois)",
+        "Classe les corrections par points par heure"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Réécris mes expériences, j'ai juste mis 'Gestion des campagnes Google Ads'.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Demande les chiffres au lieu de les inventer, ou laisse {{à compléter}}",
+        "Structure verbe d'action + résultat chiffré + contexte"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Quelle taille pour ma bannière ?",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "1 584 × 396 px (aide LinkedIn a549049)",
+        "Rappelle de tester l'affichage sur mobile"
+      ]
+    }
+  ]
+}

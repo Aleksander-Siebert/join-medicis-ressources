@@ -1,0 +1,38 @@
+{
+  "skill_name": "linkedin-audit",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Voici mes 14 derniers posts (date, impressions, réactions, commentaires, format). Qu'est-ce qui marche ?",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Définit le taux d'engagement, utilise médiane et écart absolu médian",
+        "Motifs testés avec les 4 filtres ; signale les motifs confondus",
+        "Le jour testé en dernier",
+        "Propose une expérience avec critère d'échec écrit avant"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "J'ai 6 posts, les carrousels font 3 fois mieux, je ne fais plus que ça ?",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refuse de conclure sous 10 posts",
+        "Propose de continuer et de relancer l'audit plus tard"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Compare mes chiffres à la moyenne du secteur.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refuse le benchmark externe (dénominateur inconnu) ; compare le compte à lui-même"
+      ]
+    }
+  ]
+}

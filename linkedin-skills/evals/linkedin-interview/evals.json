@@ -1,0 +1,39 @@
+{
+  "skill_name": "linkedin-interview",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Interviewe-moi, je n'ai rien à raconter sur LinkedIn.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Pose une question à la fois, en commençant par la section la plus vide",
+        "Demande des chiffres avec leur référent (avant, après, période)",
+        "Ne propose aucun chiffre à la place de l'utilisateur",
+        "Propose d'écrire dans reserve.md seulement après accord"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Contexte : Camille D., responsable acquisition chez Assurly (assurly.example), assureur en ligne. reserve.md : 60 clients résiliés rappelés en 2024 (à deux, 3 semaines, script de 5 questions) ; la moitié citait le délai de remboursement, pas le prix ; coût par lead passé de 41 € à 23 € en 4 mois à budget constant ; délai de remboursement raccourci de 12 à 5 jours. J'ai un post à écrire sur nos résiliations mais il me manque l'angle.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Mode post : quelques questions ciblées sur l'histoire (ce que tu croyais, ce que ça a coûté)",
+        "Reprend les faits de reserve.md sans en ajouter"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Je dis toujours qu'on a 'beaucoup augmenté' les ventes.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Fait préciser : combien, par rapport à quoi, sur quelle période, et la source",
+        "Marque la réalisation « à clarifier » tant qu'elle n'est pas chiffrée"
+      ]
+    }
+  ]
+}

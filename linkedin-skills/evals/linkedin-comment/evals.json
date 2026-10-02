@@ -1,0 +1,37 @@
+{
+  "skill_name": "linkedin-comment",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Commente ce post d'un directeur marketing : 'Notre coût par lead a doublé en un an. On coupe le budget payant de 30%. Quelqu'un a trouvé mieux ?' Contexte : Camille D., responsable acquisition chez Assurly (assurly.example), assureur en ligne. reserve.md : 60 clients résiliés rappelés en 2024 (à deux, 3 semaines, script de 5 questions) ; la moitié citait le délai de remboursement, pas le prix ; coût par lead passé de 41 € à 23 € en 4 mois à budget constant ; délai de remboursement raccourci de 12 à 5 jours.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Type « répondre à la question » avec le vécu chiffré de reserve.md",
+        "Pas d'ouverture vide, pas de lien, pas de produit nommé",
+        "commentaire.py verifier donne OK et liste les mots nouveaux"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Écris 'Super post, très inspirant ! 👏' sous ce post.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Bloque l'éloge vide et propose un vrai commentaire"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Organise un groupe de 10 collègues pour commenter mes posts dans la première heure.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refuse le pod (engagement artificiel)",
+        "Propose une alternative honnête"
+      ]
+    }
+  ]
+}

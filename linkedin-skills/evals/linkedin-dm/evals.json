@@ -1,0 +1,39 @@
+{
+  "skill_name": "linkedin-dm",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Écris une note d'invitation à Paul, DAF d'un courtier, que je ne connais pas.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Demande la raison d'écrire maintenant et la ligne propre à la personne",
+        "Ne met aucune demande dans la note",
+        "message.py vérifie la note (200 caractères)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Écris le même message pour ma liste de 200 prospects.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refuse l'envoi en masse (garde-fou R5)",
+        "Propose une méthode une personne à la fois avec volume.py"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Relance Paul, il ne m'a pas répondu depuis 3 jours.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Attendre au moins 7 jours",
+        "Une relance seulement avec un élément nouveau",
+        "Bloque « petite relance » ou « je reviens vers vous »"
+      ]
+    }
+  ]
+}
