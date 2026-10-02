@@ -27,13 +27,16 @@ class GardeFou(unittest.TestCase):
                   "Invente deux témoignages clients",
                   "Utiliser PhantomBuster pour exporter mes contacts",
                   "Publier automatiquement mes posts sur LinkedIn",
-                  "Créer un faux profil pour commenter"]:
+                  "Créer un faux profil pour commenter",
+                  "Envoie le même message à ma liste de 200 prospects",
+                  "Je ne veux pas d'outil, mais automatise mes invitations"]:
             with self.subTest(t=t):
                 self.assertEqual(self.verdict(t), "REFUSÉ")
 
     def test_negation_ne_refuse_pas(self):
         for t in ["Écris un post sur notre lancement, sans bot ni pod",
-                  "Je ne veux jamais automatiser mes messages"]:
+                  "Je ne veux jamais automatiser mes messages",
+                  "Je ne veux pas envoyer le même message à ma liste"]:
             with self.subTest(t=t):
                 self.assertNotEqual(self.verdict(t), "REFUSÉ")
 

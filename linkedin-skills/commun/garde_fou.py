@@ -34,7 +34,8 @@ import unicodedata
 # de refuser quelqu'un qui dit justement ne pas vouloir de la tactique.
 NEGATION = re.compile(
     r"\b(sans|pas d[e']|pas un|pas une|aucun|aucune|jamais|ni|"
-    r"no|not|never|without|interdit|interdits|eviter|refuse)\b"
+    r"no|not|never|without|interdit|interdits|eviter|refuse|"
+    r"ne (?:veux|veut|voulons|souhaite|souhaitons) pas|pas question)\b"
 )
 FENETRE_NEGATION = 25  # caractères avant le déclencheur
 
@@ -127,6 +128,7 @@ REFUS = [
             r"\b(en masse|massif|massivement|blast|bulk|mass)\b.{0,30}\b(messages?|dm|invitations?|inmails?)\b",
             r"\b(messages?|dm|invitations?|inmails?)\b.{0,30}\b(en masse|massivement|a tout le monde|a tous mes contacts|a toute la liste)\b",
             r"\b(meme|identique)\b.{0,15}\bmessage\b.{0,30}\b(a tous|a tout le monde|a \d{2,} personnes)\b",
+            r"\b(meme|identique)\b.{0,15}\b(message|invitation|note)\b.{0,40}\b(ma liste|toute la liste|mes prospects|mon fichier|\d{2,} (?:personnes|prospects|contacts))\b",
             r"\b(copier[- ]coller|copy[- ]paste)\b.{0,30}\b(message|dm|invitation)\b.{0,30}\b(tous|tout le monde|centaines)\b",
             r"\b(\d{3,})\s*(invitations?|messages?|dm|demandes de connexion)\b.{0,20}\b(par jour|/jour|par semaine|/semaine|par mois)\b",
         ],
@@ -257,6 +259,8 @@ def normaliser(texte: str) -> str:
 
 def _nie(texte: str, debut: int) -> bool:
     avant = texte[max(0, debut - FENETRE_NEGATION):debut]
+    # la négation s'arrête à la proposition : « pas d'outil, mais automatise… » n'est pas nié
+    avant = re.split(r"[.;!?]|,?\s\b(?:mais|puis|ensuite|par contre|en revanche)\b", avant)[-1]
     return bool(NEGATION.search(avant))
 
 
