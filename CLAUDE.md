@@ -117,3 +117,19 @@ sessions par pack, c'est normal.
     cassé depuis Next 16).
 - Avant de publier : frontmatter valide, bundle claude.ai construit, tous les
   tests au vert.
+
+## Demandes en attente (à intégrer au prochain chantier de chaque pack)
+
+- **Pack SEO v2** : proposer les tendances SEO comme **options** au choix de
+  l'utilisateur (pas des règles), à partir de l'article de Marketer Milk
+  « SEO trends 2026 » (https://www.marketermilk.com/blog/seo-trends-2026) :
+  - E-E-A-T comme preuve sociale (podcasts, avis tiers, mentions) ;
+  - recherches de marque associées à un mot-clé (« {marque} + {mot-clé} ») ;
+  - titles personnels et émotionnels, seulement si le contenu tient la promesse ;
+  - vidéo YouTube intégrée aux meilleurs articles ;
+  - ne pas tout basculer sur l'IA ;
+  - refus des tactiques black hat pour les LLM ;
+  - contenu d'expérience vécue plutôt que volume.
+
+  C'est un avis de praticien : chaque chiffre ou cas cité porte [à vérifier].
+- **Ordre des chantiers** : LinkedIn v2 (en cours), puis SEO v2, puis GEO v2.
