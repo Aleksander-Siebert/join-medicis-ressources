@@ -135,7 +135,8 @@ def audit(html, url, mot_cle=None):
     internes = [a for a in p.anchors if urlsplit(a["href"]).netloc == host]
     externes = [a for a in p.anchors if urlsplit(a["href"]).netloc not in ("", host) and a["href"].startswith("http")]
     vides = [a for a in internes if not a["texte"] or fold(a["texte"]) in ("ici", "cliquez ici", "en savoir plus", "lire la suite")]
-    sans_alt = [i.get("src", "")[:80] for i in p.imgs if not i.get("alt", "").strip()]
+    # alt="" est correct pour une image décorative : seul l'attribut absent est signalé.
+    sans_alt = [i.get("src", "")[:80] for i in p.imgs if "alt" not in i]
     robots = p.meta.get("robots", "")
     desc = p.meta.get("description", "")
     sauts = [f"H{a}→H{b}" for (a, _), (b, _) in zip(p.headings, p.headings[1:]) if b > a + 1]
