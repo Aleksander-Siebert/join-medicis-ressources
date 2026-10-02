@@ -3,13 +3,16 @@
 onpage.py - contrôle on-page d'une page HTML, sans dépendance.
 
 Vérifie : title, meta description, H1 et plan des titres, nombre de mots,
-images sans alt, canonical, meta robots, lang, viewport, hreflang, Open Graph,
-données structurées JSON-LD, liens internes et externes, mot-clé principal
-(title, H1, URL, description, début du texte).
+images (alt, dimensions, chargement différé, priorité, format, poids avec
+--poids-images), canonical, meta robots (noindex, nosnippet), lang, viewport,
+hreflang, Open Graph, données structurées JSON-LD, liens internes et externes,
+mot-clé principal (title, H1, URL, description, début du texte), et les Core
+Web Vitals réels avec --cwv (API PageSpeed Insights, clé gratuite).
 
     python3 onpage.py https://www.site.fr/page/ --mot-cle "assurance expatrié"
     python3 onpage.py page.html --url https://www.site.fr/page/
     python3 onpage.py https://www.site.fr/ --json
+    python3 onpage.py https://www.site.fr/ --poids-images --cwv   # PSI_API_KEY dans l'environnement
 
 Le script mesure ; l'interprétation (priorités, contenu, E-E-A-T) reste dans
 le Skill. Les longueurs de title et description sont des repères, pas des
@@ -18,12 +21,14 @@ règles de Google : la troncature se fait en pixels.
 
 import argparse
 import json
+import os
 import re
 import sys
 import unicodedata
+import urllib.error
 import urllib.request
 from html.parser import HTMLParser
-from urllib.parse import urljoin, urlsplit
+from urllib.parse import urlencode, urljoin, urlsplit
 
 UA = "Mozilla/5.0 (compatible; JoinMedicis-onpage/1.0; +https://joinmedicis.com)"
 
@@ -50,6 +55,7 @@ class P(HTMLParser):
         self._cur_heading = None
         self._in_jsonld = False
         self._buf = []
+        self._picture_moderne = False
 
     def handle_starttag(self, tag, attrs):
         a = {k: (v or "") for k, v in attrs}
@@ -62,7 +68,12 @@ class P(HTMLParser):
         if tag == "link":
             self.links_rel.append(a)
         if tag == "img":
+            a["_picture_moderne"] = self._picture_moderne
             self.imgs.append(a)
+        if tag == "picture":
+            self._picture_moderne = False
+        if tag == "source" and "picture" in self._stack and re.search(r"image/(?:webp|avif)", a.get("type", "")):
+            self._picture_moderne = True
         if tag == "a" and a.get("href"):
             self.anchors.append({"href": urljoin(self.base, a["href"]), "rel": a.get("rel", ""), "texte": ""})
         if tag == "script" and "ld+json" in a.get("type", ""):
@@ -71,9 +82,13 @@ class P(HTMLParser):
             self._skip += 1
         if re.fullmatch(r"h[1-6]", tag):
             self._cur_heading = [int(tag[1]), ""]
+        if tag == "br" and self._cur_heading is not None:
+            self._cur_heading[1] += " "
         self._stack.append(tag)
 
     def handle_endtag(self, tag):
+        if tag == "picture":
+            self._picture_moderne = False
         if tag == "script" and self._in_jsonld:
             self._in_jsonld = False
             self.jsonld.append("".join(self._buf))
@@ -123,6 +138,83 @@ def schema_types(blocks):
     return sorted(set(types))
 
 
+MODERNE = re.compile(r"\.(?:webp|avif|svg)(?:[?#]|$)", re.I)
+ANCIEN = re.compile(r"\.(?:jpe?g|png|gif|bmp)(?:[?#]|$)", re.I)
+
+
+def controle_images(imgs, base):
+    """Contrôles sur le HTML seul. La 1re image est traitée comme l'image principale probable (LCP)."""
+    vraies = [i for i in imgs if i.get("src") and not i["src"].startswith("data:")]
+    # Une image qui remplit un bloc positionné (data-nimg="fill", position:absolute) ne décale pas la page.
+    remplit = lambda i: i.get("data-nimg") == "fill" or "position:absolute" in i.get("style", "").replace(" ", "")  # noqa: E731
+    sans_dim = [i["src"] for i in vraies if not (i.get("width") and i.get("height")) and not remplit(i)]
+    anciens = [i["src"] for i in vraies if ANCIEN.search(i["src"]) and not i.get("_picture_moderne")
+               and not re.search(r"/_next/image|[?&](?:fm|format)=(?:webp|avif)", i["src"])]
+    premiere = vraies[0] if vraies else None
+    lcp_lazy = bool(premiere and premiere.get("loading", "").lower() == "lazy")
+    lazy = sum(1 for i in vraies[1:] if i.get("loading", "").lower() == "lazy")
+    return {"total": len(vraies), "sans_dimensions": sans_dim, "formats_anciens": anciens,
+            "lcp_lazy": lcp_lazy, "lcp_priorite": bool(premiere and premiere.get("fetchpriority", "").lower() == "high"),
+            "lazy_hors_premiere": lazy, "premiere": premiere["src"] if premiere else "",
+            "urls": [urljoin(base, i["src"]) for i in vraies]}
+
+
+def poids_images(urls, seuil_ko=200, maxi=30):
+    """HEAD sur chaque image : celles au-dessus du seuil."""
+    lourdes = []
+    for u in urls[:maxi]:
+        try:
+            req = urllib.request.Request(u, method="HEAD", headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=15) as r:
+                ko = int(r.headers.get("Content-Length") or 0) // 1024
+        except Exception:  # noqa: BLE001 - une image illisible ne bloque pas l'audit
+            continue
+        if ko > seuil_ko:
+            lourdes.append((u, ko))
+    return lourdes
+
+
+PSI = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
+SEUILS = {"LCP": (2500, 4000), "INP": (200, 500), "CLS": (0.1, 0.25)}
+
+
+def lire_psi(d):
+    """Core Web Vitals d'une réponse PageSpeed Insights : terrain (CrUX, 28 jours) si dispo, sinon labo."""
+    m = (d.get("loadingExperience") or {}).get("metrics") or {}
+    terrain = {}
+    if "LARGEST_CONTENTFUL_PAINT_MS" in m:
+        terrain["LCP"] = m["LARGEST_CONTENTFUL_PAINT_MS"]["percentile"]
+    if "INTERACTION_TO_NEXT_PAINT" in m:
+        terrain["INP"] = m["INTERACTION_TO_NEXT_PAINT"]["percentile"]
+    if "CUMULATIVE_LAYOUT_SHIFT_SCORE" in m:
+        terrain["CLS"] = m["CUMULATIVE_LAYOUT_SHIFT_SCORE"]["percentile"] / 100
+    audits = (d.get("lighthouseResult") or {}).get("audits") or {}
+    labo = {}
+    if "largest-contentful-paint" in audits:
+        labo["LCP"] = round(audits["largest-contentful-paint"].get("numericValue", 0))
+    if "cumulative-layout-shift" in audits:
+        labo["CLS"] = round(audits["cumulative-layout-shift"].get("numericValue", 0), 3)
+    if "total-blocking-time" in audits:
+        labo["TBT"] = round(audits["total-blocking-time"].get("numericValue", 0))
+    return {"terrain": terrain, "labo": labo}
+
+
+def note_cwv(nom, v):
+    if nom not in SEUILS:
+        return ""
+    bon, mauvais = SEUILS[nom]
+    return "bon" if v <= bon else ("à améliorer" if v <= mauvais else "mauvais")
+
+
+def cwv(url, cle=None, strategie="mobile"):
+    q = {"url": url, "strategy": strategie, "category": "performance"}
+    if cle:
+        q["key"] = cle
+    req = urllib.request.Request(PSI + "?" + urlencode(q), headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=90) as r:
+        return lire_psi(json.loads(r.read().decode()))
+
+
 def audit(html, url, mot_cle=None):
     p = P(url)
     p.feed(html)
@@ -138,6 +230,7 @@ def audit(html, url, mot_cle=None):
     # alt="" est correct pour une image décorative : seul l'attribut absent est signalé.
     sans_alt = [i.get("src", "")[:80] for i in p.imgs if "alt" not in i]
     robots = p.meta.get("robots", "")
+    img = controle_images(p.imgs, url)
     desc = p.meta.get("description", "")
     sauts = [f"H{a}→H{b}" for (a, _), (b, _) in zip(p.headings, p.headings[1:]) if b > a + 1]
 
@@ -160,9 +253,22 @@ def audit(html, url, mot_cle=None):
       "Moins de 300 mots : vérifier que la page répond vraiment à l'intention.")
     c("Images sans alt", "OK" if not sans_alt else "À REVOIR", f"{len(sans_alt)} sur {len(p.imgs)}",
       "Alt descriptif sur les images porteuses de sens, vide (alt=\"\") sur les décoratives.")
+    c("Dimensions des images", "OK" if not img["sans_dimensions"] else "À REVOIR",
+      f"{len(img['sans_dimensions'])} sur {img['total']} sans width/height",
+      "width et height sur chaque image : évite les décalages de mise en page (CLS).")
+    if img["total"]:
+        c("Image principale", "À REVOIR" if img["lcp_lazy"] else "OK",
+          ("loading=lazy sur la 1re image" if img["lcp_lazy"] else "chargée tout de suite")
+          + (" · fetchpriority=high" if img["lcp_priorite"] else ""),
+          "Pas de loading=lazy sur l'image principale ; fetchpriority=\"high\" l'affiche plus vite (LCP).")
+        c("Format des images", "OK" if not img["formats_anciens"] else "À REVOIR",
+          f"{len(img['formats_anciens'])} en JPEG/PNG/GIF sur {img['total']}",
+          "WebP ou AVIF : souvent 25 à 50% plus légers à qualité égale.")
     c("Canonical", "OK" if canon else "MANQUANT", canon or "absente", "Ajouter une canonical auto-référente.")
-    c("Meta robots", "BLOQUANT" if "noindex" in robots.lower() else "OK", robots or "index par défaut",
-      "noindex présent : la page ne sera pas indexée.")
+    rl = robots.lower()
+    snip = "nosnippet" in rl or bool(re.search(r"max-snippet\s*:\s*0\b", rl))
+    c("Meta robots", "BLOQUANT" if "noindex" in rl or snip else "OK", robots or "index par défaut",
+      "noindex : la page ne sera pas indexée. nosnippet ou max-snippet:0 : pas d'extrait, donc pas d'AI Overviews ni d'AI Mode.")
     c("Langue (html lang)", "OK" if p.lang else "MANQUANT", p.lang or "absente", "Déclarer lang=\"fr\" (ou fr-FR).")
     c("Viewport mobile", "OK" if p.meta.get("viewport") else "MANQUANT", p.meta.get("viewport", "absent"),
       "Ajouter <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">.")
@@ -187,7 +293,7 @@ def audit(html, url, mot_cle=None):
         c(f"Mot-clé « {mot_cle} »", "OK" if not manque else "À REVOIR",
           "présent partout" if not manque else "absent de : " + ", ".join(manque),
           "Placer le mot-clé (ou une variante proche) là où il manque, sans forcer.")
-    return {"url": url, "controles": checks, "titres": p.headings[:40]}
+    return {"url": url, "controles": checks, "titres": p.headings[:40], "images": img}
 
 
 def main():
@@ -196,6 +302,9 @@ def main():
     ap.add_argument("--url", help="URL de la page si la source est un fichier")
     ap.add_argument("--mot-cle")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--poids-images", action="store_true", help="mesurer le poids des images (requêtes HEAD)")
+    ap.add_argument("--cwv", action="store_true", help="Core Web Vitals via PageSpeed Insights (mobile)")
+    ap.add_argument("--cle", default=os.environ.get("PSI_API_KEY"), help="clé API PageSpeed (ou PSI_API_KEY)")
     args = ap.parse_args()
     if re.match(r"https?://", args.source):
         req = urllib.request.Request(args.source, headers={"User-Agent": UA, "Accept-Language": "fr-FR,fr;q=0.9"})
@@ -206,6 +315,24 @@ def main():
         html = open(args.source, encoding="utf-8", errors="replace").read()
         url = args.url or "https://exemple.fr/"
     res = audit(html, url, args.mot_cle)
+    if args.poids_images:
+        lourdes = poids_images(res["images"]["urls"])
+        res["controles"].append({"controle": "Poids des images", "statut": "OK" if not lourdes else "À REVOIR",
+                                 "valeur": f"{len(lourdes)} au-dessus de 200 Ko" + "".join(f"\n              {k} Ko  {u[:80]}" for u, k in lourdes[:5]),
+                                 "conseil": "" if not lourdes else "Compresser et redimensionner à la taille affichée."})
+    if args.cwv:
+        try:
+            v = cwv(url, args.cle)
+            res["cwv"] = v
+            src, mes = ("terrain (28 jours, CrUX)", v["terrain"]) if v["terrain"] else ("labo (Lighthouse)", v["labo"])
+            val = " · ".join(f"{k} {x}{' ms' if k in ('LCP', 'INP', 'TBT') else ''} ({note_cwv(k, x) or 'labo'})" for k, x in mes.items())
+            mauvais = any(note_cwv(k, x) in ("mauvais", "à améliorer") for k, x in mes.items())
+            res["controles"].append({"controle": "Core Web Vitals", "statut": "À REVOIR" if mauvais else "OK",
+                                     "valeur": f"{src} : {val or 'aucune donnée'}",
+                                     "conseil": "Seuils : LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1 (75e centile)." if mauvais else ""})
+        except urllib.error.HTTPError as e:
+            msg = "quota sans clé épuisé : crée une clé gratuite (Google Cloud → API PageSpeed Insights) et passe --cle ou PSI_API_KEY" if e.code == 429 else f"erreur {e.code}"
+            res["controles"].append({"controle": "Core Web Vitals", "statut": "NON MESURÉ", "valeur": msg, "conseil": ""})
     if args.json:
         json.dump(res, sys.stdout, ensure_ascii=False, indent=2)
         print()

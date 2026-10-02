@@ -1,7 +1,7 @@
 {
   "name": "seo-skills",
-  "description": "Quatorze Skills SEO en français : contexte du site, mots-clés, SERP et concurrents, brief selon le framework (PAS, AIDA, MECE, pyramide inversée), rédaction sans invention, article complet avec validations, humaniseur, audit, maillage interne et clusters depuis le sitemap, mise à jour d'articles, veille concurrents et rapport Search Console, SEO programmatique, SEO local, SEO des réseaux sociaux.",
-  "version": "1.0.0",
+  "description": "Seize Skills SEO en français : stratégie, contexte du site, mots-clés, SERP et concurrents, brief selon le framework (PAS, AIDA, MECE, pyramide inversée), rédaction sans invention, article complet avec validations, humaniseur, audit (images, Core Web Vitals, type de page), surveillance des régressions, maillage interne et clusters depuis le sitemap, mise à jour d'articles, veille concurrents et rapport Search Console, SEO programmatique, SEO local, SEO des réseaux sociaux.",
+  "version": "1.1.0",
   "author": {
     "name": "Aleksander Siebert",
     "url": "https://joinmedicis.com/auteurs/aleksander-siebert"
@@ -9,5 +9,16 @@
   "homepage": "https://joinmedicis.com/ressources/skills/seo-skills",
   "repository": "https://github.com/Aleksander-Siebert/join-medicis-ressources",
   "license": "MIT",
-  "keywords": ["seo", "français", "contenu", "maillage", "audit", "seo-local", "youtube", "pinterest"]
+  "keywords": [
+    "seo",
+    "français",
+    "contenu",
+    "maillage",
+    "audit",
+    "seo-local",
+    "youtube",
+    "pinterest",
+    "seo-drift",
+    "core-web-vitals"
+  ]
 }

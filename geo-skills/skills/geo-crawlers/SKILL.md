@@ -24,7 +24,10 @@ sites bloquent ces robots sans le savoir (règle de sécurité, CDN, plugin).
 
 À savoir : les **AI Overviews et l'AI Mode de Google** utilisent Googlebot.
 Bloquer Google-Extended ne retire pas un site des AI Overviews ; bloquer
-Googlebot le retire de Google. La liste des robots change souvent :
+Googlebot le retire de Google. Pour y apparaître, une page doit être
+indexée et **éligible à l'extrait** : `nosnippet` ou `max-snippet:0` l'en
+excluent. Le site ne doit pas non plus être exclu des fonctionnalités d'IA
+générative dans Search Console. La liste des robots change souvent :
 **[à vérifier]** dans la documentation de chaque éditeur avant de modifier
 un robots.txt.
 
@@ -56,17 +59,25 @@ robots.txt à coller. Rappelle de vérifier aussi le pare-feu ou le CDN
 
 Un fichier Markdown à la racine (`/llms.txt`) qui présente le site aux
 assistants : `# Nom`, `> résumé`, puis des sections `##` avec des liens vers
-les pages clés. C'est une proposition de standard, pas une obligation, et
-aucun grand moteur n'a confirmé l'utiliser pour classer. **[estimation de
-praticien]** Il ne coûte presque rien : propose-le, sans le survendre.
+les pages clés. C'est une proposition communautaire (llmstxt.org).
+
+- **Google l'ignore** : son guide officiel dit qu'aucun fichier pour l'IA
+  n'est nécessaire pour apparaître dans Google Search, et que ces fichiers
+  n'aident ni ne nuisent (https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
+- Aucun autre grand éditeur n'a confirmé l'utiliser pour choisir ses sources.
+- Lighthouse le vérifie dans sa catégorie « Agentic Browsing » (voir
+  `/geo-agentic`) : il peut servir aux agents qui naviguent sur le site.
+
+Il ne compte dans aucun score du pack. Propose-le comme une option peu
+coûteuse, jamais comme un levier de visibilité.
 
 ## Sortie
 
 ```
 ROBOTS D'IA · assurly.example
 BLOQUÉS SANS LE SAVOIR : PerplexityBot, Claude-SearchBot (règle « User-agent: * Disallow: /api » trop large)
-DIRECTIVES : aucune restriction · 1 084 mots lisibles sans JavaScript
-LLMS.TXT : absent → brouillon ci-dessous
+DIRECTIVES : aucune restriction (ni noindex, ni nosnippet) · 1 084 mots lisibles sans JavaScript
+LLMS.TXT : absent (sans effet sur Google) → brouillon ci-dessous si vous le souhaitez
 STRATÉGIE CONSEILLÉE : visibilité (marque qui veut être recommandée)
 ```
 

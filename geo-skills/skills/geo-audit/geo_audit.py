@@ -7,7 +7,7 @@ Six catégories, pondération reprise de geo-seo-claude (MIT) :
   Citabilité        25%  mesurée (citability.py)
   Marque / mentions 20%  à évaluer par le Skill (geo-mentions, geo-visibility)
   E-E-A-T           20%  à évaluer par le Skill (auteur, sources, expérience)
-  Technique         15%  mesurée (robots d'IA, directives, contenu sans JS, llms.txt)
+  Technique         15%  mesurée (robots d'IA, indexation et extrait, contenu sans JS)
   Données structurées 10% mesurée (types JSON-LD présents)
   Plateformes       10%  à évaluer par le Skill (geo-visibility)
 
@@ -36,8 +36,9 @@ except ImportError:
     sys.exit("geo_audit.py a besoin de geo-citability/citability.py et geo-crawlers/crawlers.py (installez le pack complet).")
 
 WEIGHTS = {"citabilite": 0.25, "marque": 0.20, "eeat": 0.20, "technique": 0.15, "schema": 0.10, "plateformes": 0.10}
-USEFUL_TYPES = {"Organization", "LocalBusiness", "Person", "Article", "BlogPosting", "NewsArticle", "FAQPage",
-                "HowTo", "Product", "Offer", "BreadcrumbList", "WebSite", "Service", "Review", "AggregateRating"}
+# FAQPage et HowTo ne donnent plus de résultat enrichi sur Google (HowTo : 2023, FAQ : 7 mai 2026) : non comptés.
+USEFUL_TYPES = {"Organization", "LocalBusiness", "Person", "Article", "BlogPosting", "NewsArticle", "Product", "Offer",
+                "BreadcrumbList", "WebSite", "Service", "Review", "AggregateRating", "VideoObject", "Event"}
 
 
 def schema_types(html):
@@ -72,16 +73,15 @@ def score_technique(cr):
         notes.append("Googlebot ou Bingbot bloqué")
     page = cr["page"]
     if not page.get("erreur"):
-        if not (page["noindex"] or page["noai"]):
+        if not (page["noindex"] or page.get("nosnippet") or page["noai"]):
             s += 15
         else:
-            notes.append("directive noindex ou noai sur la page")
+            notes.append("directive noindex, nosnippet ou noai sur la page")
         if page["mots_dans_html"] >= 150:
-            s += 15
+            s += 20
         else:
             notes.append("contenu peu lisible sans JavaScript")
-    if cr["llms_txt"] and not cr["llms_txt"]["problemes"]:
-        s += 5
+    # llms.txt : signalé par crawlers.py, sans poids (Google l'ignore).
     return min(s, 100), notes
 
 

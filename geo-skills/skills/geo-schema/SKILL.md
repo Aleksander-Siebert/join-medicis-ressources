@@ -3,7 +3,7 @@ name: geo-schema
 description: >-
   Données structurées JSON-LD pour le SEO et les moteurs génératifs : lit les
   types présents sur une page, repère ce qui manque (Organization, Person,
-  Article, FAQPage, Product, LocalBusiness, BreadcrumbList…) et produit le
+  Article, Product, LocalBusiness, BreadcrumbList…) et produit le
   bloc JSON-LD à coller, rempli seulement avec des informations vraies et
   visibles sur la page. Utilise-le pour « schema », « JSON-LD », « données
   structurées », « balisage », « entité de marque ».
@@ -26,12 +26,18 @@ reconnaissent.
 | Page produit / offre | `Product` + `Offer`, `AggregateRating` si avis réels | prix, disponibilité, note |
 | Service | `Service` + `areaServed` | ce que vous faites, et où |
 | Commerce local | `LocalBusiness` (sous-type précis) | adresse, horaires, zone (voir `/seo-local` du pack SEO) |
-| Questions-réponses visibles | `FAQPage` | structure question → réponse lisible par les machines |
+| Questions-réponses visibles | `FAQPage`, facultatif | plus aucun affichage spécial sur Google ; à garder seulement pour d'autres moteurs |
 
-À savoir **[à vérifier sur Google Search Central]** : Google n'affiche plus
-les résultats enrichis FAQ que pour quelques sites officiels et de santé, et
-a retiré ceux de HowTo. Le balisage `FAQPage` reste lisible par les moteurs ;
-il ne garantit plus d'affichage spécial.
+À savoir (Google Search Central) :
+
+- Les **résultats enrichis FAQ** ne s'affichent plus du tout sur Google
+  depuis le 7 mai 2026, et ceux de **HowTo** ont disparu en 2023. Ne
+  recommande pas ces balisages pour Google.
+- Le guide officiel de Google sur l'IA générative dit que les données
+  structurées **ne sont pas requises** pour AI Overviews et AI Mode, et
+  qu'aucun balisage spécial n'existe pour l'IA (https://developers.google.com/search/docs/fundamentals/ai-optimization-guide). Elles restent
+  utiles pour les résultats enrichis encore actifs (produit, avis, article,
+  fil d'Ariane, établissement local…) et pour décrire l'entité de la marque.
 
 ## Méthode
 
@@ -39,7 +45,7 @@ il ne garantit plus d'affichage spécial.
    page (ou `geo_audit.py`, qui liste les types utiles trouvés). Repérer les
    doublons (le thème et un plugin SEO qui balisent chacun l'organisation).
 2. **Choisir les types** avec le tableau ci-dessus. Pas de type sans contenu
-   visible correspondant : baliser une FAQ absente de la page est contraire
+   visible correspondant : baliser des avis absents de la page est contraire
    aux règles de Google.
 3. **Remplir** avec `references/jsonld.md`. Chaque valeur vient de la page,
    de `site-context.md` ou de l'utilisateur ; sinon `{{à compléter}}`.
