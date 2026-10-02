@@ -1,0 +1,11 @@
+{
+ "auteur": "assurly.example",
+ "format": "banniere",
+ "slides": [
+  {
+   "type": "couverture",
+   "titre": "Moins de coût par lead pour les assureurs en ligne",
+   "texte": "Audit d'acquisition en 2 semaines · camille@assurly.example"
+  }
+ ]
+}
