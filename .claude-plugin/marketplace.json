@@ -20,6 +20,13 @@
       "source": "./seo-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/seo-skills"
+    },
+    {
+      "name": "geo-skills",
+      "description": "Sept Skills AEO / GEO en français pour être cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et les AI Overviews.",
+      "source": "./geo-skills",
+      "category": "productivity",
+      "homepage": "https://joinmedicis.com/ressources/skills/geo-skills"
     }
   ]
 }

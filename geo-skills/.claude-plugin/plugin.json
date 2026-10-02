@@ -1,0 +1,13 @@
+{
+  "name": "geo-skills",
+  "description": "Sept Skills AEO / GEO en français pour être cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et les AI Overviews : audit sur 100, citabilité des passages, robots d'IA et llms.txt, test de visibilité dans les réponses, données structurées, mentions de marque, plan d'optimisation.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Aleksander Siebert",
+    "url": "https://joinmedicis.com/auteurs/aleksander-siebert"
+  },
+  "homepage": "https://joinmedicis.com/ressources/skills/geo-skills",
+  "repository": "https://github.com/Aleksander-Siebert/join-medicis-ressources",
+  "license": "MIT",
+  "keywords": ["geo", "aeo", "ai-search", "chatgpt", "perplexity", "llms-txt", "schema", "français"]
+}
