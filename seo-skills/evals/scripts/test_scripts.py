@@ -7,12 +7,13 @@ from contextlib import redirect_stdout
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SK = os.path.join(HERE, "..", "..", "skills")
-for d in ("seo-maillage", "seo-veille", "seo-audit"):
+for d in ("seo-maillage", "seo-veille", "seo-audit", "seo-drift"):
     sys.path.insert(0, os.path.join(SK, d))
 
 import maillage  # noqa: E402
 import onpage  # noqa: E402
 import veille  # noqa: E402
+import drift  # noqa: E402
 
 
 def f(name):
@@ -82,6 +83,49 @@ def test_onpage():
     assert st["Mot-clé « assurance santé expatrié »"] == "OK"
     liens = next(c for c in r["controles"] if c["controle"] == "Liens internes")
     assert "1 ancre(s)" in liens["valeur"], liens
+
+
+def test_onpage_images_et_nosnippet():
+    html = ('<html lang="fr"><head><meta name="robots" content="max-snippet:0"></head><body><h1>Titre<br>suite</h1>'
+            '<img src="/hero.jpg" loading="lazy"><picture><source type="image/avif" srcset="/b.avif"><img src="/b.jpg" width="10" height="10"></picture>'
+            '<img src="/c.png" width="5" height="5" alt=""><img src="/d.webp" data-nimg="fill"></body></html>')
+    r = onpage.audit(html, "https://exemple.fr/")
+    st = {c["controle"]: c for c in r["controles"]}
+    assert st["Meta robots"]["statut"] == "BLOQUANT"
+    assert st["Image principale"]["statut"] == "À REVOIR"
+    assert r["images"]["sans_dimensions"] == ["/hero.jpg"], r["images"]
+    assert r["images"]["formats_anciens"] == ["/hero.jpg", "/c.png"], r["images"]
+    assert r["titres"][0] == (1, "Titre suite")
+
+
+def test_onpage_lit_pagespeed():
+    d = {"loadingExperience": {"metrics": {"LARGEST_CONTENTFUL_PAINT_MS": {"percentile": 3100},
+                                           "INTERACTION_TO_NEXT_PAINT": {"percentile": 150},
+                                           "CUMULATIVE_LAYOUT_SHIFT_SCORE": {"percentile": 5}}},
+         "lighthouseResult": {"audits": {"largest-contentful-paint": {"numericValue": 2900.4}}}}
+    v = onpage.lire_psi(d)
+    assert v["terrain"] == {"LCP": 3100, "INP": 150, "CLS": 0.05} and v["labo"]["LCP"] == 2900
+    assert onpage.note_cwv("LCP", 3100) == "à améliorer" and onpage.note_cwv("CLS", 0.05) == "bon"
+
+
+def test_drift_detecte_les_regressions():
+    html = open(f("page.html"), encoding="utf-8").read()
+    url = "https://assurly.example/assurance-sante-expatrie/"
+    avant = drift.photo(url, 200, url, {}, html)
+    assert avant["title"].startswith("Assurance santé expatrié") and avant["h1"] == ["Assurance santé expatrié"]
+    casse = (html.replace("<head>", '<head><meta name="robots" content="noindex">')
+             .replace("https://assurly.example/assurance-sante-expatrie/\"", "https://assurly.example/\"")
+             .replace("<h1>Assurance santé expatrié</h1>", ""))
+    res = drift.comparer(avant, drift.photo(url, 200, url, {}, casse))
+    critiques = {x["regle"] for x in res if x["gravite"] == "CRITIQUE"}
+    assert {"noindex ajouté", "Canonical modifié", "H1 supprimé"} <= critiques, res
+    assert drift.comparer(avant, drift.photo(url, 200, url, {}, html)) == []
+    erreur = drift.photo(url, 404, url, {}, "")
+    assert any(x["regle"] == "La page répond en erreur" for x in drift.comparer(avant, erreur))
+
+
+def test_drift_normalise_les_url():
+    assert drift.normaliser("HTTPS://Site.fr:443/page/?utm_source=x&b=2&a=1") == "https://site.fr/page?a=1&b=2"
 
 
 if __name__ == "__main__":

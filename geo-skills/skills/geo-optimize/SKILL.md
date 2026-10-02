@@ -16,6 +16,29 @@ Ce Skill assemble les autres en une stratégie. Il ne remplace pas le SEO :
 la plupart des moteurs génératifs avec recherche web partent des résultats
 d'un moteur classique. Une page mal indexée a peu de chances d'être citée.
 
+## Ce que dit Google (guide officiel, mis à jour le 10 juillet 2026)
+
+Pour AI Overviews et AI Mode, Google le dit clairement : optimiser pour
+l'IA générative, c'est faire du SEO. Source : https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
+
+- **Conditions** : la page est indexée, éligible à l'extrait (pas de
+  `nosnippet`), et le site n'est pas exclu des fonctionnalités d'IA
+  générative dans Search Console.
+- **Ce qui compte** : un contenu unique, utile, avec un vrai point de vue et
+  de l'expertise, pas une reformulation de ce qui existe déjà ; HTML
+  sémantique, contenu explorable, bonne expérience de page, images et
+  vidéos de qualité.
+- **Ce qui ne sert à rien pour Google** (ses propres « mythes ») : llms.txt
+  et autres fichiers pour l'IA, découper ses contenus en petits morceaux,
+  réécrire ses pages « pour l'IA » (elle comprend les synonymes), chercher
+  des mentions artificielles, tout miser sur les données structurées.
+- **Mesure** : le rapport de performances des fonctionnalités d'IA
+  générative dans Search Console.
+
+Les autres moteurs (ChatGPT, Perplexity, Claude, Mistral) ne publient pas de
+guide équivalent. Ce pack applique donc partout la même ligne : écrire mieux
+pour le lecteur, pas « pour l'IA ».
+
 ## Les trois piliers
 
 1. **Structure** : chaque page répond, en passages autonomes et chiffrés
@@ -43,20 +66,22 @@ et le sujet]** :
 | Termes techniques justes | jusqu'à +18% |
 | Bourrage de mots-clés | environ −10% |
 
-Dans le pack, ça devient : pas de fait sans source, pas de chiffre inventé
-(`{{à compléter}}`), citations réelles seulement, style affirmatif
-(`--affirmatif` de l'humaniseur du pack SEO).
+Ces méthodes sont aussi de bonnes pratiques de rédaction : on les applique
+pour le lecteur, pas comme une réécriture spéciale pour l'IA, que Google
+juge inutile. Dans le pack, ça devient : pas de fait sans source, pas de
+chiffre inventé (`{{à compléter}}`), citations réelles seulement, style
+affirmatif (`--affirmatif` de l'humaniseur du pack SEO).
 
 ## Les contenus que les IA citent le plus
 
 | Format | Pourquoi | Règle |
 |---|---|---|
-| Définition et « qu'est-ce que » | réponse courte, reprise telle quelle | 40 à 60 mots dès le début |
+| Définition et « qu'est-ce que » | réponse courte, reprise telle quelle | la réponse en 2 ou 3 phrases dès le début |
 | Comparatif « X ou Y », « X vs Y » | les IA aiment les tableaux | tableau de critères + verdict par profil |
 | « Meilleurs… » et classements | réponse aux prompts de recommandation | critères publics, honnêteté sur ses propres produits |
 | Guide pratique en étapes | « comment » | étapes numérotées, durée, coût |
 | Données propres, étude, baromètre | seul le site les possède | méthode et date publiées |
-| FAQ visible | une question, une réponse | réponses complètes, pas de teasing |
+| FAQ visible | une question, une réponse | réponses complètes, pas de teasing (plus de résultat enrichi FAQ sur Google depuis mai 2026 : la valeur est pour le lecteur) |
 
 ## Fraîcheur
 
@@ -71,7 +96,7 @@ Tendances observées par les praticiens **[estimation de praticien]** :
 
 | Plateforme | Ce qui compte |
 |---|---|
-| Google AI Overviews / AI Mode | être bien classé sur Google, passages qui répondent, Googlebot autorisé |
+| Google AI Overviews / AI Mode | le SEO, tout simplement : indexation, extrait autorisé, contenu utile et original (guide officiel) |
 | ChatGPT (recherche) | index de recherche tiers + OAI-SearchBot, comparatifs, presse |
 | Perplexity | sources récentes et citées, forums et Reddit, PerplexityBot |
 | Gemini | index Google, YouTube, entités Google |

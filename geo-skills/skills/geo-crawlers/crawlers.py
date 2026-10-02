@@ -5,9 +5,11 @@ crawlers.py - les robots d'IA peuvent-ils lire votre site ?
 Vérifie :
   - robots.txt : chaque robot d'IA connu est-il autorisé ou bloqué sur la page
     d'accueil et sur les chemins demandés (--chemin /blog/) ;
-  - les directives noai / noimageai / noindex (meta robots et en-tête
-    X-Robots-Tag) de la page ;
-  - llms.txt : présent ? bien formé (titre, résumé, sections de liens) ?
+  - les directives noindex / nosnippet / max-snippet:0 / noai / noimageai
+    (meta robots et en-tête X-Robots-Tag). Google exige une page indexée et
+    éligible à l'extrait pour l'afficher dans AI Overviews et AI Mode ;
+  - llms.txt : présent ? bien formé ? (Google l'ignore ; d'autres services
+    peuvent le lire. Il ne compte dans aucun score.)
   - le contenu est-il dans le HTML (lisible sans JavaScript) ?
 
 Génère sur demande un bloc robots.txt selon la stratégie choisie et un
@@ -112,8 +114,9 @@ def page_signals(headers, body):
     text = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", body)
     text = re.sub(r"(?s)<[^>]+>", " ", text)
     words = len(re.findall(r"\w+", text))
-    return {"noindex": "noindex" in directives, "noai": "noai" in directives, "noimageai": "noimageai" in directives,
-            "directives": directives.strip(","), "mots_dans_html": words}
+    nosnippet = "nosnippet" in directives or bool(re.search(r"max-snippet\s*:\s*0\b", directives))
+    return {"noindex": "noindex" in directives, "nosnippet": nosnippet, "noai": "noai" in directives,
+            "noimageai": "noimageai" in directives, "directives": directives.strip(","), "mots_dans_html": words}
 
 
 def propose_robots(strategie):
@@ -184,7 +187,7 @@ def render(r):
         print(f"  {etat:<9} {b['robot']:<20} {b['editeur']:<16} {b['role']:<12}{cite} {detail}")
     print()
     if r["llms_txt"] is None:
-        print("llms.txt : absent (facultatif ; utile pour guider les assistants vers vos pages clés)")
+        print("llms.txt : absent (facultatif : Google l'ignore, d'autres assistants peuvent le lire)")
     else:
         l = r["llms_txt"]
         print(f"llms.txt : présent · {len(l['sections'])} section(s) · {l['liens']} lien(s)")
@@ -194,8 +197,10 @@ def render(r):
     if "erreur" in p:
         print(f"Page : illisible ({p['erreur']})")
     else:
-        flags = [k for k in ("noindex", "noai", "noimageai") if p[k]]
+        flags = [k for k in ("noindex", "nosnippet", "noai", "noimageai") if p[k]]
         print(f"Page : directives {', '.join(flags) or 'aucune restriction'} · {p['mots_dans_html']} mots lisibles sans JavaScript")
+        if p["noindex"] or p["nosnippet"]:
+            print("  -> noindex ou nosnippet : la page ne peut pas apparaître dans AI Overviews ni AI Mode.")
         if p["mots_dans_html"] < 150:
             print("  -> Peu de texte dans le HTML : le contenu est peut-être rendu en JavaScript, que la plupart des robots d'IA n'exécutent pas.")
 

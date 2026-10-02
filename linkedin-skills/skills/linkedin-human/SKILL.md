@@ -43,11 +43,18 @@ Dis clairement que la note est une estimation, pas un calcul.
 ## Ce qui est corrigé automatiquement
 
 **1. Caractères invisibles.** Espaces sans chasse, joints, traits d'union
-conditionnels, BOM, marques de direction, caractères d'étiquette Unicode. Les
+conditionnels, BOM, marques de direction, caractères de balise Unicode et
+sélecteurs de variante isolés (deux procédés pour cacher du texte dans un
+autre ; ceux des émojis sont gardés). Les
 espaces insécables et fines deviennent des espaces normales **sans être
 supprimées** : en français, l'espace avant `; : ! ?` reste. Avec
 `--insecables`, le script pose au contraire de vraies insécables, pour une
 typographie soignée.
+
+Les filigranes statistiques (du type SynthID) se trouvent dans le choix des
+mots, pas dans les caractères : aucun outil ne les détecte ni ne les retire de
+façon fiable, et le Skill ne le promet pas. Il sert à corriger vos propres
+textes, pas à masquer l'origine d'un contenu qui n'est pas le vôtre.
 
 **2. Typographie française.**
 

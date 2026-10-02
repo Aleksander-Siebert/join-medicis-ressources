@@ -63,7 +63,8 @@ Classé par effet attendu et effort :
 
 Faux avis, avis achetés ou triés, faux comptes sur les forums, messages
 sponsorisés non signalés, modification de Wikipédia sans déclarer son lien
-avec la marque. En France, les faux avis et les pratiques commerciales
+avec la marque. Google range lui-même les « mentions artificielles » parmi
+les tactiques inutiles dans son guide sur l'IA générative. En France, les faux avis et les pratiques commerciales
 trompeuses sont sanctionnés **[à vérifier : Code de la consommation, article
 L121-1 et suivants]**, et les plateformes les suppriment.
 

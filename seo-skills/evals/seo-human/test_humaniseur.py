@@ -143,6 +143,13 @@ def la_reecriture_manuelle_passe():
     assert verdict == "OK", (score, verdict)
 
 
+@case
+def le_texte_cache_est_retire_mais_pas_les_emojis():
+    out, _, _ = humanize("Bonjour\U000E0041\U000E0042 le monde\ufe0f, 1\ufe0f\u20e3 et \u2764\ufe0f.", LEX)
+    assert "\U000E0041" not in out and "monde," in out
+    assert "1\ufe0f\u20e3" in out and "\u2764\ufe0f" in out
+
+
 if __name__ == "__main__":
     failed = 0
     for fn in CASES:

@@ -105,6 +105,19 @@ def pass_invisible(text, keep_nbsp=False):
                 out.append(" ")
                 log[f"U+{ord(ch):04X} espace spéciale -> espace"] += 1
             continue
+        # Sélecteurs de variante : légitimes après un émoji, un chiffre (1️⃣) ou un symbole (©️).
+        # Isolés, ou dans le bloc supplémentaire U+E0100-E01EF, ils servent à cacher du texte.
+        if 0xFE00 <= ord(ch) <= 0xFE0F or 0xE0100 <= ord(ch) <= 0xE01EF:
+            prev = text[i - 1] if i else ""
+            if ord(ch) <= 0xFE0F and prev and (_is_pictograph(prev) or prev in "0123456789#*"
+                                               or unicodedata.category(prev) == "So" or prev in "©®™"):
+                out.append(ch)
+            else:
+                log["sélecteur de variante isolé supprimé (texte caché possible)"] += 1
+            continue
+        if 0xE0000 <= ord(ch) <= 0xE007F:
+            log["caractère de balise Unicode supprimé (texte caché possible)"] += 1
+            continue
         if unicodedata.category(ch) == "Cf":
             # Le ZWJ entre deux pictogrammes construit un émoji (👨‍💻) : on le garde.
             if ch == ZWJ and i > 0 and i + 1 < len(text):

@@ -76,7 +76,10 @@ que d'en inventer une. Un seul bloc `@graph` par page évite les doublons.
 
 `dateModified` change seulement quand le contenu change vraiment.
 
-## FAQ (seulement si les questions sont visibles sur la page)
+## FAQ (facultatif : aucun résultat enrichi sur Google depuis le 7 mai 2026)
+
+À n'ajouter que si les questions sont visibles sur la page et qu'un autre
+moteur ou un outil interne s'en sert.
 
 ```json
 {

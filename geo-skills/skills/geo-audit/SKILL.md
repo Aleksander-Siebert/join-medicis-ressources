@@ -22,12 +22,15 @@ absente des réponses d'IA, et l'inverse.
 | Citabilité | 25% | mesurée : passages qui répondent, se comprennent seuls, chiffrés | `/geo-citability` |
 | Marque et mentions | 20% | évaluée : présence sur les sources que les IA citent | `/geo-mentions` |
 | E-E-A-T | 20% | évaluée : auteur, sources, expérience, fraîcheur | ce Skill |
-| Technique | 15% | mesurée : robots d'IA, directives, contenu lisible sans JavaScript, llms.txt | `/geo-crawlers` |
-| Données structurées | 10% | mesurée : types JSON-LD utiles | `/geo-schema` |
+| Technique | 15% | mesurée : robots d'IA, indexation et extrait autorisés, contenu lisible sans JavaScript | `/geo-crawlers` |
+| Données structurées | 10% | mesurée : types JSON-LD utiles (pas requis pour l'IA de Google, utiles au SEO) | `/geo-schema` |
 | Plateformes | 10% | évaluée : présence réelle dans les réponses | `/geo-visibility` |
 
 Pondération reprise de geo-seo-claude (MIT). C'est une grille de travail,
-pas une mesure officielle : aucun moteur ne publie ses critères.
+pas une mesure officielle : aucun moteur ne publie de poids. Pour Google, le
+guide officiel (https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) résume la règle : l'IA générative de Google
+s'appuie sur les mêmes systèmes que la recherche classique, donc un bon SEO
+d'abord. llms.txt ne compte pas dans le score.
 
 ## Avec exécution de code
 

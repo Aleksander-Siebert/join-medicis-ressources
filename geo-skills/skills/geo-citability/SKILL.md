@@ -15,12 +15,18 @@ Les moteurs génératifs ne citent pas des pages, ils citent des **passages**.
 Un passage citable répond tout de suite, se comprend sans le reste de la
 page, et contient un fait vérifiable.
 
+Ce sont d'abord des règles de clarté pour le lecteur. Google précise qu'il
+n'est pas nécessaire de découper ses contenus en petits morceaux ni de les
+réécrire « pour l'IA » : ses systèmes comprennent les synonymes et trouvent
+le bon passage dans une page longue. On ne hache donc pas un texte en blocs
+artificiels ; on corrige les sections qui tournent autour du pot.
+
 ## Les cinq critères (par section)
 
 | Critère | Poids | Un bon passage |
 |---|---|---|
 | Réponse directe | 30% | la 1re phrase répond : « La CFE est… », « Le délai de carence dure… » |
-| Autonomie | 25% | nomme son sujet (pas « Il », « Cela », « Mais » en tête), 50 à 200 mots |
+| Autonomie | 25% | nomme son sujet (pas « Il », « Cela », « Mais » en tête), ne renvoie pas à « plus haut » |
 | Structure | 20% | titre (question pour l'informationnel), paragraphes courts, listes, tableaux |
 | Données | 15% | chiffres, dates, unités, **source citée** |
 | Originalité | 10% | donnée propre, cas réel, expérience, citation attribuée |
@@ -50,7 +56,8 @@ Pour chaque section sous 50 :
    chiffre ou `{{à compléter}}`).
 2. **Le passage tient seul** : remplace « Il », « Cela » par le nom ; coupe
    les renvois (« comme vu plus haut »).
-3. **40 à 60 mots** pour le bloc de réponse, puis le détail.
+3. **La réponse en 2 ou 3 phrases**, puis le détail. Pas de section coupée
+   en morceaux pour atteindre une longueur.
 4. **Une source** par fait sensible, nommée (organisme, texte, étude datée).
 5. **Le format qui correspond à la question** : définition pour « qu'est-ce
    que », étapes numérotées pour « comment », tableau pour « X ou Y »,

@@ -1,6 +1,6 @@
 # GEO Skills
 
-Sept Skills en français pour que votre marque soit citée par ChatGPT,
+Huit Skills en français pour que votre marque soit citée par ChatGPT,
 Perplexity, Gemini, Claude, Mistral et les AI Overviews de Google. On dit
 aussi AEO (Answer Engine Optimization) : le but est le même, apparaître dans
 la réponse et pas seulement dans la liste de liens.
@@ -10,10 +10,15 @@ robots d'IA, données structurées) ; le reste est évalué et affiché comme te
 Aucun score, aucune réponse d'IA n'est inventé : sans mesure, le Skill
 écrit « à évaluer ».
 
+Le pack suit le [guide officiel de Google sur l'IA générative](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
+(juillet 2026) : pour AI Overviews et AI Mode, c'est d'abord du SEO. Pas de
+llms.txt présenté comme un levier, pas de contenus hachés en petits blocs,
+pas de réécriture « pour l'IA ». On écrit mieux pour le lecteur.
+
 Par [Join Médicis](https://joinmedicis.com/ressources/skills/geo-skills).
 Sources d'inspiration dans [CREDITS.md](CREDITS.md).
 
-## Les sept
+## Les huit
 
 | Commande | Ce qu'elle fait |
 |---|---|
@@ -23,6 +28,7 @@ Sources d'inspiration dans [CREDITS.md](CREDITS.md).
 | `/geo-visibility` | 15 à 30 prompts réalistes, vous collez les réponses, le Skill calcule présence, rang, part de voix et sources citées. |
 | `/geo-schema` | Ce qui manque en JSON-LD et le bloc à coller, rempli seulement avec des informations vraies. |
 | `/geo-mentions` | Où la marque est citée (presse, comparateurs, forums, avis, Wikipédia) face aux concurrents, et un plan propre. |
+| `/geo-agentic` | Prépare les pages aux agents d'IA qui naviguent et remplissent des formulaires : boutons nommés, labels, page stable, WebMCP. |
 | `/geo-optimize` | La stratégie : trois piliers, méthodes validées par la recherche, plan sur 90 jours. |
 
 Le pack partage `site-context.md` et `apprentissages.md` avec le
@@ -49,19 +55,20 @@ Ensuite, lancez `/geo-audit` sur votre page la plus importante.
 
 ## Les scripts
 
-Quatre scripts Python sans dépendance :
+Cinq scripts Python sans dépendance :
 
 ```bash
 python3 skills/geo-audit/geo_audit.py https://www.site.fr/guide/
 python3 skills/geo-citability/citability.py https://www.site.fr/guide/ --top 5
 python3 skills/geo-crawlers/crawlers.py https://www.site.fr --robots-propose equilibre
+python3 skills/geo-agentic/agentic.py https://www.site.fr/devis/
 python3 skills/geo-visibility/visibilite.py reponses.txt --marque "Assurly" --concurrent "April International"
 ```
 
 ## Tests
 
 ```bash
-python3 evals/scripts/test_geo.py   # 6 tests
+python3 evals/scripts/test_geo.py   # 8 tests
 ```
 
 ## Licence

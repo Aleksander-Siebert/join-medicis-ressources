@@ -40,9 +40,9 @@ les réécrit en suivant le rapport.
 
 | Suite | Résultat |
 |---|---|
-| `seo-human/test_humaniseur.py` | 20 sur 20 |
+| `seo-human/test_humaniseur.py` | 21 sur 21 |
 | `seo-human/test_article.py` | 9 sur 9 |
-| `scripts/test_scripts.py` (maillage, on-page, veille) | 7 sur 7 |
+| `scripts/test_scripts.py` (maillage, on-page, images, Core Web Vitals, veille, drift) | 11 sur 11 |
 
 ## Limites
 

@@ -5,12 +5,13 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SK = os.path.join(HERE, "..", "..", "skills")
-for d in ("geo-citability", "geo-crawlers", "geo-visibility"):
+for d in ("geo-citability", "geo-crawlers", "geo-visibility", "geo-agentic"):
     sys.path.insert(0, os.path.join(SK, d))
 
 import citability  # noqa: E402
 import crawlers  # noqa: E402
 import visibilite  # noqa: E402
+import agentic  # noqa: E402
 
 
 def f(n):
@@ -60,6 +61,32 @@ def test_part_de_voix():
     assert t["presence"] == 67 and r["Perplexity"]["presence"] == 100 and r["ChatGPT"]["rang_moyen"] == 3.0
     assert "service-public.fr" in t["domaines"] and "cfe.fr" in t["domaines"]
     assert t["marques"]["Assurly"] >= 3
+
+
+def test_nosnippet_exclut_des_ai_overviews():
+    p = crawlers.page_signals({}, '<meta name="robots" content="index, max-snippet:0"><p>texte</p>')
+    assert p["nosnippet"] and not p["noindex"]
+    p = crawlers.page_signals({"X-Robots-Tag": "nosnippet"}, "<p>texte</p>")
+    assert p["nosnippet"]
+    p = crawlers.page_signals({}, '<meta name="robots" content="max-snippet:50">')
+    assert not p["nosnippet"]
+
+
+def test_agentic_repere_les_obstacles():
+    html = ('<body><div onclick="go()">Devis</div><button><svg></svg></button><a href="/x">Voir</a>'
+            '<label for="mail">Email</label><input id="mail" type="email"><input name="tel" placeholder="Téléphone">'
+            '<label>Nom <input name="nom"></label><input type="hidden" name="t">'
+            '<div aria-hidden="true"><a href="/menu">Menu</a></div><svg aria-hidden="true"><path d=""/></svg>'
+            '<img src="/a.jpg"><form toolname="devis" tooldescription="Demander un devis"></form><form></form></body>')
+    h = agentic.analyse_html(html)
+    assert len(h["cliquables_non_semantiques"]) == 1
+    assert h["actions_sans_nom"] == ["<button> "], h["actions_sans_nom"]
+    assert h["champs_sans_label"] == ["tel"], h["champs_sans_label"]
+    assert len(h["interactifs_caches"]) == 1, h["interactifs_caches"]
+    assert h["images_sans_dimensions"] == ["/a.jpg"]
+    assert h["formulaires"] == 2 and h["formulaires_webmcp"] == 1
+    st = {c["controle"]: c["statut"] for c in agentic.controles(h)}
+    assert st["Contenu lisible sans JavaScript"] == "À CORRIGER" and st["Outils WebMCP"] == "INFO"
 
 
 if __name__ == "__main__":

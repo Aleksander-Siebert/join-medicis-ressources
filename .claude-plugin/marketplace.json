@@ -16,14 +16,14 @@
     },
     {
       "name": "seo-skills",
-      "description": "Quatorze Skills SEO en français : du mot-clé à l'article publié, audit, maillage interne, veille, SEO local et social.",
+      "description": "Seize Skills SEO en français : de la stratégie à l'article publié, audit, surveillance des régressions, maillage interne, veille, SEO local et social.",
       "source": "./seo-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/seo-skills"
     },
     {
       "name": "geo-skills",
-      "description": "Sept Skills AEO / GEO en français pour être cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et les AI Overviews.",
+      "description": "Huit Skills AEO / GEO en français pour être cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et les AI Overviews, et prêt pour les agents d'IA.",
       "source": "./geo-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/geo-skills"

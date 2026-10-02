@@ -1,18 +1,19 @@
 ---
 name: seo-skills
 description: >-
-  Pack SEO en français, en un seul Skill : contexte du site, recherche de
-  mots-clés, analyse de SERP et concurrents, brief selon le framework (PAS,
-  AIDA, MECE, pyramide inversée), rédaction YMYL sans invention, article
-  complet de bout en bout, humanisation, audit SEO, maillage interne et
-  clusters depuis le sitemap, mise à jour d'articles, veille concurrents et
-  rapport Search Console, SEO programmatique, SEO local et SEO des réseaux
-  sociaux (YouTube, Pinterest, TikTok). Utilise-le pour toute demande SEO.
+  Pack SEO en français, en un seul Skill : stratégie, contexte du site,
+  recherche de mots-clés, analyse de SERP et concurrents, brief selon le
+  framework (PAS, AIDA, MECE, pyramide inversée), rédaction YMYL sans
+  invention, article complet de bout en bout, humanisation, audit SEO,
+  surveillance des régressions, maillage interne et clusters depuis le
+  sitemap, mise à jour d'articles, veille concurrents et rapport Search
+  Console, SEO programmatique, SEO local et SEO des réseaux sociaux (YouTube,
+  Pinterest, TikTok). Utilise-le pour toute demande SEO.
 ---
 
 # SEO Skills (Join Médicis)
 
-Ce Skill regroupe les 14 modules du pack SEO. Chaque module est un mode
+Ce Skill regroupe les 16 modules du pack SEO. Chaque module est un mode
 d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 (références, scripts) dans le même dossier.
 
@@ -20,6 +21,7 @@ d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 
 | Module | Quand l'utiliser |
 |---|---|
+| `seo-plan` | stratégie, feuille de route sur 12 mois, « par où commencer » |
 | `seo-context` | premier usage, « voici mon site », remplir `site-context.md` |
 | `seo-keywords` | mots-clés, intentions, idées d'articles, cannibalisation |
 | `seo-serp` | analyser la SERP et les concurrents d'une requête |
@@ -27,7 +29,8 @@ d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 | `seo-write` | rédiger une page ou un article depuis un plan validé |
 | `seo-article` | tout le chemin, du mot-clé à l'article, avec validations |
 | `seo-human` | humaniser un texte, « ça fait IA ? » |
-| `seo-audit` | audit SEO d'une page ou d'un site, baisse de trafic |
+| `seo-audit` | audit SEO d'une page ou d'un site, images, Core Web Vitals, baisse de trafic |
+| `seo-drift` | photo avant / après une mise en ligne, « qu'est-ce qui a cassé » |
 | `seo-maillage` | sitemap, clusters, pages orphelines, liens internes |
 | `seo-refresh` | mettre à jour un article publié |
 | `seo-veille` | nouvelles pages des concurrents, rapport Search Console |
@@ -43,7 +46,7 @@ L'utilisateur peut taper le nom du module comme une commande (`/seo-brief …`).
    enchaîne les autres.
 2. **Lis en entier `modules/<nom>/<nom>.md`** avant de répondre, puis
    suis-le. Les fichiers qu'il cite (`references/…`, `humanize.py`,
-   `maillage.py`, `onpage.py`, `veille.py`) sont dans son dossier.
+   `maillage.py`, `onpage.py`, `veille.py`, `drift.py`) sont dans son dossier.
 3. Quand un module renvoie à un autre (« passe par `/seo-human` »), lis le
    fichier de ce module et applique-le.
 4. Les modèles `site-context.md`, `exemple-site-context.md` et
