@@ -38,6 +38,10 @@ conclusion. Ce n'est pas une raison de l'écarter, c'est une raison de le dire.
 | Bannière (photo d'arrière-plan) | 1 584 × 396 px recommandés, 8 Mo maximum | Aide LinkedIn a549049 |
 | Document (carrousel PDF) | PDF, PPT, PPTX, DOC, DOCX ; 100 Mo et 300 pages maximum | Aide LinkedIn a523054 |
 | Newsletter | évaluation possible au-delà de **150 abonnés ou relations**, avec du contenu original récent et un historique conforme aux règles | Aide LinkedIn a591266 |
+| Page entreprise : logo | 400 × 400 px recommandés, 268 × 268 minimum, PNG ou JPEG, 3 Mo maximum | Aide LinkedIn a563309 « Image specifications for your LinkedIn Pages » |
+| Page entreprise : image de couverture | 1 512 × 256 px (les guides tiers qui disent 1 128 × 191 sont anciens) | Aide LinkedIn a563309 |
+| Image d'un post avec lien | ratio 1,91:1, soit 1 200 × 627 px | Aide LinkedIn a563309 |
+| Page entreprise : slogan et présentation | 120 caractères ; 2 000 caractères | cours LinkedIn Learning et sources tierces **[à vérifier dans l'éditeur]** |
 | Titre du profil | 220 caractères | consensus de sources tierces, compteur de l'éditeur **[à vérifier]** |
 | Section Infos | 2 600 caractères | consensus de sources tierces **[à vérifier]** |
 | Nombre de Skills (compétences) | 50 | consensus de sources tierces **[à vérifier]** |

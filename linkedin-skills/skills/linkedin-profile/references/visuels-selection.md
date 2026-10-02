@@ -18,8 +18,8 @@ trimestre.
 
 ### Titres et vignettes
 
-- Vignette personnalisée en **1 200 × 627 px** [observation de praticien,
-  format de partage de lien], fond contrasté, texte court et lisible.
+- Vignette personnalisée en **1 200 × 627 px** (ratio 1,91:1, officiel pour
+  les images de lien, Aide LinkedIn a563309), fond contrasté, texte court et lisible.
 - Un titre qui dit le bénéfice : « Comment Assurly a réactivé 212 contrats en
   6 semaines » plutôt que « Étude de cas ».
 - Pas de lien vers une page retirée (`contexte.md`, formulations retirées).

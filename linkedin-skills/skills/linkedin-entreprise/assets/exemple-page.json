@@ -1,0 +1,61 @@
+{
+ "sources": [
+  "page",
+  "statistiques",
+  "contexte"
+ ],
+ "date": "2026-10-02",
+ "nom": "Assurly",
+ "nom_avec_categorie": false,
+ "slogan": "L'assurance habitation en ligne pour les locataires",
+ "presentation": "Assurly est une société fondée en 2019 qui propose des solutions d'assurance innovantes et adaptées à vos besoins grâce à une approche centrée sur le client et une équipe passionnée.",
+ "informations": {
+  "site": true,
+  "secteur": true,
+  "taille": true,
+  "siege": true,
+  "creation": true,
+  "specialites_actuelles": false
+ },
+ "logo_net": true,
+ "couverture": "banque",
+ "bouton": {
+  "present": true,
+  "page_utile": false,
+  "utm": false
+ },
+ "epingle": {
+  "present": true,
+  "age_jours": 210,
+  "promeut_retire": true
+ },
+ "vitrines_a_jour": null,
+ "posts": [
+  {
+   "date": "2026-09-29",
+   "engagement": 0.012,
+   "original": false,
+   "hashtags": 6
+  },
+  {
+   "date": "2026-09-15",
+   "engagement": 0.018,
+   "original": true,
+   "hashtags": 5
+  },
+  {
+   "date": "2026-09-02",
+   "engagement": 0.009,
+   "original": false,
+   "hashtags": 4
+  }
+ ],
+ "engagement_historique_median": 0.016,
+ "reponses_sous_2h": false,
+ "equipe": {
+  "salaries": 120,
+  "relies_a_la_page": 74,
+  "titres_alignes": 5
+ },
+ "formulations_retirees_trouvees": 1
+}

@@ -1,0 +1,20 @@
+{
+ "version": "2.0",
+ "total": 100,
+ "applique_a": "page entreprise LinkedIn",
+ "note": "12 critères, 100 points, généralisés de page_rubric.json (JoshuaDIWork/Linkedin_SKILL, MIT). Chaque critère dit sa source : « page » (la page collée ou une capture), « statistiques » (export des statistiques de la page), « humaniseur » (/linkedin-human), « contexte » (contexte.md). Un critère dont la source manque est noté n/a, pas zéro, et la note est donnée sur les points notables.",
+ "criteres": [
+  {"id": "nom_slogan", "nom": "Nom et slogan", "points": 12, "source": ["page"], "effort_heures": 0.3, "note_maximale": "Le nom est celui de l'entreprise, sans catégorie ajoutée. Le slogan (120 caractères) dit qui l'entreprise aide et ce qui change pour eux, avec une preuve."},
+  {"id": "presentation_debut", "nom": "Présentation : avant « voir plus »", "points": 10, "source": ["page"], "effort_heures": 0.5, "note_maximale": "Les deux premières lignes nomment le problème du lecteur. Pas « Assurly est une société fondée en… »."},
+  {"id": "presentation_corps", "nom": "Présentation : le reste", "points": 10, "source": ["page", "contexte"], "effort_heures": 1.0, "note_maximale": "Les offres actuelles telles que contexte.md les nomme, un chiffre comme preuve, une porte d'entrée claire. Rien de retiré. 2 000 caractères au plus."},
+  {"id": "informations", "nom": "Informations de la page", "points": 6, "source": ["page", "contexte"], "effort_heures": 0.3, "note_maximale": "Site, secteur, taille, siège, date de création conformes à contexte.md ; spécialités = offres actuelles."},
+  {"id": "logo_couverture", "nom": "Logo et couverture", "points": 6, "source": ["page"], "effort_heures": 0.5, "note_maximale": "Logo net (400 × 400 recommandés). Couverture 1 512 × 256 avec une phrase de positionnement et un moyen de contact, pas une image de banque."},
+  {"id": "bouton", "nom": "Bouton d'action", "points": 6, "source": ["page"], "effort_heures": 0.2, "note_maximale": "Le bouton (site, contact, en savoir plus) pointe vers une page en ligne et utile, avec des paramètres UTM."},
+  {"id": "epingle_vitrines", "nom": "Post épinglé et pages vitrines", "points": 8, "source": ["page", "contexte"], "effort_heures": 0.5, "note_maximale": "Le post épinglé est récent et ne promeut rien de retiré ; les pages vitrines portent les noms d'offres actuels (ou n'existent pas)."},
+  {"id": "rythme", "nom": "Rythme de publication", "points": 10, "source": ["statistiques"], "effort_heures": 1.0, "note_maximale": "Au moins une publication par semaine sur les 4 dernières semaines (le rythme du plan), dernier post de moins de 7 jours."},
+  {"id": "qualite_posts", "nom": "Qualité des posts", "points": 8, "source": ["statistiques", "humaniseur"], "effort_heures": 1.0, "note_maximale": "Les 10 derniers posts passent l'humaniseur (aucune fuite, densité basse), 0 à 3 hashtags, plus d'originaux que de repartages."},
+  {"id": "engagement", "nom": "Engagement", "points": 8, "source": ["statistiques"], "effort_heures": 1.0, "note_maximale": "Taux d'engagement médian des 10 derniers posts comparé à l'historique de la page (pas à un benchmark extérieur) ; réponses aux commentaires sous 2 h."},
+  {"id": "alignement_equipe", "nom": "Alignement de l'équipe", "points": 8, "source": ["page"], "effort_heures": 1.0, "note_maximale": "Les salariés indiquent l'entreprise comme employeur actuel, reliée à la page, et leurs titres reprennent les formulations maison."},
+  {"id": "coherence", "nom": "Cohérence avec contexte.md", "points": 8, "source": ["page", "contexte", "humaniseur"], "effort_heures": 0.5, "note_maximale": "Aucune formulation retirée, noms de produits bien écrits, rien qui contredise contexte.md ou le site."}
+ ]
+}
