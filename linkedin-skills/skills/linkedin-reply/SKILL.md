@@ -136,6 +136,9 @@ de prix en public, concurrent qui se fait de la publicité) :
 
 - **150 à 300 caractères** en général, plus court qu'un commentaire ; une
   vraie question peut demander plus (400 au plus).
+- **La réponse d'abord.** Ne pas reformuler la question ni ré-expliquer ce
+  que la personne vient d'écrire : elle le sait (le « mauvais lecteur »,
+  `/linkedin-human`).
 - **Même registre** que le commentaire : tutoiement ou vouvoiement, longueur
   comparable. Deux lignes n'appellent pas dix lignes.
 - **Le prénom une fois, au début**, sans point d'exclamation derrière.

@@ -114,7 +114,8 @@ on écrit à quelqu'un qui reconnaît déjà le nom.
 ### Le premier message (après acceptation)
 
 - **2 à 4 phrases, 600 caractères au plus.**
-- **Reprendre la ligne propre** de la note ou du commentaire.
+- **Reprendre la ligne propre** de la note ou du commentaire, sans
+  ré-expliquer à la personne ce qu'elle a elle-même écrit.
 - **Donner avant de demander** : un chiffre, un modèle, un retour, une
   réponse à sa question. Tiré de `reserve.md`, jamais inventé.
 - **Une seule demande, petite**. « Pick your brain » devient **une question

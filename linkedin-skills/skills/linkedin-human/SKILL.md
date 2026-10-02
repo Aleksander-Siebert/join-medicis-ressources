@@ -53,6 +53,11 @@ français, le tiret cadratin n'a pas l'usage anglais.
 | **strict** (défaut) | forensique + lexique par densité, verbes vides, faux soutenu, calques, révélations, parallélismes, staccato, sincérité annoncée, triades creuses, couche LinkedIn 2026 | tout texte destiné à LinkedIn |
 | **esthétique** | strict + copule évitée (« constitue », « représente »), voix passive, dernière triade naturelle, vocabulaire 2023-2024 en déclin | sur demande, pour un lecteur qui chasse les tics ; aplatit les textes littéraires |
 
+Réponses et messages (`/linkedin-reply`, `/linkedin-dm`, `/linkedin-inbox`) :
+un marqueur de plus, **le mauvais lecteur** (la réponse ré-explique ce que
+l'autre sait déjà et la décision arrive en dernier ;
+`references/marqueurs-ia-fr.md`, section 12).
+
 Conflit entre la voix de l'utilisateur et une règle : forensique, on corrige
 toujours ; strict, on **demande** ; esthétique, on laisse. Détail et
 justification de chaque règle : `references/niveaux.md`.

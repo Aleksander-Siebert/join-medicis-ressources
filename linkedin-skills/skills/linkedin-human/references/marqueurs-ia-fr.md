@@ -271,6 +271,17 @@ Aucun humain ne les produit, une seule suffit :
 Les champs `{{à compléter}}` du pack ne sont pas des fuites : ce sont des trous
 volontaires, signalés à l'utilisateur.
 
+## 12. Écrire pour le mauvais lecteur (réponses et messages)
+
+D'après le motif 26 de humanizer (Siqi Chen, MIT). Ne s'applique qu'aux
+réponses : commentaires sous ses posts, messages privés, réponses en
+messagerie.
+
+| Signe | Exemple | Correction |
+|---|---|---|
+| la réponse ré-explique ce que l'autre sait déjà, et la décision arrive en dernier | « Comme tu le soulignes, le coût par lead augmente quand… Donc oui, on a rappelé 60 clients. » | commencer par la réponse ou la décision ; le contexte ensuite, seulement s'il manque à l'autre |
+| reformuler la question avant d'y répondre | « Tu me demandes comment on a fait pour rappeler 60 clients. » | supprimer, répondre |
+
 ## La passe finale
 
 Après la réécriture, pose-toi deux questions, réponds brièvement, corrige :
