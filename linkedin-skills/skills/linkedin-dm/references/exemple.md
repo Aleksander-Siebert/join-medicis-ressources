@@ -1,5 +1,8 @@
 # Exemple : du commentaire à la relance
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Utilisatrice fictive : Camille D., acquisition chez Assurly (assurly.example).
 Sarah M., directrice marketing d'un courtier en ligne, a demandé sous son post
 « Comment vous avez fait pour rappeler 60 clients sans y passer un mois ? »

@@ -9,7 +9,7 @@
      "angle": "couper 30% du budget payant ou raccourcir le délai : ce que ferait le lecteur"},
     {"jour": "2026-10-09", "heure": "08:30", "formule": "merci-nomme", "objectif": "partages",
      "pilier": "Équipe", "format": "image",
-     "angle": "Inès, qui a passé 3 semaines au téléphone avec les résiliés"}
+     "angle": "{{prénom}}, qui a passé 3 semaines au téléphone avec les résiliés"}
   ],
   "personnes": [
     {"nom": "{{pair 1}}", "groupe": "pair"}, {"nom": "{{pair 2}}", "groupe": "pair"},

@@ -116,6 +116,14 @@ def triades(text, lex):
         dernier = [i.lower().split()[-1] for i in items]
         creuse = (not recu) and all(w in abstraits for w in dernier)
         out.append({"match": m, "creuse": creuse})
+    # triade sans « et » : « Rapidité, transparence, proximité : »
+    vus = {o["match"].start() for o in out}
+    for m in re.finditer(r"(?<![\w,] )\b([\w'-]+), ([\w'-]+), ([\w'-]+)\s*(?=[:.!]|$)", text, re.M):
+        if m.start() in vus:
+            continue
+        items = [g.lower() for g in m.groups()]
+        if all(i in abstraits for i in items):
+            out.append({"match": m, "creuse": True})
     return out
 
 

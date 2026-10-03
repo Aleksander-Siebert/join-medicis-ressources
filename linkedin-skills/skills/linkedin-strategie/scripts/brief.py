@@ -148,9 +148,19 @@ def verifier(b):
         aud = b["audience"].strip()
         if not re.match(r"(?i)(les|des|l'|la|le|mes|nos|ces)\b", aud):
             aud = "les " + aud
-        phrase = f"J'aide {aud} à {b['probleme'].strip()} grâce à {b['angle'].strip()}."
+        # une audience avec une relative (« dont le coût monte ») demande une virgule avant « à »
+        virgule = "," if re.search(r"\b(?:dont|qui|que|où)\b", aud) else ""
+        phrase = f"J'aide {aud}{virgule} à {b['probleme'].strip()}, grâce à {b['angle'].strip()}."
         for faux, juste in ((" à les ", " aux "), (" à le ", " au "), ("grâce à les ", "grâce aux "), ("grâce à le ", "grâce au ")):
             phrase = phrase.replace(faux, juste)
+        # la phrase est un brouillon assemblé : on signale ce qui la rendra bancale
+        infinitif = re.compile(r"(?i)^(?:ne pas |n'|se |s')?[a-zàâçéèêëîïôûùüÿœ'-]+(?:er|ir|re|oir)\b")
+        if not infinitif.match(b["probleme"].strip()):
+            notes.append("Phrase de positionnement : le problème doit commencer par un verbe à l'infinitif "
+                         "(« baisser leur coût par lead », « garder leurs clients »), sinon « J'aide X à … » ne se lit pas.")
+        if infinitif.match(b["angle"].strip()) and not re.match(r"(?i)^(?:le|la|les|l'|un|une|des|leur|leurs|mon|ma|mes|notre|nos)\b", b["angle"].strip()):
+            notes.append("Phrase de positionnement : après « grâce à », un nom (« grâce à l'appel des clients partis »), "
+                         "pas un verbe (« grâce à rappeler »).")
 
     verdict, code = (("REFUSÉ", 3) if refus else ("À REPRENDRE", 2) if reprendre else ("VALIDE", 0))
     return {"verdict": verdict, "code": code, "refus": refus, "a_reprendre": reprendre, "notes": notes,

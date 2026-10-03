@@ -152,7 +152,7 @@ python3 evals/tout_tester.py
 Lance les tests de chaque script, les deux suites autonomes de la v1 et les
 tests d'intégrité du pack (frontmatter, fichiers cités, socle synchronisé,
 grilles sur 100, modèles vides). Les évaluations comparatives et leurs
-défaites sont dans [`evals/RESULTATS.md`](evals/RESULTATS.md).
+défaites sont dans [`evals/RESULTATS.md`](evals/RESULTATS.md) (v2 : 8 cas gagnés sur 10 contre les meilleures références, à l'aveugle).
 
 ## Licence
 

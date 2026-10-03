@@ -403,17 +403,23 @@ def motifs(posts, attributs, metrique="engagement"):
     soutenus = [c for c in candidats if c["verdict"] == "SOUTENU"]
     # motifs confondus : deux motifs qui désignent (presque) les mêmes posts ne sont qu'un seul signal
     groupes = []
+
+    def recouvre(c, ref):
+        """Les deux motifs désignent-ils (presque) les mêmes posts, dans un sens ou dans l'autre ?"""
+        commun = c["_connus"] & ref["_connus"]
+        if not commun:
+            return False
+        a, b = c["_posts"] & commun, ref["_posts"] & commun
+        for x, y in ((a, b), (a, commun - b)):
+            if x and y and len(x & y) / min(len(x), len(y)) >= 0.8:
+                return True
+        return False
+
     for c in soutenus:
         for gr in groupes:
-            ref = gr[0]
-            commun = c["_connus"] & ref["_connus"]
-            a, b = c["_posts"] & commun, ref["_posts"] & commun
-            if commun:
-                meme = len(a & b) / max(1, len(a | b))
-                inverse = len(a & (commun - b)) / max(1, len(a | (commun - b)))
-                if max(meme, inverse) >= 0.7:
-                    gr.append(c)
-                    break
+            if any(recouvre(c, ref) for ref in gr):
+                gr.append(c)
+                break
         else:
             groupes.append([c])
     confondus = [[f"{c['attribut']} = {c['valeur']}" for c in gr] for gr in groupes if len(gr) > 1]
@@ -440,7 +446,8 @@ def motifs(posts, attributs, metrique="engagement"):
 
 # ---------- expérience ----------
 
-def experience(hypothese, variable, cv, effet, posts_semaine, semaines_max=12, alpha=0.10, puissance=0.80):
+def experience(hypothese, variable, cv, effet, posts_semaine, semaines_max=12, alpha=0.10, puissance=0.80,
+               variante_a="{{variante A}}", variante_b="{{variante B}}"):
     if not hypothese.strip() or not variable.strip():
         return {"verdict": "REFUSÉ", "code": 3, "message": "Écris l'hypothèse et la seule variable qui change."}
     if cv <= 0 or effet <= 0 or posts_semaine <= 0:
@@ -472,7 +479,7 @@ def experience(hypothese, variable, cv, effet, posts_semaine, semaines_max=12, a
             "Ne pas regarder le résultat avant la fin : on arrête toujours au moment où ça arrange.",
         ],
         "critere_echec": critere,
-        "ligne_apprentissages": f"| {date.today().isoformat()} | {hypothese} | {variable} : A | {variable} : B | "
+        "ligne_apprentissages": f"| {date.today().isoformat()} | {hypothese} | {variable} : {variante_a} | {variable} : {variante_b} | "
                                 f"{n if faisable else possible} | {critere} | dans {fin} |",
     }
 
@@ -554,16 +561,18 @@ def main():
     e.add_argument("--hypothese", required=True)
     e.add_argument("--variable", required=True)
     e.add_argument("--cv", type=float, required=True)
-    e.add_argument("--effet", type=float, required=True, help="effet visé, relatif (0.30 = +30%)")
+    e.add_argument("--effet", type=float, required=True, help="effet visé, relatif (0.30 = +30%%)")
     e.add_argument("--posts-semaine", type=float, required=True)
     e.add_argument("--semaines-max", type=int, default=12)
     e.add_argument("--alpha", type=float, default=0.10)
     e.add_argument("--puissance", type=float, default=0.80)
+    e.add_argument("--a", default="{{variante A}}", help="la variante A (ex. « texte »)")
+    e.add_argument("--b", default="{{variante B}}", help="la variante B (ex. « carrousel »)")
     e.add_argument("--json", action="store_true")
     x = a.parse_args()
 
     if x.cmd == "experience":
-        r = experience(x.hypothese, x.variable, x.cv, x.effet, x.posts_semaine, x.semaines_max, x.alpha, x.puissance)
+        r = experience(x.hypothese, x.variable, x.cv, x.effet, x.posts_semaine, x.semaines_max, x.alpha, x.puissance, x.a, x.b)
         if x.json:
             print(json.dumps(r, ensure_ascii=False, indent=2))
         elif r["code"] == 3:

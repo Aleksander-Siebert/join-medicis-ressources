@@ -136,6 +136,19 @@ on écrit à quelqu'un qui reconnaît déjà le nom.
 - Un « non merci » ou une absence de réponse après la relance clôt la
   séquence, définitivement. Noter dans `journal.md` (prochaine étape : aucune).
 
+### Une liste de plusieurs personnes
+
+« Un message pour ma liste de 200 » : le garde-fou refuse le message unique
+(règle R5). Ce que le Skill livre à la place :
+
+1. **le volume tenable** de la semaine (`volume.py`) : combien d'invitations,
+   combien de minutes ;
+2. **un gabarit par contexte** où la ligne propre est un champ à écrire pour
+   chaque personne (`{{ce que tu as lu d'elle}}`), le reste court et sobre ;
+3. **les 3 à 5 premiers messages écrits en entier**, pour les personnes dont
+   l'utilisateur donne la ligne propre, chacun contrôlé ;
+4. **le contrôle du lot** (`message.py lot`) avant envoi.
+
 ## 5. Contrôler (scripts) et humaniser
 
 ```

@@ -119,6 +119,8 @@ class Motifs(unittest.TestCase):
         self.assertIn(("format", "texte"), soutenus)
         self.assertTrue(any("format = texte" in g and "jour = jeudi" in g for g in r["confondus"]))
         self.assertLess(r["signaux_distincts"], len(r["soutenus"]))
+        # longueur courte (tous des jeudis) : regroupée elle aussi (bug trouvé par l'éval à l'aveugle)
+        self.assertTrue(any("longueur = court (<800)" in g for g in r["confondus"]))
 
     def test_formules_non_testees(self):
         r = a.motifs(posts(), ["formule"])

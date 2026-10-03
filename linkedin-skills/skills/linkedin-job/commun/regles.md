@@ -118,7 +118,9 @@ Sans exécution de code : applique les mêmes règles à la main (liste dans
   trouve pas.
 - Style affirmatif, sans remplissage. Tutoiement ou vouvoiement selon
   `contexte.md` (défaut : tutoiement dans les posts, vouvoiement dans un
-  premier message à un inconnu).
+  premier message à un inconnu). Dans une même réponse, on parle à
+  l'utilisateur avec un seul registre ; le texte à publier garde celui de son
+  destinataire.
 - Tout texte destiné à LinkedIn passe par `/linkedin-human` (niveau strict)
   avant d'être montré. L'échantillon de l'utilisateur prime sur les règles de
   style, jamais sur les règles 1 à 3.
@@ -129,5 +131,13 @@ Sans exécution de code : applique les mêmes règles à la main (liste dans
   document créé sauf demande.
 - Chaque Skill a un format de sortie fixe (voir son SKILL.md) pour que deux
   passages restent comparables.
+- **La sortie d'un script est une matière, pas la réponse.** Ne colle pas un
+  bloc de 60 lignes : traduis en phrases et en tableaux courts ce qu'il dit,
+  sans jargon (« CV robuste », « bandes ») ou en l'expliquant en une ligne. Le
+  verdict du script (PRÊT, BLOQUÉ…) et ses chiffres restent cités tels quels.
+- **Livre la chose demandée.** « Fais-en des posts » rend au moins un post
+  écrit ; « humanise » rend un texte publiable. Les trous `{{à compléter}}`
+  vont dans une version enrichie, à côté d'une version publiable sans trou
+  (qui retire ce qui manque au lieu de l'inventer).
 - Termine par la liste « à vérifier » si elle n'est pas vide, puis propose
   **un** Skill suivant. N'enchaîne jamais un autre Skill sans le dire.

@@ -801,6 +801,20 @@
    "niveau": "strict",
    "epoque": "2025-2026",
    "equivalent_en": "couche LinkedIn 2026 (Serge Bulaev, liste anglaise) [inférence pour le français]"
+  },
+  {
+   "motif": "(?<!un )(?<!une )(?<!de )(?<!les )\\b[Vv]éritables?\\b",
+   "famille": "veritable",
+   "conseil": "« Véritable » gonfle sans rien ajouter. Retire-le.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:les? clés? du succès|la recette du succès|le secret (?:du succès|de la réussite)|voilà (?:la|les) clés?)\\b",
+   "famille": "cliche-succes",
+   "conseil": "Formule toute faite (« les clés du succès ») : dis ce qui a marché, avec un fait.",
+   "force": "fort",
+   "niveau": "strict"
   }
  ],
  "structures": [
@@ -847,7 +861,7 @@
   {
    "id": "revelation",
    "famille": "revelation",
-   "motif": "(?im)^(?:le |la |les |mon |ma )?(?:résultat|secret|problème|leçon|raison|vérité|solution|suite|twist|verdict|moralité|clé|conseil|différence)\\s*[?:!]\\s*",
+   "motif": "(?im)(?:^|(?<=[.!?] ))(?:le |la |les |mon |ma )?(?:résultat|secret|problème|leçon|raison|vérité|solution|suite|twist|verdict|moralité|clé|conseil|différence)\\s*[?:!]\\s*",
    "conseil": "« Le résultat ? » : pont de révélation. Donne le résultat sans le mettre en scène.",
    "force": "fort",
    "niveau": "strict"
@@ -1063,7 +1077,15 @@
    "qualité",
    "proximité",
    "simplicité",
-   "authenticité"
+   "authenticité",
+   "rapidité",
+   "réactivité",
+   "fiabilité",
+   "sécurité",
+   "flexibilité",
+   "sérénité",
+   "écoute",
+   "accompagnement"
   ]
  },
  "source_epoque": "Wikipédia EN « Signs of AI writing », listes par génération de modèle ; équivalent français par inférence, aucune étude française datée trouvée (vérifié le 2 oct. 2026)"

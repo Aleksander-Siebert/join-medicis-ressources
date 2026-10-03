@@ -55,10 +55,10 @@ Pas intéressé :
 
 Refuser en une phrase, **et donner la réponse** :
 
-> Léo, je ne peux pas prendre de café ce mois-ci, mais voici ce que je vous
-> aurais dit : pour un mémoire sur la fidélisation en assurance, partez des
-> motifs de résiliation, pas des taux. Les taux, tout le monde les a ; les
-> motifs, personne ne les demande. Bon courage pour la suite.
+> Léo, pas de café possible ce mois-ci. Pour un mémoire sur la fidélisation
+> en assurance, partez des motifs de résiliation, pas des taux. Les taux,
+> tout le monde les a ; les motifs, personne ne les demande. Bon courage pour
+> la suite.
 
 Demande précise et rapide (moins de 10 minutes) : la faire, sans contrepartie.
 

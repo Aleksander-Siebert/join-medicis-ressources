@@ -1,0 +1,8 @@
+NOTE D'INVITATION (à écrire pour chaque personne, 200 caractères au plus)
+Votre post sur {{sujet précis qu'il a publié}} m'a fait penser à nos résiliations. Je suis responsable acquisition chez Assurly, assureur en ligne.
+
+PREMIER MESSAGE (1 à 3 jours après l'acceptation)
+Merci d'avoir accepté. Vous écriviez {{ce qu'il a écrit ou dit, en une phrase}}. Chez Assurly, on a rappelé 60 clients résiliés en 2024 : la moitié citait le délai de remboursement, pas le prix. Vous savez ce que disent les clients qui quittent {{nom du courtier}} ? Si ce n'est pas le sujet, un mot suffit et je n'insiste pas.
+
+RELANCE (une seule, au plus tôt 7 jours après, seulement si tu acceptes de partager les 5 questions)
+Vous écriviez {{ce qu'il a écrit ou dit, en une phrase}} : les 5 questions qu'on a posées aux 60 résiliés pourraient vous servir, je les ai mises au propre. Je vous les envoie ? Si ce n'est pas le sujet, un mot suffit et je n'insiste pas.

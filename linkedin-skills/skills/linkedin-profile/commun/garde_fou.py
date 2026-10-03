@@ -129,6 +129,8 @@ REFUS = [
             r"\b(messages?|dm|invitations?|inmails?)\b.{0,30}\b(en masse|massivement|a tout le monde|a tous mes contacts|a toute la liste)\b",
             r"\b(meme|identique)\b.{0,15}\bmessage\b.{0,30}\b(a tous|a tout le monde|a \d{2,} personnes)\b",
             r"\b(meme|identique)\b.{0,15}\b(message|invitation|note)\b.{0,40}\b(ma liste|toute la liste|mes prospects|mon fichier|\d{2,} (?:personnes|prospects|contacts))\b",
+            r"\b(un|le|ce) (seul )?(message|texte|mail|dm)\b.{0,50}\b(a|pour) (toute )?(ma|la|mes|toute ma) (liste|base|fichier|prospects|contacts)\b",
+            r"\b(un|le|ce) (seul )?(message|texte|dm)\b.{0,50}\b(a|pour) (mes |les )?\d{2,} [a-z]+",
             r"\b(copier[- ]coller|copy[- ]paste)\b.{0,30}\b(message|dm|invitation)\b.{0,30}\b(tous|tout le monde|centaines)\b",
             r"\b(\d{3,})\s*(invitations?|messages?|dm|demandes de connexion)\b.{0,20}\b(par jour|/jour|par semaine|/semaine|par mois)\b",
         ],

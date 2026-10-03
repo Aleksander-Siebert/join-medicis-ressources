@@ -273,6 +273,25 @@ def garde_anti_sur_correction():
     assert "staccato" in texte and "sincérité" in texte and "je" in texte, alertes
 
 
+@case
+def evaluation_v2_cas_7_tous_les_tics():
+    # cas 7 de l'éval à l'aveugle (octobre 2026) : 7 tics, dont 3 que la v2.0 ratait
+    from marqueurs import find_flags
+    t = ("Dans un monde en constante évolution, la fidélisation est un enjeu crucial, véritable pilier de la "
+         "croissance. Nos équipes ont rappelé 60 clients. Le résultat ? Le délai. Rapidité, transparence, "
+         "proximité : voilà les clés du succès.")
+    familles = {f["famille"] for f in find_flags(t, LEX)}
+    for attendu in ("veritable", "revelation", "triade", "cliche-succes"):
+        assert attendu in familles, (attendu, familles)
+
+
+@case
+def fidelite_trou_ajoute_non_bloquant():
+    from fidelite import comparer
+    r = comparer("On a rappelé 60 clients.", "On a rappelé 60 clients en {{à compléter : durée}}.")
+    assert r["code"] == 2 and r["trous"] and not r["ajouts"], r
+
+
 if __name__ == "__main__":
     failed = 0
     for fn in CASES:

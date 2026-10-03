@@ -96,7 +96,9 @@ def planifier(minutes, etape="depart", posts=None, formats=None, messages=0, cou
         raise ValueError(f"format inconnu : {', '.join(inconnus)} (connus : {', '.join(k for k in cout if k not in ('commentaire', 'message', 'reponses'))})")
     cout_posts = sum(cout[f] + cout["reponses"] for f in liste)
     cout_messages = messages * cout["message"]
-    comm_mini = e["commentaires_par_jour"] * jours
+    # le minimum de commentaires suit la part d'engagement de l'étape : à petit budget, il
+    # ne doit pas manger le temps du seul post de la semaine (au moins 1 par jour ouvré)
+    comm_mini = min(e["commentaires_par_jour"] * jours, max(jours, engagement // cout["commentaire"]))
     cout_comm_mini = comm_mini * cout["commentaire"]
     besoin = cout_posts + cout_messages + cout_comm_mini
     constats = []

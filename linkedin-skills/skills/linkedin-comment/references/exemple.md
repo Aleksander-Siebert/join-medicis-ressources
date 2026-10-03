@@ -1,5 +1,8 @@
 # Exemple : une session de commentaires
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Utilisatrice fictive : Camille (acquisition, assurance en ligne). Elle colle
 3 posts et le fichier de priorité qu'elle a noté avec l'aide du Skill
 (`assets` non requis : le JSON tient dans la conversation).

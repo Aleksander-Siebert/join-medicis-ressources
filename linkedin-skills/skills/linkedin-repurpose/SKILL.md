@@ -47,7 +47,7 @@ utilisées », formules récentes) et `reserve.md`.
 ## 2. Découper (script)
 
 ```
-python3 scripts/registre.py decouper --fichier source.txt --type {{video|podcast|article|…}} \
+python3 scripts/registre.py decouper --fichier source.txt --type {{video|webinaire|podcast|article|…}} \
   --journal ~/.claude/linkedin/journal.md --source "{{nom de la source}}"
 ```
 
@@ -163,11 +163,16 @@ PROPOSITION
       il manque : {{ce que ça a coûté | ce que tu croyais | ce que tu ferais autrement}}
       traces retirées : {{…}}
 …
-Dis « écris le 1 » et /linkedin-post le rédige.
+LE 1, RÉDIGÉ :
+{{post complet}}
+
+Dis « écris le 2 » pour la suite.
 ```
 
-Rédige ensuite **un post à la fois**, chacun par `/linkedin-post` puis
-`/linkedin-human`. Quatre posts finis d'un coup se ressembleraient tous, et
+Rédige **tout de suite le premier post** (l'unité la plus forte), complet,
+par `/linkedin-post` puis `/linkedin-human`, avec la phrase personnelle en
+`{{à compléter}}` si l'utilisateur ne l'a pas donnée. Les suivants, un à la
+fois, sur demande : quatre posts finis d'un coup se ressembleraient tous, et
 l'utilisateur n'en relirait aucun.
 
 ## Erreurs et cas limites

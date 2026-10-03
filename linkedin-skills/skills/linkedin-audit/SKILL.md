@@ -137,6 +137,12 @@ accepter un seuil plus haut, ou renoncer.
 
 ## Sortie (format fixe)
 
+Les sections ci-dessous, toujours dans cet ordre, **écrites en phrases et en
+tableaux courts**, pas en sortie brute de script : la personne qui lit est
+une marketeuse, pas une statisticienne (« écart typique » plutôt que « MAD »).
+Quand des motifs sont confondus, un tableau qui les met côte à côte (voir
+`references/exemple.md`) explique mieux qu'une liste de p-valeurs.
+
 ```
 AUDIT · {{n}} posts · {{période}} · {{voix}}
 

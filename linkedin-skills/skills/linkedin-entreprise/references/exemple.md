@@ -1,5 +1,8 @@
 # Exemple : la page et l'équipe d'Assurly
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Entreprise fictive : Assurly (assurly.example), assurance habitation en ligne
 pour locataires, 120 salariés. Entrées : `assets/exemple-page.json` et
 `assets/exemple-equipe.json`. Sorties recopiées telles quelles.

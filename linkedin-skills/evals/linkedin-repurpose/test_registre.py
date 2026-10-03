@@ -88,6 +88,9 @@ class Registre(unittest.TestCase):
             self.assertEqual(reg[0]["date"], date(2026, 10, 6))
             self.assertIn("## Candidatures", j.read_text(encoding="utf-8"))
 
+    def test_type_webinaire(self):
+        self.assertEqual(r.decouper(SOURCE, "webinaire")["rendement_attendu"], "3 à 6")
+
     def test_cli(self):
         p = subprocess.run([sys.executable, str(SCRIPT), "decouper", "--fichier", str(ICI / "source-exemple.md")],
                            capture_output=True, text=True)

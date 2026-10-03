@@ -1,5 +1,8 @@
 # Exemple complet : de la matière au reçu
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Personne fictive : Camille, responsable acquisition chez Assurly
 (assurly.example). Sorties des scripts recopiées telles quelles.
 

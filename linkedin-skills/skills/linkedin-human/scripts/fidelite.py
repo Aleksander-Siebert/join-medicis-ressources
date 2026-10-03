@@ -78,7 +78,8 @@ def noms(texte: str) -> set:
 
 def extraire(texte: str) -> dict:
     liens = {m.group(0).rstrip(".,;:!?)") for m in RE_LIEN.finditer(texte)}
-    sans_liens = RE_LIEN.sub(" ", texte)
+    # le contenu d'un champ {{…}} n'est pas un fait : on ne l'extrait pas
+    sans_liens = RE_CHAMP.sub(" ", RE_LIEN.sub(" ", texte))
     return {
         "chiffres": {norme_nombre(m.group(0)) for m in RE_NOMBRE.finditer(sans_liens)
                      if not RE_DATE.fullmatch(m.group(0).strip())},
@@ -109,8 +110,17 @@ def comparer(avant: str, apres: str) -> dict:
     # Un champ {{…}} qui disparaît a été « rempli » : c'est un ajout de fait à confirmer.
     if "a_completer" in pertes:
         ajouts.setdefault("champs_remplis", pertes.pop("a_completer"))
-    verdict, code = ("AJOUTS", 3) if ajouts else ("PERTES", 2) if pertes else ("FIDÈLE", 0)
-    return {"verdict": verdict, "code": code, "ajouts": ajouts, "pertes": pertes}
+    # un champ {{…}} nouveau est un trou honnête, pas un fait inventé : signalé, jamais bloquant
+    trous = ajouts.pop("a_completer", [])
+    if ajouts:
+        verdict, code = "AJOUTS", 3
+    elif pertes:
+        verdict, code = "PERTES", 2
+    elif trous:
+        verdict, code = "FIDÈLE, AVEC TROUS", 2
+    else:
+        verdict, code = "FIDÈLE", 0
+    return {"verdict": verdict, "code": code, "ajouts": ajouts, "pertes": pertes, "trous": trous}
 
 
 NOMS = {"chiffres": "chiffres", "dates": "dates", "noms": "noms", "citations": "citations",
@@ -127,7 +137,10 @@ def afficher(r: dict) -> str:
         L.append("\n! Perdu (présent dans l'original) :")
         for k, v in r["pertes"].items():
             L.append(f"  {NOMS[k]} : " + ", ".join(v))
-    if r["code"] == 0:
+    if r.get("trous"):
+        L.append("\n! Champs à compléter ajoutés (à remplir par l'utilisateur, aucun fait inventé) :")
+        L.append("  " + ", ".join(r["trous"]))
+    if not r["ajouts"] and not r["pertes"]:
         L.append("Aucun chiffre, date, nom, citation ou lien ajouté ou perdu.")
     return "\n".join(L)
 

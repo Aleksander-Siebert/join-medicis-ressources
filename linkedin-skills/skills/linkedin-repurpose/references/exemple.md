@@ -1,5 +1,8 @@
 # Exemple : un webinaire de 23 minutes
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Utilisatrice fictive : Camille D., acquisition chez Assurly
 (assurly.example). Elle colle la transcription de son webinaire sur les
 résiliations (`evals/linkedin-repurpose/source-exemple.md`). Son registre
@@ -70,7 +73,23 @@ JEU  liste-promise  carrousel  « Les 5 questions qu'on pose à un client parti 
       il manque : ce que tu ferais autrement (une 6e question ? un ordre différent ?)
 
 Pas de 3e post cette semaine : l'unité des 60 appels est déjà sortie le 8 septembre.
-Dis « écris le 1 » et /linkedin-post le rédige.
+
+LE 1, RÉDIGÉ (contrôle : lint_post.py PRÊT 100/100 · humaniseur 100 OK · 505 caractères)
+En mars 2024, on a mesuré pour la première fois notre taux de départ à six mois : 31%.
+
+Personne dans l'équipe n'y croyait.
+
+Notre coût par lead était monté à 41 €, et on pensait que le problème venait de l'acquisition. On a passé deux comités à parler de budget payant avant que quelqu'un demande pourquoi les clients partaient.
+
+On a raccourci le délai de remboursement de 12 à 5 jours. Le coût par lead est redescendu à 23 € en 4 mois, à budget constant.
+
+Ton taux de départ à six mois, tu le connais ?
+
+Version enrichie : entre le délai et la question, une phrase à toi :
+{{à compléter : ce que tu ferais autrement aujourd'hui}}. C'est elle qui fait
+de ce post le tien et pas le résumé d'un webinaire.
+
+Dis « écris le 2 » pour le carrousel.
 ```
 
 ## Après publication

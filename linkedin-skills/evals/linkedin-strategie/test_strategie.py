@@ -25,8 +25,14 @@ class Budget(unittest.TestCase):
     def test_ne_tient_pas_chiffre(self):
         r = bu.planifier(240, "depart", 4)
         self.assertEqual(r["code"], 3)
-        self.assertEqual(r["besoin"], 330)
-        self.assertEqual(r["depassement"], 90)
+        self.assertEqual(r["besoin"], 324)
+        self.assertEqual(r["depassement"], 84)
+
+    def test_petit_budget_garde_un_post(self):
+        # 120 min en étape « départ » : 1 post et 12 commentaires, pas « 0 post »
+        r = bu.planifier(120, "depart")
+        self.assertEqual(r["code"], 0)
+        self.assertEqual(len(r["plan"]["posts"]), 1)
 
     def test_couts_personnalises(self):
         r = bu.planifier(320, "depart", 2, cout={"texte": 60})

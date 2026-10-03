@@ -175,11 +175,26 @@ def _():
     assert len(d) <= 1024, f"aiguilleur : {len(d)} caractères"
 
 
-@test("scripts : --help répond sans erreur")
+@test("scripts : --help répond sans erreur, sous-commandes comprises")
 def _():
     for f in sorted((PACK / "skills").glob("*/scripts/*.py")):
         p = subprocess.run([sys.executable, str(f), "--help"], capture_output=True, text=True)
         assert p.returncode == 0, f"{f.relative_to(PACK)} : {p.stderr[-300:]}"
+        m = re.search(r"\{([\w,-]+)\}", p.stdout)
+        for sous in (m.group(1).split(",") if m else []):
+            q = subprocess.run([sys.executable, str(f), sous, "--help"], capture_output=True, text=True)
+            assert q.returncode == 0, f"{f.relative_to(PACK)} {sous} --help : {q.stderr[-300:]}"
+
+
+@test("aucun caractère de contrôle dans les fichiers du pack")
+def _():
+    fautes = []
+    for f in list(PACK.rglob("*.py")) + list(PACK.rglob("*.md")) + list(PACK.rglob("*.json")):
+        if "__pycache__" in str(f):
+            continue
+        if re.search(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", f.read_text(encoding="utf-8")):
+            fautes.append(str(f.relative_to(PACK)))
+    assert not fautes, ", ".join(fautes)
 
 
 if __name__ == "__main__":

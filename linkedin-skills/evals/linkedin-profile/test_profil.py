@@ -95,9 +95,9 @@ class Audit(unittest.TestCase):
         apres = a.auditer(json.loads((SKILL / "exemples" / "profil-apres.json").read_text(encoding="utf-8")))
         self.assertEqual(avant["verdict"], "FAIBLE")
         self.assertEqual(apres["verdict"], "SOLIDE")
-        self.assertEqual((avant["note"], avant["sur"]), (27, 93))
+        self.assertEqual((avant["note"], avant["sur"]), (25, 93))
         self.assertEqual((apres["note"], apres["sur"]), (78, 93))
-        self.assertEqual(avant["fourchette_sur_100"], [27, 34])
+        self.assertEqual(avant["fourchette_sur_100"], [25, 32])
 
     def test_plan_premiere_heure_tient_en_une_heure(self):
         r = a.auditer(a.EXEMPLE)

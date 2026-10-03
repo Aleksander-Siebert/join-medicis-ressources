@@ -227,7 +227,8 @@ def trier(fils, actives=None, offre=()):
         sortie.append({"de": fil["de"], "titre": fil.get("titre", ""), "categorie": cat, "indices": ind,
                        "a_repondu": any(m.get("moi") for m in fil["messages"]),
                        "dernier": recus[-1].get("recu", "") if recus else "",
-                       "extrait": (recus[0]["texte"] if recus else "")[:110], "delai": DELAIS[cat]})
+                       "extrait": (recus[0]["texte"] if recus else "")[:110], "texte": recus[0]["texte"] if recus else "",
+                       "delai": DELAIS[cat]})
     comptes = {c: sum(1 for s in sortie if s["categorie"] == c) for c in actives}
     ordre = {c: i for i, c in enumerate(["prospect", "partenaire", "recruteur", "candidat", "demande", "pair", "spam"])}
     sortie.sort(key=lambda s: ordre[s["categorie"]])
@@ -237,6 +238,15 @@ def trier(fils, actives=None, offre=()):
             cle = s["indices"][0] if s["indices"] else "démarchage"
             familles[cle] = familles.get(cle, 0) + 1
     return {"total": len(fils), "comptes": comptes, "fils": sortie, "spam_par_indice": familles}
+
+
+def note_crm(texte, maxi=300):
+    """Le message, coupé à la fin d'une phrase (jamais au milieu)."""
+    texte = " ".join(texte.split())
+    if len(texte) <= maxi:
+        return texte
+    coupe = max(texte.rfind(p, 0, maxi) for p in (". ", "? ", "! "))
+    return texte[:coupe + 1] if coupe > 40 else texte[:maxi].rsplit(" ", 1)[0] + " […]"
 
 
 def crm(fils, offre=(), fmt="csv"):
@@ -253,7 +263,7 @@ def crm(fils, offre=(), fmt="csv"):
         lignes.append({"Prénom": prenom, "Nom": nom, "Poste": poste.strip(), "Entreprise": entreprise.strip(),
                        "Source": f"LinkedIn, message reçu le {recu}", "Date d'entrée": aujourd_hui,
                        "Base légale": "contact entrant, mesures précontractuelles ou intérêt légitime [à valider]",
-                       "Note": s["extrait"], "Prochaine étape": "répondre aujourd'hui", "Échéance": aujourd_hui})
+                       "Note": note_crm(s["texte"]), "Prochaine étape": "répondre aujourd'hui", "Échéance": aujourd_hui})
     buf = io.StringIO()
     if lignes:
         w = csv.DictWriter(buf, fieldnames=list(lignes[0]), delimiter="\t" if fmt == "tsv" else ";")

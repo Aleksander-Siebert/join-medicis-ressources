@@ -1,5 +1,8 @@
 # Exemple : l'audit de 14 posts
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Utilisatrice fictive : Camille D., acquisition chez Assurly
 (assurly.example). 14 posts de mai et juin 2026, recopiés de ses statistiques
 dans le modèle (`evals/linkedin-audit/posts-exemple.csv`) ; formules et
@@ -45,8 +48,7 @@ MOTIFS  MOTIFS TROUVÉS · 14 posts · écart de médianes, test de permutation 
   · longueur : seul « court (<800) » est testé, « moyen (800-1500) » est la même comparaison inversée
   · reponse : seul « non » est testé, « oui » est la même comparaison inversée
   · jour : seul « jeudi » est testé, « mardi » est la même comparaison inversée
-  ! Confondus : format = texte, reponse = non, jour = jeudi désignent presque les mêmes posts. C'est un seul signal ; la cause ne se sépare qu'avec une expérience.
-  ! Confondus : pilier = Acquisition, pilier = Rétention désignent presque les mêmes posts. C'est un seul signal ; la cause ne se sépare qu'avec une expérience.
+  ! Confondus : format = texte, pilier = Acquisition, pilier = Rétention, longueur = court (<800), reponse = non, jour = jeudi désignent presque les mêmes posts. C'est un seul signal ; la cause ne se sépare qu'avec une expérience.
   6 motif(s) testé(s) au seuil de 0,1 : le hasard seul en ferait passer environ 0,6. 6 passe(nt). C'est plus que le hasard : un indice, à confirmer par une expérience.
   Un motif trouvé dans des posts passés est une hypothèse : tu as fait des carrousels quand tu avais de la matière structurée, sur des sujets que tu connaissais, des semaines où tu avais du temps.
   · (13 motifs non testés : moins de 5 posts dedans, dont toutes les formules)
@@ -54,43 +56,51 @@ MOTIFS  MOTIFS TROUVÉS · 14 posts · écart de médianes, test de permutation 
 
 ## Ce que le Skill en dit
 
-```
-AUDIT · 14 posts · 5 mai au 18 juin 2026 · profil
+**AUDIT · 14 posts · 5 mai au 18 juin 2026 · profil**
 
-RÉSULTATS QUI COMPTENT
-  3 conversations ou prospects sur la période : 1 venu d'un commentaire,
-  1 d'un message après le post du 2 juin, 1 d'un événement.
+**Ce qui compte d'abord.** 3 conversations ou prospects sur la période : un
+venu d'un commentaire, un par message après le post du 2 juin, un après un
+événement.
 
-DESCRIPTION
-  médiane 2,3% · écart absolu médian 0,7% · CV 0,447
-  les 4 posts « forts » sont des textes sur la rétention, avec réponse rapide.
+**Ton niveau habituel.** La moitié de tes posts font plus de 2,3% de taux
+d'engagement (réactions, commentaires et republications, divisés par les
+impressions). D'un post à l'autre, l'écart typique est de 0,7 point. Aucun
+post ne sort vraiment du lot.
 
-CE QUE DISENT LES DONNÉES
-  1. Un seul signal, pas six : texte, réponse rapide et mardi désignent les
-     mêmes posts (confondus). Les posts de ce groupe font environ +77% de
-     taux d'engagement (n = 9 contre 5). On ne sait pas lequel des trois
-     joue : le jour est le moins probable, et le plus facile à croire.
-  2. Rétention contre acquisition : +73% pour la rétention (n = 5 contre 9),
-     confondu avec l'autre axe des piliers. À relire avec le point 1 : les
-     posts sur la rétention sont aussi des textes.
-  3. Formules : aucune n'a 5 posts. Rien à conclure sur « liste-promise »
-     malgré 4 posts dans le bas du classement : c'est une piste, pas une
-     preuve.
-  Hypothèses, pas conclusions : les carrousels ont été faits avec des listes,
-  sur l'acquisition, sans réponse rapide.
+**Ce que disent les données : un seul signal, pas six.** Tes posts du mardi
+et ceux du jeudi ne se ressemblent en rien :
 
-À TESTER
-  Le format, à pilier égal : texte contre carrousel sur la rétention,
-  alternés, 10 posts par variante, environ 7 semaines à 3 posts par semaine.
-  Critère d'échec écrit avant.
+| | les 7 posts du mardi | les 7 posts du jeudi |
+|---|---|---|
+| format | 7 textes | 2 textes, 3 carrousels, 2 images |
+| pilier | 5 rétention, 1 acquisition, 1 équipe | 5 acquisition, 1 équipe, 1 rétention |
+| longueur | 980 à 1 500 caractères | 600 à 820 caractères |
+| réponse aux commentaires dans les 2 h | 7 sur 7 | 0 sur 7 |
+| taux d'engagement (médiane) | 3,0% | 1,6% |
 
-ARRÊTER : rien sur ces données.   FAIRE PLUS : répondre dans les 2 heures
-(peu coûteux, et dans le groupe qui marche).   NE PLUS OPTIMISER : le jour.
+Le mardi fait mieux, mais il change cinq choses à la fois. Le jour est
+l'explication la moins probable, et la plus facile à croire : tu as sans
+doute publié tes meilleurs sujets le mardi, quand tu avais le temps de
+répondre. Aucune statistique sur ces 14 posts ne dira laquelle des cinq
+compte.
 
-Proposition pour apprentissages.md :
-  Expériences en cours : la ligne ci-dessous.
-  Rien en « Ce qui marche » : aucun motif ne sépare une cause.
-```
+**Ce qu'on ne peut pas dire.** Les carrousels : 3 posts seulement, tous le
+jeudi, tous sans réponse rapide. « Les carrousels ne marchent pas » n'est
+pas testable ici. Les formules non plus : aucune n'a 5 posts.
+
+**À tester.** Le format, tout le reste égal : texte et carrousel sur la
+rétention, le mardi, avec réponse dans les 2 h, en alternant. 10 posts par
+format, environ 7 semaines à 3 posts par semaine. Critère d'échec écrit
+avant : si les textes ne font pas au moins 50% de mieux que les carrousels,
+l'idée est abandonnée. (En 12 semaines, ton rythme ne permet pas de voir un
+écart plus petit que 37%.)
+
+**Arrêter :** rien sur ces données. **Faire plus :** répondre dans les 2 h,
+c'est gratuit et c'est dans le groupe qui marche. **Ne plus optimiser :** le
+jour.
+
+**Pour apprentissages.md :** la ligne d'expérience ci-dessous, rien en « Ce
+qui marche » tant que la cause n'est pas séparée.
 
 ## L'expérience (sortie réelle)
 
@@ -102,5 +112,5 @@ EXPÉRIENCE  FAISABLE · 10 posts par variante, 20 au total, environ 7 semaines 
   - Ne pas regarder le résultat avant la fin : on arrête toujours au moment où ça arrange.
   Critère d'échec : Si, après 10 posts par variante, la médiane de la variante B ne dépasse pas celle de A d'au moins 50%, l'hypothèse est abandonnée.
   Ligne pour apprentissages.md (Expériences en cours) :
-  | 2026-10-02 | Les posts texte font plus réagir que les carrousels, à pilier égal | format : A | format : B | 10 | Si, après 10 posts par variante, la médiane de la variante B ne dépasse pas celle de A d'au moins 50%, l'hypothèse est abandonnée. | dans 7 semaines |
+  | 2026-10-03 | Les posts texte font plus réagir que les carrousels, à pilier égal | format : carrousel | format : texte | 10 | Si, après 10 posts par variante, la médiane de la variante B ne dépasse pas celle de A d'au moins 50%, l'hypothèse est abandonnée. | dans 7 semaines |
 ```

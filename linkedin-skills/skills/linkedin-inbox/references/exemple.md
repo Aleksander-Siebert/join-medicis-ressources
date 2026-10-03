@@ -1,5 +1,8 @@
 # Exemple : une messagerie de 7 fils
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Utilisatrice fictive : Camille D., acquisition chez Assurly
 (assurly.example). Son `contexte.md` liste une offre « étude des
 résiliations » (LIVE) et les catégories par défaut. Elle colle 7 fils
@@ -59,9 +62,9 @@ Camille n'a pas dit si elle cherche un poste : deux brouillons, à choisir.
 
 DEMANDE · cette semaine
 @Léo T. · « 30 minutes pour un café virtuel »
-> Léo, je ne peux pas prendre de café ce mois-ci, mais voici ce que je vous
-> aurais dit : partez des motifs de résiliation, pas des taux. Les taux, tout
-> le monde les a ; les motifs, personne ne les demande.
+> Léo, pas de café possible ce mois-ci. Pour votre mémoire, partez des
+> motifs de résiliation, pas des taux. Les taux, tout le monde les a ; les
+> motifs, personne ne les demande.
 
 PAIR
 @Marc W. · déjà répondu, rien à faire.
@@ -78,7 +81,7 @@ CRM : 1 ligne (Nadia K.), voir le bloc CSV.
 
 ```
 Prénom;Nom;Poste;Entreprise;Source;Date d'entrée;Base légale;Note;Prochaine étape;Échéance
-Nadia;K.;Directrice marketing;Mutuelle régionale;LinkedIn, message reçu le 2026-09-29;2026-10-02;contact entrant, mesures précontractuelles ou intérêt légitime [à valider];Bonjour Camille, j'ai lu votre post sur les 60 appels aux résiliés. On a le même problème de départs à 6 mois.;répondre aujourd'hui;2026-10-02
+Nadia;K.;Directrice marketing;Mutuelle régionale;LinkedIn, message reçu le 2026-09-29;2026-10-03;contact entrant, mesures précontractuelles ou intérêt légitime [à valider];Bonjour Camille, j'ai lu votre post sur les 60 appels aux résiliés. On a le même problème de départs à 6 mois. Vous accompagnez des équipes sur ce type d'étude ? On aurait un projet pour le premier trimestre.;répondre aujourd'hui;2026-10-03
 ```
 
 ## Ce que le Skill n'a pas fait

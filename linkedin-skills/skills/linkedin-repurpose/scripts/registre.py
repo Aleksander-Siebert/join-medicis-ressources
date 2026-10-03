@@ -64,7 +64,7 @@ TRACES = [
     (r"\b\d{1,2}:\d{2}(?::\d{2})?\b", "horodatage de transcription"),
     (r"\[(?:musique|rires|applaudissements|inaudible)\]|\b(?:euh|bah|hein|du coup du coup)\b", "tics d'oral de transcription"),
 ]
-RENDEMENT = {"conference": "4 à 8", "video": "3 à 6", "podcast": "3 à 6", "article": "3 à 6", "newsletter": "2 à 5",
+RENDEMENT = {"conference": "4 à 8", "video": "3 à 6", "webinaire": "3 à 6", "podcast": "3 à 6", "article": "3 à 6", "newsletter": "2 à 5",
              "fil": "1 à 3", "tweet": "1", "instagram": "1 à 2", "appel": "1 à 3"}
 STOP = set("""a au aux avec ce ces cet cette c'est dans de des du elle en et eux il ils je j'ai la le les leur leurs lui ma mais me
 meme mes moi mon ne nos notre nous on ou par pas pour qu que qui sa se ses si son sur ta te tes toi ton tu un une vos votre vous y

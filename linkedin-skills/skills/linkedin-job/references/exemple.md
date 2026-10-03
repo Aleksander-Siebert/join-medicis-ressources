@@ -1,5 +1,8 @@
 # Exemple : une recherche de poste, du profil au suivi
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Utilisatrice fictive : Camille D., acquisition chez Assurly
 (assurly.example), en poste. Elle vise un poste de Head of Growth dans
 l'assurance, à Paris, en hybride ou à distance, discrètement.

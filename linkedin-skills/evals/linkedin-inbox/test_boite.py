@@ -84,6 +84,11 @@ class Crm(unittest.TestCase):
         self.assertIn("Nadia;K.;Directrice marketing;Mutuelle régionale;LinkedIn, message reçu le 2026-09-29", ligne)
         self.assertIn("[à valider]", ligne)
 
+    def test_note_crm_entiere(self):
+        _, ligne = b.crm(b.lire((ICI / "boite-exemple.txt").read_text(encoding="utf-8")), OFFRE)[0].strip().splitlines()
+        self.assertIn("On aurait un projet pour le premier trimestre.", ligne)
+        self.assertTrue(b.note_crm("Phrase un. " * 40).endswith("."))
+
     def test_tsv(self):
         texte, _ = b.crm(b.lire((ICI / "boite-exemple.txt").read_text(encoding="utf-8")), OFFRE, "tsv")
         self.assertIn("\t", texte.splitlines()[0])

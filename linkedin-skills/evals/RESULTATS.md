@@ -1,71 +1,106 @@
-# Résultats de l'évaluation v1.0 (1er octobre 2026)
+# Résultats de l'évaluation v2.0 (2 et 3 octobre 2026)
 
-Les 8 cas de [`evals.json`](evals.json) ont été joués deux fois par Claude, chaque
-fois avec un seul pack installé :
+10 tâches réelles ont été jouées deux fois par Claude, chaque fois avec un
+seul jeu de Skills :
 
-- **référence** : [linkedin-agent-skill](https://github.com/Jakeschincariol/linkedin-agent-skill)
-  de Jake Schincariol, le pack d'origine (en anglais), avec ses scripts ;
-- **v1** : ce pack.
+- **v2** : ce pack ;
+- **référence** : pour chaque tâche, le meilleur Skill open-source analysé
+  pour ce sujet (tableau ci-dessous), avec ses scripts.
 
-Les réponses complètes sont dans [`resultats-v1.0/`](resultats-v1.0/). Les
-contrôles automatiques viennent de [`noter.py`](noter.py), les scores de
-`detect.py` (v1).
+Un troisième agent a jugé **à l'aveugle** : les deux réponses de chaque cas
+étaient nommées X et Y au hasard (`resultats-v2.0/cle.json`), les attentes
+étaient neutres (aucune ne cite un script ou un fichier propre à l'un des
+deux packs), et le juge n'avait accès qu'au dossier `resultats-v2.0/aveugle/`.
 
-## Contrôles automatiques
+Tout est publié : les demandes (`cas.json`), les réponses complètes
+(`join-medicis/`, `reference/`), les paires anonymes, le jugement intégral
+(`jugement.md`) et les problèmes relevés par l'agent qui a joué la v2
+(`join-medicis/notes.md`).
 
-| contrôle | référence | v1 |
-|---|---|---|
-| Cas 1 · score humain du post | 77,3 OK | 87,4 OK |
-| Cas 1 · ponctuation collée (« modèle: », « envoi? ») | **3** | 0 |
-| Cas 1 · hashtags | 3 | 2 |
-| Cas 3 · brouillon IA → texte final | 21,5 → 77,8 OK | 21,5 → 78,7 OK |
-| Cas 4 · ouverture interdite (« Super post »…) | 0 | 0 |
-| Cas 7 · URL avec `f_TPR=r3600` et `sortBy=DD` | oui | oui |
-| Cas 8 · tient compte d'août | oui | oui |
+## Résultat
 
-## Ce que la comparaison montre
+**La v2 gagne 8 cas sur 10, en perd 1, 1 égalité. Note moyenne : 7,95 contre
+7,15 sur 10.**
 
-1. **La typographie française.** Le script de la référence supprime l'espace
-   avant `: ? !` : son post final en garde trois fautes. La v1 n'en a aucune.
-2. **L'humaniseur de la référence ne marche pas en français.** Son contrôle
-   VOICE compte les contractions et pronoms anglais : aucun texte français
-   n'atteint PASS, même bien écrit. Le score du cas 3 de la référence
-   (77,8) vient de la réécriture faite à la main par Claude, notée ici avec
-   `detect.py` v1.
-3. **Le reste est proche.** Claude suit bien les deux packs : profil noté
-   honnêtement (critères non vus marqués « ? »), plan d'août allégé, aucune
-   ouverture interdite, aucun chiffre inventé. La v1 ajoute surtout le
-   contexte français (15 août, heure de Paris, CNIL, formules en français),
-   `/linkedin-job` (absent de la référence, qui improvise) et le profil centré sur
-   les réalisations chiffrées.
-4. **Une faiblesse de la v1** : son post du cas 1 contenait 7 `{{à compléter}}`,
-   un squelette plus qu'un post. Corrigé : au-delà de deux trous, `/linkedin-post`
-   pose d'abord la question.
+| Cas | Tâche | Référence | v2 | réf. | Verdict |
+|---|---|---|---|---|---|
+| 1 | Post sur les 60 appels | Serge Bulaev, linkedin-post-writer | 8 | 6,5 | **v2** : 3 accroches de formes différentes, rien d'ajouté ; la référence cite des chiffres externes sans source |
+| 2 | Répondre aux commentaires | Serge Bulaev, linkedin-reply-handler | 8,5 | 8 | **v2**, de peu : plus court, garde le vouvoiement de Sarah ; la référence suppose une répartition des appels |
+| 3 | Message pour 200 DAF | Alireza Rezvani, linkedin-engagement | 8,5 | 6,5 | **v2** : cadre CNIL appliqué (profession, moyen de dire non), note de 147 caractères ; la note de la référence dépasse 200 une fois remplie |
+| 4 | Audit de 14 posts | Alireza Rezvani, linkedin-analytics | 7,5 | 8,5 | **référence** : même rigueur, présentation bien plus claire (tableau mardi/jeudi) ; la v2 colle 60 lignes de sortie de script |
+| 5 | Noter et réécrire le profil | Alireza Rezvani, linkedin-profile | 8 | 5,5 | **v2** : marque « ? » ce qui n'a pas été montré ; la référence note photo et bannière à partir de réponses supposées |
+| 6 | Trier la messagerie | Joshua (Design Industries), di-li-inbox | 8,5 | 8 | **v2**, de peu : seule à fournir la ligne CRM avec sa source |
+| 7 | Humaniser un texte | Boileau | 7 | 7 | **égalité** : la v2 est fidèle mais rend un texte à trous ; la référence est publiable mais affaiblit le fond (« plus que le prix ») et ajoute une opinion |
+| 8 | Recycler un webinaire | Alireza Rezvani, linkedin-content | 7,5 | 7 | **v2**, de peu : respecte toutes les attentes, mais n'écrit aucun post ; la référence écrit 2 posts avec des maximes inventées et frôle la redite |
+| 9 | Plan de la semaine | Serge Bulaev, linkedin-content-planner | 8 | 7 | **v2** : angles tirés de la semaine, marge de temps ; la référence avance des normes sans source |
+| 10 | Stratégie, « plus d'abonnés » | Alireza Rezvani, linkedin-strategy | 8 | 7,5 | **v2**, de peu : plan construit sur la semaine de 30 minutes, publics exclus |
 
-## Limites de l'exercice
+## Contrôles automatiques (textes à coller)
 
-- Un seul passage par cas, sans répétition : les écarts de score de quelques
-  points ne sont pas significatifs.
-- Les agents avaient accès au fichier `evals.json`, attentes comprises. Ça
-  explique sans doute que la référence connaisse `f_TPR=r3600` au cas 7 sans
-  Skill dédié. La prochaine série masquera les attentes.
-- Les sorties sont jugées par le même modèle qui les a produites. Le vrai test
-  reste tes propres demandes et tes propres posts.
+| Cas | Score humain v2 | réf. | Tirets cadratins v2 / réf. | Ponctuation collée v2 / réf. | Longueur v2 / réf. |
+|---|---|---|---|---|---|
+| 1 · post | 96,9 | 92,8 | 0 / 0 | 0 / 0 | 424 / 960 car. |
+| 2 · réponses | 82,6 | 92,8 | 0 / 0 | 0 / 0 | 488 / 553 car. |
+| 3 · note et message | 93,6 | 100 | 0 / 0 | 0 / 0 | 966 / 929 car. |
+| 7 · texte humanisé | 58,4 | 60,0 | 0 / 0 | 0 / 0 | 363 / 333 car. |
 
-## Corrections faites après l'évaluation
+Score humain : `detect.py` de ce pack, donc favorable par construction aux
+textes écrits avec lui. À lire comme un contrôle, pas comme une preuve.
 
-Remontées par l'agent qui a joué la v1 :
+## Les défaites, et ce qui a été corrigé
 
-- `detect.py` : « j' », « m' », « t' » n'étaient pas comptés comme pronoms (bug
-  de regex) ; les textes courts (note d'invitation, commentaire) étaient
-  bloqués par RYTHME et VOIX, désormais « n/a ».
-- `/linkedin-profile` : réalisations en tête de verbe (« Vendu 340 abonnements… »),
-  sans « J'ai » répété que `/linkedin-human` signalait comme anaphore ; règle de
-  notation des critères non fournis ; livraison section par section.
-- `/linkedin-human` : n'ajoute un fait que s'il vient de l'utilisateur.
-- `/linkedin-dm` : objectif par défaut « une conversation » ; relance J+4 sautée
-  s'il n'y a rien de nouveau.
-- `/linkedin-job` : `NOT stage` exclut aussi « early stage » ; « Paris ou à
-  distance » demande deux URL.
-- `/linkedin-plan` : 15 août, et alerte si la semaine demandée est passée.
-- `/linkedin-post` : horaires par défaut quand il n'y a pas de plan.
+**Cas 4 (perdu) : la v2 montrait la sortie brute de ses scripts.** Une
+marketeuse ne lit pas « CV robuste 0,447 » dans un bloc de 60 lignes.
+Corrigé :
+
+- règle commune (`commun/regles.md`, section 8) : la sortie d'un script est
+  une matière, pas la réponse ; on la traduit en phrases et tableaux courts ;
+- `/linkedin-audit` : sortie en phrases et tableaux, et un tableau qui met les
+  facteurs confondus côte à côte (repris de la meilleure idée de la
+  référence) ; l'exemple est réécrit ainsi.
+
+**Cas 7 (égalité) : la v2 rendait un texte à trous.** Corrigé : `/linkedin-human`
+rend toujours une version publiable sans trou (on retire ce qui manque au
+lieu de l'inventer), et une version enrichie avec les `{{à compléter}}` à
+côté. Il interdit aussi d'affaiblir une affirmation pour faire joli (le défaut
+de la référence).
+
+**Cas 8 (gagné, mais) : aucun post écrit.** Corrigé : `/linkedin-repurpose`
+rédige tout de suite le premier post.
+
+**Bugs trouvés par l'agent qui jouait la v2** (`join-medicis/notes.md`),
+tous corrigés et couverts par un test :
+
+| Problème | Correction |
+|---|---|
+| L'humaniseur ratait « Le résultat ? » en milieu de paragraphe, « véritable » seul, la triade sans « et », « les clés du succès » | 4 détections ajoutées ; le texte du cas 7 est désormais signalé en entier |
+| `fidelite.py` bloquait un `{{à compléter}}` ajouté comme un fait inventé | un trou est signalé, jamais bloquant |
+| Le garde-fou classait « un message pour ma liste de 200 DAF » en ENCADRÉ | REFUSÉ (règle R5) ; `/linkedin-dm` dit quoi livrer pour une liste |
+| `audit.py experience --help` plantait | corrigé ; le test d'intégrité lance désormais `--help` sur chaque sous-commande |
+| Motifs confondus mal regroupés | recouvrement mesuré dans les deux sens, avec tous les membres du groupe |
+| `titre.py` ne voyait pas « 60 résiliés » ni « de 12 à 5 jours » comme des preuves | volumes et avant/après reconnus ; un caractère de contrôle glissé dans une expression régulière a été trouvé au passage, et le test d'intégrité les cherche désormais partout |
+| Une ouverture « Bienvenue sur mon profil ! » gardait 7/10 | 4/10 |
+| `budget.py` donnait 0 post pour 120 minutes en démarrage | le minimum de commentaires suit la part d'engagement : 1 post et 12 commentaires |
+| Phrase de positionnement agrammaticale | virgules, et avertissement quand le problème ou l'angle est mal formulé |
+| Note CRM coupée en pleine phrase | coupée à la fin d'une phrase |
+| `--type webinaire` refusé | accepté |
+| 30 minutes de réponses dans le SKILL, 20 dans le script | 20 partout |
+| Le modèle de refus de `/linkedin-inbox` était signalé par l'humaniseur | réécrit |
+| Les exemples Assurly pouvaient être recopiés comme des faits | chaque exemple porte un avertissement ; le gabarit de plan ne nomme plus personne |
+
+## Limites
+
+- Un seul passage par cas : un écart d'un demi-point n'est pas significatif.
+- Le juge est le même modèle que les joueurs. Il ne connaissait pas la clé,
+  mais certains indices (noms de scripts dans les réponses) pouvaient trahir
+  un pack.
+- La v2 a été jouée avant les corrections ci-dessus : les défaites sont
+  celles de la version jouée, pas de la version publiée.
+- Les cas viennent du contexte fictif Assurly, pas de demandes réelles de
+  l'utilisateur. La prochaine série devrait partir de vraies demandes.
+- Plusieurs scripts de référence ne reconnaissent que des mots anglais :
+  l'agent les a utilisés tels quels, avec des notes parfois faussées en
+  français (cas 5).
+
+L'évaluation de la v1 (1er octobre 2026) est dans
+[`resultats-v1.0/RESULTATS.md`](resultats-v1.0/RESULTATS.md).

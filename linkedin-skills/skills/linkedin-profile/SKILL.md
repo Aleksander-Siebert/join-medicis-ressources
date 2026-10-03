@@ -93,7 +93,7 @@ Le script applique les 15 critères de `grille.json`, calcule le titre avec
 `titre.py` et les Infos avec `infos.py`, et rend :
 
 - la note sur les points notés et la fourchette sur 100 si des sections
-  manquent (« 27/93 notés, entre 27 et 34 sur 100 ») ;
+  manquent (« 25/93 notés, entre 25 et 32 sur 100 ») ;
 - les corrections **classées par points gagnés par heure** ;
 - le **plan de la première heure** (souvent « Services » ou « Open to work »,
   URL, titre, Sélection : quelques minutes, beaucoup de points) ;

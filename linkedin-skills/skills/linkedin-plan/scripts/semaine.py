@@ -247,7 +247,7 @@ def exporter(plan, fmt):
         lignes.append({"Date": c.get("jour", ""), "Jour": JOURS[d.weekday()] if d else "", "Heure": c.get("heure", ""),
                        "Formule": c.get("formule", ""), "Objectif": c.get("objectif", ""), "Pilier": c.get("pilier", ""),
                        "Format": c.get("format", ""), "Angle": c.get("angle", ""), "Statut": "à écrire",
-                       "Réponses": f"{c.get('heure', '')} + 30 min, bloquer le créneau"})
+                       "Réponses": f"{c.get('heure', '')} + 20 min, bloquer le créneau"})
     if fmt == "json":
         return json.dumps(lignes, ensure_ascii=False, indent=2)
     buf = io.StringIO()

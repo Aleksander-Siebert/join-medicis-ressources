@@ -1,5 +1,8 @@
 # Exemple : un fil traité de bout en bout
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Utilisatrice fictive : Camille D., acquisition chez Assurly (assurly.example).
 Son post, publié il y a 3 heures, raconte les 60 clients résiliés rappelés en
 2024 (vécu et chiffres tirés de son `reserve.md`). Elle colle 9 commentaires.

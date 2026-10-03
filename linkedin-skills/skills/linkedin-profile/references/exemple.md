@@ -1,5 +1,8 @@
 # Exemple complet : avant et après
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Personne fictive : Camille, responsable acquisition chez Assurly
 (assurly.example). Objectif : clients (activité de conseil, avec l'accord de
 son employeur). Fichiers : `exemples/profil-avant.json` et
@@ -22,15 +25,15 @@ recopiées telles quelles.
 ## Note de départ
 
 ```
-PROFIL  27/93 points notés  ·  FAIBLE  ·  objectif : clients
-Fourchette sur 100 : entre 27 et 34 (non montré : Recommandations)
+PROFIL  25/93 points notés  ·  FAIBLE  ·  objectif : clients
+Fourchette sur 100 : entre 25 et 32 (non montré : Recommandations)
 
-Première heure : « Open to work » ou « Services », URL personnalisée, Titre (+15.4 points)
+Première heure : Infos : avant « voir plus », « Open to work » ou « Services », URL personnalisée (+16 points)
 Une réécriture ne crée pas : Bannière, Activité, Photo.
 ```
 
-Ordre suivi : « Services » (10 min), URL (5 min), titre (30 min), puis Infos
-et Sélection.
+Ordre suivi : l'ouverture des Infos (« Passionnée par le marketing » ne dit
+rien), « Services » (10 min), URL (5 min), puis titre et Sélection.
 
 ## Les chiffres
 
@@ -53,8 +56,8 @@ python3 scripts/titre.py \
   --titre "Acquisition B2C en assurance | 212 contrats réactivés en 6 semaines"
 ```
 
-Notes : 85 (PRÊT), 84 (PRÊT), 39 (À RÉÉCRIRE : ni audience nommée, ni
-terme de métier assez précis).
+Notes : 85 (PRÊT), 84 (PRÊT), 51 (À AFFÛTER : une preuve chiffrée, mais ni
+audience nommée, ni terme de métier assez précis).
 
 Recommandée : la première : métier et entreprise dans les
 60 premiers caractères, audience, résultat, preuve. Camille l'a lue à voix

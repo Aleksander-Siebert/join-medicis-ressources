@@ -130,8 +130,13 @@ def preuves(texte: str) -> list:
     if re.search(r"(^|[\s|·(])ex-?\s?[a-z0-9]", t):
         signaux.append("ancienne entreprise (ex-)")
     if re.search(r"\b\d[\d\s.]*\s*(clients?|projets?|entreprises|marques|startups|pme|eleves|"
-                 r"personnes|abonnes|lecteurs|utilisateurs|missions|recrutements|ans)\b", t):
+                 r"personnes|abonnes|lecteurs|utilisateurs|missions|recrutements|ans|appels|resilies|leads|"
+                 r"commandes|dossiers|contrats|devis|candidats|salaries|collaborateurs|equipes|pays|magasins)\b", t):
         signaux.append("volume")
+    if re.search(r"\b(?:de|from)\s+\d[\d\s,.]*\s*(?:a|à|to)\s+\d[\d\s,.]*\s*(?:jours?|semaines?|mois|heures?|h|min|minutes?|ans?)?\b|"
+                 r"\b\d+\s*(?:jours?|semaines?|mois|heures?|h|min|minutes?)\b.{0,15}\b(?:au lieu de|contre)\b|"
+                 r"\b(?:divise|multiplie|double|triple)e?s?\s+par\s+\d|\b(?:divise|double|triple)", t):
+        signaux.append("avant et après")
     if re.search(r"\b(auteur|autrice|conferencier|conferenciere|laureat|laureate|prix|"
                  r"certifie|certifiee|expert-comptable|docteur|phd|mba|google partner|"
                  r"top voice|podcast|chroniqueur|chroniqueuse|enseignant|enseignante)\b", t):

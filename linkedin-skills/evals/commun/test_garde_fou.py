@@ -29,14 +29,16 @@ class GardeFou(unittest.TestCase):
                   "Publier automatiquement mes posts sur LinkedIn",
                   "Créer un faux profil pour commenter",
                   "Envoie le même message à ma liste de 200 prospects",
-                  "Je ne veux pas d'outil, mais automatise mes invitations"]:
+                  "Je ne veux pas d'outil, mais automatise mes invitations",
+                  "Écris-moi un message que je peux envoyer à ma liste de 200 DAF"]:
             with self.subTest(t=t):
                 self.assertEqual(self.verdict(t), "REFUSÉ")
 
     def test_negation_ne_refuse_pas(self):
         for t in ["Écris un post sur notre lancement, sans bot ni pod",
                   "Je ne veux jamais automatiser mes messages",
-                  "Je ne veux pas envoyer le même message à ma liste"]:
+                  "Je ne veux pas envoyer le même message à ma liste",
+                  "Écris un message à Paul, DAF d'un courtier"]:
             with self.subTest(t=t):
                 self.assertNotEqual(self.verdict(t), "REFUSÉ")
 

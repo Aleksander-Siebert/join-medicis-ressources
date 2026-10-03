@@ -67,7 +67,7 @@ Pour chaque créneau :
 | **pilier** | selon les parts de la stratégie ; **aucun au-delà de 60%** sur 4 semaines |
 | **format** | texte, image, carrousel (`/linkedin-carrousel`), vidéo, sondage ; le visuel se demande dès le lundi |
 | **jour et heure** | voir « Quand » ; deux posts jamais le même jour |
-| **créneau de réponse** | 30 minutes bloquées après la publication (`/linkedin-reply`) |
+| **créneau de réponse** | 20 minutes bloquées après la publication (`/linkedin-reply`) |
 
 **Expérience en cours** (`apprentissages.md`) : programme la variante prévue
 cette semaine, en alternant A et B, sans changer d'autre variable. C'est elle
@@ -146,7 +146,7 @@ SEMAINE DU {{lundi}} · {{n}} posts · environ {{m}} min sur {{budget}} · contr
 
 {{JOUR}}  {{heure}}  {{OBJECTIF}}  {{formule}}  [{{pilier}} · {{format}}]
       angle : {{angle}}
-      réponses : {{heure + 30 min}}
+      réponses : {{heure + 20 min}}
 …
 ROUTINE  15 min par jour ouvré : répondre, puis 3 à 5 commentaires
 LISTE    6 pairs · 2 de portée · 2 acheteurs  (inchangée | à revoir le {{date}})

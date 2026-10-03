@@ -1,5 +1,8 @@
 # Exemple complet : un post IA, avant et après
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Fichiers : `evals/linkedin-human/brouillon-ia.txt` et
 `brouillon-ia-reecrit.txt` (dépôt du pack). Sorties des scripts recopiées
 telles quelles.

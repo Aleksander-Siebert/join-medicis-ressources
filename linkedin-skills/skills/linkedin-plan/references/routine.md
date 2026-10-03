@@ -11,7 +11,7 @@ D'après « Daily Engagement Routine » (Taplio, MIT), sans l'outil payant :
 3. Noter dans `journal.md` qui a été commenté (pour ne pas commenter les trois
    mêmes personnes tous les jours).
 
-Les jours de publication, ajouter les **30 minutes bloquées** après le post
+Les jours de publication, ajouter les **20 minutes bloquées** après le post
 pour répondre aux premiers commentaires.
 
 ## 2. La liste de 10

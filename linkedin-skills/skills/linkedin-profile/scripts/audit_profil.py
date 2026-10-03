@@ -118,7 +118,8 @@ def evaluer(cle: str, p: dict):
         r = mod_infos.controler(t, obj)
         ids = {c["controle"] for c in r["constats"]}
         if cle == "infos_ouverture":
-            perdus = {"pli": 0.5, "contenu du pli": 0.5, "ouverture": 0.3}
+            # une ouverture usée (« Bienvenue sur mon profil ») gâche les caractères les plus lus
+            perdus = {"pli": 0.5, "contenu du pli": 0.5, "ouverture": 0.6}
             frac = max(0.0, 1 - sum(v for k, v in perdus.items() if k in ids))
             detail = "pli correct" if frac == 1 else "à revoir : " + ", ".join(k for k in perdus if k in ids)
             return frac, detail

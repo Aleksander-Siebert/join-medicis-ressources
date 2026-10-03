@@ -1,5 +1,8 @@
 # Exemple complet : la stratégie de Camille
 
+> Les faits de cet exemple sont fictifs (Assurly, Camille et leurs chiffres) : ils
+> montrent la méthode. Ne les reprends jamais dans une réponse à l'utilisateur.
+
 Personne fictive : Camille, responsable acquisition chez Assurly
 (assurly.example), qui lance une activité de conseil le soir, avec l'accord de
 son employeur. Fichier d'entrée : `brief.py --exemple`.
@@ -72,8 +75,8 @@ Semaine minimale (quand tout déraille, ~75 min) : 1 post texte le même jour ch
 ```
 
 Camille voulait 4 posts par semaine : `budget.py --minutes 240 --etape depart
---posts 4` rend NE TIENT PAS : 4 posts × 45 min + 25 commentaires × 6 min =
-330 min pour 240. Elle garde 2 posts.
+--posts 4` rend NE TIENT PAS : 4 posts × 45 min + 24 commentaires × 6 min =
+324 min pour 240. Elle garde 2 posts.
 
 ## Newsletter
 
