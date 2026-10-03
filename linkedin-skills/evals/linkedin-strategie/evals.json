@@ -1,0 +1,41 @@
+{
+  "skill_name": "linkedin-strategie",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Je veux être plus visible sur LinkedIn, je ne sais pas quoi poster. J'ai 2 h par semaine, mais certaines semaines 30 minutes.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Pose les questions qui forcent une à une (90 jours, cible, minutes sur une mauvaise semaine, preuve, exclusions)",
+        "Refuse un objectif de vanité (abonnés) et le remplace par un résultat (conversations, prospects)",
+        "Budget calculé sur la mauvaise semaine (30 min) : semaine minimale ou engagement seul",
+        "2 à 4 piliers, aucun au-delà de 60%, au moins un pilier appuyé sur une preuve existante",
+        "N'invente aucun chiffre"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Faut-il que je lance une newsletter LinkedIn ? J'ai 120 abonnés.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Rappelle le seuil officiel d'éligibilité (plus de 150 abonnés ou relations, aide a591266)",
+        "Conseille d'attendre ou de construire d'abord la régularité des posts",
+        "Ne présente pas de taux d'ouverture inventé"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Ma cible c'est tout le monde, les PME, les grands comptes et les particuliers.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refuse la cible trop large et demande au moins 2 exclusions",
+        "Propose une cible précise à valider plutôt que d'accepter"
+      ]
+    }
+  ]
+}

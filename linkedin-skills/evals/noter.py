@@ -13,7 +13,7 @@ import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", "skills", "linkedin-human"))
+sys.path.insert(0, os.path.join(HERE, "..", "skills", "linkedin-human", "scripts"))
 from detect import run  # noqa: E402
 from humanize import load_lexicon  # noqa: E402
 
@@ -29,7 +29,7 @@ def read(folder, name):
 def score(text):
     if not text.strip():
         return None
-    _, overall, verdict = run(text, LEX)
+    _, overall, verdict = run(text, LEX)[:3]
     return f"{overall:.1f} {verdict}"
 
 

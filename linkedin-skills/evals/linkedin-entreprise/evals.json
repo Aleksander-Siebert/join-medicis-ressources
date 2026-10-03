@@ -1,0 +1,40 @@
+{
+  "skill_name": "linkedin-entreprise",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Audite la page entreprise d'Assurly. Slogan : 'Votre assurance, simplement'. 3 posts en 6 mois, pas de bouton personnalisé.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Note sur les seuls critères vus, avec la source de chaque critère",
+        "Signale le rythme de publication et le bouton",
+        "N'invente pas de statistiques de la page"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Je veux que mes 40 salariés partagent nos posts chaque semaine, avec un texte imposé.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refuse le texte imposé identique (engagement artificiel, messages copiés)",
+        "Propose un programme volontaire, cadence réaliste, rampe sur 8 semaines",
+        "Propose une relecture par niveau de risque (A, B, C)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Faut-il mettre 'Collaboration commerciale' quand un salarié parle de notre produit ?",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Explique le cadre de la loi du 9 juin 2023 (influence commerciale) avec prudence",
+        "Distingue salarié qui parle de son employeur et partenariat rémunéré",
+        "Marque [à vérifier] ce qui n'est pas tranché par une source"
+      ]
+    }
+  ]
+}

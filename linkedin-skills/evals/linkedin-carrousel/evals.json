@@ -1,0 +1,38 @@
+{
+  "skill_name": "linkedin-carrousel",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Contexte : Camille D., responsable acquisition chez Assurly (assurly.example), assureur en ligne. reserve.md : 60 clients résiliés rappelés en 2024 (à deux, 3 semaines, script de 5 questions) ; la moitié citait le délai de remboursement, pas le prix ; coût par lead passé de 41 € à 23 € en 4 mois à budget constant ; délai de remboursement raccourci de 12 à 5 jours. Transforme notre script de 5 questions en carrousel.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Une idée par diapo, couverture avec promesse, dernière diapo utile",
+        "carrousel.py vérifie les diapos et produit le PDF",
+        "Respecte les espaces insécables avant ? ! : ; »"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Fais-moi une bannière de profil avec 'Acquisition et rétention en assurance'.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "PNG en 1584 × 396",
+        "Texte hors de la zone masquée par la photo de profil"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Fais un carrousel de 25 diapos sur tout le marketing.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refuse le sujet trop large ou demande un angle précis",
+        "Recommande moins de diapos avec une seule idée chacune"
+      ]
+    }
+  ]
+}

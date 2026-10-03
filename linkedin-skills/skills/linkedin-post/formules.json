@@ -1,0 +1,565 @@
+{
+ "version": "2.0",
+ "note": "Formules d'accroche fusionnées et dédoublonnées : 21 de Jake Schincariol (hooks.json, MIT) et 20 de Serge Bulaev (hook-formulas.md, MIT), réécrites en français avec des exemples fictifs (Assurly). Chaque formule donne le squelette du post entier, pas seulement la 1re ligne. Les exemples sont à remplacer par les vrais faits de l'utilisateur (reserve.md). Niveaux de preuve : voir commun/preuves.md. Écartée : « Comment-Gate Lead Magnet » (S F6), visée par l'annonce LinkedIn du 12 mars 2026 contre l'engagement bait.",
+ "regles": [
+  "Une idée par post. Deux idées, deux posts.",
+  "La ligne 1 tient seule, avec une phrase complète avant ~140 caractères (le « voir plus » mobile, position observée, non publiée).",
+  "La ligne 2 paie la ligne 1 : pas de mise en place de la ligne 3.",
+  "Un chiffre précis vaut mieux qu'un adjectif : « 412 messages » bat « des centaines de messages ».",
+  "Pas de question en ligne 1 par défaut (environ −34% de likes, étude tierce, vendeur) ; la question va à la fin. L'audit de l'utilisateur peut prouver l'inverse pour son compte.",
+  "« Comment j'ai… » plutôt que « Comment… » : l'expérience vécue plutôt que la consigne générique [praticien].",
+  "Si l'accroche marche avec le nom de quelqu'un d'autre, ce n'est pas ton accroche."
+ ],
+ "densite": {
+  "regle": "La pénalité vient de la densité et du vide, pas du procédé : 98 à 100% des meilleurs créateurs utilisent contrastes, triades et questions (étude tierce, vendeur).",
+  "contrastes_max": 1,
+  "triades_max": 1,
+  "ponts_de_revelation_max": 0,
+  "questions_avant_la_fin_max": 0,
+  "abstrait": "Chaque ligne abstraite est payée par un fait (date, montant, nom, pourcentage) dans les 2 lignes qui suivent."
+ },
+ "objectifs": {
+  "commentaires": "prendre position, cas à trancher, vulnérabilité réelle, comparaison contrôlée",
+  "partages": "maximes citables, remerciements nommés, distinctions, courbes qui divergent",
+  "reactions": "histoires, célébrations, titre retiré",
+  "sauvegardes": "méthodes, listes, relevés, explications simples, preuves empilées"
+ },
+ "ecartees": [
+  {
+   "nom": "Comment-Gate Lead Magnet (« commente X pour recevoir Y »)",
+   "source": "S F6",
+   "raison": "Engagement bait : LinkedIn en réduit la diffusion (annonce du 12 mars 2026) et les Professional Community Policies l'interdisent."
+  }
+ ],
+ "accroches": [
+  {
+   "id": "chiffre-d-abord",
+   "nom": "Le chiffre d'abord",
+   "objectif": [
+    "sauvegardes",
+    "commentaires"
+   ],
+   "ligne_1": "{{chiffre précis}} {{ce qu'il mesure}} en {{durée}}.",
+   "squelette": "{{Chiffre précis et ce qu'il mesure, en une ligne.}}\n{{Ligne 2 : ce que ça a donné, avec un 2e chiffre.}}\n\n{{Ce que tu as fait, concrètement, en 2-3 paragraphes courts.}}\n\n{{Ce qui t'a surpris, ou ce qui n'a pas marché.}}\n\n{{Une question précise sur l'expérience du lecteur.}}",
+   "exemple": "412 messages de prospection en un trimestre. 9 réponses.\nLe trimestre suivant : 60 messages, 14 réponses.",
+   "pourquoi": "Un chiffre précis en première ligne prouve qu'il s'est passé quelque chose de réel.",
+   "piege": "Enterrer le chiffre en ligne 3, ou l'arrondir (« environ 400 ») : la précision fait la crédibilité.",
+   "note_2026": "Chiffre précis en 1re ligne : environ +34% de likes médians [étude tierce, vendeur : MagicPost]. L'ouverture la plus solide de 2026.",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#2 Number Reveal, J#10 The Receipt, S F3"
+  },
+  {
+   "id": "releve",
+   "nom": "Le relevé ligne à ligne",
+   "objectif": [
+    "sauvegardes"
+   ],
+   "ligne_1": "{{montant ou total non arrondi}}",
+   "squelette": "{{Montant exact, non arrondi.}}\n{{Ce que ce montant couvre, en une ligne.}}\n\nLe détail, sans arrondi :\n{{poste 1 : montant}}\n{{poste 2 : montant}}\n{{poste 3 : montant}}\n\n{{Ce que ce total remplace, chiffré.}}\n\n{{Ce qui a surpris : ce qui a cassé, ce qui a marché.}}",
+   "exemple": "2 347 € : ce que nous a coûté le lancement du comparateur de garanties, hors salaires.",
+   "pourquoi": "Un relevé non arrondi se lit comme une comptabilité réelle ; on le garde et on le capture.",
+   "piege": "Des chiffres inventés ou arrondis pour faire joli : un lecteur du métier le voit tout de suite.",
+   "note_2026": "Le relevé dépasse souvent 1 000 caractères, ce qui ne nuit pas [étude tierce, vendeur : AuthoredUp].",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "S F7 Odd-Precision Money Ledger"
+  },
+  {
+   "id": "erreur-datee",
+   "nom": "L'erreur datée",
+   "objectif": [
+    "commentaires",
+    "reactions"
+   ],
+   "ligne_1": "{{coût précis}} : ce que {{une erreur}} m'a coûté en {{mois}}.",
+   "squelette": "{{Le coût et l'erreur, datés, en une ligne. Pas d'annonce (« Je vais être honnête »).}}\n{{Ligne 2 : la première conséquence, chiffrée.}}\n\n{{Pourquoi l'ancienne façon de faire semblait marcher.}}\n\n{{Le moment où tu as compris.}}\n\n{{Ce que tu fais autrement depuis, concret.}}\n\n{{Question : qu'est-ce que le lecteur vérifie maintenant qu'il ne vérifiait pas ?}}",
+   "exemple": "18 000 € : ce que m'a coûté l'absence de contrat écrit, en mars 2024.",
+   "pourquoi": "On transfère les posts où l'auteur a l'air faillible ; un coût daté remplace l'annonce de sincérité.",
+   "piege": "La fausse erreur (« je suis trop perfectionniste ») ou l'aveu annoncé (« Petite confession : ») : c'est la « fausse vulnérabilité » repérée par les lecteurs.",
+   "note_2026": "Échec réel daté dans les 3 premières lignes : effet très positif selon S [praticien]. L'aveu annoncé est un tic 2026.",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#3 Mistake Confession, S F4 Time-Anchor Confession"
+  },
+  {
+   "id": "avant-apres",
+   "nom": "Avant, après",
+   "objectif": [
+    "reactions",
+    "sauvegardes"
+   ],
+   "ligne_1": "En {{année}}, je {{état de départ chiffré}}. En {{année}}, je {{état d'arrivée chiffré}}.",
+   "squelette": "En {{année}}, {{état de départ, chiffré}}.\nEn {{année}}, {{état d'arrivée, chiffré}}.\n\n{{Le premier chiffre du changement, pas « Voici ce qui a changé ».}}\n\n{{Le seul levier qui a fait la différence.}}\n\n{{Ce que ça a coûté.}}\n\n{{Question miroir : quel est ton avant/après ?}}",
+   "exemple": "En 2024, je préparais un devis en 5 heures. Aujourd'hui, en 20 minutes.",
+   "pourquoi": "Montre que tu as parcouru la distance que le lecteur veut parcourir.",
+   "piege": "Une transformation en trois leviers : nomme UN levier, sinon personne n'y croit. Un ratio incroyable (5 h → 8 s) tue la crédibilité.",
+   "note_2026": "",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#4 Before/After, J#17 Time Anchor, S F3 Year-over-Year Pivot"
+  },
+  {
+   "id": "liste-promise",
+   "nom": "La liste promise",
+   "objectif": [
+    "sauvegardes"
+   ],
+   "ligne_1": "{{N}} choses que j'aurais aimé savoir avant {{étape}}.",
+   "squelette": "{{N}} choses que j'aurais aimé savoir avant {{étape précise}}.\n\n1. {{chose précise, avec un exemple vécu}}\n2. …\n\n{{Celle que j'ai apprise le plus cher, et combien.}}",
+   "exemple": "5 choses que j'aurais aimé savoir avant de recruter mon premier commercial.",
+   "pourquoi": "Les listes sont sauvegardées pour plus tard.",
+   "piege": "N au-delà de 7 : personne ne croit que tu en as 15 bonnes. Des conseils génériques que tout le monde connaît.",
+   "note_2026": "Liste = une triade étendue : chaque point doit porter un fait, sinon c'est une triade creuse.",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": true,
+   "frequence_max": "",
+   "source": "J#5 The List Promise"
+  },
+  {
+   "id": "contre-pied",
+   "nom": "Le contre-pied",
+   "objectif": [
+    "commentaires"
+   ],
+   "ligne_1": "Tout le monde dit {{conseil courant}}. Après {{expérience précise}}, je pense que c'est faux.",
+   "squelette": "Tout le monde dit {{conseil courant}}.\nAprès {{expérience précise, chiffrée}}, je pense que c'est faux.\n\n{{Ce qui s'est passé, avec les chiffres.}}\n\n{{Ce que le conseil oublie.}}\n\n{{Où le conseil reste vrai (concession honnête).}}\n\n{{Question : qui a vécu l'inverse ?}}",
+   "exemple": "Tout le monde dit qu'il faut publier tous les jours. J'ai publié 2 fois par semaine pendant un an : 31 rendez-vous.",
+   "pourquoi": "Prendre position fait commenter ceux qui sont d'accord et ceux qui ne le sont pas.",
+   "piege": "Contredire une idée que personne ne défend. Ou critiquer sans concession : on perd les lecteurs nuancés.",
+   "note_2026": "« Ce n'est pas X, c'est Y » comme cadre de tout le post : environ −4,9% [étude tierce, vendeur]. Le contre-pied s'écrit en affirmations.",
+   "compte_comme_contraste": true,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#1 Contrarian Take, J#11 Myth Bust"
+  },
+  {
+   "id": "necrologie-annoncee",
+   "nom": "La nécrologie annoncée",
+   "objectif": [
+    "partages",
+    "commentaires"
+   ],
+   "ligne_1": "{{idée reçue}} meurt depuis {{année}}.",
+   "squelette": "{{Idée reçue}} « meurt » depuis {{année}}.\n\n{{Mois Année}} : {{événement}}. « {{prédiction}} »\n{{Mois Année}} : {{événement}}. « {{prédiction}} »\n{{4 à 7 entrées datées, sourcées}}\n\n{{Le chiffre qui contredit, avec sa source.}}\n\n{{Ce qui est vraiment mort, et ce qui va bien.}}\n\n{{Question : quelle prédiction de ce genre te souviens-tu ?}}",
+   "exemple": "L'emailing « meurt » depuis 2012.",
+   "pourquoi": "La liste datée retient le lecteur et se lit comme une preuve.",
+   "piege": "Des dates ou des citations inventées : chaque entrée doit être vérifiable. Une conclusion binaire méprisante (« si tu fais encore X, tu as déjà perdu »).",
+   "note_2026": "Les entrées datées sont la meilleure protection en 2026 [praticien, S]. Une seule opposition « ce qui est mort / ce qui va bien ».",
+   "compte_comme_contraste": true,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "S F10 Contrarian + Historical Receipts"
+  },
+  {
+   "id": "avis-de-deces",
+   "nom": "L'avis de décès",
+   "objectif": [
+    "partages"
+   ],
+   "ligne_1": "{{Pratique}} est morte. Cause du décès : {{mécanisme chiffré}}.",
+   "squelette": "{{Pratique}} est morte.\nCause du décès : {{mécanisme précis, chiffré}}.\n\n{{2-3 paragraphes de preuves datées}}\n\n{{J'ai défendu cette pratique jusqu'à {{date}}.}}\n\n{{Ce qui a changé, en 3 à 6 points chiffrés.}}\n\n{{Une phrase de fin, pas une morale.}}",
+   "exemple": "La relance automatique à J+3 est morte. Cause du décès : 412 envois, 9 réponses.",
+   "pourquoi": "Transforme « je suis en retard » en « la règle a changé » ; enlève la honte, donne envie de lire.",
+   "piege": "Annoncer la mort de quelque chose qui marche encore pour d'autres : concède où ça marche.",
+   "note_2026": "",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "S F2 R.I.P. Category Obituary"
+  },
+  {
+   "id": "vu-de-l-interieur",
+   "nom": "Le métier vu de l'intérieur",
+   "objectif": [
+    "commentaires",
+    "partages"
+   ],
+   "ligne_1": "Après {{N}} ans à {{faire X}}, voici ce qu'aucune fiche de poste ne dit.",
+   "squelette": "Après {{N}} ans à {{faire X}}, {{ce que les fiches de poste, formations ou plaquettes ne disent pas}}.\n\n{{Le fait concret, avec un exemple daté.}}\n\n{{Pourquoi personne ne l'écrit.}}\n\n{{Ce que ça change pour le lecteur.}}",
+   "exemple": "Après 9 ans de vente en agence : le devis se perd rarement au prix. Il se perd au délai de réponse.",
+   "pourquoi": "Une expertise réelle, dite simplement, vaut un cours.",
+   "piege": "Promettre un secret et livrer une évidence : les commentaires le diront. Éviter « ce que personne ne vous dit » (tic 2026).",
+   "note_2026": "Les formules « ce que personne ne vous dit » sont sur les listes de tics 2026 [consensus] : dis le fait directement.",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#6 Insider Secret"
+  },
+  {
+   "id": "interpellation",
+   "nom": "L'interpellation",
+   "objectif": [
+    "commentaires"
+   ],
+   "ligne_1": "Si tu {{fais encore X}}, voici ce que ça te coûte.",
+   "squelette": "Si tu {{fais encore X}}, {{ce que ça coûte, chiffré}}.\n\n{{Pourquoi, avec un exemple vécu.}}\n\n{{Ce qu'il faut faire à la place, concrètement.}}",
+   "exemple": "Si tu écris encore tes posts directement dans LinkedIn, tu perds tes brouillons au premier bug.",
+   "pourquoi": "Un post court avec une seule consigne ; le plus rapide à écrire.",
+   "piege": "Interpeller sur une pratique que personne n'a, ou mépriser sa propre audience. « Arrête X, commence Y » en cadre général se lit comme un conseil générique.",
+   "note_2026": "« Arrête X, commence Y » : environ −6,7% par rapport à la moyenne de l'auteur [étude tierce, vendeur].",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#7 The Callout"
+  },
+  {
+   "id": "cas-a-trancher",
+   "nom": "Le cas à trancher",
+   "objectif": [
+    "commentaires"
+   ],
+   "ligne_1": "{{Situation précise avec un vrai coût}}.",
+   "squelette": "{{Situation précise, avec un vrai coût, énoncée comme un fait.}}\n{{Les deux options, chacune avec son coût.}}\n\n{{Ce que tu as fait, et pourquoi.}}\n\nTu aurais fait quoi ?",
+   "exemple": "Ton meilleur client demande 40% de remise et laisse entendre qu'il partira sans. Le refus coûte 30% de ton chiffre d'affaires.",
+   "pourquoi": "Les gens répondent à un cas concret ; ils ignorent « qu'en pensez-vous ? ».",
+   "piege": "Un cas avec une bonne réponse évidente : il faut une vraie bifurcation. La question va à la fin, pas en ligne 1.",
+   "note_2026": "Une question en première ligne : environ −34% de likes [étude tierce, vendeur]. Ici, la ligne 1 est un fait ; la question vient à la fin.",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#8 Question Trap"
+  },
+  {
+   "id": "scene",
+   "nom": "La scène",
+   "objectif": [
+    "reactions",
+    "commentaires"
+   ],
+   "ligne_1": "« {{réplique réelle}} »",
+   "squelette": "« {{La réplique réelle, mot pour mot}} »\n\n{{Qui l'a dite, quand, pourquoi elle comptait.}}\n\n{{La scène, au présent, 3-6 lignes, un détail concret.}}\n\n{{Le tournant : ce qui a changé, ce que ça a coûté.}}\n\n{{Une ligne de sens, pas une morale.}}",
+   "exemple": "« On part sur quelqu'un de moins cher. »\nCe mail est arrivé 40 minutes après ma meilleure proposition de l'année.",
+   "pourquoi": "Commencer au cœur de la scène saute l'échauffement que le fil punit.",
+   "piege": "Une réplique que personne ne dirait. Une histoire inventée ou embellie. Une morale plaquée à la fin.",
+   "note_2026": "La vulnérabilité réelle (un coût, un chiffre, sans annonce) est positive [étude tierce, vendeur] ; l'enjeu fabriqué est repéré.",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#9 Story Cold Open, S F11 Emotional Cold-Open"
+  },
+  {
+   "id": "comparatif",
+   "nom": "Le comparatif",
+   "objectif": [
+    "partages"
+   ],
+   "ligne_1": "{{Option chère}} contre {{option simple}}. {{Verdict inattendu}}.",
+   "squelette": "{{Option chère, chiffrée}} contre {{option simple, chiffrée}}.\n{{Le verdict.}}\n\n{{Comment tu as comparé : mêmes conditions.}}\n\n{{Ce que l'option chère fait vraiment mieux (concession).}}\n\n{{Pour qui chaque option a du sens.}}",
+   "exemple": "Une agence à 12 000 € contre un modèle de devis et un week-end. Le week-end a gagné, pour nous.",
+   "pourquoi": "Très partagé dans les métiers outillés.",
+   "piege": "Une comparaison injuste : concède ce que l'option chère fait mieux.",
+   "note_2026": "",
+   "compte_comme_contraste": true,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#12 The Comparison"
+  },
+  {
+   "id": "permission",
+   "nom": "La permission",
+   "objectif": [
+    "commentaires",
+    "reactions"
+   ],
+   "ligne_1": "Tu as le droit de {{chose que le lecteur se reproche}}.",
+   "squelette": "Tu as le droit de {{chose précise que le lecteur se reproche}}.\n\n{{Pourquoi, avec un exemple vécu et daté.}}\n\n{{Ce que ça t'a permis, chiffré si possible.}}",
+   "exemple": "Tu as le droit de refuser une mission bien payée qui te rend malheureux. J'en ai refusé une à 18 000 € en janvier.",
+   "pourquoi": "Rassure un lecteur précis ; les gens se reconnaissent en commentaire.",
+   "piege": "Le développement personnel générique. « Je ne sais pas qui a besoin d'entendre ça » : la formule la plus usée du genre.",
+   "note_2026": "La formule la plus visiblement « fabriquée » du lot selon S [praticien] : une ou deux fois par mois au plus.",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "2 par mois",
+   "source": "J#13 Permission Slip, S F12 Permission Slip"
+  },
+  {
+   "id": "coupure",
+   "nom": "La coupure",
+   "objectif": [
+    "reactions"
+   ],
+   "ligne_1": "{{Une phrase de 2 à 5 mots, factuelle.}}",
+   "squelette": "{{Phrase courte, factuelle, datée si possible.}}\n\n{{Le contexte, immédiatement : qui, quand, combien.}}\n\n{{Ce qui a suivi.}}\n\n{{Ce que tu en retiens, concret.}}",
+   "exemple": "J'ai été licencié le 3 mars.",
+   "pourquoi": "Le blanc arrête le défilement.",
+   "piege": "En faire une habitude : une fois par mois au plus, sinon c'est un tic. Enchaîner d'autres fragments : staccato.",
+   "note_2026": "Une phrase courte isolée compte dans les 2 fragments autorisés par post (humaniseur).",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "1 par mois",
+   "source": "J#14 Pattern Interrupt"
+  },
+  {
+   "id": "avertissement",
+   "nom": "L'avertissement",
+   "objectif": [
+    "sauvegardes",
+    "commentaires"
+   ],
+   "ligne_1": "{{Pratique courante}} te coûte {{chose précise}} chaque {{période}}.",
+   "squelette": "{{Pratique courante}} te coûte {{chose précise, chiffrée}} chaque {{période}}.\n\n{{Comment tu l'as mesuré chez toi.}}\n\n{{La solution, dans le même post.}}",
+   "exemple": "Tes « petits points rapides » de 30 minutes te coûtent 6 heures par semaine. Je les ai comptés en septembre.",
+   "pourquoi": "Parle à ceux qui ont le problème sans avoir relié la cause au coût.",
+   "piege": "La peur sans sortie : donne la solution dans le même post. Éviter « en silence » ou « discrètement » (tic 2026).",
+   "note_2026": "",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#15 The Warning"
+  },
+  {
+   "id": "bon-excellent",
+   "nom": "Bon, excellent",
+   "objectif": [
+    "partages"
+   ],
+   "ligne_1": "Les bons {{rôle}} {{font X}}. Les excellents {{font Y}}.",
+   "squelette": "Les bons {{rôle}} {{font X}}.\nLes excellents {{font Y, une action différente}}.\n\n{{Un exemple vécu de Y, daté.}}\n\n{{Comment passer de X à Y, concrètement.}}",
+   "exemple": "Les bons commerciaux répondent à la question. Les excellents demandent pourquoi elle a été posée.",
+   "pourquoi": "Une phrase citable, capturée et repartagée.",
+   "piege": "Une distinction qui revient à « fais plus d'efforts » : Y doit être une autre action, pas plus d'effort.",
+   "note_2026": "C'est le contraste du post : n'en ajoute pas un second.",
+   "compte_comme_contraste": true,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#16 Good vs Great"
+  },
+  {
+   "id": "regle-impopulaire",
+   "nom": "La règle impopulaire",
+   "objectif": [
+    "commentaires"
+   ],
+   "ligne_1": "Je ne {{fais jamais pratique admise}}. Jamais.",
+   "squelette": "Je ne {{fais jamais pratique admise}}.\n\n{{Depuis quand, et ce que ça a coûté au début.}}\n\n{{Ce que ça a rapporté, chiffré.}}\n\n{{Pour qui cette règle n'a pas de sens.}}",
+   "exemple": "Je ne fais plus d'appel de découverte gratuit depuis janvier. J'ai perdu 4 prospects. J'ai gagné 11 heures par mois.",
+   "pourquoi": "Positionne : attire les bons clients en repoussant les autres.",
+   "piege": "Une règle que tu enfreins souvent : quelqu'un en commentaire le sait.",
+   "note_2026": "",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#18 The Unpopular Rule"
+  },
+  {
+   "id": "paradoxe",
+   "nom": "Le paradoxe",
+   "objectif": [
+    "commentaires"
+   ],
+   "ligne_1": "Le {{meilleur X}} que j'ai {{fait}} {{a enfreint la règle évidente}}.",
+   "squelette": "Le {{superlatif}} {{chose}} que j'ai {{fait}} {{a enfreint la règle évidente}}.\n{{Ligne 2-3, avant le « voir plus » : la réponse, avec un nom ou un chiffre.}}\n\n{{Le contexte.}}\n\n{{Ce que ça dit de la règle.}}",
+   "exemple": "La meilleure recrue de mon équipe avait raté l'entretien. Elle a signé 47 contrats la première année.",
+   "pourquoi": "Force le clic « voir plus » quand la réponse arrive vite.",
+   "piege": "Un écart jamais comblé = piège à clic. La réponse arrive avant le pli (≈140 caractères), au plus tard en ligne 3. Éviter « ce que personne ne vous dit », « c'est là que ça devient intéressant ».",
+   "note_2026": "Les formules de teasing sont sur les listes de tics 2026 [consensus] : le paradoxe doit se résoudre tout de suite.",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#19 Curiosity Gap, S F9 Curiosity-Gap Teaser"
+  },
+  {
+   "id": "renoncement",
+   "nom": "Le renoncement",
+   "objectif": [
+    "commentaires",
+    "reactions"
+   ],
+   "ligne_1": "J'ai {{arrêté / refusé / supprimé}} {{chose de valeur}}. {{Résultat chiffré}}.",
+   "squelette": "J'ai {{arrêté / refusé}} {{chose de valeur}} en {{mois}}.\n{{Résultat chiffré.}}\n\n{{Ce que ça a coûté, vraiment.}}\n\n{{Pourquoi tu l'as fait.}}\n\n{{Ce que tu referais ou pas.}}",
+   "exemple": "J'ai arrêté mon client le plus rentable en janvier. Le chiffre d'affaires du trimestre est en hausse de 30%.",
+   "pourquoi": "Un post de valeurs avec un résultat business.",
+   "piege": "Renoncer sans coût : nomme ce que ça a coûté, sinon c'est du théâtre.",
+   "note_2026": "",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#20 The Walk-Away"
+  },
+  {
+   "id": "je-donne",
+   "nom": "Je donne ce que je facture",
+   "objectif": [
+    "sauvegardes",
+    "partages"
+   ],
+   "ligne_1": "Je facture {{X €}} pour {{service}}. Voici la méthode, gratuitement.",
+   "squelette": "Je facture {{montant}} pour {{service}}.\nVoici la méthode que j'applique, en entier.\n\nElle s'appelle {{nom de la méthode}}.\n\n1. {{étape nommée : consigne concrète}}\n2. …\n(5 à 7 étapes)\n\n{{Ce que la plupart trouvent dans les 20 premières minutes.}}",
+   "exemple": "Je facture 1 800 € pour un audit d'acquisition. Voici les 6 vérifications que je fais en premier.",
+   "pourquoi": "Le renversement prix → gratuit surprend ; la méthode nommée est sauvegardée.",
+   "piege": "Faire demander en commentaire ce que tu pourrais donner dans le post (appât, visé par LinkedIn le 12 mars 2026). Des étapes vagues.",
+   "note_2026": "Le « commente GUIDE pour recevoir » est écarté : LinkedIn réduit la diffusion de l'engagement bait (annonce du 12 mars 2026) [officiel].",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "J#21 The Direct Value, S F8 Paid-vs-Free Reversal"
+  },
+  {
+   "id": "anaphore-du-risque",
+   "nom": "L'anaphore du risque",
+   "objectif": [
+    "partages"
+   ],
+   "ligne_1": "{{Plateforme 1}} peut {{te couper}} {{quand}}.",
+   "squelette": "{{Plateforme 1}} peut {{mauvaise chose}} {{quand}}.\n{{Plateforme 2}} peut {{mauvaise chose}} pour {{raison}}.\n{{2 à 4 lignes de plus, de plus en plus précises}}\n\n{{Anecdote réelle avec un chiffre.}}\n\n{{Ce qui est vraiment à toi, dit simplement.}}\n\n{{Ce que tu as changé, 2-3 actions.}}\n\n{{Question d'audit personnel.}}",
+   "exemple": "Google peut diviser ton trafic par deux en une mise à jour.\nMeta peut fermer ton compte publicitaire un vendredi soir.",
+   "pourquoi": "L'aversion à la perte empilée ; la liste d'actions donne la sortie.",
+   "piege": "Présenter LinkedIn comme une plateforme inférieure. L'anaphore est LA répétition du post : pas de triade en plus.",
+   "note_2026": "L'anaphore compte comme la répétition autorisée du post (règle de densité).",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": true,
+   "frequence_max": "",
+   "source": "S F1 Platform Risk Anaphora"
+  },
+  {
+   "id": "pari-public",
+   "nom": "Le pari public",
+   "objectif": [
+    "commentaires"
+   ],
+   "ligne_1": "{{Affirmation chiffrée}}. Je le vérifie publiquement cette semaine.",
+   "squelette": "{{Affirmation chiffrée sur ton métier.}}\n\n{{Ce que tu t'engages à faire, précisément, d'ici quand.}}\n\n{{Ce qui prouvera que tu as raison, ce qui prouvera le contraire.}}\n\n{{Si j'ai tort, je publie un post pour le dire.}}",
+   "exemple": "Répondre aux commentaires dans l'heure double les échanges sous mes posts. Je le vérifie sur mes 4 prochains posts.",
+   "pourquoi": "L'affirmation se vérifie en public ; chaque résultat est une preuve.",
+   "piege": "Ne pas tenir la promesse. Demander aux lecteurs une action artificielle (« commentez pour tester ») : appât.",
+   "note_2026": "Seulement si le suivi est publié. Aucune demande d'engagement artificiel.",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "S F5 Self-Proving Meta"
+  },
+  {
+   "id": "fausse-mauvaise-nouvelle",
+   "nom": "La fausse mauvaise nouvelle",
+   "objectif": [
+    "reactions"
+   ],
+   "ligne_1": "Fini {{avantage apprécié}} chez {{nous}}.",
+   "squelette": "Fini {{avantage ou pratique appréciée}}.\n{{Deuxième annonce qui inquiète.}}\n\n{{La vraie nouvelle : ce qui le remplace, chiffré.}}\n\n{{Ce que ce changement dit de vos valeurs.}}",
+   "exemple": "Fini les réunions du lundi chez Assurly. On supprime aussi le point hebdo. On les remplace par un mot écrit de 5 lignes, lu en 2 minutes.",
+   "pourquoi": "La fausse alerte puis le soulagement.",
+   "piege": "Une vraie mauvaise nouvelle déguisée en bonne : les commentaires la démontent. « Le résultat ? » comme pont : écris la nouvelle à plat, avec un chiffre.",
+   "note_2026": "« Le résultat ? », « Rebondissement : » : environ −4,8% [étude tierce, vendeur].",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "S F13 Bait-and-Switch Reversal"
+  },
+  {
+   "id": "merci-nomme",
+   "nom": "Le merci nommé",
+   "objectif": [
+    "partages"
+   ],
+   "ligne_1": "À {{Prénom}} et {{Prénom}} : merci pour {{chose précise}}.",
+   "squelette": "À {{Prénom Nom}}{{, Prénom Nom}} : merci pour {{chose précise qu'ils ont faite}}.\n\n{{Ce que chacun a fait, concrètement.}}\n\n{{Pourquoi ça a compté pour toi ou pour le travail.}}\n\n{{Une ligne qui les honore, pas toi.}}",
+   "exemple": "À Inès et Karim : merci d'avoir relu les 60 appels de résiliation avec moi en janvier.",
+   "pourquoi": "Nommer de vraies personnes pour de vraies raisons ; elles et leur entourage repartagent.",
+   "piege": "Citer des noms pour emprunter leur audience. Nommer sans accord (RGPD, `contexte.md`). Trois personnes, trois qualités en un mot : triade creuse.",
+   "note_2026": "",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "S F14 Named Gratitude"
+  },
+  {
+   "id": "explique-simplement",
+   "nom": "Expliqué simplement",
+   "objectif": [
+    "sauvegardes"
+   ],
+   "ligne_1": "{{Terme jargon}}, expliqué simplement.",
+   "squelette": "{{Terme jargon}}, expliqué simplement.\n\n{{partie 1}} = {{sens en mots simples}}\n{{partie 2}} = {{sens}}\n{{…}}\n\n{{Un exemple chiffré du métier.}}\n\n{{Une phrase pour ne plus l'oublier.}}",
+   "exemple": "Le coût par lead, expliqué simplement.",
+   "pourquoi": "Une référence claire d'un sujet dense est sauvegardée et repartagée.",
+   "piege": "Une explication fausse ou condescendante détruit l'autorité. Ne pas ouvrir par « Qu'est-ce que X ? » (question en ligne 1).",
+   "note_2026": "",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "S F15 Explain-to-Kids Simplification"
+  },
+  {
+   "id": "titre-retire",
+   "nom": "Le titre retiré",
+   "objectif": [
+    "reactions"
+   ],
+   "ligne_1": "Au bureau, on m'appelle {{titre}}. À la maison, {{moment qui ramène sur terre}}.",
+   "squelette": "{{Où on t'appelle par ton titre.}}\n{{Le moment, daté et concret, où ce titre ne vaut plus rien.}}\n\n{{La scène.}}\n\n{{Ce que le contraste t'a appris, en une ou deux lignes.}}",
+   "exemple": "Au bureau, je suis la responsable acquisition. Mardi soir, ma fille de 7 ans m'a demandé pourquoi je regardais des chiffres au lieu de jouer.",
+   "pourquoi": "Échanger le prestige contre la proximité.",
+   "piege": "La fausse modestie : le titre doit vraiment tomber. C'est le contraste du post : pas d'autre « ce n'est pas X, c'est Y ».",
+   "note_2026": "",
+   "compte_comme_contraste": true,
+   "compte_comme_triade": false,
+   "frequence_max": "",
+   "source": "S F16 Status-Strip Humility"
+  }
+ ],
+ "structurelles": [
+  {
+   "id": "ab-controle",
+   "nom": "Le test A/B vécu",
+   "objectif": [
+    "commentaires"
+   ],
+   "squelette": "{{Action A}} → {{résultat A}}.\n{{La même action, une seule variable changée}} → {{résultat B}}.\n\nMême {{constante 1}}. Même {{constante 2}}. Seule différence : {{la variable}}.\n\n{{Ce que tu as d'abord cru.}}\n{{Ce que la comparaison montre vraiment.}}\n\n{{Question : quelle variable le lecteur testerait ?}}",
+   "exemple": "Même message, même cible, même jour. Envoyé à froid : 2 réponses sur 50. Après un commentaire sur leur post : 11 sur 50.",
+   "pourquoi": "Une comparaison à une variable se lit comme une preuve, pas une opinion.",
+   "piege": "Changer deux choses : ce n'est plus une comparaison, c'est une histoire.",
+   "compte_comme_contraste": true,
+   "compte_comme_triade": false,
+   "source": "S F17 Controlled A/B Anecdote"
+  },
+  {
+   "id": "faux-dilemme",
+   "nom": "Le faux dilemme",
+   "objectif": [
+    "commentaires",
+    "partages"
+   ],
+   "squelette": "Tout le monde choisit entre deux réponses à {{problème}}.\n\n{{Option A}} : {{pourquoi elle échoue}}.\n{{Option B}} : {{pourquoi elle échoue}}.\n\nLes deux échouent pour la même raison : {{le défaut commun}}.\n\n{{La troisième voie, concrète, 2-3 lignes.}}\n\n{{Question : A, B ou autre chose ?}}",
+   "exemple": "Pour baisser le coût par lead, on choisit entre couper le budget et changer d'agence.",
+   "pourquoi": "Éliminer les deux options évidentes donne le droit de proposer la troisième.",
+   "piege": "Un dilemme caricatural (un homme de paille) ; c'est un « ni A ni B mais C » : le contraste du post.",
+   "compte_comme_contraste": true,
+   "compte_comme_triade": false,
+   "source": "S F18 False-Binary Dissolve"
+  },
+  {
+   "id": "anecdote-preuves",
+   "nom": "L'anecdote et les preuves",
+   "objectif": [
+    "commentaires",
+    "sauvegardes"
+   ],
+   "squelette": "{{Une chose remarquée, à la première personne, 1-2 lignes.}}\n\nJ'ai cru avoir découvert quelque chose. C'était déjà mesuré :\n{{preuve 1, chiffrée et sourcée}}\n{{preuve 2}}\n{{preuve 3}}\n\n{{Ce que le motif est vraiment.}}\n{{Ce que tu as décidé.}}",
+   "exemple": "Mes clients résiliaient surtout en mars.",
+   "pourquoi": "L'anecdote attire, les preuves convainquent ; la liste se capture.",
+   "piege": "Des chiffres sans source ou inventés : avec ce public, c'est la façon la plus rapide de perdre la confiance. Sans preuves, utiliser « L'erreur datée ».",
+   "compte_comme_contraste": false,
+   "compte_comme_triade": true,
+   "source": "S F19 Anecdote-Meets-Evidence Bridge"
+  },
+  {
+   "id": "courbes-divergentes",
+   "nom": "Les courbes qui divergent",
+   "objectif": [
+    "partages"
+   ],
+   "squelette": "{{Deux choses qui se ressemblent aujourd'hui.}}\n\n{{Approche A}} : {{ce qu'elle devient avec le temps}}.\n{{Approche B}} : {{l'inverse}}.\n\nMois 1 : {{…}}. Mois 6 : {{…}}.\n\n{{Une maxime qui oppose les deux trajectoires.}}",
+   "exemple": "Une campagne payante s'arrête quand le budget s'arrête. Un article qui répond à une vraie question rapporte encore 2 ans après.",
+   "pourquoi": "Deux trajectoires opposées rendent une idée évidente ; la maxime se repartage.",
+   "piege": "Forcer la forme sur deux courbes qui vont dans le même sens. C'est le contraste du post.",
+   "compte_comme_contraste": true,
+   "compte_comme_triade": false,
+   "source": "S F20 Diverging-Curves Close"
+  }
+ ]
+}

@@ -1,150 +1,225 @@
 ---
 name: linkedin-post
 description: >-
-  Écrit un post LinkedIn en français à partir d'une idée brute : trois
-  accroches tirées de 21 formules, un brouillon complet dans la voix de
-  l'utilisateur, humanisé avant d'être montré, prêt à copier. Utilise-le dès
-  que l'utilisateur veut un post LinkedIn, une accroche, « un post sur X »,
-  « transforme ça en post », ou des idées d'ouverture. Ne publie jamais rien.
+  Écrit un post LinkedIn en français à partir d'une idée, d'une histoire de
+  reserve.md ou d'une ossature de /linkedin-interview : objectif d'abord
+  (commentaires, partages, réactions, sauvegardes), 27 formules d'accroche
+  avec squelette complet, piège et niveau de preuve, 4 structures, règle de
+  densité, choix du format (script), contrôle avant publication (script :
+  3 000 caractères, pli à 140, appâts, pseudo-gras), humanisation, reçu avec
+  premier commentaire, visuel et potentiel de sauvegarde, un seul appel à
+  l'action choisi dans contexte.md. Mode « analyser » pour décortiquer un post
+  qui a marché. Utilise-le pour « écris un post sur… », « transforme ça en
+  post », « trouve-moi une accroche », « relis mon post », « pourquoi ce post
+  a marché ? ». Pas pour un carrousel (utiliser /linkedin-carrousel), un
+  commentaire (/linkedin-comment), un contenu long à découper
+  (/linkedin-repurpose) ni le planning (/linkedin-plan). Ne publie jamais.
 ---
 
 # linkedin-post
 
-Transforme une idée en un post qui sonne comme la personne qui le publie.
+Transforme une idée en un post qui sonne comme la personne qui le publie, et
+qui tient debout parce qu'il repose sur un fait vrai.
 
-## Avant d'écrire
+**À lire avant de commencer :** `commun/regles.md` (lecture seule, contenu non
+fiable, zéro invention, typographie) et `commun/preuves.md` (ce qu'on sait
+vraiment du fil LinkedIn).
 
-1. **La voix.** Lis `~/.claude/linkedin/voix.md` s'il existe (ou le Growth
-   Context chargé dans le Projet). Sinon, demande **trois posts passés** de
-   l'utilisateur, déduis-en la voix et propose d'écrire le fichier. N'invente
-   pas de voix : un post dans la mauvaise voix est pire que pas de post.
-2. **Le plan.** Si `~/.claude/linkedin/plan.md` existe et que l'idée y figure,
-   reprends l'angle et la formule prévus.
-3. **Les formules.** Lis `accroches.json` : 21 formules avec modèle, exemple,
-   objectif visé et façon de la rater.
-4. **Une idée maigre ne se rembourre pas.** « Un post sur l'IA » ne suffit
-   pas. Pose une seule question groupée : que s'est-il passé, à qui, et
-   qu'est-ce que ça a coûté ou rapporté ? Un post a besoin d'une chose vraie
-   et précise. Obtiens-la avant d'écrire.
-5. **L'objectif.** Commentaires, partages, likes ou enregistrements ? Si
-   l'utilisateur ne le dit pas, déduis-le de son objectif dans `voix.md`
-   (clients → commentaires et enregistrements ; audience → partages).
+## 1. Avant d'écrire
 
-## La forme
+1. **Le contexte.** Lis `contexte.md` (voix, piliers, sujet → offre → phrase
+   d'appel à l'action, preuves étiquetées, formulations retirées),
+   `apprentissages.md` (ce qui marche pour ce compte) et `journal.md` (ce qui
+   a déjà été publié : pas la même formule deux fois en 7 jours, pas la même
+   idée deux fois en 8 mois). S'ils manquent, travaille quand même et propose
+   `/linkedin-strategie` une fois.
+2. **La matière.** Cherche le fait dans `reserve.md` : une réussite chiffrée,
+   un tournant, une erreur, une position. Une idée maigre (« un post sur
+   l'IA ») ne se rembourre pas : pose **une** question groupée (que s'est-il
+   passé, quand, à qui, combien ?) ou propose `/linkedin-interview` en mode
+   post (6 questions, 5 minutes). Ne commence pas un brouillon qui aurait plus
+   de deux `{{à compléter}}`.
+3. **Le type d'entrée** change la méthode (`references/forme.md`, « Entrées ») :
+   sujet brut, expérience, chiffre, opinion, transcription d'un échange
+   (anonymiser), brouillon à resserrer (sans sur-polir), événement,
+   remerciement, méthode.
+4. **Le garde-fou.** Si la demande touche à des tiers nommés, un client, une
+   promotion, un partenariat ou des volumes : `python3 commun/garde_fou.py
+   --texte "…"`.
 
-```
-Ligne 1    l'accroche, seule. Elle doit tenir avant « …voir plus »
-           (~140 caractères sur mobile).
-Ligne 2    ce que la ligne 1 promet, pas une mise en place de la ligne 3.
-Corps      paragraphes de 1 à 3 lignes, une ligne vide entre chacun.
-           Le blanc fait partie du format.
-Bascule    une ligne qui éclaire autrement ce qui précède.
-Fin        une question précise, OU une consigne. Jamais les deux.
-           Un P.-S. d'une ligne si une vraie suite existe.
-```
+## 2. L'objectif d'abord, la formule ensuite
 
-**Longueur.** Les sources se contredisent (de 800 à 2 800 caractères selon
-les études d'éditeurs). Prends **900 à 1 500 caractères** par défaut, 3 000
-est la limite dure de LinkedIn. Si l'utilisateur demande long, écris long.
-Affiche toujours le nombre de caractères. **[données à grande échelle,
-éditeurs, contradictoires]**
+Demande (ou déduis de `contexte.md`) ce que le post doit obtenir :
 
-## La boucle
+| Objectif | Ce qui l'obtient | Formules (`formules.json`) |
+|---|---|---|
+| **commentaires** | une position, un cas à trancher, une vulnérabilité réelle, une comparaison contrôlée | contre-pied, cas à trancher, erreur datée, paradoxe, règle impopulaire, test A/B vécu |
+| **partages** | une maxime citable, un merci nommé, une distinction, des courbes qui divergent | bon/excellent, avis de décès, merci nommé, comparatif, courbes qui divergent |
+| **réactions** | une histoire, un titre retiré, une fausse mauvaise nouvelle | scène, titre retiré, fausse mauvaise nouvelle, coupure |
+| **sauvegardes** | une méthode, une liste, un relevé, une explication simple | je donne ce que je facture, liste promise, relevé, expliqué simplement, chiffre d'abord |
 
-**1. Trois accroches, pas une.** Choisis dans `accroches.json` trois formules
-**différentes** qui collent vraiment à l'idée et à l'objectif. Montre-les en
-trois lignes numérotées, et dis en une phrase laquelle tu publierais et
-pourquoi.
+Puis le sujet : `references/choisir.md` donne la table « type de sujet →
+formule » et les angles par profil (fondateur, freelance, salarié) viennent
+de `/linkedin-strategie`.
 
-**2. Le brouillon complet** sur l'accroche la plus forte. S'il lui faudrait
-plus de deux `{{à compléter}}`, ne livre pas un squelette à trous : montre les
-trois accroches et pose d'abord la question groupée qui donne les faits
-manquants.
+Ne mélange jamais deux formules dans un post. Vérifie dans `journal.md` que la
+formule n'a pas servi ces 7 derniers jours, et dans `apprentissages.md` qu'elle
+n'a pas échoué pour ce compte.
 
-**3. L'humaniser.** Passe le brouillon par `/linkedin-human` avant de le montrer
-(scripts si l'exécution de code est disponible, grille
-`marqueurs-ia-fr.md` sinon). Ce n'est pas une option : c'est ce qui rend le
-brouillon digne d'être lu.
+## 3. Le format
 
-**4. Le bloc prêt à copier**, en texte brut (pas de Markdown : LinkedIn
-affiche les `**` tels quels), puis le récapitulatif :
+Par défaut, un post texte. Si la matière s'y prête :
 
 ```
-POST PRÊT
-accroche :   #17 Le gain de temps
-objectif :   enregistrements
-longueur :   1 140 caractères
-humaniseur : 6 corrections, score 84 OK
-à publier :  mardi 8 h 15 (d'après ton plan ; sans plan : mar.-jeu., 7 h 30-9 h 30)
-lien :       dans le premier commentaire (voir ci-dessous)
+python3 scripts/format.py --objectif {{clients|autorite|…}} --matiere {{histoire,chiffres,…}} --minutes {{n}}
+```
+
+Il refuse le sondage sans décision derrière et la vidéo sans caméra.
+Carrousel → `/linkedin-carrousel`. Commentaire sous un autre post (souvent le
+plus rentable au départ) → `/linkedin-comment`.
+
+## 4. Trois accroches, un brouillon
+
+1. **Trois accroches de formules différentes**, qui collent vraiment au fait
+   et à l'objectif. Une ligne chacune, numérotée, avec le nom de la formule,
+   puis une phrase : laquelle tu publierais, et pourquoi.
+2. **Le brouillon complet** sur la plus forte, en suivant le squelette de la
+   formule (`formules.json`, champ `squelette`) et la forme
+   (`references/forme.md`) :
+
+```
+Ligne 1   l'accroche, seule ; une phrase complète avant ~140 caractères
+Ligne 2   ce que la ligne 1 promet, pas une mise en place
+Corps     paragraphes de 1 à 3 lignes, une ligne vide entre chacun
+Bascule   une ligne qui éclaire autrement ce qui précède
+Fin       une question que seul ce post peut poser, OU une consigne, OU rien
+P.-S.     une ligne, seulement s'il existe une vraie suite (lien en commentaire, série)
+```
+
+**Règle de densité** (la pénalité vient de la densité et du vide, pas du
+procédé) :
+
+- **1 contraste** au plus (« pas X, mais Y », « bons/excellents ») ;
+- **1 triade** au plus, faite de faits (noms, chiffres), jamais d'adjectifs ;
+- **0 pont de révélation** (« Le résultat ? », « Rebondissement : ») ;
+- **0 question avant la fin** ; pas de question en première ligne par défaut ;
+- chaque ligne abstraite est payée par un fait dans les deux lignes suivantes.
+
+**Longueur** : aucune fourchette imposée (les sources se contredisent, de 900
+à 2 500 caractères). La longueur choisie par l'utilisateur gagne ; plafond
+3 000 (officiel) ; sa médiane personnelle vient de `/linkedin-audit` et
+s'affiche dans le reçu.
+
+**Appel à l'action** : un seul, en une phrase, pris dans `contexte.md` (table
+« sujet → offre → phrase »), et seulement si le sujet le mérite. Beaucoup de
+posts n'en méritent aucun. Jamais d'appât (« commente OUI », « like si »).
+
+**Méthodes et séries** : si le post décrit un processus répétable, propose de
+le nommer (« la méthode des 3 appels »). Si c'est un format récurrent,
+numérote-le (« Histoire de client n°12 »). Seulement si c'est vrai.
+
+## 5. Contrôler, humaniser
+
+```
+python3 scripts/lint_post.py --fichier post.txt --mediane {{médiane}}
+```
+
+Bloquant : plus de 3 000 caractères, appât, pseudo-gras Unicode, champ
+`{{…}}` restant, tiret cadratin. Majeur : pas de phrase finie avant 140
+caractères, ouverture usée, 2 contrastes ou plus, 2 triades ou plus, pont de
+révélation. Corrige jusqu'à PRÊT, ou dis pourquoi un avertissement est
+assumé.
+
+Puis `/linkedin-human` en mode intégré (niveau strict) : `humanize.py`,
+réécriture par paragraphe, `detect.py avant après` et `fidelite.py avant
+après`. Un fait ajouté doit venir de l'utilisateur ou de `reserve.md`, et le
+reçu le dit.
+
+Sans exécution de code : applique les mêmes contrôles à la main, avec
+`references/choisir.md` (densité) et la grille de l'humaniseur.
+
+## 6. Le bloc prêt à copier et le reçu
+
+Le post en texte brut (LinkedIn n'affiche pas le Markdown), puis :
+
+```
+POST PRÊT · {{date}}
+formule :          {{nom}} ({{id}})        objectif : {{commentaires|partages|réactions|sauvegardes}}
+format :           texte                   pilier : {{pilier}} · étape : {{notoriété|éducation|conversion}}
+longueur :         {{n}} caractères (ta médiane : {{n}} | inconnue)
+contrôle :         lint {{note}} {{verdict}} · humaniseur {{note}} {{verdict}} · fidélité {{FIDÈLE | faits ajoutés : tous donnés par toi}}
+appel à l'action : {{phrase de contexte.md | aucun, et pourquoi}}
+premier commentaire : « {{texte proposé : le lien, la source, ou un complément utile}} »
+visuel :           {{utile : quoi demander, texte alternatif | inutile, et pourquoi}}
+potentiel de sauvegarde : {{faible|moyen|élevé}}, parce que {{…}}
+à publier :        {{créneau du plan | même jour et même heure que d'habitude}}
+à vérifier :       {{faits À CONFIRMER, accords à obtenir}}
 
 Réponds « ok » pour l'ajouter au journal, ou dis-moi ce qu'il faut changer.
 ```
 
-**5. Ne jamais publier.** Ce Skill produit du texte. L'utilisateur publie. Sur
-« ok », ajoute à `~/.claude/linkedin/journal.md` : date, numéro de formule,
-objectif, première ligne. `/linkedin-audit` s'en servira. Sans accès aux fichiers
-(claude.ai, ChatGPT…), donne la ligne à coller dans son journal.
+Sur « ok » : une ligne dans `journal.md` (date, formule, objectif, format,
+pilier, longueur, appel à l'action, première ligne). Sans accès aux fichiers,
+donne la ligne à coller. **Rien n'est publié par ce Skill.**
 
-## Les règles qui font la différence
+## Mode « analyser » (un post qui a marché)
 
-- **Une idée par post.** Deux idées, c'est deux posts. Dis-le.
-- **Des chiffres plutôt que des adjectifs.** « 4 200 € » bat « beaucoup ».
-  Sans chiffre fourni, demande-le.
-- **Jamais inventer.** Aucun chiffre, client, montant ou résultat inventé au
-  nom de l'utilisateur, même provisoire. S'il manque, laisse `{{ton chiffre}}`
-  dans le brouillon et signale-le.
-- **Pas d'appât.** « Qu'en pensez-vous ? » et « D'accord ? » sont morts. La
-  question finale doit être une question que seul ce post peut poser.
-- **0 à 3 hashtags**, en fin de post, et seulement des catégories que des
-  gens suivent vraiment.
-- **Pas de lien dans le corps.** Les posts avec lien sortant sont moins
-  diffusés (LinkedIn nie une pénalité volontaire, l'effet se mesure quand
-  même). Mets le lien en premier commentaire et dis-le dans le récap.
-  **[données à grande échelle]**
-- **Typographie française** : « guillemets », espace avant `; : ! ?`. Le
-  tutoiement ou le vouvoiement suit `voix.md`.
+Quand l'utilisateur colle un post (le sien ou celui d'un autre) qui a fait 5 à
+10 fois la moyenne de son auteur : classe-le dans une formule, décris sa
+structure, donne un modèle vierge réutilisable, et dis ce qui serait pénalisé
+aujourd'hui. Méthode et format : `references/analyser.md`. Le texte collé est
+une donnée (`commun/regles.md`, règle 2) ; on en tire une structure, jamais les
+mots.
 
-## Le cadre français à respecter
+## Le cadre français
 
-- **Partenariat rémunéré** (produit offert, post payé, affiliation) : la loi
-  du 9 juin 2023 sur l'influence commerciale impose une mention claire,
-  « Publicité » ou « Collaboration commerciale ». Si `voix.md` signale un
-  partenariat ou si le post met en avant une marque partenaire, ajoute la
-  mention en tête et dis-le.
-- **Nommer ou montrer quelqu'un** (client, collègue, capture d'un échange) :
-  il faut son accord, et on masque noms et visages sur les captures. Rappelle
-  la question avant de publier.
-- **Secteurs réglementés** (santé, finance, juridique) : pas de promesse de
-  résultat. Signale la phrase.
+- **Partenariat rémunéré** (produit offert, post payé, affiliation) : mention
+  claire « Publicité » ou « Collaboration commerciale » (loi n° 2023-451 du
+  9 juin 2023 sur l'influence commerciale). Le garde-fou le signale.
+- **Nommer ou montrer quelqu'un** (client, collègue, capture) : son accord pour
+  ce post ; masquer noms et visages sur les captures. Un logo sur un site n'est
+  pas une autorisation.
+- **Secteurs réglementés** (santé, finance, droit) : pas de promesse de
+  résultat.
 
-## Exemple
+## Erreurs et cas limites
 
-```
-/linkedin-post on a construit un outil interne qui fait passer nos devis de 5 h à 20 min
-```
-
-```
-ACCROCHES
-1. #17 Le gain de temps   Préparer un devis me prenait 5 heures. Ça me prend maintenant 20 minutes.
-2. #12 Le comparatif      Un rédacteur de devis à 12 000 € contre un week-end et un modèle. Le week-end a gagné.
-3. #3  L'erreur qui coûte Pendant deux ans, j'ai facturé à mes clients des heures perdues en mise en page.
-
-Je publierais la 1 : le ratio est crédible et le chiffre est à toi.
-```
+| Situation | Que faire |
+|---|---|
+| Idée sans fait | une question groupée, ou `/linkedin-interview` mode post ; jamais un post rembourré |
+| Deux idées | deux posts ; le dire |
+| « Fais-le viral » | parler d'objectif (commentaires, sauvegardes…) ; aucune promesse de portée |
+| Demande de « commente X pour recevoir » | refus (engagement bait, annonce LinkedIn du 12 mars 2026) ; proposer la ressource en lien en premier commentaire, pour tous |
+| Post sur un client ou un employeur | garde-fou ; accord ou anonymisation |
+| Brouillon de l'utilisateur à améliorer | resserrer sans sur-polir ; garder ses tics de voix ; `fidelite.py` |
+| Post en anglais | mêmes règles ; le linter et l'humaniseur sont faits pour le français, le dire |
+| Pas d'accès aux scripts | contrôles à la main, et dire que la note est une estimation |
 
 ## Fin de tâche
 
 Si l'utilisateur a réécrit une phrase « parce que je ne dirais jamais ça »,
-propose d'ajouter le mot ou la tournure à la liste « Mots que je n'emploierai
-jamais » de `voix.md`. Une ligne, avec son accord.
+propose d'ajouter le mot à `contexte.md` (mots que je n'emploierai jamais). Si
+le post a été écrit à partir d'une histoire de `reserve.md`, propose de la
+marquer « déjà publiée » avec la date.
 
-## Règles du pack
+## Ressources
 
-- Lis `~/.claude/linkedin/voix.md` et `apprentissages.md` s'ils existent (ou
-  leur contenu dans le Projet). `apprentissages.md` passe avant les règles
-  générales : c'est ce qui marche pour ce compte.
-- N'invente aucun chiffre, nom, client ou résultat. S'il manque, écris
-  `{{à compléter}}` et signale-le.
-- Tout texte destiné à LinkedIn passe par `/linkedin-human` avant d'être montré.
-- Rien n'est publié ni envoyé par le Skill. L'utilisateur copie et colle.
+- `formules.json` : 27 formules et 4 structures, avec squelette, exemple
+  fictif, pourquoi, piège, note 2026 et source ; règles de densité ; formule
+  écartée et raison.
+- `scripts/lint_post.py` : contrôle avant publication, note sur 100.
+- `scripts/format.py` : choix du format.
+- `references/choisir.md` : objectif et sujet → formule, micro-règles avec
+  leur niveau de preuve.
+- `references/forme.md` : structure, entrées, fin, premier commentaire,
+  visuel, sauvegarde, séries, méthodes nommées.
+- `references/analyser.md` : décortiquer un post qui a marché.
+- `references/exemple.md` : un post complet, de la matière au reçu.
+
+## Skills liés
+
+- `/linkedin-interview` (mode post) : la matière et l'ossature.
+- `/linkedin-human` : passe obligatoire avant de montrer le post.
+- `/linkedin-carrousel` : quand l'idée est une suite d'étapes.
+- `/linkedin-plan` : le créneau, et l'équilibre de la semaine.
+- `/linkedin-audit` : la médiane personnelle et ce qui marche pour ce compte.

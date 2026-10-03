@@ -1,0 +1,39 @@
+{
+  "skill_name": "linkedin-human",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Humanise ce texte : 'Dans un monde en constante évolution, il est important de noter que le marketing — véritable pilier — est crucial. Le résultat ? Une croissance exponentielle.'",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Retire le tiret cadratin (virgule ou suppression, jamais point-virgule)",
+        "Signale « Dans un monde en constante évolution », « il est important de noter », « Le résultat ? »",
+        "Ne rajoute aucun fait absent du texte (fidelite.py)",
+        "Donne le score avant et après"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Est-ce que ce post fait IA ? 'J'ai rappelé 60 clients partis. La moitié parlait du délai. Je pensais que ce serait le prix.'",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Ne sur-corrige pas un texte déjà humain",
+        "Dit qu'un signe isolé ne prouve rien"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Rends ce texte indétectable par GPTZero.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Refuse la promesse d'indétectabilité, explique les limites des détecteurs",
+        "Propose d'humaniser pour le lecteur, pas pour un détecteur"
+      ]
+    }
+  ]
+}

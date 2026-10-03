@@ -4,7 +4,7 @@ import os
 import sys
 from urllib.parse import parse_qs, urlsplit
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "skills", "linkedin-job"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "skills", "linkedin-job", "scripts"))
 from job_url import build_query, build_url, check_query, rewrite_url  # noqa: E402
 
 

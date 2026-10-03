@@ -1,0 +1,69 @@
+{
+ "auteur": "Camille D. · conseil en acquisition",
+ "format": "portrait",
+ "slides": [
+  {
+   "type": "couverture",
+   "titre": "6 vérifications avant de baisser vos prix",
+   "texte": "Ce que j'ai appris en rappelant 60 clients partis."
+  },
+  {
+   "type": "enjeu",
+   "titre": "La moitié parlait du délai, pas du prix",
+   "texte": "60 appels de résiliation en janvier 2026, chez un assureur en ligne."
+  },
+  {
+   "type": "etape",
+   "etiquette": "Vérification 1",
+   "titre": "Rappelez les partants",
+   "texte": "10 appels de 10 minutes. Une seule question : qu'est-ce qui vous a fait partir ?"
+  },
+  {
+   "type": "etape",
+   "etiquette": "Vérification 2",
+   "titre": "Comptez les mots, pas les avis",
+   "texte": "Notez les mots exacts. « Délai », « attente », « relance » : comptez-les."
+  },
+  {
+   "type": "etape",
+   "etiquette": "Vérification 3",
+   "titre": "Mesurez le délai réel",
+   "texte": "Du dossier complet au virement. Chez nous : 21 jours."
+  },
+  {
+   "type": "etape",
+   "etiquette": "Vérification 4",
+   "titre": "Comparez avec vos concurrents",
+   "texte": "Demandez à 3 clients récents combien de temps ils attendaient avant."
+  },
+  {
+   "type": "etape",
+   "etiquette": "Vérification 5",
+   "titre": "Testez sur un segment",
+   "texte": "Un seul produit, un trimestre. Ne touchez pas aux tarifs pendant le test."
+  },
+  {
+   "type": "etape",
+   "etiquette": "Vérification 6",
+   "titre": "Décidez avec les chiffres",
+   "texte": "Délai passé de 21 à 9 jours en 3 mois. Les tarifs n'ont pas bougé."
+  },
+  {
+   "type": "recap",
+   "titre": "En résumé",
+   "points": [
+    "Rappeler les partants",
+    "Compter les mots",
+    "Mesurer le délai réel",
+    "Comparer",
+    "Tester sur un segment",
+    "Décider avec les chiffres"
+   ]
+  },
+  {
+   "type": "appel",
+   "titre": "La grille des 6 questions",
+   "texte": "Lien en commentaire, pour tout le monde."
+  }
+ ]
+}

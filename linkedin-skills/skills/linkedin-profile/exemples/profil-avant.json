@@ -1,0 +1,38 @@
+{
+  "objectif": "clients",
+  "titre": "Responsable marketing chez Assurly",
+  "infos": "Passionnée par le marketing digital depuis plus de 10 ans, j'aime relever de nouveaux défis.",
+  "poste_actuel": {
+    "intitule": "Responsable acquisition",
+    "lignes": [
+      "En charge de l'acquisition payante et du SEO",
+      "Relancé 1 400 clients dormants en 6 semaines : 212 contrats réactivés"
+    ]
+  },
+  "experiences": [
+    {
+      "intitule": "Chargée de marketing",
+      "lignes": [
+        "Gestion des campagnes emailing"
+      ]
+    }
+  ],
+  "selection": {
+    "elements": 0
+  },
+  "banniere": "defaut",
+  "photo": {
+    "presente": true,
+    "age_ans": 4
+  },
+  "competences": {
+    "nombre": 18,
+    "epinglees_alignees": false
+  },
+  "recommandations": null,
+  "activite_jours": 45,
+  "open_to": false,
+  "url_personnalisee": false,
+  "coordonnees": true,
+  "formation": true
+}

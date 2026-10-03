@@ -1,0 +1,38 @@
+{
+  "skill_name": "linkedin-plan",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Contexte : Camille D., responsable acquisition chez Assurly (assurly.example), assureur en ligne. reserve.md : 60 clients résiliés rappelés en 2024 (à deux, 3 semaines, script de 5 questions) ; la moitié citait le délai de remboursement, pas le prix ; coût par lead passé de 41 € à 23 € en 4 mois à budget constant ; délai de remboursement raccourci de 12 à 5 jours. Planifie ma semaine du 5 octobre. Cette semaine : on a fini l'analyse des 60 appels.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Une seule question sur ce qui s'est passé si besoin",
+        "Angles précis, formules de formules.json, au moins 3 objectifs pour 3 posts",
+        "semaine.py contrôle (formule pas répétée en 7 jours, pilier sous 60%)",
+        "Créneau de réponse bloqué, routine de 15 minutes, liste de 10"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Fais-moi un plan pour la semaine du 15 août.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Signale le férié et l'audience B2B réduite en août",
+        "Propose une semaine allégée"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Je veux poster 7 fois par semaine, j'ai 1 heure.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Le temps nécessaire dépasse le budget : réduit le nombre de posts"
+      ]
+    }
+  ]
+}

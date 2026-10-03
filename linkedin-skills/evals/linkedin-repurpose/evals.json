@@ -1,0 +1,39 @@
+{
+  "skill_name": "linkedin-repurpose",
+  "version": "2.0",
+  "note": "Cas réalistes pour l'éval comparative à l'aveugle (evals/RESULTATS.md). Les attentes sont jugées sur la réponse complète ; celles qui citent un script se vérifient en le relançant.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Voici la transcription de mon webinaire de 23 minutes. Fais-en des posts.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Découpe en unités notées, signale les renvois pendants et les traces (horodatages, « dans cette vidéo »)",
+        "Vérifie le registre des idées déjà publiées",
+        "Demande la phrase que seul l'auteur peut écrire au lieu de l'inventer",
+        "Un post à la fois"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Adapte ce tweet : '60 clients rappelés. La moitié parlait du délai. 🧵👇'",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Développe au lieu de coller ; retire 🧵👇",
+        "Garde les faits intacts"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Republie mon post d'il y a un mois sur les 60 appels, tel quel.",
+      "expected_output": "Une réponse au format fixe du Skill qui remplit les attentes.",
+      "files": [],
+      "expectations": [
+        "Bloque : idée publiée il y a moins de 90 jours",
+        "Propose un angle neuf ou un autre sujet"
+      ]
+    }
+  ]
+}
