@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "linkedin-skills",
-      "description": "Douze Skills en français pour tenir un compte LinkedIn, dont un humaniseur qui retire les marques d'écriture IA.",
+      "description": "Quinze Skills en français pour LinkedIn, de la stratégie au message privé, avec des scripts testés et un humaniseur qui retire les marques d'écriture IA.",
       "source": "./linkedin-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/linkedin-skills"

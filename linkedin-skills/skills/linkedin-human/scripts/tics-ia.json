@@ -1,0 +1,1092 @@
+{
+ "version": "4",
+ "note": "Lexique des tics d'écriture IA en français, pour LinkedIn. Sources : Wikipédia, « Aide:Identifier l'usage d'une IA générative » ; Boileau (alxbd/boileau, MIT) ; slop.json de Jake Schincariol (MIT) pour la structure. Fichier fait pour être modifié : si un mot fait partie de ta voix, retire-le. Version 4 (octobre 2026) : force (fort = une occurrence suffit, faible = compte par densité), niveau (forensique, strict, esthétique), époque datée quand un équivalent anglais est daté par Wikipédia EN (inférence pour le français) ; listes forensique, sincérité, staccato, couche LinkedIn 2026 et triades creuses, d'après Serge Bulaev (humanizer V3, MIT), blader/humanizer (MIT) et Boileau (MIT).",
+ "accents_majuscules": {
+  "Etat": "État",
+  "Etats": "États",
+  "Ecole": "École",
+  "Equipe": "Équipe",
+  "Etape": "Étape",
+  "Etapes": "Étapes",
+  "Evolution": "Évolution",
+  "Economie": "Économie",
+  "Edition": "Édition",
+  "Evenement": "Événement",
+  "Evénement": "Événement",
+  "Etude": "Étude",
+  "Etudes": "Études",
+  "Echec": "Échec",
+  "Echecs": "Échecs",
+  "Ecrire": "Écrire",
+  "Ecouter": "Écouter",
+  "Eviter": "Éviter",
+  "Egalement": "Également",
+  "Enorme": "Énorme",
+  "Evidemment": "Évidemment",
+  "Ete": "Été",
+  "A propos": "À propos",
+  "A partir": "À partir",
+  "A noter": "À noter",
+  "A mon avis": "À mon avis",
+  "A la fin": "À la fin",
+  "A quoi": "À quoi",
+  "A force": "À force",
+  "A chaque": "À chaque",
+  "A tous": "À tous",
+  "A toutes": "À toutes",
+  "Apres": "Après",
+  "Deja": "Déjà",
+  "Voila": "Voilà",
+  "Ca ": "Ça "
+ },
+ "remplacements": [
+  {
+   "trouver": "il est important de noter que ",
+   "remplacer": "",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "il est important de souligner que ",
+   "remplacer": "",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "il est essentiel de comprendre que ",
+   "remplacer": "",
+   "famille": "posture-didactique"
+  },
+  {
+   "trouver": "il convient de noter que ",
+   "remplacer": "",
+   "famille": "pseudo-soutenu"
+  },
+  {
+   "trouver": "il convient de souligner que ",
+   "remplacer": "",
+   "famille": "pseudo-soutenu"
+  },
+  {
+   "trouver": "force est de constater que ",
+   "remplacer": "",
+   "famille": "pseudo-soutenu"
+  },
+  {
+   "trouver": "il faut savoir que ",
+   "remplacer": "",
+   "famille": "posture-didactique"
+  },
+  {
+   "trouver": "notons que ",
+   "remplacer": "",
+   "famille": "posture-didactique"
+  },
+  {
+   "trouver": "à l'heure actuelle",
+   "remplacer": "aujourd'hui",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "afin de pouvoir",
+   "remplacer": "pour",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "afin de",
+   "remplacer": "pour",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "afin d'",
+   "remplacer": "pour ",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "au sein de l'",
+   "remplacer": "dans l'",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "au sein de la",
+   "remplacer": "dans la",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "au sein du",
+   "remplacer": "dans le",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "au sein des",
+   "remplacer": "dans les",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "au sein de",
+   "remplacer": "dans",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "a la capacité de",
+   "remplacer": "peut",
+   "famille": "delayage"
+  },
+  {
+   "trouver": "un véritable ",
+   "remplacer": "un ",
+   "famille": "veritable"
+  },
+  {
+   "trouver": "une véritable ",
+   "remplacer": "une ",
+   "famille": "veritable"
+  },
+  {
+   "trouver": "fait du sens",
+   "remplacer": "a du sens",
+   "famille": "anglicisme"
+  },
+  {
+   "trouver": "font du sens",
+   "remplacer": "ont du sens",
+   "famille": "anglicisme"
+  },
+  {
+   "trouver": "faire du sens",
+   "remplacer": "avoir du sens",
+   "famille": "anglicisme"
+  },
+  {
+   "trouver": "faire sens",
+   "remplacer": "avoir du sens",
+   "famille": "anglicisme"
+  },
+  {
+   "trouver": "fait sens",
+   "remplacer": "a du sens",
+   "famille": "anglicisme"
+  }
+ ],
+ "signaler": [
+  {
+   "motif": "\\bcrucia(?:l|le|les|ux)\\b",
+   "famille": "lexique-ia",
+   "conseil": "Dis pourquoi c'est important, avec un fait, au lieu de l'adjectif.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2025",
+   "equivalent_en": "crucial"
+  },
+  {
+   "motif": "\\bessentiel(?:le|les|s)?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Souvent retirable. Sinon : un chiffre ou une conséquence.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bfondamenta(?:l|le|les|ux)\\b",
+   "famille": "lexique-ia",
+   "conseil": "Remplace par le fait concret.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bincontournables?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Mot brochure. Dis qui l'utilise ou combien.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bindispensables?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Montre ce qui casse sans.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bstratégiques?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Quelle décision, quel objectif ?",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:captivant|fascinant|passionnant)(?:e|es|s)?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Laisse le lecteur juger.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2024",
+   "equivalent_en": "captivating"
+  },
+  {
+   "motif": "\\b(?:transformat(?:eur|rice|eurs|rices)|révolutionnaires?|disruptif|disruptive|disruptifs)\\b",
+   "famille": "lexique-ia",
+   "conseil": "Inflation. Décris le changement mesuré.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\brobustes?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Robuste face à quoi ? Donne le cas.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\binnovant(?:e|es|s)?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Dis ce qui est nouveau, concrètement.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bdynamiques?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Mot vide dans 9 cas sur 10.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bvibrant(?:e|es|s)?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Calque de « vibrant ». À retirer.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2025",
+   "equivalent_en": "vibrant"
+  },
+  {
+   "motif": "\\bholistiques?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Jargon. Liste plutôt ce qui est couvert.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bsynergies?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Jargon de plaquette.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bleviers?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Quel levier, quel effet ? Sinon retire.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bgame[- ]?changer\\b",
+   "famille": "lexique-ia",
+   "conseil": "Cliché LinkedIn. Montre le avant/après.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bparadigmes?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Jargon.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bécosystèmes?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Souvent vide hors biologie ou tech précise.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bpaysage (?:actuel|numérique|digital|concurrentiel|en (?:pleine|constante) évolution)\\b",
+   "famille": "inflation",
+   "conseil": "Supprime le décor, va au fait.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2024",
+   "equivalent_en": "landscape"
+  },
+  {
+   "motif": "\\bsignificati(?:f|ve|fs|ves|vement)\\b",
+   "famille": "lexique-ia",
+   "conseil": "Donne le chiffre.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bpertinent(?:e|es|s)?\\b",
+   "famille": "lexique-ia",
+   "conseil": "Pertinent pour qui, pourquoi ?",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bplong(?:er|eons|ez|e) (?:dans|au cœur)\\b",
+   "famille": "lexique-ia",
+   "conseil": "Calque de « delve ». Entre directement dans le sujet.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2024, en déclin",
+   "equivalent_en": "delve"
+  },
+  {
+   "motif": "\\bnaviguer (?:dans|à travers|entre)\\b",
+   "famille": "lexique-ia",
+   "conseil": "Calque de « navigate ». Dis ce qu'on fait vraiment.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2024",
+   "equivalent_en": "navigate"
+  },
+  {
+   "motif": "\\bdécrypt(?:er|ons|age)\\b",
+   "famille": "meta-annonce",
+   "conseil": "Annonce au lieu de dire. Attaque le contenu.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bde véritables\\b|\\bles véritables\\b",
+   "famille": "veritable",
+   "conseil": "« Véritable » gonfle sans rien ajouter. Retire-le (accorde « des »).",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bpermet(?:tre|tent|tant|tra|traient)? (?:de|d')",
+   "famille": "verbe-vide",
+   "conseil": "Qui fait quoi ? Mets le sujet et le verbe concret.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:garantir|favoriser|optimiser|valoriser|maximiser|propulser|booster|sublimer|révolutionner)\\b",
+   "famille": "verbe-vide",
+   "conseil": "Verbe vide. Quel geste, quel résultat chiffré ?",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2024-2025",
+   "equivalent_en": "fostering"
+  },
+  {
+   "motif": "\\brépondre (?:aux|à vos|à leurs) (?:besoins|enjeux|attentes)\\b",
+   "famille": "verbe-vide",
+   "conseil": "Quels besoins ? Nomme-les.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bmettre en (?:place|œuvre|oeuvre)\\b|\\bmis(?:e|es)? en (?:place|œuvre|oeuvre)\\b",
+   "famille": "verbe-vide",
+   "conseil": "Souvent « lancer », « faire », « installer ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bs'inscri(?:t|vent|re) dans\\b",
+   "famille": "verbe-vide",
+   "conseil": "Formule administrative.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:tirer parti|capitaliser sur)\\b",
+   "famille": "verbe-vide",
+   "conseil": "Calque de « leverage ». Utilise « se servir de ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\beffectu(?:er|e|ent|é|ée|és|ées|ons|ez)\\b",
+   "famille": "faux-soutenu",
+   "conseil": "« Faire » suffit presque toujours.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bprocéd(?:er|é|ons|ez|ons) à\\b",
+   "famille": "faux-soutenu",
+   "conseil": "« Faire », ou le verbe direct.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bs'av(?:ère|èrent|érer|éré)\\b",
+   "famille": "faux-soutenu",
+   "conseil": "« Être ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bdispos(?:er|e|ons|ez|ent) d(?:e|')",
+   "famille": "faux-soutenu",
+   "conseil": "« Avoir ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:la|une|les|des|cette|ces) problématiques?\\b",
+   "famille": "faux-soutenu",
+   "conseil": "« Problème » (attention à l'accord).",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:la|une|les|des|cette|ces) thématiques?\\b",
+   "famille": "faux-soutenu",
+   "conseil": "« Sujet » ou « thème ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bfinalité\\b",
+   "famille": "faux-soutenu",
+   "conseil": "« But ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:constitue|constituent|représente|représentent|incarne|incarnent|demeure|demeurent)\\b",
+   "famille": "copule",
+   "conseil": "Essaie « est » / « sont ».",
+   "force": "faible",
+   "niveau": "esthetique"
+  },
+  {
+   "motif": "\\bs'(?:impose|imposent|affirme|affirment) comme\\b|\\bfait figure de\\b|\\bse révèle être\\b",
+   "famille": "copule",
+   "conseil": "Essaie « est ».",
+   "force": "faible",
+   "niveau": "esthetique"
+  },
+  {
+   "motif": "(?:^|(?<=[.!?]\\s))(?:Par ailleurs|De plus|En outre|De surcroît|Néanmoins|Toutefois|Cependant|En effet|Par conséquent|En définitive|Ainsi)\\b",
+   "famille": "connecteur",
+   "conseil": "Supprime le connecteur : la phrase tient seule 4 fois sur 5.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "(?:^|(?<=[.!?]\\s))(?:En somme|En résumé|En conclusion|Pour conclure|Pour résumer|En bref)\\b",
+   "famille": "conclusion",
+   "conseil": "Conclusion d'IA. Termine sur le fait le plus fort ou une question précise.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:dans cette optique|dans ce cadre|à cet égard|à l'aune de|au regard de|dans la mesure où)\\b",
+   "famille": "pseudo-soutenu",
+   "conseil": "Formule de rapport. Coupe ou simplifie.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\badress(?:er|e|ent|é|ée|ons|ez) (?:un|le|les|ce|cette|ces|des|vos|nos|leurs) (?:problèmes?|sujets?|enjeux|besoins?|défis?|questions?)\\b",
+   "famille": "anglicisme",
+   "conseil": "« Traiter », « s'attaquer à ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bdélivr(?:er|e|ent|ons|ez) (?:de la|plus de) valeur\\b",
+   "famille": "anglicisme",
+   "conseil": "« Apporter », ou dis quelle valeur.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bimpact(?:er|e|ent|é|ée|és|ées)\\b",
+   "famille": "anglicisme",
+   "conseil": "« Toucher », « peser sur », « changer ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\ben termes de\\b",
+   "famille": "anglicisme",
+   "conseil": "« Côté », « pour ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bplus [^.!?\\n]{1,30} qu'il n'y paraît\\b|\\bmoins [^.!?\\n]{1,30} qu'on ne le (?:pense|croit)\\b",
+   "famille": "transition",
+   "conseil": "Dis la nuance directement.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bderrière (?:les chiffres|ce succès|cette réussite)\\b|\\bune réalité plus (?:nuancée|complexe)\\b|\\bla vérité est (?:plus )?(?:complexe|nuancée|simple)\\b",
+   "famille": "transition",
+   "conseil": "Donne le fait qui nuance, sans l'annoncer.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:marque|marquent) un tournant\\b|\\bmoment charnière\\b|\\bétape (?:cruciale|décisive|clé)\\b|\\btémoign(?:e|ent|ant) de\\b|\\bhéritage durable\\b",
+   "famille": "inflation",
+   "conseil": "Inflation d'importance. Reste au fait.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2025",
+   "equivalent_en": "pivotal"
+  },
+  {
+   "motif": "\\bà l'(?:ère|aube) d(?:e|u|es)\\b|\\ben (?:constante|perpétuelle|pleine) (?:évolution|mutation)\\b|\\bdans un monde (?:où|qui|en)\\b",
+   "famille": "inflation",
+   "conseil": "Ouverture générique. Commence par le fait.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": ",\\s(?:soulignant|mettant en (?:lumière|avant|évidence)|témoignant|illustrant|reflétant|contribuant|ouvrant la voie|traduisant|renforçant|offrant)\\b",
+   "famille": "participe",
+   "conseil": "Queue de phrase décorative. Coupe, ou fais-en une phrase avec un fait.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2025 et après",
+   "equivalent_en": "emphasizing, highlighting, showcasing"
+  },
+  {
+   "motif": "\\bniché(?:e|es|s)? au cœur\\b|\\bà couper le souffle\\b|\\bjoyau\\b|\\bécrin\\b|\\bsans précédent\\b|\\bde pointe\\b|\\bexpérience unique\\b|\\bnouvelle ère\\b",
+   "famille": "promo",
+   "conseil": "Registre brochure.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bselon (?:les|des|certains|de nombreux) experts\\b|\\bles experts s'accordent\\b|\\b(?:de nombreuses|des|plusieurs) études (?:montrent|prouvent|indiquent)\\b|\\bplusieurs sources\\b|\\bles observateurs\\b",
+   "famille": "attribution-floue",
+   "conseil": "Cite la source précise, ou retire.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bBien sûr\\s?!|\\bAvec plaisir\\s?!|\\bJ'espère que (?:cela|ça) (?:vous|t')aide\\b|\\bN'hésite[sz]? pas à\\b|\\bSouhaites?-(?:vous|tu) que je\\b|\\bVoici (?:un|une|le|la|ta|votre) (?:post|publication|version|proposition|brouillon)\\b",
+   "famille": "artefact",
+   "conseil": "Reste de conversation avec l'IA. À supprimer.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bEn tant qu'(?:IA|intelligence artificielle|assistant|modèle de langage)\\b|\\bà (?:ma|la) dernière mise à jour\\b|\\bselon les informations disponibles\\b",
+   "famille": "artefact",
+   "conseil": "Reste de conversation avec l'IA. À supprimer.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bExcellente question\\b|\\b(?:Vous avez|Tu as) (?:tout à fait |entièrement )?raison\\b|\\bBien vu\\s?!|\\bC'est une (?:très )?(?:bonne|excellente) remarque\\b",
+   "famille": "flatterie",
+   "conseil": "Ton servile d'assistant.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bet c'est (?:précisément|exactement|justement|tout) (?:le but|l'enjeu|le sujet|le point)\\b|\\bc'est là que tout se joue\\b|\\bvoilà toute la question\\b|\\bet (?:ça|cela) change tout\\b",
+   "famille": "auto-validation",
+   "conseil": "Tu te félicites d'avoir dit la chose. Passe à la suite.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bVoici (?:ce que|pourquoi|comment|l'essentiel|les (?:éléments|points|clés))\\b|\\bPour bien comprendre\\b|\\bAvant d'aller plus loin\\b|\\bCommençons par\\b|\\bJe (?:vous|t')explique\\b|\\bOn en parle\\s?\\?",
+   "famille": "meta-annonce",
+   "conseil": "Annonce au lieu de dire. Attaque le contenu.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bCe qu'il faut (?:comprendre|retenir)\\b|\\bGarde[sz]? (?:bien )?(?:à|en) l'esprit\\b|\\bRetene[sz] (?:ceci|bien)\\b|\\bN'oublions pas que\\b",
+   "famille": "posture-didactique",
+   "conseil": "Posture de prof. Donne l'info, laisse conclure.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bl'avenir s'annonce\\b|\\bles perspectives sont\\b|\\bun bel avenir\\b|\\bune étape importante (?:a été|vient d'être) franchie\\b|\\ble meilleur reste à venir\\b|\\bl'aventure ne fait que commencer\\b",
+   "famille": "conclusion",
+   "conseil": "Fin vide. Termine sur un fait, une décision ou une vraie question.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bpromesse murmurée\\b|\\binstant suspendu\\b|\\bcomme si le temps s'était (?:arrêté|figé)\\b",
+   "famille": "mievre",
+   "conseil": "Registre pseudo-littéraire.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:simple et intuiti(?:f|ve|fs|ves)|robustes? et fiables?|innovant(?:e|es|s)? et performant(?:e|es|s)?|rapides? et efficaces?|clair(?:e|es|s)? et structuré(?:e|es|s)?|cohérent(?:e|es|s)? et personnalisé(?:e|es|s)?|concr[eè]t(?:e|es|s)? et actionnables?)\\b",
+   "famille": "doublet",
+   "conseil": "Garde un seul adjectif, prouve-le.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bEt si je (?:vous|te) disais\\b|\\bSpoiler\\s?:|\\bPlot twist\\b|\\bLisez jusqu'au bout\\b|\\bThread\\b|\\bJe suis (?:ravi|ravie|fier|fière|heureux|heureuse) de (?:vous )?(?:annoncer|partager)\\b|\\bhumblement\\b",
+   "famille": "tic-linkedin",
+   "conseil": "Tic LinkedIn usé. Commence par le fait.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:Qu'en pensez-vous|Vous en pensez quoi|Tu en penses quoi|D'accord ou pas|Qui d'autre)\\s?\\?",
+   "famille": "appat",
+   "conseil": "Question réflexe. Pose une question que seul ce post peut poser.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:Likez|Like si|Commentez [«\\\"]|Partagez si|Repostez|Taguez|Tague quelqu'un|Mettez un)\\b",
+   "famille": "appat",
+   "conseil": "Appât à engagement : LinkedIn le pénalise.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:ça|ca) (?:pique|coince|gratte|envoie|déchire)\\b|\\bfait (?:son|le) boulot\\b|\\bplus qu'honnête\\b|\\bgrosso modo\\b",
+   "famille": "faux-familier",
+   "conseil": "Familier plaqué dans un texte pro : choisis un registre et tiens-le.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bde [^,.!?\\n]{1,30} à [^,.!?\\n]{1,30},? en passant par\\b|\\bqu'il s'agisse d(?:e|u|es)\\b[^.!?\\n]{1,40}\\bou d(?:e|u|es)\\b",
+   "famille": "fausse-gamme",
+   "conseil": "Fausse gamme « de X à Y en passant par Z » : cite ce qui compte vraiment.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bprendre en considération\\b|\\bbasé(?:e|es|s)? sur\\b|\\bsupport(?:e|ent|er) (?:tous|toutes|les)\\b|\\bfaire du sens\\b",
+   "famille": "calque",
+   "conseil": "Calque de l'anglais : « tenir compte de », « fondé sur », « prend en charge », « a du sens ».",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:repris(?:e|es)? par|cité(?:e|es|s)? (?:par|dans)) (?:les|de nombreux|plusieurs) (?:médias|journaux)\\b|\\bmédias nationaux et internationaux\\b|\\bprésence active sur les réseaux\\b|\\bplébiscité(?:e|es|s)? par\\b",
+   "famille": "inflation-notoriete",
+   "conseil": "Notoriété gonflée : cite un article précis, daté, et ce qu'il dit.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bmalgré (?:ces|les nombreux|de nombreux) (?:défis|obstacles)\\b|\\b(?:fait|font|doit|doivent) face à (?:de nombreux|plusieurs|des) défis\\b|\\bdéfis et perspectives\\b|\\bperspectives d'avenir\\b",
+   "famille": "defis-perspectives",
+   "conseil": "Formule « défis et perspectives » : dis le problème précis et ce qui a été fait.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bil semblerait que\\b|\\bdans une certaine mesure\\b|\\bpotentiellement\\b|\\bsusceptible(?:s)? de\\b|\\bil n'est pas exclu que\\b",
+   "famille": "sur-qualification",
+   "conseil": "Précaution que l'auteur n'a pas écrite : affirme, ou donne la condition précise.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bil est intéressant de (?:noter|souligner|constater)\\b|\\bforce est de constater\\b|\\bil va sans dire\\b|\\bcela va sans dire\\b",
+   "famille": "phrase-creuse",
+   "conseil": "Phrase creuse : supprime-la, la suite se tient seule.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\bméticuleu(?:x|se|ses)(?:ment)?\\b",
+   "famille": "lexique-ia",
+   "conseil": "« Méticuleux » : montre le soin par un détail.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2024",
+   "equivalent_en": "meticulous"
+  },
+  {
+   "motif": "\\b(?:riche )?(?:tapisserie|mosaïque) d(?:e|es)\\b",
+   "famille": "lexique-ia",
+   "conseil": "Métaphore de tissu ou de mosaïque : nomme les éléments.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2024",
+   "equivalent_en": "tapestry"
+  },
+  {
+   "motif": "\\btémoign(?:e|ent|ant) (?:de|d')\\b|\\best (?:un|le) témoignage d(?:e|u)\\b",
+   "famille": "lexique-ia",
+   "conseil": "« Témoigne de » : dis le fait qui le montre.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2023-2024",
+   "equivalent_en": "testament"
+  },
+  {
+   "motif": "\\ben (?:parfaite )?adéquation avec\\b|\\bs'aligne(?:nt)? (?:sur|avec)\\b",
+   "famille": "lexique-ia",
+   "conseil": "« En adéquation avec » : dis ce qui correspond à quoi.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2024-2025",
+   "equivalent_en": "align with"
+  },
+  {
+   "motif": "\\brehauss(?:er|e|ent|ant)\\b|\\bsublim(?:er|e|ent)\\b",
+   "famille": "lexique-ia",
+   "conseil": "Verbe d'embellissement : dis ce qui a changé, chiffre si possible.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2025 et après",
+   "equivalent_en": "enhance, showcase"
+  },
+  {
+   "motif": "\\b(?:été|était|sont|seront|a été|ont été) (?:\\w+(?:é|ée|és|ées)) par\\b",
+   "famille": "passif",
+   "conseil": "Voix passive : qui a fait quoi ? (niveau esthétique seulement)",
+   "force": "faible",
+   "niveau": "esthetique"
+  },
+  {
+   "motif": "\\b(?:laisse|laissez) (?:ça|cela|cette phrase) (?:infuser|résonner)\\b|\\brelis(?:ez)? cette phrase\\b",
+   "famille": "linkedin-2026",
+   "conseil": "Pause dramatique mise en scène : supprime, la phrase précédente suffit.",
+   "force": "fort",
+   "niveau": "strict",
+   "epoque": "2025-2026",
+   "equivalent_en": "couche LinkedIn 2026 (Serge Bulaev, liste anglaise) [inférence pour le français]"
+  },
+  {
+   "motif": "\\bc'est (?:ça|là) (?:la vraie|toute l')histoire\\b|\\bpersonne n'en parle\\b|\\bce que personne ne (?:vous|te) dit\\b",
+   "famille": "linkedin-2026",
+   "conseil": "Fausse révélation : donne le fait directement.",
+   "force": "fort",
+   "niveau": "strict",
+   "epoque": "2025-2026",
+   "equivalent_en": "couche LinkedIn 2026 (Serge Bulaev, liste anglaise) [inférence pour le français]"
+  },
+  {
+   "motif": "\\bdiscrètement\\b|\\bsans faire de bruit\\b",
+   "famille": "linkedin-2026",
+   "conseil": "« Discrètement » (quietly) : tic LinkedIn 2026 quand il dramatise ; garde-le seulement s'il informe.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2025-2026",
+   "equivalent_en": "couche LinkedIn 2026 (Serge Bulaev, liste anglaise) [inférence pour le français]"
+  },
+  {
+   "motif": "\\beffet composé\\b|\\bs'additionnent\\b|\\bintérêts composés\\b",
+   "famille": "linkedin-2026",
+   "conseil": "Image de l'effet composé : chiffre ce qui s'est accumulé.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2025-2026",
+   "equivalent_en": "couche LinkedIn 2026 (Serge Bulaev, liste anglaise) [inférence pour le français]"
+  },
+  {
+   "motif": "\\b(?:faire|fais|faites) le (?:vrai )?travail\\b|\\ble vrai travail\\b",
+   "famille": "linkedin-2026",
+   "conseil": "« Faire le travail » : dis quel travail.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2025-2026",
+   "equivalent_en": "couche LinkedIn 2026 (Serge Bulaev, liste anglaise) [inférence pour le français]"
+  },
+  {
+   "motif": "\\bfait tout le (?:travail|boulot)\\b|\\bporte tout le poids\\b",
+   "famille": "linkedin-2026",
+   "conseil": "Image toute faite (heavy lifting) : dis ce qui compte et pourquoi.",
+   "force": "faible",
+   "niveau": "strict",
+   "epoque": "2025-2026",
+   "equivalent_en": "couche LinkedIn 2026 (Serge Bulaev, liste anglaise) [inférence pour le français]"
+  },
+  {
+   "motif": "(?<!un )(?<!une )(?<!de )(?<!les )\\b[Vv]éritables?\\b",
+   "famille": "veritable",
+   "conseil": "« Véritable » gonfle sans rien ajouter. Retire-le.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "motif": "\\b(?:les? clés? du succès|la recette du succès|le secret (?:du succès|de la réussite)|voilà (?:la|les) clés?)\\b",
+   "famille": "cliche-succes",
+   "conseil": "Formule toute faite (« les clés du succès ») : dis ce qui a marché, avec un fait.",
+   "force": "fort",
+   "niveau": "strict"
+  }
+ ],
+ "structures": [
+  {
+   "id": "ce-n-est-pas-c-est",
+   "famille": "parallelisme",
+   "motif": "\\b(?:ce n'est pas|c'est pas|il ne s'agit pas)\\b[^.!?\\n]{1,80}[,.;:]\\s*(?:c'est|il s'agit)\\b",
+   "conseil": "« Ce n'est pas X, c'est Y » : dis Y directement.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "id": "non-seulement",
+   "famille": "parallelisme",
+   "motif": "\\bnon seulement\\b[^.!?\\n]{1,80}\\bmais\\b",
+   "conseil": "Garde la partie qui compte.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "id": "bien-plus-que",
+   "famille": "parallelisme",
+   "motif": "\\b(?:bien plus qu'un(?:e)? simple|loin d'être (?:un|une|de))\\b",
+   "conseil": "Dis ce que c'est, pas ce que ce n'est pas.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "id": "vrai-sujet",
+   "famille": "parallelisme",
+   "motif": "\\b(?:le vrai sujet|la vraie question|le vrai problème)\\b",
+   "conseil": "Rhétorique de redirection. Pose directement ton sujet.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "id": "pas-x-pas-y",
+   "famille": "parallelisme",
+   "motif": "(?m)^Pas [^.\\n]{1,40}\\.\\s*Pas [^.\\n]{1,40}\\.",
+   "conseil": "Négations en rafale. Une affirmation suffit.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "id": "revelation",
+   "famille": "revelation",
+   "motif": "(?im)(?:^|(?<=[.!?] ))(?:le |la |les |mon |ma )?(?:résultat|secret|problème|leçon|raison|vérité|solution|suite|twist|verdict|moralité|clé|conseil|différence)\\s*[?:!]\\s*",
+   "conseil": "« Le résultat ? » : pont de révélation. Donne le résultat sans le mettre en scène.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "id": "voici-pourquoi-fleche",
+   "famille": "revelation",
+   "motif": "(?i)\\bvoici (?:pourquoi|comment|ce que)[^\\n]{0,40}(?:👇|⬇️|:)\\s*$",
+   "conseil": "Annonce + flèche. Commence directement.",
+   "force": "fort",
+   "niveau": "strict"
+  },
+  {
+   "id": "oxford-virgule",
+   "famille": "typo-fr",
+   "motif": "\\b\\w+, [\\w'-]+(?: [\\w'-]+)?, et\\b",
+   "conseil": "Pas de virgule avant « et » dans une énumération (calque anglais).",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "id": "markdown-gras",
+   "famille": "mise-en-forme",
+   "motif": "\\*\\*[^*\\n]+\\*\\*",
+   "conseil": "LinkedIn n'affiche pas le Markdown : les ** resteront visibles.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "id": "gras-unicode",
+   "famille": "mise-en-forme",
+   "motif": "[\\U0001D400-\\U0001D7FF]{3,}",
+   "conseil": "Gras/italique Unicode : illisible pour les lecteurs d'écran et la recherche LinkedIn. À limiter au strict minimum.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "id": "mur-hashtags",
+   "famille": "mise-en-forme",
+   "motif": "(?:#[\\wÀ-ÿ]+\\s*){4,}",
+   "conseil": "Mur de hashtags. 0 à 3 maximum, en fin de post.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "id": "emoji-deco",
+   "famille": "mise-en-forme",
+   "motif": "(?m)^\\s*(?:🚀|💡|🔥|✅|👉|🎯|✨|📈|💪|🙌|⚡|📌|🔑|➡️|✔️)",
+   "conseil": "Émoji décoratif en début de ligne. Un ou deux par post au maximum.",
+   "force": "faible",
+   "niveau": "strict"
+  },
+  {
+   "id": "titre-markdown",
+   "famille": "mise-en-forme",
+   "motif": "(?m)^#{1,6} \\S",
+   "conseil": "Titre Markdown : LinkedIn l'affichera avec les #.",
+   "force": "faible",
+   "niveau": "strict"
+  }
+ ],
+ "connecteurs_debut": [
+  "Par ailleurs",
+  "De plus",
+  "En outre",
+  "De surcroît",
+  "Néanmoins",
+  "Toutefois",
+  "Cependant",
+  "En effet",
+  "Ainsi",
+  "Par conséquent",
+  "En définitive",
+  "Force est de constater",
+  "Dans ce cadre",
+  "Dans cette optique"
+ ],
+ "forensique": [
+  {
+   "motif": "\\boaicite\\b|\\bcontentReference\\b|\\bturn\\d+search\\d+\\b|\\battached_file\\b|\\bgrok_card\\b|\\boai_citation\\b",
+   "conseil": "Fuite d'outil (citation interne d'un assistant) : supprime."
+  },
+  {
+   "motif": "utm_source=(?:chatgpt|openai|perplexity|copilot|claude)",
+   "conseil": "Lien copié depuis un assistant (utm_source) : retire le paramètre."
+  },
+  {
+   "motif": "\\b(?:en tant qu'|comme )(?:IA|intelligence artificielle|assistant|modèle de langage)\\b",
+   "conseil": "Phrase d'assistant : supprime-la."
+  },
+  {
+   "motif": "\\b(?:à|selon) (?:la date de )?ma dernière mise à jour\\b|\\bma date limite de connaissances?\\b|\\bmes données s'arrêtent\\b|\\bje n'ai pas accès à (?:internet|des données en temps réel)\\b",
+   "conseil": "Avis de coupure de connaissances : supprime et vérifie le fait à la source."
+  },
+  {
+   "motif": "\\[(?:Votre|Ton|Ta|Vos|Tes|Insérer|Insère|Ajouter|Ajoute|Nom|Prénom|Entreprise|Date|Chiffre|Lien)[^\\]\\n]{0,40}\\]|\\b20\\d\\d-XX-XX\\b|\\bXX ?%",
+   "conseil": "Gabarit non rempli : remplace par un vrai fait, ou par {{à compléter}} pour le signaler."
+  },
+  {
+   "motif": "(?im)^(?:bien sûr|avec plaisir|absolument|certainement)\\s?! voici\\b|^voici (?:une|un|la|le) (?:version|proposition|exemple|brouillon|post)\\b|\\bn'hésite[sz]? pas à me (?:dire|demander) si\\b|\\bj'espère que (?:cela|ça) (?:vous|t')aide\\b|\\b(?:souhaitez|voulez)-vous que je\\b|\\bveux-tu que je\\b",
+   "conseil": "Phrase adressée à l'assistant, restée dans le texte : supprime."
+  }
+ ],
+ "sincerite": [
+  {
+   "motif": "(?im)^(?:honnêtement|franchement|sincèrement)\\s?[,?:!]|\\bpour être (?:honnête|transparent|franc|totalement transparente?|tout à fait honnête)\\b|\\bsoyons honnêtes\\b|\\bje vais être (?:honnête|franc|franche|cash|transparent|transparente|vulnérable)\\b|\\bla vérité,? c'est que\\b|\\bparlons vrai\\b|\\bpetite confession\\b|\\bje vais dire tout haut\\b|\\bsans filtre\\s?:|\\bopinion impopulaire\\s?:",
+   "conseil": "Annonce de sincérité : supprime l'annonce et garde le fait, énoncé à plat.",
+   "force": "fort"
+  },
+  {
+   "motif": "\\bpeut-être que je me trompe,? mais\\b|\\bà mon humble avis\\b|\\bje ne suis pas (?:expert|experte),? mais\\b",
+   "conseil": "Précaution ajoutée : à garder seulement si l'auteur l'a écrite lui-même.",
+   "force": "faible"
+  }
+ ],
+ "staccato": [
+  {
+   "id": "paragraphe-un-mot",
+   "motif": "(?m)^\\s*[A-Za-zÀ-ÿ'’-]+\\s?[.!]\\s*$",
+   "conseil": "Paragraphe d'un seul mot (« Vraiment. ») : rattache-le à une phrase."
+  },
+  {
+   "id": "adjectifs-en-rafale",
+   "motif": "(?m)^\\s*(?:[A-Za-zÀ-ÿ'’-]+\\. ){2,}[A-Za-zÀ-ÿ'’-]+\\.\\s*$",
+   "conseil": "« Simple. Rapide. Efficace. » : écris une phrase."
+  },
+  {
+   "id": "pas-x-pas-y-juste-z",
+   "motif": "(?i)\\bpas de [^.\\n]{1,30}[.,] pas de [^.\\n]{1,30}[.,] (?:juste|seulement|que) [^.\\n]{1,30}",
+   "conseil": "« Pas de X. Pas de Y. Juste Z. » : dis ce que tu as fait, en une phrase."
+  },
+  {
+   "id": "tout-x-aucun-y",
+   "motif": "(?i)\\btout(?:e|es)? (?:le|la|les) [^.\\n]{1,25}\\. aucun(?:e)? (?:des? )?[^.\\n]{1,25}\\.",
+   "conseil": "« Tout le X. Aucun des Y. » : formule de slogan, réécris à plat."
+  },
+  {
+   "id": "question-reponse",
+   "motif": "(?i)\\b(?:pourquoi|comment|le résultat|la raison)\\s?\\?\\s+(?:parce que|simple|facile|tout simplement)\\b",
+   "conseil": "Question-réponse mise en scène : donne la réponse directement."
+  },
+  {
+   "id": "chute-seche",
+   "motif": "(?im)\\b(?:c'est tout|point final|point barre|fin de l'histoire|c'est aussi simple que ça)\\s?[.!]\\s*$",
+   "conseil": "Chute sèche : supprime, le post finit très bien sans."
+  }
+ ],
+ "triade_creux": {
+  "adjectifs": [
+   "simple",
+   "rapide",
+   "efficace",
+   "clair",
+   "clairs",
+   "claire",
+   "fiable",
+   "fiables",
+   "innovant",
+   "innovante",
+   "dynamique",
+   "dynamiques",
+   "agile",
+   "agiles",
+   "puissant",
+   "puissante",
+   "performant",
+   "performante",
+   "fluide",
+   "intuitif",
+   "intuitive",
+   "concret",
+   "concrète",
+   "durable",
+   "impactant",
+   "impactante",
+   "moderne",
+   "robuste",
+   "pertinent",
+   "pertinente",
+   "accessible",
+   "sécurisé",
+   "personnalisé",
+   "évolutif"
+  ],
+  "noms": [
+   "croissance",
+   "impact",
+   "valeur",
+   "valeurs",
+   "innovation",
+   "efficacité",
+   "résultats",
+   "succès",
+   "clarté",
+   "liberté",
+   "performance",
+   "agilité",
+   "confiance",
+   "sens",
+   "vision",
+   "stratégie",
+   "cohérence",
+   "transparence",
+   "excellence",
+   "engagement",
+   "collaboration",
+   "créativité",
+   "exigence",
+   "bienveillance",
+   "audace",
+   "passion",
+   "expertise",
+   "qualité",
+   "proximité",
+   "simplicité",
+   "authenticité",
+   "rapidité",
+   "réactivité",
+   "fiabilité",
+   "sécurité",
+   "flexibilité",
+   "sérénité",
+   "écoute",
+   "accompagnement"
+  ]
+ },
+ "source_epoque": "Wikipédia EN « Signs of AI writing », listes par génération de modèle ; équivalent français par inférence, aucune étude française datée trouvée (vérifié le 2 oct. 2026)"
+}

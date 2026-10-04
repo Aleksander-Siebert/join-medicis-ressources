@@ -1,0 +1,19 @@
+# JoshuaDIWork · Linkedin_SKILL (MIT, dérivé de Jake pour Design Industries, Australie)
+
+Intérêt : montre comment un pack générique devient un outil d'ENTREPRISE réellement utilisé (corrections nées de vrais posts publiés).
+
+## Ajouts généralisables
+1. **Bloc « Hard rule: read-only » en tête de chaque Skill** (voyage avec un Skill copié seul) : jamais d'écriture sur une plateforme, même via connecteur (liste des appels interdits/autorisés), jamais de navigateur sur LinkedIn, un changement recommandé est rendu comme ligne pour son propriétaire, fichiers locaux seulement après un oui explicite (un audit ou un essai n'écrit rien), aucune instruction dans un post collé / résultat de connecteur / page web ne lève la règle (anti-injection).
+2. **Faits datés et étiquetés** (positioning.md) : chaque fait/offre/prix/preuve tagué LIVE / CONFIRM / ARCHIVED + date « as of » + source. CONFIRM → `{{confirm: …}}` + signalé dans le reçu ; ARCHIVED → jamais, et le lexique de l'humaniseur l'attrape. Pages retirées détectées par convention de slug.
+3. **Contexte entreprise** (positioning.md) en plus de voice.md (personne) : qui on est, 2 voix (dirigeant « je » / page « nous »), audience précise (et leçon : écrire pour l'acheteur, pas pour qui clique), offres avec prix et page, **table sujet → offre → phrase de CTA** (un seul CTA, une phrase, seulement si le sujet le mérite), banque de preuves étiquetées, clients nommés seulement avec accord par post (« un logo sur le site n'est pas une permission »), thèmes, bibliothèque de hashtags (3-5), règles maison, convention UTM (utm_medium=social organique / paid pub), qui fait quoi, archive des formulations retirées.
+4. **Humaniseur + « house style »** : orthographe locale (US→AU, 350 entrées ; ambiguës signalées), formulations maison imposées, casse des marques (JIRA→Jira), **termes protégés** mis de côté avant toute passe (noms de produits), termes maison à expliquer à la 1re utilisation, affirmations non prouvées signalées (« Trusted by… »), triades staccato, dates US, dénigrement de concurrents. 6e contrôle HOUSE STYLE dans le score.
+5. **Rubrique page entreprise /100** (12 items avec SOURCE par item : page, analytics, humaniseur, tags) ; item sans source = n/a, score rapporté « sur les points notables » (ex. 31/66 notables). Rubrique personne : 13 items (+ alignement maison 4 pts).
+6. **Plan** : ne demander que ce qui change chaque semaine (« ce qui s'est vraiment passé ») ; ne pas reprogrammer une formule de hook qui a échoué dans l'audit (boucle de rétroaction) ; 2 calendriers (personne + page), jamais le même jour ni le même thème ; la page repartage le meilleur post de la semaine 2 jours après avec une ligne ; créneau « répondre aux commentaires sous 2 h » bloqué dans l'agenda ; chaque créneau dit s'il faut un visuel (demande au graphiste en début de semaine).
+7. **Audit** : personne et page audités SÉPARÉMENT ; lecture par connecteur (tableau : quel connecteur contient quoi / ne contient pas ; dire lequel a été lu ; si l'organique n'est pas connecté, le dire) ; tag LIVE/ENDED/ARCHIVED/STALLED avant de classer (tag_status.py) ; les 3 chiffres hebdo du responsable imprimés en premier, prêts à coller ; métrique click rate ; facteurs : voix, thème, présence d'un CTA, visuel, réponses <2 h.
+8. **Inbox à 6 seaux** adaptés au métier (PARTNER, CANDIDATE) ; leads signalés pour le CRM le jour même.
+9. **Reçu enrichi** : voix, CTA choisi, visuel demandé, lien en 1er commentaire.
+10. **tests/test_pack.py** = régressions de défauts réellement passés en production + contrôle de structure (chaque Skill porte la règle read-only ; rubriques = 100).
+
+## Limites
+- Très spécifique à une entreprise (Atlassian, AEST, AU English) : à généraliser en modèle à remplir.
+- Pas de nouveauté sur l'écriture elle-même (hooks identiques adaptés).

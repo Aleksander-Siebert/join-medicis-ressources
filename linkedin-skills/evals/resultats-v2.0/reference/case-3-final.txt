@@ -1,0 +1,7 @@
+NOTE D'INVITATION (un message par personne, à compléter avant chaque envoi, 200 caractères maximum) :
+{{Prénom}}, votre post sur {{sujet précis}} recoupe ce qu'on a entendu en rappelant 60 clients résiliés. Je travaille sur les départs clients côté assureur, j'aimerais suivre ce que vous publiez.
+
+MESSAGE APRÈS ACCEPTATION (quelques jours plus tard, un message par personne) :
+{{Prénom}}, merci d'avoir accepté. Dans votre post sur {{sujet précis}}, vous écriviez {{ce qu'il ou elle a écrit}}.
+Ça recoupe ce qu'on a vu chez Assurly : on a rappelé 60 clients résiliés en 2024, et la moitié citait le délai de remboursement, pas le prix. J'en ai tiré une étude des résiliations, construite sur un script de 5 questions.
+Si vos départs clients posent la même question, je peux vous envoyer les 5 questions du script. Un oui suffit, et aucune réponse n'est nécessaire si le sujet ne vous concerne pas.

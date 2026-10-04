@@ -1,0 +1,21 @@
+{
+  "semaine": "2026-10-05",
+  "creneaux": [
+    {"jour": "2026-10-06", "heure": "08:15", "formule": "chiffre-d-abord", "objectif": "sauvegardes",
+     "pilier": "Rétention", "format": "texte",
+     "angle": "les 60 appels aux résiliés : la moitié parlait du délai de remboursement, pas du prix"},
+    {"jour": "2026-10-08", "heure": "08:00", "formule": "cas-a-trancher", "objectif": "commentaires",
+     "pilier": "Acquisition", "format": "texte",
+     "angle": "couper 30% du budget payant ou raccourcir le délai : ce que ferait le lecteur"},
+    {"jour": "2026-10-09", "heure": "08:30", "formule": "merci-nomme", "objectif": "partages",
+     "pilier": "Équipe", "format": "image",
+     "angle": "{{prénom}}, qui a passé 3 semaines au téléphone avec les résiliés"}
+  ],
+  "personnes": [
+    {"nom": "{{pair 1}}", "groupe": "pair"}, {"nom": "{{pair 2}}", "groupe": "pair"},
+    {"nom": "{{pair 3}}", "groupe": "pair"}, {"nom": "{{pair 4}}", "groupe": "pair"},
+    {"nom": "{{pair 5}}", "groupe": "pair"}, {"nom": "{{pair 6}}", "groupe": "pair"},
+    {"nom": "{{portée 1}}", "groupe": "portee"}, {"nom": "{{portée 2}}", "groupe": "portee"},
+    {"nom": "{{acheteur 1}}", "groupe": "acheteur"}, {"nom": "{{acheteur 2}}", "groupe": "acheteur"}
+  ]
+}

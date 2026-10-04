@@ -1,0 +1,28 @@
+{
+ "membres": [
+  {
+   "nom": "Directrice générale",
+   "role": "dirigeant"
+  },
+  {
+   "nom": "Camille",
+   "role": "marketing",
+   "seniorite": "senior"
+  },
+  {
+   "nom": "Inès",
+   "role": "marketing",
+   "seniorite": "confirme"
+  },
+  {
+   "nom": "Karim",
+   "role": "commercial",
+   "seniorite": "senior"
+  },
+  {
+   "nom": "Léa",
+   "role": "service-client",
+   "seniorite": "confirme"
+  }
+ ]
+}

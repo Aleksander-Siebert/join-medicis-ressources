@@ -1,0 +1,15 @@
+# TaplioOfficial · taplio-linkedin-claude-skills (MIT, 26 Skills ~100 l., liés à l'outil payant Taplio)
+
+Beaucoup de Skills exigent le MCP Taplio et REFUSENT de fonctionner sans (« pas de repli ») → modèle à NE PAS suivre (nos Skills marchent sans outil). Liens UTM de promotion. Mais quelques idées utiles :
+
+1. **Niche Definer** : 7 questions une à une avec reformulation après chaque réponse (ce que tu fais vraiment toute la journée ; les 3 personnes qui te paient/embauchent/promeuvent ; leur problème qui empêche de dormir ; ce que tu sais que 90% ignorent ; ce pour quoi tu ne veux PAS être connu ; qui tu détesterais attirer ; la phrase qu'un inconnu dirait après 5 posts) → audience, problème, angle, ANTI-POSITIONNEMENT, « J'aide [audience] à [résultat] grâce à [angle] » + 3 variantes + filtre pour chaque post.
+2. **Warm Lead Finder** : notation des commentateurs /10 = adéquation ICP (0-3) + intention (0-3 : a demandé comment / a décrit son problème / éloge précis / générique) + récurrence (0-2) + portée/décideur (0-2) ; chaud ≥7, tiède 4-6 ; action par lead (réponse seule / réponse + invitation qui cite le commentaire / réponse + message) ; concurrents = « pairs », pas leads ; « D'OÙ VIENNENT LES LEADS » (quels posts attirent des leads → en faire plus). → excellent pour le pack (en mode gratuit : l'utilisateur colle les commentaires).
+3. **Story Extractor** : arc situation (2 lignes) → tension (au présent) → tournant (une ligne) → résultat (sans se vanter) → leçon portable ; « pas d'histoire sans tension » ; commencer par le moment fort puis revenir en arrière ; ne pas moraliser.
+4. **Connection Request Hook** : 5 contextes (froid, après commentaire, après événement, après engagement sur MES posts, contact commun) ; une référence que seul le destinataire reconnaît ; pas de pitch ; bannir « I would love to learn from you ». Chiffres d'acceptation (30-40% → 70%) CONTREDITS par les données d'alirezarezvani (~26% avec ou sans note) → ne pas reprendre. Cap annoncé 300 car. vs 200 ailleurs → [à vérifier] (gratuit vs premium).
+5. **CTA Optimizer** : un seul objectif de CTA (commentaires, partages, DM, visites/abonnements, clics) ; diagnostic + 3-5 options classées. MAIS propose « DM me [mot] », « Reply YES », « Tag the… » → appâts visés par les règles de LinkedIn (Professional Community Policies) → écarter ces variantes.
+6. **Post Performance Critic** : 6 dimensions (accroche, structure, lisibilité en diagonale, spécificité, CTA, voix), 2 corrections prioritaires + réécriture de la section la plus faible.
+7. **Analytics Interpreter** : chiffres → diagnostic + 3 actions le mois suivant.
+8. **Audience Persona Builder** : rôle, douleurs, jobs-to-be-done, VOCABULAIRE, aspirations, contenus consommés, objections.
+9. **Daily Engagement Routine (15 min)** : d'abord répondre sous ses posts, puis 5 posts à commenter, une validation groupée.
+10. **Swipe file** : bibliothèque perso de posts classés par hook / format / angle.
+11. Calendrier 4 semaines, piliers (3-5 + 5-10 sujets chacun), watchlist de créateurs (10), hook generator (10 hooks classés).

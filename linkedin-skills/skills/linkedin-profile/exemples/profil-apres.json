@@ -1,0 +1,40 @@
+{
+  "objectif": "clients",
+  "titre": "Responsable acquisition chez Assurly | J'aide les assureurs en ligne à baisser leur coût par lead | −44% en 4 mois, budget constant",
+  "infos": "Un tiers des clients d'une assurance en ligne ne renouvelle pas, et la plupart des équipes pensent que c'est une question de prix. Chez Assurly, j'ai appris que c'était souvent le délai de remboursement.\n\nJe dirige l'acquisition d'Assurly, une assurance en ligne de 120 salariés : publicité, SEO, emailing et fidélisation.\n\nCe que j'ai fait, en chiffres :\n· Réduit le coût par lead de 41 € à 23 € en 4 mois, budget constant.\n· Relancé 1 400 clients dormants en 6 semaines : 212 contrats réactivés.\n\nComment je travaille : je pars des appels clients avant de toucher aux campagnes. Les mots qu'ils emploient finissent dans nos annonces.\n\nTu diriges le marketing d'un assureur ou d'un courtier en ligne et ton coût par lead monte ? Écris-moi en message privé : je te dis en 20 minutes où je chercherais en premier.",
+  "poste_actuel": {
+    "intitule": "Responsable acquisition",
+    "lignes": [
+      "Réduit le coût par lead de 41 € à 23 € en 4 mois, à budget constant (SEA, SEO)",
+      "Relancé 1 400 clients dormants en 6 semaines : 212 contrats réactivés"
+    ]
+  },
+  "experiences": [
+    {
+      "intitule": "Chargée de marketing",
+      "lignes": [
+        "Lancé 48 campagnes emailing pour 6 clients en 2022 : taux d'ouverture moyen passé de 18% à 27%",
+        "Formé 3 clients à leur outil d'emailing en 2 mois : 0 campagne sous-traitée ensuite"
+      ]
+    }
+  ],
+  "selection": {
+    "elements": 3,
+    "mise_a_jour_jours": 0
+  },
+  "banniere": "defaut",
+  "photo": {
+    "presente": true,
+    "age_ans": 4
+  },
+  "competences": {
+    "nombre": 18,
+    "epinglees_alignees": true
+  },
+  "recommandations": null,
+  "activite_jours": 45,
+  "open_to": true,
+  "url_personnalisee": true,
+  "coordonnees": true,
+  "formation": true
+}
