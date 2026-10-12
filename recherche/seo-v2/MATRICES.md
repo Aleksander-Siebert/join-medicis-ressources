@@ -335,3 +335,31 @@ C'est à trancher, voir section 6.
 4. Skill modèle : **`/seo-brief` + `/seo-write`**, relus avant
    d'appliquer le gabarit aux autres, avec une éval à l'aveugle contre tes
    articles.
+
+## 8. Avancement (12 octobre 2026)
+
+- **Faits revérifiés aux sources primaires** (détail dans
+  `seo-skills/commun/preuves.md`) :
+  - guide Google sur l'IA générative (maj 10 juil. 2026), y compris
+    l'inclusion dans Search Console et le rapport « IA générative » : les
+    deux lignes [à vérifier] des sections 4.12 et 4.14 sont confirmées pour
+    ce qui concerne Google ;
+  - title (10 déc. 2025) et meta description (20 avr. 2026) : aucune limite
+    de longueur, troncature selon l'appareil ;
+  - politiques anti-spam (28 août 2026) ;
+  - retrait des résultats FAQ (7 mai 2026).
+- **Restent [à vérifier]** : les textes français (publicité comparative,
+  avis en ligne). Légifrance et economie.gouv.fr refusent l'outil (403) ;
+  seules des synthèses de cabinets sont lues.
+- **Socle commun écrit** : `regles.md`, `preuves.md`, `garde_fou.py`,
+  `texte_fr.py`, `meta.py`, `affirmations.py`, modèles (réserve partagée
+  avec LinkedIn), `outils/propager.py`.
+- **Skills modèles écrits** : `/seo-brief` (`couverture.py`) et
+  `/seo-write` (`controle.py`), avec leurs références, exemples réels et
+  tests. 100 tests au vert.
+- **Exemple Assurly anonymisé** : courtier santé et prévoyance pour
+  indépendants. Il ne reprend plus le profil réel du workflow de
+  l'utilisateur.
+- **Prochaine étape** : relecture du modèle par l'utilisateur, puis éval à
+  l'aveugle contre ses articles. Viendront ensuite `/seo-human` (moteur
+  LinkedIn v2, nécessaire à `/seo-write`) et les autres Skills.
