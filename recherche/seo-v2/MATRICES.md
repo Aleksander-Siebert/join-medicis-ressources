@@ -322,3 +322,16 @@ C'est à trancher, voir section 6.
 4. **Skill modèle** à écrire en premier et à relire : `/seo-maillage`
    (ta demande explicite, déjà le plus avancé) ou le duo
    `/seo-brief` + `/seo-write` (ton usage quotidien) ?
+
+## 7. Décisions de l'utilisateur (12 octobre 2026)
+
+1. Périmètre : **14 Skills**. `/seo-programmatic` devient une option de
+   `/seo-plan`, `/seo-drift` devient `audit photo` / `audit compare` dans
+   `/seo-audit`, avec des redirections sur le site.
+2. SEO agentique : **reste `/geo-agentic`** (refait au chantier GEO v2),
+   et `/seo-audit` l'appelle.
+3. Réserve de preuves : **un seul `reserve.md`**, partagé par LinkedIn et
+   SEO.
+4. Skill modèle : **`/seo-brief` + `/seo-write`**, relus avant
+   d'appliquer le gabarit aux autres, avec une éval à l'aveugle contre tes
+   articles.
