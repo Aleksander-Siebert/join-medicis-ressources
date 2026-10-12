@@ -327,8 +327,9 @@ catégorie non mesurée est “non mesurée”, jamais un chiffre ».
   modèle sur des centaines de paires ; (3) planifie **à partir d'un mot-clé**,
   jamais à partir des pages existantes d'un site. Notre besoin (« analyser le
   sitemap et construire le maillage par clusters ») n'est couvert par aucun
-  Skill de claude-seo : c'est un trou à combler avec un script (sitemap →
-  URL → regroupement par thème → liens manquants → orphelines).
+  Skill de claude-seo. Notre v1 le couvre déjà (`maillage.py` : sitemap,
+  TF-IDF, liens existants exclus, trafic) : l'avantage est de notre côté,
+  à approfondir.
 - Nombre de mots pilier 2 500-4 000, rayon 1 200-1 800 : folklore, à écarter.
 
 ## `/seo sxo`
@@ -539,8 +540,8 @@ manifestes, absence de tiret cadratin (`test_no_em_dash.py`).
 **À améliorer** :
 - tout ce qui est texte (qualité, affirmations, humaniseur, méta) : anglais
   seulement, à refaire en français ;
-- clusters : partir aussi des **pages existantes** (sitemap) et pas
-  seulement d'un mot-clé, avec un script ;
+- clusters : notre v1 part déjà des pages existantes ; ajouter le
+  recouvrement de SERP pour les mots-clés à venir ;
 - local : version française (annuaires, avis, règles) ;
 - comparatifs : cadre français de la publicité comparative.
 
