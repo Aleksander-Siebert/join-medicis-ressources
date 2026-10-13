@@ -232,3 +232,38 @@ le site parle la même langue.
      lecture, sans jamais en avoir besoin.
 4. **Éval à l'aveugle** sur Join Médicis (l'entreprise d'Aleksander), contre
    `product-marketing` de Corey Haines.
+
+## Avancement (13 octobre 2026)
+
+**Socle et Skill modèle `/fondation-entreprise` écrits, en attente de
+relecture.** Matrice 1, ligne par ligne :
+
+| Capacité | État | Où |
+|---|---|---|
+| Fichier de contexte partagé, un fichier par sujet | fait | `commun/regles.md` §5, `templates/entreprise.md` |
+| Trois modes (brouillon depuis le site, entretien, mise à jour) | fait | `SKILL.md` §1 à §6 |
+| Lire 4 à 6 pages, dont les mentions légales | fait | `references/site.md`, `scripts/entreprise.py mentions` |
+| Fait lu contre déduction, montrer avant d'enregistrer | fait | `commun/regles.md` §1 et §3, `SKILL.md` §2 et §6 |
+| Entretien une question à la fois, version courte en 3 questions | fait | `references/entretien.md` §2 |
+| Relances et signaux d'alerte | fait | `references/entretien.md` §3 et §4 |
+| Alternatives, statu quo toujours en premier | fait | `templates/entreprise.md` §4, `references/positionnement.md` §2 |
+| Positionnement Dunford, catégorie annoncée / réelle / possible, test du concurrent | fait | `references/positionnement.md` |
+| Phrase publique sans superlatif invérifiable | fait | `references/positionnement.md` §5 et §6 |
+| Objectifs vérifiables, chiffre seulement s'il est fourni | fait | `templates/entreprise.md` §6 |
+| Profil fondateur | écarté | hors sujet et trop intime (`references/entretien.md` §4) |
+| Contraintes de secteur, ce qu'on n'affirme jamais | fait | `references/contraintes.md` §1 et §2 |
+| RGPD en 3 questions, règles CNIL datées | fait | `references/contraintes.md` §4, `commun/faits.md` §2 |
+| Outils, sans recommandation | fait | `references/entretien.md` §2 (question 8) |
+| Statut périmé (90 jours) et journal | fait | `contexte.py etat`, `templates/entreprise.md` §11 |
+| Score de complétude par mots-clés | écarté | remplacé par `contexte.py etat` (un modèle vide sort VIDE, code 3) |
+| Export vers les packs SEO et LinkedIn, facultatif | fait | `contexte.py exporter` (n'écrit rien) |
+| Brouillon depuis le code | écarté | public sans dépôt ; plaquette ou document collé à la place |
+
+Ajouts hors matrice : contrôle des clés SIREN, SIRET (règle de La Poste) et
+TVA ; recoupement SIRET / TVA / SIREN ; fermeture de sirene.fr vérifiée à
+l'INSEE (page du 28 nov. 2025). Restent **[à vérifier]** : la page INSEE de
+référence sur la clé de Luhn, le schéma d'adresse de l'Annuaire des
+entreprises, les textes de chaque secteur réglementé.
+
+Tests : 56 au vert (`python3 fondation-skills/evals/tout_tester.py`). Éval à
+l'aveugle contre `product-marketing` : après la relecture du modèle.

@@ -1,0 +1,5 @@
+Exemple fictif. Mentions légales du site exemple-b.example.
+Société Exemple B SARL au capital de 10 000 euros.
+SIREN : 123 456 789
+SIRET : 987 654 324 00012
+TVA : FR 99 123456782
