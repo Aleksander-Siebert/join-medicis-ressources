@@ -213,3 +213,22 @@ le site parle la même langue.
 4. **Une tâche réelle pour l'éval à l'aveugle** : as-tu une entreprise (la
    tienne, Join Médicis, ou un client anonymisé) sur laquelle comparer notre
    pack à `product-marketing` de Corey Haines ?
+
+## Décisions d'Aleksander (13 octobre 2026)
+
+1. **Les 4 Skills** : `/fondation-entreprise`, `/fondation-clients`,
+   `/fondation-voix`, `/fondation-preuves`.
+2. **Fiches du site** : d'accord avec la répartition proposée. rgpd-context
+   et legal-context deviennent une section de `entreprise.md` ;
+   ethical-marketing passe dans `preuves` ; meeting et weekly-report sortent
+   du pack.
+3. **Pas de dépendance entre packs.** Chaque Skill doit marcher sans
+   qu'on ait installé un autre pack. Conséquences :
+   - `/seo-context` et `/linkedin-strategie` ne sont pas modifiés ;
+   - la Fondation propose un export **facultatif** (`contexte.py exporter`)
+     qui pré-remplit `site-context.md` ou `contexte.md` si l'utilisateur le
+     veut ;
+   - un pack qui trouve un fichier de la Fondation peut le proposer en
+     lecture, sans jamais en avoir besoin.
+4. **Éval à l'aveugle** sur Join Médicis (l'entreprise d'Aleksander), contre
+   `product-marketing` de Corey Haines.
