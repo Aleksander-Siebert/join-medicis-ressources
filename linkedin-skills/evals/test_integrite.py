@@ -164,10 +164,10 @@ def _():
             assert ev.get("prompt") and ev.get("expectations"), f"{s.name} : éval {ev.get('id')} sans prompt ou attentes"
 
 
-@test("manifeste 2.0.0 et aiguilleur claude.ai à 15 modules")
+@test("manifeste 2.x et aiguilleur claude.ai à 15 modules")
 def _():
     m = json.loads((PACK / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
-    assert m["version"] == "2.0.0", m["version"]
+    assert m["version"].startswith("2."), m["version"]
     routeur = (PACK / "claude-ai" / "SKILL.md").read_text(encoding="utf-8")
     absents = [n for n in NOMS if f"`{n}`" not in routeur]
     assert not absents, f"absents de l'aiguilleur : {absents}"

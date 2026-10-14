@@ -60,7 +60,46 @@ Suisse, Québec) : le script ne le connaît pas.
 
 | Affirmation | Niveau |
 |---|---|
-| Mardi à jeudi matin, heures de bureau | étude tierce (éditeurs), contredite par d'autres études qui placent le pic en fin d'après-midi |
+| Mercredi 15 h-16 h et jeudi 15 h-17 h, heure locale de l'audience ; pas le week-end | étude tierce : Sprout Social (31 mars 2026) et Buffer (9 sept. 2026) se recoupent là (`commun/preuves.md`) |
+| Mardi à jeudi, 7 h 30-9 h 30 | **dépassé** : conseil par défaut de la v1 du pack, retiré le 14 oct. 2026 ; aucune étude de 2026 ne place le pic le matin |
+| Le pic s'étend jusqu'à 20 h | une seule étude (Buffer 2026) ; Sprout s'arrête vers 17 h |
 | Les 60 à 90 premières minutes sont corrélées à la portée finale | étude tierce, corrélation (`commun/preuves.md`) |
 | « Golden hour » avec une coupure précise | folklore |
-| Le meilleur créneau d'un compte se mesure sur ce compte | méthode du pack (`/linkedin-audit`, au moins 10 posts) |
+| Le meilleur créneau d'un compte se mesure sur ce compte | méthode du pack : heure notée dans `journal.md`, attribut `creneau` de `/linkedin-audit`, au moins 5 posts par créneau |
+
+### Le test à deux créneaux
+
+1. Choisis deux créneaux le même jour de la semaine (ex. jeudi 8 h 30 et
+   jeudi 15 h) : seule l'heure change.
+2. Calcule la durée avant de commencer :
+
+   ```
+   python3 ../linkedin-audit/scripts/audit.py experience --hypothese "15 h fait mieux que 8 h 30" \
+     --variable "heure" --cv 0.45 --effet 0.30 --posts-semaine 2
+   ```
+
+   Résultat réel (14 oct. 2026) : `TROP LONG`, 28 posts par variante, environ
+   28 semaines ; en 12 semaines, seul un écart d'au moins 46% se verrait. Le
+   test ne vaut que pour un compte qui publie souvent, ou si l'écart attendu
+   est gros (un créneau où personne ne lit).
+3. Sinon : garde le point de départ, note l'heure réelle dans `journal.md`,
+   et lance `audit.py motifs --journal …` tous les trimestres. Le créneau est
+   testé en dernier, comme le jour.
+
+## 6. Un post a floppé : avant d'accuser l'heure
+
+Un post isolé ne prouve rien : sur LinkedIn, l'écart entre deux posts d'un
+même compte dépasse souvent l'effet d'un créneau. Dans l'ordre :
+
+| Vérification | Comment |
+|---|---|
+| Était-ce vraiment un flop ? | `audit.py decrire` : sous la bande « faible » de ses propres posts, pas sous les chiffres d'un autre compte |
+| La première ligne | arrêtait-elle la lecture sans « voir plus » ? (`/linkedin-post`, mode « analyser ») |
+| Un lien dans le corps du post | portée médiane plus basse selon une étude contestée (`commun/preuves.md`) : le lien va en commentaire |
+| Les réponses dans la première heure | l'auteur était-il disponible pour répondre ? |
+| L'heure, dans le fuseau de l'audience | publié tôt le matin, ou pendant les heures où l'audience ne lit pas ? |
+| Le jour | férié, pont, veille de week-end prolongé, août ? (`semaine.py` le signale) |
+| Le sujet | hors des piliers, ou trop loin de l'audience que le compte a construite ? |
+
+Note la réponse dans `apprentissages.md` : un seul post ne change pas le
+plan, trois posts du même type dans la bande « faible », si.

@@ -6,7 +6,7 @@ description: >-
   vite : taux d'engagement défini, médiane et écart absolu médian, bandes
   (exceptionnel à très faible), top et flop 5 (script) ; motifs testés
   (formule, format, pilier, longueur, lien, appel à l'action, réponse rapide,
-  jour en dernier) avec 4 filtres : 5 posts par groupe, effet de 15% au
+  jour et créneau horaire en dernier) avec 4 filtres : 5 posts par groupe, effet de 15% au
   moins, test de permutation, faux positifs attendus, et motifs confondus
   signalés ; refus sous 10 posts ; « rien n'a survécu » est un résultat ;
   plan d'expérience chiffré avec critère d'échec écrit avant ; conversations
@@ -86,8 +86,11 @@ python3 scripts/audit.py motifs --fichier export.xlsx --journal ~/.claude/linked
 ```
 
 Facteurs testés, dans cet ordre : formule, format, pilier, longueur, lien
-dans le post, appel à l'action, réponse rapide, **jour en dernier** (c'est la
-cause qu'on aimerait trouver, et presque jamais la bonne).
+dans le post, appel à l'action, réponse rapide, puis **le jour et le
+créneau horaire en dernier** (c'est la cause qu'on aimerait trouver, et
+presque jamais la bonne). Le créneau (matin avant 11 h, midi, après-midi
+14 h-18 h, soir) vient de l'heure notée dans `journal.md` : sans heure, il
+n'est pas testé, et l'audit le dit.
 
 Un motif doit passer **4 filtres** (`references/methode.md`) :
 
@@ -178,6 +181,7 @@ sinon. Un audit qui contredit une ligne existante propose de la retirer.
 | Moins de 10 posts | description seule ; « relance dans six semaines » |
 | L'export n'a pas de colonne reconnue | `--feuille 2, 3…` ; sinon le modèle CSV |
 | Formule ou pilier absents | `--journal` ; sinon les motifs ne portent que sur format, longueur, jour |
+| « À quelle heure publier ? » sans heure dans `journal.md` | l'export LinkedIn donne la date du post, pas l'heure **[à vérifier]** : dire que le créneau n'est pas mesurable, renvoyer au point de départ de `/linkedin-plan` et faire noter l'heure réelle à partir de maintenant |
 | Un post viral écrase tout | la médiane le neutralise ; il apparaît en « exceptionnel », on le lit à part |
 | Page et profil dans le même fichier | `--voix` ; deux audits |
 | L'utilisateur veut un benchmark | refuser la comparaison externe ; comparer le compte à lui-même |

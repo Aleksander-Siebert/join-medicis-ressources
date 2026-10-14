@@ -1,13 +1,13 @@
 {
   "semaine": "2026-10-05",
   "creneaux": [
-    {"jour": "2026-10-06", "heure": "08:15", "formule": "chiffre-d-abord", "objectif": "sauvegardes",
+    {"jour": "2026-10-06", "heure": "15:00", "formule": "chiffre-d-abord", "objectif": "sauvegardes",
      "pilier": "Rétention", "format": "texte",
      "angle": "les 60 appels aux résiliés : la moitié parlait du délai de remboursement, pas du prix"},
-    {"jour": "2026-10-08", "heure": "08:00", "formule": "cas-a-trancher", "objectif": "commentaires",
+    {"jour": "2026-10-08", "heure": "15:00", "formule": "cas-a-trancher", "objectif": "commentaires",
      "pilier": "Acquisition", "format": "texte",
      "angle": "couper 30% du budget payant ou raccourcir le délai : ce que ferait le lecteur"},
-    {"jour": "2026-10-09", "heure": "08:30", "formule": "merci-nomme", "objectif": "partages",
+    {"jour": "2026-10-09", "heure": "15:00", "formule": "merci-nomme", "objectif": "partages",
      "pilier": "Équipe", "format": "image",
      "angle": "{{prénom}}, qui a passé 3 semaines au téléphone avec les résiliés"}
   ],

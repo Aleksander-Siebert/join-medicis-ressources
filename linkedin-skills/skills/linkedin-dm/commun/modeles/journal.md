@@ -10,9 +10,12 @@ Garde les tableaux tels quels : les scripts du pack les lisent.
 
 ## Posts
 
-| date | formule | objectif | format | pilier | longueur | appel à l'action | première ligne |
-|---|---|---|---|---|---|---|---|
+| date | heure | formule | objectif | format | pilier | longueur | appel à l'action | première ligne |
+|---|---|---|---|---|---|---|---|---|
 
+Heure : l'heure **réelle** de publication (« 15:00 »), dans le fuseau de
+l'audience. C'est elle qui permet à `/linkedin-audit` de mesurer ton meilleur
+créneau.
 Objectif : commentaires, partages, réactions, sauvegardes, conversations.
 Format : texte, image, carrousel, vidéo, sondage, article, newsletter.
 

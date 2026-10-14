@@ -80,7 +80,7 @@ appel à l'action : aucun (post de notoriété ; l'offre de diagnostic attendra 
 premier commentaire : « Pour ceux qui veulent essayer : on a gardé une grille de 6 questions pour ces appels. Je la mets ici si ça intéresse. »
 visuel :           inutile (le texte porte le revirement)
 potentiel de sauvegarde : moyen, parce que la dernière ligne donne une habitude applicable
-à publier :        jeudi 8 h 15 (créneau du plan)
+à publier :        jeudi 15 h (créneau du plan)
 à vérifier :       nom d'Assurly : citable (contexte.md) ; « la direction commerciale » : la mention convient-elle à ta direction ?
 
 Réponds « ok » pour l'ajouter au journal, ou dis-moi ce qu'il faut changer.

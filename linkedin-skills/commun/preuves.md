@@ -108,6 +108,16 @@ LinkedIn par un robot ou un navigateur piloté, pas de pods, pas de
 | « Golden hour » avec une coupure précise | folklore | personne hors de LinkedIn ne connaît la courbe |
 | Modifier un post dans les X premières heures « réinitialise » sa diffusion | praticien | aucune donnée publiée **[à vérifier]** |
 
+## Quand publier
+
+| Affirmation | Niveau | Source |
+|---|---|---|
+| Meilleurs créneaux : mardi 11 h-17 h, mercredi 11 h-16 h, jeudi 11 h et 13 h-17 h, vendredi 11 h et 13 h-14 h, lundi 13 h-14 h ; week-end à éviter | étude tierce (éditeur) | Sprout Social, « Best times to post on LinkedIn in 2026 », 31 mars 2026 : près de 2 milliards d'interactions, 307 000 profils clients, 27 nov. 2025 au 27 fév. 2026, heure locale de l'audience |
+| Pic de 15 h à 20 h en semaine ; meilleurs créneaux mercredi 16 h, vendredi 15 h et 16 h ; lundi et mardi les plus faibles ; le matin (6 h-11 h) derrière l'après-midi | étude tierce (éditeur) | Buffer, « The Best Time to Post on LinkedIn in 2026 », 9 sept. 2026 : 4,8 millions de posts publiés via Buffer, heure locale. En 2025, le pic s'arrêtait vers 17 h |
+| Ce que les deux études partagent : milieu de semaine l'après-midi (mercredi 15 h-16 h, jeudi 15 h-17 h), pas le week-end | étude tierce | recoupement des deux lignes précédentes ; elles divergent sur le mardi, la fin de matinée et la soirée |
+| « Mardi à jeudi, 7 h 30-9 h 30 » (conseil par défaut de la v1 de ce pack) | **dépassé** | aucune des deux études de 2026 ne place le pic le matin ; retiré le 14 oct. 2026 |
+| Limites de ces études | prudence | données de clients d'outils de programmation, répartition par pays non publiée **[à vérifier]**, engagement et non portée, aucun effectif par créneau ; elles décrivent une moyenne, pas ton audience |
+
 ## Liens, hashtags, formats
 
 | Affirmation | Niveau | Source |
