@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="875" height="688" viewBox="0 0 875 688" role="img" aria-label="linkedin-human · detect.py">
+<title>linkedin-human · detect.py</title>
+<rect width="875" height="688" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h851a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="438" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">linkedin-human · detect.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/detect.py brouillon-ia.txt</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">  FORENSIQUE <tspan fill="#6FC79B">########################</tspan> 100.0</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">             aucune fuite de modèle</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">  DENSITÉ    ........................   0.0</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">             24 marqueur(s) sur 7 paragraphe(s) : 3 à réécrire, 3 avec un marqueur fort, 0 à 2</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">               marqueurs</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  RYTHME     <tspan fill="#6FC79B">########################</tspan> 100.0</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">             13 phrases, ni paragraphe plat ni variation fabriquée</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">  CONCRET    <tspan fill="#6FC79B">#########</tspan>...............  37.9</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">             3 éléments concrets, 2.6 pour 100 mots (viser 4+)</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">  EMPREINTE  <tspan fill="#6FC79B">####</tspan>....................  16.2</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">             0 invisible(s), 1 tiret(s) cadratin(s), 0 guillemet(s) anglais, 0 espace(s) fine(s), 3</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">               gras, 0 ponctuation collée</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">  VOIX       <tspan fill="#6FC79B">######</tspan>..................  25.2</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">             6.0 pronoms et 0.0 marques d'oral pour 100 mots, 7 structure(s) type [appat,</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">               conclusion, connecteurs-en-pluie, parallelisme]</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre">  ------------------------------------------------------------</text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">  SCORE HUMAIN <tspan fill="#6FC79B">#######</tspan>.................  27.9   <tspan fill="#D4B681">SIGNALÉ</tspan> (se lit IA)</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">  Paragraphes à reprendre :</text>
+<text x="20" y="458" xml:space="preserve" style="white-space:pre">    §1 (l.1) REMPLACER · 2 marqueur(s) : « 🚀 », « Et si je vous disais »</text>
+<text x="20" y="478" xml:space="preserve" style="white-space:pre">    §2 (l.3) REMPLACER · 2 marqueur(s) : « Dans un monde en », « Ce n'est pas une question de</text>
+<text x="20" y="498" xml:space="preserve" style="white-space:pre">      volume, c'est »</text>
+<text x="20" y="518" xml:space="preserve" style="white-space:pre">    §3 (l.5) REMPLACER · 1 marqueur(s) : « Le résultat ? »</text>
+<text x="20" y="538" xml:space="preserve" style="white-space:pre">    §4 (l.7) RÉÉCRIRE LE PARAGRAPHE · 9 marqueur(s) : « Par ailleurs », « mis en place », «</text>
+<text x="20" y="558" xml:space="preserve" style="white-space:pre">      holistique »</text>
+<text x="20" y="578" xml:space="preserve" style="white-space:pre">    §5 (l.9) RÉÉCRIRE LE PARAGRAPHE · 6 marqueur(s) : « ✅ », « **Personnalisation :** », « ✅ »</text>
+<text x="20" y="598" xml:space="preserve" style="white-space:pre">    §6 (l.13) RÉÉCRIRE LE PARAGRAPHE · 3 marqueur(s) : « En somme », « l'avenir s'annonce », «</text>
+<text x="20" y="618" xml:space="preserve" style="white-space:pre">      Qu'en pensez-vous ? »</text>
+<text x="20" y="638" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="658" xml:space="preserve" style="white-space:pre">  Signal le plus faible : DENSITÉ. Commence par lui.</text>
+</g></svg>

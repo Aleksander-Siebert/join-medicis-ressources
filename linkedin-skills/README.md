@@ -1,55 +1,192 @@
-# LinkedIn Skills v2
+<div align="center">
 
-Quinze Skills en français pour tenir une présence LinkedIn, de la stratégie
-au message privé. Gratuits, MIT, sans inscription, sans clé d'API, rien à
-connecter.
+<img src="docs/media/banniere.svg" width="100%" alt="LinkedIn Skills, par Join Médicis : quinze Skills en français, de la stratégie au message privé">
 
-Chaque Skill est livré complet : un mode d'emploi, des références lues à la
-demande, des exemples réels d'entrée et de sortie, et des **scripts testés**
-pour tout ce qui se mesure (le jugement reste à Claude, et à toi). 237 tests
-au vert.
+<br>
 
-**Rien n'est publié, envoyé ni lu sur LinkedIn à ta place. Ces Skills
-écrivent, comptent et vérifient. Tu publies.**
+**Quinze Skills Claude en français pour LinkedIn, de la stratégie au message privé.**<br>
+Gratuits, sans inscription, sans clé d'API. Ils écrivent, comptent et vérifient. **Tu publies.**
 
-Par [Join Médicis](https://joinmedicis.com/ressources/skills/linkedin-skills) ·
-construit à partir des meilleurs Skills open-source, voir [CREDITS.md](CREDITS.md).
+<!-- github-seulement -->
+[![Version](https://img.shields.io/badge/version-2.1.0-0E3F2D)](#versions)
+[![Tests](https://img.shields.io/badge/tests-250%20au%20vert-2D7259)](#preuves)
+[![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](LICENSE)
+[![Python](https://img.shields.io/badge/Python%203-sans%20d%C3%A9pendance-34495E?logo=python&logoColor=white)](#ce-qui-tient-le-pack)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white)](#claude-code)
+[![claude.ai](https://img.shields.io/badge/claude.ai-ZIP%20importable-D97757)](#claudeai-et-claude-desktop)
+[![Autres IA](https://img.shields.io/badge/ChatGPT%20%C2%B7%20Gemini%20%C2%B7%20Mistral-compatibles-525049)](#chatgpt-gemini-mistral)
+[![Étoiles GitHub](https://img.shields.io/github/stars/Aleksander-Siebert/join-medicis-ressources?style=social)](https://github.com/Aleksander-Siebert/join-medicis-ressources)
 
-## Les quinze
+[**Installer**](#installer) · [Les quinze Skills](#les-quinze-skills) · [En images](#en-images) · [Fiche Join Médicis](https://joinmedicis.com/ressources/skills/linkedin-skills) · [Résultats des évaluations](evals/RESULTATS.md)
+<!-- /github-seulement -->
 
-| commande | ce qu'elle fait | scripts |
-|---|---|---|
-| `/linkedin-strategie` | Le cap à 90 jours : objectif, cible avec exclusions, positionnement, 2 à 4 piliers, budget en minutes mesuré sur une mauvaise semaine, newsletter ou pas. | `brief.py`, `budget.py` |
-| `/linkedin-interview` | T'interviewe pour sortir tes chiffres, histoires et avis, et remplit ta réserve de preuves. | `reserve.py` |
-| `/linkedin-profile` | Note ton profil sur 100 (sections non vues non notées), classe les corrections par points par heure, réécrit titre, Infos et expériences chiffrées. | `audit_profil.py`, `titre.py`, `infos.py` |
-| `/linkedin-entreprise` | La page entreprise (grille sourcée) et le programme d'ambassadeurs : cadence, relecture, charte. | `audit_page.py`, `ambassadeurs.py` |
-| `/linkedin-post` | Une idée devient un post : 27 formules d'accroche par objectif, règle de densité des tics, contrôle avant publication. | `lint_post.py`, `format.py` |
-| `/linkedin-carrousel` | Le texte de chaque diapo, le PDF à téléverser, la bannière en PNG. | `carrousel.py` |
-| `/linkedin-human` | L'humaniseur français : corrige la typographie et les tics d'IA, signale ce qui demande une réécriture, vérifie qu'aucun fait n'a été ajouté ou perdu. | `humanize.py`, `detect.py`, `fidelite.py` |
-| `/linkedin-comment` | Quels posts commenter (grille), quel type de commentaire, contrôle « un angle que le post n'a pas ». | `commentaire.py` |
-| `/linkedin-reply` | Le fil sous tes posts : filtre chiffré, leads notés sur 10, 5 modèles de réponse. | `fil.py` |
-| `/linkedin-dm` | Note d'invitation, premier message, une relance avec du nouveau, volume de la semaine, cadre CNIL. | `message.py`, `volume.py` |
-| `/linkedin-inbox` | Tri de la messagerie, séquences automatisées démasquées, prospects prêts pour le CRM. | `boite.py` |
-| `/linkedin-plan` | La semaine : angles, formules jamais répétées en 7 jours, piliers sous 60%, jours fériés français, export. | `semaine.py` |
-| `/linkedin-audit` | Ce qui marche vraiment : médiane, motifs testés par permutation, motifs confondus, expériences chiffrées. Lit l'export .xlsx. | `audit.py` |
-| `/linkedin-repurpose` | Une vidéo, un article ou un tweet devient des posts qui tiennent seuls, sans republier la même idée. | `registre.py` |
-| `/linkedin-job` | Recherches booléennes, offres de la dernière heure, profil calé sur les offres, suivi des candidatures. | `job_url.py`, `candidatures.py` |
+<!-- Emplacement du GIF de démonstration (voir docs/media/A-FILMER.md, prise 1).
+     Quand il existe, remplace l'image ci-dessous par :
+     <img src="docs/media/demo.gif" width="760" alt="Un brouillon de post corrigé par /linkedin-post et /linkedin-human"> -->
+<img src="docs/media/capture-humaniseur.svg" width="760" alt="Sortie réelle de detect.py : un brouillon écrit par une IA obtient 27,9 sur 100 et chaque paragraphe à reprendre est listé">
 
-Tous les scripts sont en Python sans dépendance. Ils marchent hors ligne et ne
-touchent jamais à LinkedIn.
+<sub>Sortie réelle de l'humaniseur sur un brouillon de test du pack : chaque paragraphe à reprendre, et pourquoi.</sub>
+
+</div>
+
+---
+
+## Pourquoi
+
+Sur LinkedIn, un post écrit par une IA se reconnaît en trois lignes. Les
+conseils sur l'algorithme se contredisent, et les outils poussent à
+automatiser exactement ce que LinkedIn sanctionne. Les Skills open-source
+existants sont en anglais, cassent la typographie française et laissent
+l'IA inventer des chiffres.
+
+**Ce pack est la version française, vérifiable et honnête.** Chaque Skill
+part de ton contexte et de tes vraies preuves, sépare ce qui se mesure (des
+scripts Python testés) de ce qui relève du jugement, cite ses sources avec
+leur date, et ne publie jamais rien à ta place. Ce qui manque devient
+`{{à compléter}}`, jamais un chiffre inventé.
+
+## Les quinze Skills
+
+### Le cap
+
+<table>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-strategie.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-strategie</code></b><br>Le cap à 90 jours : objectif vérifiable, cible avec exclusions, positionnement, 2 à 4 piliers, budget en minutes mesuré sur une mauvaise semaine, newsletter ou pas.</td>
+<td width="150"><code>brief.py</code> <code>budget.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-interview.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-interview</code></b><br>T'interviewe une question à la fois pour sortir tes chiffres, tes histoires et tes avis, et remplit ta réserve de preuves.</td>
+<td width="150"><code>reserve.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-plan.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-plan</code></b><br>La semaine : un angle par créneau, formules jamais répétées en 7 jours, piliers sous 60%, jours fériés français, heures tirées des études de 2026 puis de ton propre compte.</td>
+<td width="150"><code>semaine.py</code></td>
+</tr>
+</table>
+
+### Le profil
+
+<table>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-profile.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-profile</code></b><br>Note ton profil sur 100 (les sections non vues ne sont pas notées), classe les corrections par points gagnés par heure, réécrit titre, Infos et expériences chiffrées.</td>
+<td width="150"><code>audit_profil.py</code> <code>titre.py</code> <code>infos.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-entreprise.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-entreprise</code></b><br>La page entreprise (grille sourcée) et le programme d'ambassadeurs : cadence, niveaux de relecture, charte.</td>
+<td width="150"><code>audit_page.py</code> <code>ambassadeurs.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-job.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-job</code></b><br>Recherches booléennes, offres publiées dans la dernière heure, profil calé sur les offres visées, suivi des candidatures et relances.</td>
+<td width="150"><code>job_url.py</code> <code>candidatures.py</code></td>
+</tr>
+</table>
+
+### Écrire
+
+<table>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-post.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-post</code></b><br>Une idée devient un post : 27 formules d'accroche choisies par objectif, règle de densité des tics, contrôle avant publication.</td>
+<td width="150"><code>lint_post.py</code> <code>format.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-carrousel.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-carrousel</code></b><br>Le texte de chaque diapo, le PDF à téléverser et la bannière en PNG.</td>
+<td width="150"><code>carrousel.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-human.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-human</code></b><br>L'humaniseur français : corrige la typographie et les tics d'IA, signale ce qui demande une réécriture, vérifie qu'aucun fait n'a été ajouté ni perdu.</td>
+<td width="150"><code>humanize.py</code> <code>detect.py</code> <code>fidelite.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-repurpose.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-repurpose</code></b><br>Une vidéo, un article ou un fil devient des posts qui tiennent seuls, sans republier trois fois la même idée.</td>
+<td width="150"><code>registre.py</code></td>
+</tr>
+</table>
+
+### Échanger
+
+<table>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-comment.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-comment</code></b><br>Quels posts commenter (grille), quel type de commentaire, contrôle « un angle que le post n'a pas ».</td>
+<td width="150"><code>commentaire.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-reply.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-reply</code></b><br>Le fil sous tes posts : filtre chiffré, prospects notés sur 10, 5 modèles de réponse.</td>
+<td width="150"><code>fil.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-dm.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-dm</code></b><br>Note d'invitation, premier message, une relance qui apporte du nouveau, volume de la semaine, dans le cadre de la CNIL.</td>
+<td width="150"><code>message.py</code> <code>volume.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-inbox.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-inbox</code></b><br>Tri de la messagerie, séquences automatisées démasquées, prospects prêts pour le CRM.</td>
+<td width="150"><code>boite.py</code></td>
+</tr>
+</table>
+
+### Mesurer
+
+<table>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/linkedin-audit.svg" width="44" alt=""></td>
+<td><b><code>/linkedin-audit</code></b><br>Ce qui marche vraiment sur ton compte : médiane, motifs testés par permutation (format, formule, jour, heure), motifs confondus, expériences chiffrées. Lit l'export .xlsx de LinkedIn.</td>
+<td width="150"><code>audit.py</code></td>
+</tr>
+</table>
+
+Tous les scripts sont en Python, sans dépendance. Ils marchent hors ligne et
+ne touchent jamais à LinkedIn.
+
+## En images
+
+Sorties réelles des scripts, sur les fichiers de test du pack. Elles sont
+régénérées à chaque version (`outils/visuels/capture.py`) : si un script
+change, l'image change avec lui.
+
+<p align="center"><img src="docs/media/capture-titre.svg" width="820" alt="titre.py compare deux titres de profil : 93 sur 100, prêt ; 19 sur 100, à réécrire"><br>
+<sub><b>/linkedin-profile</b> · deux titres de profil notés sur 100, critère par critère.</sub></p>
+
+<p align="center"><img src="docs/media/capture-semaine.svg" width="820" alt="semaine.py bloque un plan : même formule deux fois en 7 jours, pilier à 100%"><br>
+<sub><b>/linkedin-plan</b> · un plan bloqué avant d'être publié, avec la raison.</sub></p>
+
+<details>
+<summary><b>Deux autres captures</b> : le contrôle d'un post, l'audit de tes statistiques</summary>
+<br>
+<p align="center"><img src="docs/media/capture-post.svg" width="820" alt="lint_post.py : un post noté 99 sur 100, prêt, avec ce qui reste visible avant « voir plus »"><br>
+<sub><b>/linkedin-post</b> · le contrôle avant publication, et ce qu'on lit avant « voir plus ».</sub></p>
+
+<p align="center"><img src="docs/media/capture-audit.svg" width="820" alt="audit.py décrit 14 posts : médiane, bandes, top 5 et flop 5"><br>
+<sub><b>/linkedin-audit</b> · tes posts comparés à ta propre médiane, pas à un benchmark.</sub></p>
+</details>
+
+<!-- Emplacements des GIF (voir docs/media/A-FILMER.md, prises 2 et 3) :
+     <img src="docs/media/demo-claude-ai.gif" width="760" alt="Le pack importé sur claude.ai, puis /linkedin-plan">
+     <img src="docs/media/demo-avant-apres.gif" width="760" alt="Un post avant et après /linkedin-human"> -->
 
 ## Installer
 
 ### Claude Code
-
-En plugin :
 
 ```
 /plugin marketplace add Aleksander-Siebert/join-medicis-ressources
 /plugin install linkedin-skills@join-medicis
 ```
 
-Ou à la main :
+<details>
+<summary>Ou à la main, sans le système de plugins</summary>
 
 ```bash
 git clone https://github.com/Aleksander-Siebert/join-medicis-ressources.git
@@ -62,20 +199,26 @@ Pour un seul projet, copie les dossiers dans `.claude/skills/` du dépôt.
 Chaque dossier de Skill contient sa copie du socle commun (`commun/`) : il
 marche seul.
 
+</details>
+
 ### claude.ai et Claude Desktop
 
-Réglages → Capacités : active l'exécution de code (pour les scripts). Puis
-Personnaliser → Skills → importe :
+1. Réglages → Capacités : active l'exécution de code (pour les scripts).
+2. Personnaliser → Skills → importe **`linkedin-skills.zip`**, téléchargé
+   depuis [la fiche Join Médicis](https://joinmedicis.com/ressources/skills/linkedin-skills).
+   Un seul `SKILL.md` aiguille vers les 15 modules.
+3. Mets tes fichiers (`contexte.md`, `reserve.md`), remplis, dans les
+   connaissances d'un Projet.
 
-- **le pack entier en un seul Skill** : `linkedin-skills.zip`, téléchargé
-  depuis [la fiche Join Médicis](https://joinmedicis.com/ressources/skills/linkedin-skills),
-  ou construit avec `claude-ai/build.sh linkedin-skills.zip`. Un seul
-  `SKILL.md` aiguille vers les 15 modules ;
-- **ou un Skill à la fois** : le ZIP d'un seul dossier `skills/linkedin-*`.
+<details>
+<summary>Construire le ZIP soi-même, ou importer un Skill à la fois</summary>
 
-claude.ai refuse un ZIP qui contient plusieurs `SKILL.md` ou le manifeste de
-plugin `.claude-plugin/` : n'importe pas le dépôt tel quel. Mets tes fichiers
-(`contexte.md`, `reserve.md`), remplis, dans les connaissances d'un Projet.
+`claude-ai/build.sh linkedin-skills.zip` construit le ZIP du pack. Pour un
+seul Skill, zippe un dossier `skills/linkedin-*`. claude.ai refuse un ZIP qui
+contient plusieurs `SKILL.md` ou le manifeste de plugin `.claude-plugin/` :
+n'importe pas le dépôt tel quel.
+
+</details>
 
 ### ChatGPT, Gemini, Mistral
 
@@ -84,77 +227,79 @@ Gem ou d'un agent, avec `commun/regles.md` et tes fichiers. Sans exécution de
 code, chaque Skill applique ses grilles écrites et dit que le contrôle
 automatique n'a pas tourné.
 
-### Puis : vingt minutes pour commencer
+## Démarrer en vingt minutes
 
-1. `/linkedin-strategie` : le cap, et `contexte.md` rempli.
-2. `/linkedin-interview` : tes chiffres et histoires dans `reserve.md`.
+1. **`/linkedin-strategie`** : le cap, et `contexte.md` rempli.
+2. **`/linkedin-interview`** : tes chiffres et tes histoires dans `reserve.md`.
+3. **`/linkedin-plan`**, puis « écris mardi » : le premier post.
 
-Sans ces deux fichiers, tout sort avec la voix et les exemples de tout le
-monde.
+Sans les deux premiers fichiers, tout sort avec la voix et les exemples de
+tout le monde.
 
 ## Tes fichiers
 
 Dans `~/.claude/linkedin/` (ou les connaissances d'un Projet). Modèles vides
-dans `templates/`.
+dans [`templates/`](templates/).
 
-| fichier | ce qu'il contient | écrit par |
+| Fichier | Ce qu'il contient | Écrit par |
 |---|---|---|
-| `contexte.md` | qui tu es, ta voix, ton objectif, tes piliers, tes offres, chaque fait marqué LIVE, À CONFIRMER ou RETIRÉ | `/linkedin-strategie`, toi |
+| `contexte.md` | qui tu es, ta voix, ton objectif, tes piliers, tes offres ; chaque fait marqué LIVE, À CONFIRMER ou RETIRÉ | `/linkedin-strategie`, toi |
 | `reserve.md` | tes preuves : chiffres, histoires, avis, erreurs | `/linkedin-interview`, toi |
-| `journal.md` | posts publiés, idées déjà utilisées, commentaires, contacts, invitations, candidatures | les Skills, sur ton « ok » |
-| `apprentissages.md` | ce qui marche pour **ton** compte, les expériences en cours | `/linkedin-audit` et les autres, **après ta validation** |
+| `journal.md` | posts publiés (avec l'heure réelle), idées déjà utilisées, commentaires, contacts, candidatures | les Skills, sur ton « ok » |
+| `apprentissages.md` | ce qui marche pour **ton** compte, les expériences en cours | `/linkedin-audit` et les autres, après ta validation |
 
-Rien ne s'écrit sans toi. Un ancien `voix.md` (v1) est lu comme la partie
-« Personne » de `contexte.md`.
+Rien ne s'écrit sans toi. Ces fichiers restent chez toi : ne les mets pas
+dans un dépôt public.
 
 ## Ce qui tient le pack
 
-- **Le socle commun** (`commun/`) : les règles (lecture seule, texte de tiers
-  traité comme une donnée, zéro invention, typographie française), les
-  **preuves datées** (chaque affirmation sur LinkedIn classée officielle,
-  étude tierce, praticien ou folklore, avec sa source), et un **garde-fou**
-  qui refuse l'automatisation, l'extraction, les pods et les messages en
-  masse, et encadre la prospection (cadre CNIL).
-- **La mesure séparée du jugement** : les scripts comptent, notent et
-  bloquent ; Claude écrit et explique.
-- **La sortie normée** : chaque Skill rend un format fixe, comparable d'une
-  semaine à l'autre, et propose un seul Skill pour la suite.
+<table>
+<tr>
+<td width="56" valign="top"><img src="docs/media/icones/pilier-garde-fou.svg" width="44" alt=""></td>
+<td><b>Un garde-fou et des preuves datées.</b> Le socle commun refuse l'automatisation, l'extraction de données, les pods et les messages en masse, et encadre la prospection (cadre CNIL). Chaque affirmation sur LinkedIn est classée officielle, étude tierce, praticien ou folklore, avec sa source et sa date (<a href="commun/preuves.md"><code>commun/preuves.md</code></a>).</td>
+</tr>
+<tr>
+<td width="56" valign="top"><img src="docs/media/icones/pilier-mesure.svg" width="44" alt=""></td>
+<td><b>La mesure séparée du jugement.</b> Les scripts comptent, notent et bloquent ; Claude écrit et explique. Aucun score ne récompense un texte vide ni un chiffre inventé.</td>
+</tr>
+<tr>
+<td width="56" valign="top"><img src="docs/media/icones/pilier-sortie.svg" width="44" alt=""></td>
+<td><b>Une sortie normée.</b> Chaque Skill rend un format fixe, comparable d'une semaine à l'autre, et propose un seul Skill pour la suite.</td>
+</tr>
+</table>
 
-## L'humaniseur, en deux commandes
-
-```bash
-cd ~/.claude/skills/linkedin-human
-python3 scripts/humanize.py brouillon.txt -o propre.txt --rapport
-python3 scripts/detect.py brouillon.txt propre.txt
-```
-
-Sur les fichiers de `evals/linkedin-human/` :
-
-```
-brouillon-ia.txt           SCORE HUMAIN  27,9  SIGNALÉ
-apres-humanize.txt         SCORE HUMAIN  36,9  SIGNALÉ   (les tics de structure restent à réécrire)
-brouillon-ia-reecrit.txt   SCORE HUMAIN 100,0  OK        (réécrit d'après le rapport)
-post-humain.txt            SCORE HUMAIN 100,0  OK
-```
-
-Le script corrige ce qui est sûr (typographie, caractères invisibles, tirets
-cadratins, formules toutes faites) et **signale** ce qui demande du jugement
-(contrastes, triades, appâts, rythme plat). Ses contrôles sont des
-heuristiques locales, pas un détecteur commercial : personne ne peut vendre
-honnêtement de l'« indétectable ».
-
-## Tests
+## Preuves
 
 ```bash
 python3 evals/tout_tester.py
 ```
 
-Lance les tests de chaque script, les deux suites autonomes de la v1 et les
+**250 tests** : chaque script, les suites autonomes de l'humaniseur et les
 tests d'intégrité du pack (frontmatter, fichiers cités, socle synchronisé,
-grilles sur 100, modèles vides). Les évaluations comparatives et leurs
-défaites sont dans [`evals/RESULTATS.md`](evals/RESULTATS.md) (v2 : 8 cas gagnés sur 10 contre les meilleures références, à l'aveugle).
+grilles sur 100, modèles vides). L'évaluation à l'aveugle de la v2 a gagné
+**8 tâches sur 10** face aux meilleures références. Les défaites et ce qui a
+été corrigé sont publiés dans [`evals/RESULTATS.md`](evals/RESULTATS.md),
+y compris un retour d'usage réel sur les horaires de publication.
 
-## Licence
+L'humaniseur repose sur des heuristiques locales, pas sur un détecteur
+commercial : personne ne peut vendre honnêtement de l'« indétectable ».
 
-MIT. Prends-le, modifie-le, partage-le. Les mentions des projets d'origine
-sont dans [LICENSE](LICENSE) et [CREDITS.md](CREDITS.md).
+## Versions
+
+| Version | Date | Ce qui change |
+|---|---|---|
+| **2.1.0** | 14 oct. 2026 | Horaires de publication refaits d'après les études de 2026 (Sprout Social, Buffer) ; heure réelle notée dans `journal.md` ; créneau horaire testé par `/linkedin-audit`. |
+| 2.0.0 | 2 oct. 2026 | Refonte en 15 Skills : socle commun, preuves datées, humaniseur à 4 passes, audit statistique, page entreprise, évaluation à l'aveugle publiée. |
+| 1.0.0 | 1er oct. 2026 | 12 Skills en français, humaniseur et recherche d'offres. |
+
+## Crédits et licence
+
+MIT : prends-le, modifie-le, partage-le. Le pack est construit à partir des
+meilleurs Skills LinkedIn open-source, lus fichier par fichier puis réécrits
+pour le français : la liste est dans [CREDITS.md](CREDITS.md), les mentions
+de licence dans [LICENSE](LICENSE).
+
+<div align="center">
+<br>
+<sub>Un pack <a href="https://joinmedicis.com">Join Médicis</a>, la bibliothèque IA gratuite des marketeurs francophones.</sub>
+</div>
