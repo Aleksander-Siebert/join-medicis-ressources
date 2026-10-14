@@ -197,6 +197,25 @@ def _():
     assert not fautes, ", ".join(fautes)
 
 
+
+# ---------- README et visuels ----------
+
+VISUELS = PACK.parent / "outils" / "visuels"
+
+
+@test("README : images, liens, version, icônes, captures et visuels conformes (outils/visuels/readme.py)")
+def _():
+    r = subprocess.run([sys.executable, str(VISUELS / "readme.py"), str(PACK)], capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout[-800:] + r.stderr[-400:]
+
+
+@test("outils/visuels : tests unitaires du générateur")
+def _():
+    r = subprocess.run([sys.executable, "-m", "unittest", "-q", str(VISUELS / "test_visuels.py")],
+                       capture_output=True, text=True, cwd=VISUELS)
+    assert r.returncode == 0, r.stderr[-600:]
+
+
 if __name__ == "__main__":
     for nom, err in resultats:
         print(("  ok  " if err is None else "  ✖   ") + nom + ("" if err is None else f"\n        {err}"))

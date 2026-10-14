@@ -1,0 +1,15 @@
+{
+  "note": "Icônes et bannière du README racine, produites par outils/visuels/visuels.py. Ne pas modifier les SVG à la main.",
+  "pack": "Join Médicis",
+  "surtitre": "Ressources open-source · Skills Claude",
+  "accroche": ["Des Skills en français pour les marketeurs,", "testés, sourcés, gratuits. Rien n'est publié à ta place."],
+  "puces": ["4 packs", "40 Skills", "MIT", "français"],
+  "colonnes": 2,
+  "familles": {"LinkedIn": "#1E4E8C", "SEO": "#B5552B", "GEO": "#6B3F7E", "Fondation": "#2D7259"},
+  "icones": [
+    {"nom": "pack-linkedin", "glyphe": "bulle", "famille": "LinkedIn"},
+    {"nom": "pack-seo", "glyphe": "loupe", "famille": "SEO"},
+    {"nom": "pack-geo", "glyphe": "etincelle", "famille": "GEO"},
+    {"nom": "pack-fondation", "glyphe": "entreprise", "famille": "Fondation"}
+  ]
+}

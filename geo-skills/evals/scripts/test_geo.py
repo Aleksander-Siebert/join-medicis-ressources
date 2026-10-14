@@ -89,6 +89,16 @@ def test_agentic_repere_les_obstacles():
     assert st["Contenu lisible sans JavaScript"] == "À CORRIGER" and st["Outils WebMCP"] == "INFO"
 
 
+def test_readme():
+    """README : images, liens, version, icônes, captures et visuels conformes (outils/visuels/readme.py)."""
+    import subprocess
+    from pathlib import Path
+    pack = Path(__file__).resolve().parents[2]
+    r = subprocess.run([sys.executable, str(pack.parent / "outils" / "visuels" / "readme.py"), str(pack)],
+                       capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout[-600:]
+
+
 if __name__ == "__main__":
     tests = [v for k, v in list(globals().items()) if k.startswith("test_")]
     failed = 0

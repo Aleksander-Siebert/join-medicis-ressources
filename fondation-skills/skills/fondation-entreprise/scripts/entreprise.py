@@ -192,8 +192,16 @@ MOTIFS = {
 
 
 def extrait(texte, m, large=40):
+    """Le passage autour de la valeur lue, coupé aux espaces (« … » si le texte continue)."""
     a, b = max(0, m.start() - large), min(len(texte), m.end() + large)
-    return re.sub(r"\s+", " ", texte[a:b]).strip()
+    if a > 0:
+        espace = texte.find(" ", a, m.start())
+        a = espace + 1 if espace != -1 else m.start()
+    if b < len(texte):
+        espace = texte.rfind(" ", m.end(), b)
+        b = espace if espace != -1 else m.end()
+    morceau = re.sub(r"\s+", " ", texte[a:b]).strip()
+    return ("… " if a > 0 else "") + morceau + (" …" if b < len(texte) else "")
 
 
 def trouver_forme(texte):

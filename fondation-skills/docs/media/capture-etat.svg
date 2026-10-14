@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="883" height="268" viewBox="0 0 883 268" role="img" aria-label="fondation · commun/contexte.py">
+<title>fondation · commun/contexte.py</title>
+<rect width="883" height="268" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h859a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="442" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">fondation · commun/contexte.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 commun/contexte.py etat templates/exemple-entreprise.md --aujourdhui 2026-10-13</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">templates/exemple-entreprise.md : <tspan fill="#D4B681">À REVOIR</tspan></text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">  27 faits utilisables (LIVE, datés, sourcés) sur 35 lignes</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">  6 à revoir · 2 retirés · 0 vides · 4 trous {{à compléter}}</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">  - 1. Identité › Date de création : à confirmer</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">  - 3. Le marché › Catégorie réelle (où les clients nous rangent) : à confirmer</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  - 3. Le marché › Catégorie possible (si on la change) : à confirmer</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">  - 4. Les alternatives › Banque ou assureur du compte pro : à confirmer</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">  - 4. Les alternatives › Expert-comptable qui recommande un contrat : trou à compléter, à confirmer</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">  - 8. Les contraintes › Secteur réglementé (lequel, quels textes) : trou à compléter, à confirmer</text>
+</g></svg>

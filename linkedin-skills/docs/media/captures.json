@@ -1,0 +1,52 @@
+{
+  "note": "Captures des README, produites par outils/visuels/capture.py à partir des vraies sorties des scripts. Ne pas modifier les SVG à la main : relancer le script. « affiche » est la commande telle qu'on la tape depuis le dossier du Skill ; « commande » est celle que lance le générateur depuis le dossier du pack.",
+  "captures": [
+    {
+      "id": "humaniseur",
+      "titre": "linkedin-human · detect.py",
+      "dossier": ".",
+      "commande": "python3 skills/linkedin-human/scripts/detect.py evals/linkedin-human/brouillon-ia.txt",
+      "affiche": "python3 scripts/detect.py brouillon-ia.txt",
+      "lignes": [
+        1,
+        26
+      ]
+    },
+    {
+      "id": "titre",
+      "titre": "linkedin-profile · titre.py",
+      "dossier": ".",
+      "commande": "python3 skills/linkedin-profile/scripts/titre.py --exemple",
+      "affiche": "python3 scripts/titre.py --exemple",
+      "lignes": [
+        1,
+        22
+      ]
+    },
+    {
+      "id": "post",
+      "titre": "linkedin-post · lint_post.py",
+      "dossier": ".",
+      "commande": "python3 skills/linkedin-post/scripts/lint_post.py --fichier evals/linkedin-post/post-exemple.txt",
+      "affiche": "python3 scripts/lint_post.py --fichier post-exemple.txt"
+    },
+    {
+      "id": "semaine",
+      "titre": "linkedin-plan · semaine.py",
+      "dossier": ".",
+      "commande": "python3 skills/linkedin-plan/scripts/semaine.py --exemple",
+      "affiche": "python3 scripts/semaine.py --exemple"
+    },
+    {
+      "id": "audit",
+      "titre": "linkedin-audit · audit.py",
+      "dossier": ".",
+      "commande": "python3 skills/linkedin-audit/scripts/audit.py decrire --exemple",
+      "affiche": "python3 scripts/audit.py decrire --exemple",
+      "lignes": [
+        1,
+        18
+      ]
+    }
+  ]
+}

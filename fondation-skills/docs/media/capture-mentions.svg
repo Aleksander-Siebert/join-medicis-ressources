@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="858" height="668" viewBox="0 0 858 668" role="img" aria-label="fondation-entreprise · entreprise.py">
+<title>fondation-entreprise · entreprise.py</title>
+<rect width="858" height="668" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h834a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="429" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">fondation-entreprise · entreprise.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/entreprise.py mentions mentions-legales.txt</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">Lu sur la page :</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">  raison sociale               Société Exemple B SARL</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">                               « … légales du site exemple-b.example. Société Exemple B SARL au</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">                                 capital de 10 000 euros. SIREN : … »</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">  forme                        SARL</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">                               « … exemple-b.example. Société Exemple B SARL au capital de 10 000</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">                                 euros. SIREN : … »</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">  capital                      10 000 euros</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">                               « … Exemple B SARL au capital de 10 000 euros. SIREN : 123 456 789</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">                                 SIRET : 987 654 … »</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">  SIREN                        123 456 789</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">                               « … B SARL au capital de 10 000 euros. SIREN : 123 456 789 SIRET :</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">                                 987 654 324 00012 TVA : FR 99 … »</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">  SIRET                        987 654 324 00012</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">                               « … de 10 000 euros. SIREN : 123 456 789 SIRET : 987 654 324 00012</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre">                                 TVA : FR 99 123456782 »</text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">  TVA                          FR 99 123456782</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">                               « … 789 SIRET : 987 654 324 00012 TVA : FR 99 123456782 »</text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">Contrôles :</text>
+<text x="20" y="458" xml:space="preserve" style="white-space:pre">  SIREN  123 456 789 : <tspan fill="#E58A7B">clé fausse</tspan></text>
+<text x="20" y="478" xml:space="preserve" style="white-space:pre">  SIRET  987 654 324 00012 : <tspan fill="#E58A7B">clé fausse</tspan></text>
+<text x="20" y="498" xml:space="preserve" style="white-space:pre">  TVA    FR99123456782 : <tspan fill="#E58A7B">clé fausse</tspan></text>
+<text x="20" y="518" xml:space="preserve" style="white-space:pre">  Activité du numéro de TVA : VIES (https://ec.europa.eu/taxation_customs/vies/)</text>
+<text x="20" y="538" xml:space="preserve" style="white-space:pre">Absent de la page : siège, directeur de la publication, hébergeur</text>
+<text x="20" y="558" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">!</tspan> SIREN lu avec une <tspan fill="#E58A7B">clé fausse</tspan> : relis la page ou demande le Kbis</text>
+<text x="20" y="578" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">!</tspan> SIRET lu avec une <tspan fill="#E58A7B">clé fausse</tspan></text>
+<text x="20" y="598" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">!</tspan> le SIRET (987 654 324 00012) ne commence pas par le SIREN (123 456 789)</text>
+<text x="20" y="618" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">!</tspan> numéro de TVA lu avec une <tspan fill="#E58A7B">clé fausse</tspan></text>
+<text x="20" y="638" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">!</tspan> le numéro de TVA ne contient pas le SIREN de la page</text>
+</g></svg>

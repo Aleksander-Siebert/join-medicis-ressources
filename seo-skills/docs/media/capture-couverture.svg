@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="875" height="388" viewBox="0 0 875 388" role="img" aria-label="seo-brief · couverture.py">
+<title>seo-brief · couverture.py</title>
+<rect width="875" height="388" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h851a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="438" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">seo-brief · couverture.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 skills/seo-brief/scripts/couverture.py couvrir</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">  evals/seo-brief/plan-mutuelle-independant-v2.md evals/seo-brief/requetes-mutuelle-independant.txt</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">COUVERTURE · plan-mutuelle-independant-v2.md · 24 requêtes · 6 sections</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">  couvertes 24 · partielles 0 · non couvertes 0</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">  termes de tête (sujet de la page, ignorés pour le rattachement) : independant, mutuell</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">COUVERTES</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">  - mutuelle indépendant  →  titre de la page (H1)</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">  - mutuelle pour indépendant  →  titre de la page (H1)</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">  - mutuelle indépendant obligatoire  →  Faut-il une mutuelle quand on est indépendant ?</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">  - mutuelle indépendant prix  →  Combien coûte une mutuelle indépendant</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">  - mutuelle indépendant pas cher  →  Combien coûte une mutuelle indépendant</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">  - meilleure mutuelle indépendant  →  Comment choisir sa mutuelle d'indépendant en 4 étapes</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">  - mutuelle indépendant madelin  →  Mutuelle Madelin : la déduction des cotisations</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">  - déduction mutuelle madelin  →  Mutuelle Madelin : la déduction des cotisations</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">  - mutuelle indépendant déductible impôts  →  Mutuelle Madelin : la déduction des cotisations</text>
+</g></svg>

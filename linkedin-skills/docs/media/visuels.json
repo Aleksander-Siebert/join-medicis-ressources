@@ -1,0 +1,116 @@
+{
+  "note": "Icônes et bannière du README, produites par outils/visuels/visuels.py. Ne pas modifier les SVG à la main.",
+  "pack": "LinkedIn Skills",
+  "surtitre": "Join Médicis · pack de Skills",
+  "accroche": [
+    "Quinze Skills en français, de la stratégie au message privé.",
+    "Ils écrivent, comptent et vérifient. Tu publies."
+  ],
+  "puces": [
+    "15 Skills",
+    "249 tests",
+    "MIT",
+    "v2.1"
+  ],
+  "familles": {
+    "Cap": "#2D7259",
+    "Profil": "#1E4E8C",
+    "Écrire": "#B5552B",
+    "Échanger": "#6B3F7E",
+    "Mesurer": "#A9792B"
+  },
+  "icones": [
+    {
+      "nom": "linkedin-strategie",
+      "glyphe": "boussole",
+      "famille": "Cap"
+    },
+    {
+      "nom": "linkedin-interview",
+      "glyphe": "micro",
+      "famille": "Cap"
+    },
+    {
+      "nom": "linkedin-plan",
+      "glyphe": "calendrier",
+      "famille": "Cap"
+    },
+    {
+      "nom": "linkedin-profile",
+      "glyphe": "carte",
+      "famille": "Profil"
+    },
+    {
+      "nom": "linkedin-entreprise",
+      "glyphe": "batiment",
+      "famille": "Profil"
+    },
+    {
+      "nom": "linkedin-job",
+      "glyphe": "mallette",
+      "famille": "Profil"
+    },
+    {
+      "nom": "linkedin-post",
+      "glyphe": "plume",
+      "famille": "Écrire"
+    },
+    {
+      "nom": "linkedin-carrousel",
+      "glyphe": "diapos",
+      "famille": "Écrire"
+    },
+    {
+      "nom": "linkedin-human",
+      "glyphe": "visage",
+      "famille": "Écrire"
+    },
+    {
+      "nom": "linkedin-repurpose",
+      "glyphe": "recycler",
+      "famille": "Écrire"
+    },
+    {
+      "nom": "linkedin-comment",
+      "glyphe": "bulle",
+      "famille": "Échanger"
+    },
+    {
+      "nom": "linkedin-reply",
+      "glyphe": "retour",
+      "famille": "Échanger"
+    },
+    {
+      "nom": "linkedin-dm",
+      "glyphe": "avion",
+      "famille": "Échanger"
+    },
+    {
+      "nom": "linkedin-inbox",
+      "glyphe": "plateau",
+      "famille": "Échanger"
+    },
+    {
+      "nom": "linkedin-audit",
+      "glyphe": "barres",
+      "famille": "Mesurer"
+    }
+  ],
+  "piliers": [
+    {
+      "nom": "pilier-garde-fou",
+      "glyphe": "bouclier",
+      "couleur": "#0E3F2D"
+    },
+    {
+      "nom": "pilier-mesure",
+      "glyphe": "jauge",
+      "couleur": "#A9792B"
+    },
+    {
+      "nom": "pilier-sortie",
+      "glyphe": "document",
+      "couleur": "#34495E"
+    }
+  ]
+}

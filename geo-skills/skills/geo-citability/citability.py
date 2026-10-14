@@ -222,7 +222,7 @@ def main():
         print()
         return
     secs = r["sections"]
-    print(f"CITABILITÉ · {args.source} · {r['score_page']}/100 · {len(secs)} sections notées")
+    print(f"CITABILITÉ · {args.source} · {r['score_page']}/100 · {len(secs)} section{'s' if len(secs) > 1 else ''} notée{'s' if len(secs) > 1 else ''}")
     if not secs:
         print("Aucune section lisible (contenu rendu en JavaScript ?).")
         return

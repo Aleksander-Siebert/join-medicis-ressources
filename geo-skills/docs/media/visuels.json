@@ -1,0 +1,24 @@
+{
+  "note": "Icônes et bannière du README, produites par outils/visuels/visuels.py. Ne pas modifier les SVG à la main.",
+  "pack": "GEO Skills",
+  "surtitre": "Join Médicis · pack de Skills",
+  "accroche": ["Huit Skills pour être cité par ChatGPT, Perplexity,", "Gemini, Claude, Mistral et les AI Overviews."],
+  "puces": ["8 Skills", "5 scripts", "MIT", "v1.1"],
+  "colonnes": 4,
+  "familles": {"Mesurer": "#A9792B", "Améliorer": "#1E4E8C", "Rayonner": "#6B3F7E"},
+  "icones": [
+    {"nom": "geo-audit", "glyphe": "jauge", "famille": "Mesurer"},
+    {"nom": "geo-visibility", "glyphe": "cible", "famille": "Mesurer"},
+    {"nom": "geo-crawlers", "glyphe": "robot", "famille": "Mesurer"},
+    {"nom": "geo-citability", "glyphe": "citation", "famille": "Améliorer"},
+    {"nom": "geo-schema", "glyphe": "code", "famille": "Améliorer"},
+    {"nom": "geo-agentic", "glyphe": "etincelle", "famille": "Améliorer"},
+    {"nom": "geo-mentions", "glyphe": "bulle", "famille": "Rayonner"},
+    {"nom": "geo-optimize", "glyphe": "boussole", "famille": "Rayonner"}
+  ],
+  "piliers": [
+    {"nom": "pilier-mesure", "glyphe": "jauge", "couleur": "#A9792B"},
+    {"nom": "pilier-google", "glyphe": "sceau", "couleur": "#0E3F2D"},
+    {"nom": "pilier-sortie", "glyphe": "document", "couleur": "#34495E"}
+  ]
+}

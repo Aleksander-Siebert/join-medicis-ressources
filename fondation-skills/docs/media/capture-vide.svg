@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="723" height="148" viewBox="0 0 723 148" role="img" aria-label="fondation · commun/contexte.py">
+<title>fondation · commun/contexte.py</title>
+<rect width="723" height="148" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h699a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="362" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">fondation · commun/contexte.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 commun/contexte.py etat templates/entreprise.md --aujourdhui 2026-10-13</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">templates/entreprise.md : VIDE</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">  0 faits utilisables (LIVE, datés, sourcés) sur 28 lignes</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">  0 à revoir · 0 retirés · 28 vides · 0 trous {{à compléter}}</text>
+</g></svg>

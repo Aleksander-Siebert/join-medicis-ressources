@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="883" height="548" viewBox="0 0 883 548" role="img" aria-label="seo-write · controle.py">
+<title>seo-write · controle.py</title>
+<rect width="883" height="548" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h859a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="442" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">seo-write · controle.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/controle.py article-ia.md --affirmatif --mot-cle "mutuelle indépendant"</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">CONTRÔLE · 203 mots · 1 lien(s) interne(s) · 1 gras · 0 trou(s)</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">  title 102 car. / 910 px · description 74 car. / 467 px</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">HAUTE</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">  [structure] résumé en tête absent (citation « &gt; » de 3 lignes juste après l'introduction)</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  [bloc méta] année dépassée dans le title (2025)</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">      → Google réécrit les titles périmés. Mettre à jour la page, puis l'année ; ou retirer l'année.</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">  [bloc méta] description en liste de mots-clés</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">      → Écrire une phrase qui résume la page.</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">  [structure] l.19 section interdite : « Défis et perspectives »</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">      → Finir sur une réponse utile ou une action concrète, sans section de clôture.</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">  [structure] l.23 section interdite : « Conclusion »</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">      → Finir sur une réponse utile ou une action concrète, sans section de clôture.</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">MOYENNE</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre">  [forme] phrase entière en gras : « Il est essentiel de bien comparer les offres avant de signer »</text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">      → Le gras marque une notion, pas une phrase.</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">  [bloc méta] title de 910 px (repère ≈ 600 px) : probablement coupé</text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">      → Affichage estimé : « Mutuelle indépendant 2025 : le guide ultime de la mutuelle pour i … ».</text>
+<text x="20" y="458" xml:space="preserve" style="white-space:pre">        Garder les mots importants au début.</text>
+<text x="20" y="478" xml:space="preserve" style="white-space:pre">  [style] l.3 annonce de plan : « Dans cet article »</text>
+<text x="20" y="498" xml:space="preserve" style="white-space:pre">      → Entrer dans le sujet : la première phrase répond.</text>
+<text x="20" y="518" xml:space="preserve" style="white-space:pre">  [style] l.3 annonce de plan : « nous allons voir »</text>
+</g></svg>

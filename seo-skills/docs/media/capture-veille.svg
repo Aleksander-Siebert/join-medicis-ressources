@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="866" height="328" viewBox="0 0 866 328" role="img" aria-label="seo-veille · veille.py">
+<title>seo-veille · veille.py</title>
+<rect width="866" height="328" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h842a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="433" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">seo-veille · veille.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 veille.py rapport octobre.csv septembre.csv</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">RAPPORT SEARCH CONSOLE · 640 clics contre 585 (+9,4%) · 4 pages</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">GAGNANTS</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">    +120    300 → 420   pos. 7,4 → 6,1     https://assurly.example/assurance-sante-expatrie</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">PERDANTS</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">     -40    220 → 180   pos. 7,1 → 8,2</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">       https://assurly.example/blog/choisir-assurance-sante-expatrie</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">     -25     25 → 0     pos. 19,0 → 41,0   https://assurly.example/blog/assurance-etudiant-erasmus</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">PAGES SANS CLIC CE MOIS (en avaient avant) : 1</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">  https://assurly.example/blog/assurance-etudiant-erasmus  (25 clics avant)</text>
+</g></svg>

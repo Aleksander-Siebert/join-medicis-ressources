@@ -206,6 +206,13 @@ def _():
     assert d["name"] == "fondation-skills" and d["license"] == "MIT"
 
 
+@test("README : images, liens, version, icônes, captures et visuels conformes (outils/visuels/readme.py)")
+def _():
+    r = subprocess.run([sys.executable, str(PACK.parent / "outils" / "visuels" / "readme.py"), str(PACK)],
+                       capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout[-800:] + r.stderr[-400:]
+
+
 def main():
     for nom, err in resultats:
         print(("  ✔ " if err is None else "  ✖ ") + nom + ("" if err is None else f"\n      {err}"))
