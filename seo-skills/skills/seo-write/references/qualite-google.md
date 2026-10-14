@@ -1,55 +1,54 @@
-# Contrôle qualité « people-first »
+# Grille « contenu utile » (Google), en 16 contrôles
 
-Grille tirée de la documentation de Google « Créer des contenus utiles,
-fiables et people-first » (Google Search Central), reformulée en contrôle
-avant publication. Chaque « non » est une correction à faire, pas un détail.
+Tirée du guide Google « Créer des contenus utiles, fiables et people-first »
+(Search Central ; version française fournie par l'utilisateur, créée le
+11 février 2026 ; relue le 12 octobre 2026). Reformulée en contrôle avant
+publication. Le résultat s'écrit « Qualité Google 15/16 » avec ce qui reste.
+Ce n'est **pas** une note de classement : Google ne publie aucune note, et
+E-E-A-T n'est pas un facteur de classement en soi.
 
 ## Contenu et qualité
 
-- [ ] Le contenu apporte une information, une analyse ou une expérience
-      originale, pas un résumé de ce qui existe.
-- [ ] Il traite le sujet de façon substantielle et complète pour l'intention.
-- [ ] S'il s'appuie sur d'autres sources, il y ajoute une valeur propre.
-- [ ] Le titre et le H1 résument clairement la page, sans exagération ni
-      sensationnalisme.
-- [ ] On aurait envie de le garder en favori ou de l'envoyer à quelqu'un.
-- [ ] Il apporte plus que les pages déjà en tête des résultats.
-- [ ] Aucune faute d'orthographe ou de style ; il n'a pas l'air écrit à la
-      hâte.
+1. L'article apporte une information, une analyse ou une expérience
+   originale (le gain d'information du plan est bien dans le texte).
+2. Il traite le sujet de façon substantielle pour l'intention (toutes les
+   requêtes du plan ont leur réponse).
+3. S'il s'appuie sur d'autres sources, il y ajoute une valeur propre ; il ne
+   les reformule pas.
+4. Le title et le H1 résument la page, sans exagération.
+5. On aurait envie de le garder ou de l'envoyer à quelqu'un.
+6. Il apporte plus que les pages déjà en tête des résultats (grille du plan).
+7. Aucune faute d'orthographe ou de style ; rien n'a l'air écrit à la hâte.
 
 ## Expertise et confiance
 
-- [ ] Il inspire confiance : sources citées, expertise visible, auteur
-      identifiable (byline, biographie).
-- [ ] Il est écrit ou relu par quelqu'un qui connaît le sujet.
-- [ ] Aucune erreur factuelle facile à vérifier.
-- [ ] YMYL (santé, argent, sécurité, droit) : chaque affirmation sensible est
-      sourcée ou renvoyée à un professionnel ; rien n'est inventé.
+8. L'auteur est identifiable là où le lecteur s'y attend (signature, page
+   auteur, preuve vérifiable de son expertise).
+9. Les faits sensibles citent leur source ; aucune erreur facile à vérifier
+   (`affirmations.py` : OK).
+10. En YMYL, rien n'est inventé ; ce qui manque est listé, pas comblé.
 
 ## People-first
 
-- [ ] Il s'adresse à une audience réelle du site, qui le trouverait utile en
-      venant directement.
-- [ ] Il montre une expérience de première main (produit utilisé, cas vécu,
-      terrain).
-- [ ] Après lecture, le lecteur peut atteindre son objectif sans chercher
-      ailleurs.
+11. L'article s'adresse à une audience réelle du site, qui le trouverait
+    utile en venant directement.
+12. Il montre une expérience de première main (cas, terrain, test réel).
+13. Après lecture, le lecteur atteint son objectif sans chercher ailleurs.
 
 ## Signaux d'un contenu écrit pour les moteurs (à éviter)
 
-- [ ] Le sujet n'a pas été choisi seulement parce qu'il « tend » ou génère du
-      trafic, sans lien avec l'audience.
-- [ ] Pas de longueur visée pour elle-même (Google n'a pas de nombre de mots
-      préféré).
-- [ ] Pas de date ou de « mise à jour » changée sans changement réel.
-- [ ] Pas de promesse de réponse à une question qui n'en a pas (date de
-      sortie non annoncée, etc.).
+14. La longueur suit le sujet, pas un nombre de mots visé (Google : « ce qui
+    n'est pas le cas »).
+15. La date de mise à jour ne change qu'avec un changement réel.
+16. Aucune promesse de réponse à une question qui n'en a pas (date de sortie
+    non annoncée, règle non publiée).
 
 ## Qui, comment, pourquoi
 
-- **Qui** a créé le contenu ? Visible quand le lecteur s'y attend.
-- **Comment** ? Si l'IA a aidé, la démarche doit rester utile au lecteur ;
-  l'automatisation pour multiplier les pages est un signal négatif.
+- **Qui** a écrit ? Visible quand le lecteur s'y attend.
+- **Comment** ? Si l'IA a aidé de façon importante, le dire là où le lecteur
+  peut se le demander, et dire pourquoi elle a été utile.
 - **Pourquoi** ? Pour aider des personnes, pas pour attirer des clics.
+  L'automatisation pour manipuler le classement est du spam.
 
 Source : https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr

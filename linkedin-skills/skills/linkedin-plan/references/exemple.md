@@ -51,18 +51,20 @@ pile, c'est permis.
 ```
 SEMAINE DU 5 OCTOBRE · 3 posts · environ 215 min sur 300 · contrôle PRÊT
 
-MAR  08:15  SAUVEGARDES  chiffre-d-abord  [Rétention · texte]
+MAR  15:00  SAUVEGARDES  chiffre-d-abord  [Rétention · texte]
       angle : les 60 appels aux résiliés, la moitié parlait du délai de remboursement, pas du prix
-      réponses : 08:35
-JEU  08:00  COMMENTAIRES  cas-a-trancher  [Acquisition · texte]
+      réponses : 15:20
+JEU  15:00  COMMENTAIRES  cas-a-trancher  [Acquisition · texte]
       angle : couper 30% du budget payant ou raccourcir le délai, ce que ferait le lecteur
-      réponses : 08:20
-VEN  08:30  PARTAGES  merci-nomme  [Équipe · image]
+      réponses : 15:20
+VEN  15:00  PARTAGES  merci-nomme  [Équipe · image]
       angle : Inès, qui a passé 3 semaines au téléphone avec les résiliés
-      réponses : 08:50
+      réponses : 15:20
 
 ROUTINE  15 min par jour ouvré : répondre, puis 3 à 5 commentaires
 LISTE    6 pairs · 2 de portée · 2 acheteurs (inchangée)
+HEURES   point de départ du pack (vers 15 h, heure de Paris) : aucun créneau mesuré
+         sur ce compte ; note l'heure réelle de chaque post dans journal.md
 À PRÉPARER LUNDI  la photo d'Inès et son accord pour être nommée ; le chiffre
                   « 30% » à confirmer avant publication (décision du comité)
 EXPÉRIENCE  aucune cette semaine

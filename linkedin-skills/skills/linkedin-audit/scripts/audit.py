@@ -7,11 +7,13 @@
       bandes (exceptionnel, fort, typique, faible, très faible), top 5 et
       flop 5. Sous 10 posts : description seulement (code 2).
 
-  motifs --fichier … [--journal …] [--attributs formule,format,pilier,longueur,lien,appel,reponse,jour]
+  motifs --fichier … [--journal …] [--attributs formule,format,pilier,longueur,lien,appel,reponse,jour,creneau]
       Teste chaque motif candidat avec 4 filtres : au moins 5 posts dedans et
       5 dehors ; écart de médianes d'au moins 15% ; test de permutation
       (2 000 tirages, graine fixe) battu à 90% ; décompte des faux positifs
-      attendus. Le jour de la semaine est testé en dernier. « Rien n'a
+      attendus. Le jour et le créneau horaire (matin, midi, après-midi, soir,
+      d'après l'heure notée dans journal.md ou une colonne « heure ») sont
+      testés en dernier. « Rien n'a
       survécu » est un résultat (code 2). Sous 10 posts : refus (code 3).
 
   experience --hypothese "…" --variable "…" --cv 0.45 --effet 0.30
@@ -75,6 +77,7 @@ ALIAS = {
     "voix": ["voix", "compte"],
     "titre": ["titre", "premiere ligne", "title", "post", "post url", "url"],
     "objectif": ["objectif", "goal"],
+    "heure": ["heure", "heure de publication", "publish time", "post publish time", "time"],
 }
 
 EXEMPLE = [
@@ -217,7 +220,7 @@ def normaliser(lignes):
 
 
 def joindre_journal(posts, chemin):
-    """Complète formule, objectif, format, pilier, longueur, appel depuis journal.md (même date)."""
+    """Complète formule, objectif, format, pilier, longueur, appel, heure depuis journal.md (même date)."""
     if not chemin or not Path(chemin).exists():
         return 0
     texte = Path(chemin).read_text(encoding="utf-8")
@@ -238,7 +241,8 @@ def joindre_journal(posts, chemin):
         if jd in par_date and len(par_date[jd]) == 1:
             j = par_date[jd][0]
             for cle, col in (("formule", "formule"), ("objectif", "objectif"), ("format", "format"),
-                             ("pilier", "pilier"), ("caracteres", "longueur"), ("appel", "appel a l'action")):
+                             ("pilier", "pilier"), ("caracteres", "longueur"), ("appel", "appel a l'action"),
+                             ("heure", "heure")):
                 if not p.get(cle) and j.get(col):
                     p[cle] = j[col]
             n += 1
@@ -266,6 +270,22 @@ def contacts_journal(chemin, debut=None, fin=None):
         o = (d.get(cle) or "non renseignée").split(" ")[0] if cle else "non renseignée"
         origines[o] = origines.get(o, 0) + 1
     return {"total": total, "origines": origines}
+
+
+CRENEAUX = ((11, "matin (avant 11 h)"), (14, "midi (11 h-14 h)"), (18, "après-midi (14 h-18 h)"), (24, "soir (18 h et après)"))
+
+
+def lire_heure(texte):
+    """Heure de publication (0-23) lue dans « 15:30 », « 15 h 30 », « 15h », « 2026-10-08 15:30 », sinon None."""
+    m = re.search(r"(?:^|[\sT])([01]?\d|2[0-3])\s*(?::|h)\s*([0-5]\d)?(?!\d)", str(texte or "").strip())
+    return int(m.group(1)) if m else None
+
+
+def creneau(texte):
+    h = lire_heure(texte)
+    if h is None:
+        return "non renseigné"
+    return next(nom for borne, nom in CRENEAUX if h < borne)
 
 
 def preparer(posts, abonnes=None, voix=None):
@@ -298,6 +318,7 @@ def preparer(posts, abonnes=None, voix=None):
             "appel": norme(p.get("appel")) or "non renseigné",
             "reponse": "non renseigné" if not p.get("reponse") else ("oui" if norme(p["reponse"]) in ("oui", "yes", "1", "true", "vrai") else "non"),
             "jour": JOURS[d.weekday()] if d else "non renseigné",
+            "creneau": creneau(p.get("heure") or p.get("date")),
             "voix": norme(p.get("voix")) or "",
         }
         out.append(rec)
@@ -364,8 +385,9 @@ def motifs(posts, attributs, metrique="engagement"):
                 "message": f"{len(data)} posts : sous {MIN_POSTS}, il n'y a rien à tester. L'écart entre deux posts "
                            "sur LinkedIn dépasse tout ce qu'un si petit échantillon peut montrer. Continue le plan, "
                            "relance dans six semaines."}
-    # le jour de la semaine en dernier : c'est la cause qu'on aimerait trouver, et presque jamais la bonne
-    attributs = [a for a in attributs if a != "jour"] + (["jour"] if "jour" in attributs else [])
+    # le jour et le créneau horaire en dernier : la cause qu'on aimerait trouver, et presque jamais la bonne
+    fin = [a for a in ("jour", "creneau") if a in attributs]
+    attributs = [a for a in attributs if a not in fin] + fin
     rng = random.Random(GRAINE)
     candidats, miroirs = [], []
     for attr in attributs:
@@ -556,7 +578,8 @@ def main():
         s.add_argument("--voix")
         s.add_argument("--json", action="store_true")
         if nom == "motifs":
-            s.add_argument("--attributs", default="formule,format,pilier,longueur,lien,appel,reponse,jour")
+            s.add_argument("--attributs", default="formule,format,pilier,longueur,lien,appel,reponse,jour,creneau",
+                           help="défaut : formule,format,pilier,longueur,lien,appel,reponse,jour,creneau")
     e = sous.add_parser("experience")
     e.add_argument("--hypothese", required=True)
     e.add_argument("--variable", required=True)

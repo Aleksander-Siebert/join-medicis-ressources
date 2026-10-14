@@ -152,15 +152,17 @@ appel à l'action : {{phrase de contexte.md | aucun, et pourquoi}}
 premier commentaire : « {{texte proposé : le lien, la source, ou un complément utile}} »
 visuel :           {{utile : quoi demander, texte alternatif | inutile, et pourquoi}}
 potentiel de sauvegarde : {{faible|moyen|élevé}}, parce que {{…}}
-à publier :        {{créneau du plan | même jour et même heure que d'habitude}}
+à publier :        {{créneau du plan | créneau mesuré par /linkedin-audit | mercredi ou jeudi vers 15 h, heure de l'audience (point de départ)}}, à une heure où tu peux répondre pendant l'heure qui suit
 à vérifier :       {{faits À CONFIRMER, accords à obtenir}}
 
 Réponds « ok » pour l'ajouter au journal, ou dis-moi ce qu'il faut changer.
 ```
 
-Sur « ok » : une ligne dans `journal.md` (date, formule, objectif, format,
-pilier, longueur, appel à l'action, première ligne). Sans accès aux fichiers,
-donne la ligne à coller. **Rien n'est publié par ce Skill.**
+Sur « ok » : une ligne dans `journal.md` (date, heure prévue, formule,
+objectif, format, pilier, longueur, appel à l'action, première ligne). Si
+l'utilisateur publie à une autre heure, il corrige l'heure : c'est l'heure
+réelle qui permet à `/linkedin-audit` de mesurer le bon créneau. Sans accès
+aux fichiers, donne la ligne à coller. **Rien n'est publié par ce Skill.**
 
 ## Mode « analyser » (un post qui a marché)
 

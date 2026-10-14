@@ -1,7 +1,7 @@
 {
   "name": "linkedin-skills",
   "description": "Quinze Skills en français pour tenir une présence LinkedIn, de la stratégie au message privé : stratégie à 90 jours, interview de preuves, profil noté sur 100, page entreprise et ambassadeurs, posts sur 27 formules, carrousels PDF, humaniseur français, commentaires, réponses et leads, messages privés dans le cadre CNIL, messagerie, plan de la semaine, audit statistique, recyclage de contenus, recherche d'emploi. Scripts Python testés, rien n'est publié à ta place.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": {
     "name": "Aleksander Siebert",
     "url": "https://joinmedicis.com/auteurs/aleksander-siebert"

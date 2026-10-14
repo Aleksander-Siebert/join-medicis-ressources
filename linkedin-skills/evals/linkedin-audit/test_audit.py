@@ -166,5 +166,41 @@ class Cli(unittest.TestCase):
         self.assertIn("médiane 2,3%", p.stdout)
 
 
+
+class Creneau(unittest.TestCase):
+    """L'heure de publication devient un créneau testé en dernier, comme le jour."""
+
+    def test_lecture_des_heures(self):
+        for texte, attendu in (("15:30", "après-midi (14 h-18 h)"), ("8 h 15", "matin (avant 11 h)"),
+                               ("12h", "midi (11 h-14 h)"), ("18:00", "soir (18 h et après)"),
+                               ("2026-10-08 07:05", "matin (avant 11 h)"), ("2026-10-08", "non renseigné"),
+                               ("13/10/2026", "non renseigné"), ("", "non renseigné"), (None, "non renseigné")):
+            self.assertEqual(a.creneau(texte), attendu, texte)
+
+    def test_heure_lue_dans_le_journal(self):
+        lignes, _ = a.normaliser(a.lire(ICI / "posts-exemple.csv"))
+        with tempfile.NamedTemporaryFile("w", suffix=".md", delete=False, encoding="utf-8") as f:
+            f.write("# journal.md\n\n## Posts\n\n| date | heure | formule |\n|---|---|---|\n")
+            f.write("| 2026-05-05 | 08:15 | chiffre-d-abord |\n| 2026-05-07 | 15 h 30 | liste-promise |\n")
+        a.joindre_journal(lignes, f.name)
+        p = a.preparer(lignes)[0]
+        self.assertEqual(p[0]["creneau"], "matin (avant 11 h)")
+        self.assertEqual(p[1]["creneau"], "après-midi (14 h-18 h)")
+        self.assertEqual(p[2]["creneau"], "non renseigné")
+
+    def test_creneau_teste_apres_le_reste(self):
+        donnees = posts()
+        for i, d in enumerate(donnees):
+            d["creneau"] = "matin (avant 11 h)" if i % 2 else "après-midi (14 h-18 h)"
+        r = a.motifs(donnees, ["creneau", "jour", "formule"])
+        ordre = [c["attribut"] for c in r["candidats"]] if "candidats" in r else []
+        if ordre:
+            self.assertEqual(ordre[-1], "creneau")
+            self.assertLess(ordre.index("formule"), ordre.index("jour"))
+
+    def test_creneau_dans_les_attributs_par_defaut(self):
+        p = subprocess.run([sys.executable, str(SCRIPT), "motifs", "--help"], capture_output=True, text=True)
+        self.assertIn("creneau", p.stdout)
+
 if __name__ == "__main__":
     unittest.main()

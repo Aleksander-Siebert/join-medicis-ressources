@@ -7,6 +7,9 @@ rédaction éprouvé en secteur YMYL. Merci aux auteurs de ces projets :
 - [claude-seo](https://github.com/AgriciDaniel/claude-seo), Daniel Agrici (MIT), dont seo-drift (auteur d'origine Dan Colta), seo-sxo (Florian Schmitz), seo-plan, seo-images et seo-technical
 - [marketingskills](https://github.com/coreyhaines31/marketingskills), Corey Haines (MIT)
 - [geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude), Zubair Trabzada (MIT)
+- [superseo-skills](https://github.com/inhouseseo/superseo-skills), InhouseSEO (Apache 2.0) : la méthode de rédaction (contexte persistant, interview courte, aucune précision inventée) et la difficulté lue dans la SERP, réécrites sans reprise de texte
+- [seomachine](https://github.com/TheCraigHewitt/seomachine), Craig Hewitt et Castos (MIT) : l'enchaînement rédaction, contrôles et boucle de qualité
+- [localseoskills](https://github.com/garrettjsmith/localseoskills), Garrett Smith (MIT) : les opérations de SEO local
 - [Agent A](https://ahrefs.com/fr/blog/agent-a-content-marketing/), Ahrefs : l'architecture des pipelines (article, mise à jour, maillage, veille), sans code repris
 - [Boileau](https://github.com/alxbd/boileau) (MIT) et [humanizer](https://github.com/blader/humanizer) (MIT), pour les marqueurs d'écriture IA
 - [linkedin-agent-skill](https://github.com/Jakeschincariol/linkedin-agent-skill), Jake Schincariol (MIT), pour la structure de l'humaniseur

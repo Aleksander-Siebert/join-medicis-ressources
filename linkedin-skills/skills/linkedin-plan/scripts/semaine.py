@@ -25,7 +25,7 @@ post, sa rédaction + 20 min de réponses ; 15 min de routine par jour ouvré.
 
 Format de plan.json :
   {"semaine": "2026-10-05",
-   "creneaux": [{"jour": "2026-10-06", "heure": "08:15", "formule": "chiffre-d-abord",
+   "creneaux": [{"jour": "2026-10-06", "heure": "15:00", "formule": "chiffre-d-abord",
                  "objectif": "sauvegardes", "pilier": "Rétention", "format": "texte",
                  "angle": "les 60 appels aux résiliés"}],
    "personnes": [{"nom": "…", "groupe": "pair|portee|acheteur"}]}
@@ -58,11 +58,11 @@ JOURS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"
 EXEMPLE = {
     "semaine": "2026-10-05",
     "creneaux": [
-        {"jour": "2026-10-06", "heure": "08:15", "formule": "chiffre-d-abord", "objectif": "sauvegardes",
+        {"jour": "2026-10-06", "heure": "15:00", "formule": "chiffre-d-abord", "objectif": "sauvegardes",
          "pilier": "Rétention", "format": "texte", "angle": "les 60 appels aux résiliés : la moitié parlait du délai"},
-        {"jour": "2026-10-08", "heure": "08:00", "formule": "chiffre-d-abord", "objectif": "commentaires",
+        {"jour": "2026-10-08", "heure": "15:00", "formule": "chiffre-d-abord", "objectif": "commentaires",
          "pilier": "Rétention", "format": "carrousel", "angle": "les 5 questions du script d'appel"},
-        {"jour": "2026-10-09", "heure": "08:30", "formule": "contre-pied", "objectif": "commentaires",
+        {"jour": "2026-10-09", "heure": "15:00", "formule": "contre-pied", "objectif": "commentaires",
          "pilier": "Rétention", "format": "texte", "angle": "l'IA"},
     ],
     "personnes": [{"nom": f"Pair {i}", "groupe": "pair"} for i in range(1, 7)] +

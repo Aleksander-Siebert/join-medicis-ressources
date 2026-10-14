@@ -88,6 +88,29 @@ tous corrigés et couverts par un test :
 | Le modèle de refus de `/linkedin-inbox` était signalé par l'humaniseur | réécrit |
 | Les exemples Assurly pouvaient être recopiés comme des faits | chaque exemple porte un avertissement ; le gabarit de plan ne nomme plus personne |
 
+## Retour d'usage réel (14 octobre 2026) : les horaires de publication
+
+**Défaite constatée hors éval.** Un premier testeur a publié au créneau
+proposé, et le post a peu circulé. Le conseil par défaut de la v1
+(« mardi à jeudi, 7 h 30-9 h 30 ») et les exemples de la v2 (8 h-8 h 30)
+plaçaient les posts le matin. Les deux études de 2026 vérifiées ce jour
+(Sprout Social, 31 mars ; Buffer, 9 sept.) placent le pic de la fin de
+matinée à l'après-midi, en milieu de semaine. Un seul post ne prouve pas que
+l'heure était la cause ; le conseil était quand même dépassé.
+
+Corrigé :
+
+- `/linkedin-plan` : point de départ mercredi ou jeudi vers 15 h, à l'heure de
+  l'audience, à une heure où l'on peut répondre ; le matin n'est plus un
+  défaut ; le coût réel d'un test à deux créneaux est dit (environ 28
+  semaines à 2 posts par semaine pour un écart de 30%) ;
+- `journal.md` note l'heure réelle de publication, et `/linkedin-audit` teste
+  le créneau horaire (matin, midi, après-midi, soir) en dernier, comme le
+  jour ;
+- `routine.md` : vérifications « un post a floppé, avant d'accuser l'heure » ;
+- `commun/preuves.md` : les deux études datées, leurs limites, et l'ancien
+  conseil marqué dépassé.
+
 ## Limites
 
 - Un seul passage par cas : un écart d'un demi-point n'est pas significatif.

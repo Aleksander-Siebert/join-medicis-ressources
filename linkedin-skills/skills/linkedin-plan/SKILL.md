@@ -84,15 +84,34 @@ pour recevoir » de la source sont écartées (`commun/garde_fou.py`, E2).
 
 ## 3. Quand publier
 
-**Le jour et l'heure comptent bien moins que la première ligne.** Les études
-d'éditeurs se contredisent (matin en semaine pour les unes, fin d'après-midi
-pour les autres) **[étude tierce, contradictoire]**. Ordre de décision :
+**Le jour et l'heure comptent moins que la première ligne**, mais un mauvais
+créneau coûte : publier à 8 h quand l'audience lit l'après-midi, ou quand on
+ne peut pas répondre dans l'heure, gâche un bon post. Faits datés :
+`commun/preuves.md`, « Quand publier ». Ordre de décision :
 
-1. le meilleur créneau mesuré par `/linkedin-audit` sur le compte, s'il
-   existe (au moins 10 posts) ;
-2. sinon, les heures de bureau de l'audience, dans **son** fuseau (Québec,
-   Belgique, Afrique francophone) ;
-3. et rester constant quelques semaines : on ne mesure rien en changeant tout.
+1. **Le créneau mesuré sur le compte.** `/linkedin-audit` le teste quand
+   `journal.md` note l'heure réelle de publication (au moins 5 posts par
+   créneau). Un créneau `SOUTENU` passe avant tout le reste.
+2. **Sinon, le point de départ** : mercredi ou jeudi, **vers 15 h**, à
+   l'heure de l'audience (Paris, Bruxelles, Montréal, Dakar). C'est là que les
+   deux études de 2026 se recoupent : mercredi 15 h-16 h, jeudi 15 h-17 h
+   (Sprout Social, mars ; Buffer, septembre) **[étude tierce]**. Pas le matin tôt par défaut : ce
+   conseil de la v1 du pack est retiré.
+3. **Toujours** : une heure où l'utilisateur peut répondre aux commentaires
+   pendant les 30 à 60 minutes qui suivent (le créneau de réponse). Un post
+   publié pendant une réunion part sans réponses.
+4. **Une audience au rythme particulier** (soignants, commerçants,
+   enseignants, recruteurs, candidats) : demande à quelle heure elle lit
+   LinkedIn, et pars de là.
+
+**Tester, en sachant ce que ça coûte** : un test à deux créneaux (par
+exemple jeudi 8 h 30 contre jeudi 15 h, une seule variable, en alternance)
+demande environ 28 semaines à 2 posts par semaine pour voir un écart de 30%
+(`audit.py experience`, coefficient de variation 0,45). Propose-le seulement
+si l'utilisateur publie souvent ou soupçonne un gros écart. Sinon : prendre
+le point de départ, noter l'heure réelle dans `journal.md` à chaque post, et
+laisser `/linkedin-audit` trancher quand les données suffisent. Rester
+constant : on ne mesure rien en changeant tout chaque semaine.
 
 Calendrier français (le script le signale) : jours fériés, ponts, août, fin
 décembre. Ces semaines-là, alléger ou passer en semaine d'engagement.

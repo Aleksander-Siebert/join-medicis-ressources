@@ -93,7 +93,7 @@ class Export(unittest.TestCase):
     def test_csv(self):
         lignes = s.exporter(PLAN, "csv").strip().splitlines()
         self.assertEqual(len(lignes), 4)
-        self.assertTrue(lignes[1].startswith("2026-10-06;mardi;08:15;chiffre-d-abord"))
+        self.assertTrue(lignes[1].startswith("2026-10-06;mardi;15:00;chiffre-d-abord"))
 
     def test_json(self):
         self.assertEqual(json.loads(s.exporter(PLAN, "json"))[2]["Jour"], "vendredi")
