@@ -95,7 +95,7 @@ def render(r, avant=None):
         delta = ""
         if avant and k in avant:
             delta = f"  ({v['part_de_voix'] - avant[k]['part_de_voix']:+d} pts)"
-        rang = f"{v['rang_moyen']}" if v["rang_moyen"] else "-"
+        rang = f"{v['rang_moyen']:.1f}".replace(".", ",") if v["rang_moyen"] else "-"
         print(f"{k:<14}{v['prompts']:>8}{v['presence']:>9}%{rang:>6}{v['part_de_voix']:>13}%{delta}")
     t = r["TOTAL"]
     print("\nMARQUES CITÉES (mentions) : " + ", ".join(f"{m} {n}" for m, n in t["marques"].items()))

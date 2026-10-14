@@ -1,0 +1,20 @@
+{
+  "note": "Icônes et bannière du README, produites par outils/visuels/visuels.py. Ne pas modifier les SVG à la main. Les Skills « a_venir » sont estompés dans la bannière.",
+  "pack": "Fondation",
+  "surtitre": "Join Médicis · pack de Skills",
+  "accroche": ["Le contexte de ton entreprise, écrit une fois,", "que toute IA lit avant d'écrire pour toi."],
+  "puces": ["1 Skill sur 4", "57 tests", "MIT", "v0.1"],
+  "colonnes": 2,
+  "familles": {"Fondation": "#2D7259"},
+  "icones": [
+    {"nom": "fondation-entreprise", "glyphe": "entreprise", "famille": "Fondation"},
+    {"nom": "fondation-clients", "glyphe": "personnes", "famille": "Fondation", "a_venir": true},
+    {"nom": "fondation-voix", "glyphe": "voix", "famille": "Fondation", "a_venir": true},
+    {"nom": "fondation-preuves", "glyphe": "sceau", "famille": "Fondation", "a_venir": true}
+  ],
+  "piliers": [
+    {"nom": "pilier-etiquettes", "glyphe": "document", "couleur": "#34495E"},
+    {"nom": "pilier-registres", "glyphe": "loupe", "couleur": "#1E4E8C"},
+    {"nom": "pilier-oui", "glyphe": "bouclier", "couleur": "#0E3F2D"}
+  ]
+}

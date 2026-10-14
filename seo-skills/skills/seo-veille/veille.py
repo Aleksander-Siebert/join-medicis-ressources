@@ -58,6 +58,11 @@ except ImportError:  # Skill installé seul : copie minimale
         return locs[:limit]
 
 
+
+def virgule(x, signe=False):
+    """Nombre à une décimale, virgule française (« +9,4 », « 7,1 »)."""
+    return (f"{x:+.1f}" if signe else f"{x:.1f}").replace(".", ",")
+
 def lastmods(src):
     """URL -> lastmod quand le sitemap le donne (sitemap simple uniquement)."""
     try:
@@ -173,12 +178,12 @@ def cmd_rapport(args):
         print()
         return
     var = (tot_c - tot_p) / tot_p * 100 if tot_p else 0
-    print(f"RAPPORT SEARCH CONSOLE · {int(tot_c)} clics contre {int(tot_p)} ({var:+.1f}%) · {len(rows)} pages")
+    print(f"RAPPORT SEARCH CONSOLE · {int(tot_c)} clics contre {int(tot_p)} ({virgule(var, signe=True)}%) · {len(rows)} pages")
     for titre, lst in (("GAGNANTS", gagnants), ("PERDANTS", perdants)):
         print(f"\n{titre}")
         for r in lst:
-            pos = f"pos. {r['position_avant']:.1f} -> {r['position']:.1f}" if r["position"] else ""
-            print(f"  {r['delta']:+6.0f}  {int(r['avant']):>5} -> {int(r['clics']):<5} {pos:<18} {r['url']}")
+            pos = f"pos. {virgule(r['position_avant'])} → {virgule(r['position'])}" if r["position"] else ""
+            print(f"  {r['delta']:+6.0f}  {int(r['avant']):>5} → {int(r['clics']):<5} {pos:<18} {r['url']}")
     if disparues:
         print(f"\nPAGES SANS CLIC CE MOIS (en avaient avant) : {len(disparues)}")
         for r in disparues[:10]:

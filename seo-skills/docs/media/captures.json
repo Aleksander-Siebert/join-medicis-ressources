@@ -1,0 +1,48 @@
+{
+  "note": "Captures des README, produites par outils/visuels/capture.py à partir des vraies sorties des scripts. Ne pas modifier les SVG à la main : relancer le script. « affiche » est la commande telle qu'on la tape depuis le dossier du Skill ; « commande » est celle que lance le générateur depuis le dossier du pack.",
+  "captures": [
+    {
+      "id": "controle",
+      "titre": "seo-write · controle.py",
+      "dossier": ".",
+      "commande": "python3 skills/seo-write/scripts/controle.py evals/seo-write/article-ia.md --affirmatif --mot-cle \"mutuelle indépendant\"",
+      "affiche": "python3 scripts/controle.py article-ia.md --affirmatif --mot-cle \"mutuelle indépendant\"",
+      "lignes": [
+        1,
+        22
+      ]
+    },
+    {
+      "id": "affirmations",
+      "titre": "seo-write · commun/affirmations.py",
+      "dossier": ".",
+      "commande": "python3 commun/affirmations.py evals/seo-write/article-ia.md --ymyl",
+      "affiche": "python3 commun/affirmations.py article-ia.md --ymyl"
+    },
+    {
+      "id": "couverture",
+      "titre": "seo-brief · couverture.py",
+      "dossier": ".",
+      "commande": "python3 skills/seo-brief/scripts/couverture.py couvrir evals/seo-brief/plan-mutuelle-independant-v2.md evals/seo-brief/requetes-mutuelle-independant.txt",
+      "affiche": "python3 skills/seo-brief/scripts/couverture.py couvrir evals/seo-brief/plan-mutuelle-independant-v2.md evals/seo-brief/requetes-mutuelle-independant.txt",
+      "lignes": [
+        1,
+        14
+      ]
+    },
+    {
+      "id": "meta",
+      "titre": "seo-brief · commun/meta.py",
+      "dossier": ".",
+      "commande": "python3 commun/meta.py --title \"Mutuelle indépendant : bien la choisir en 2026 | Assurly\" --description \"Obligatoire ou non, remboursements, prix, déduction Madelin : ce qu'un indépendant doit savoir avant de signer, expliqué par une courtière.\" --mot-cle \"mutuelle indépendant\" --marque Assurly",
+      "affiche": "python3 commun/meta.py --title \"…\" --description \"…\" --mot-cle \"mutuelle indépendant\""
+    },
+    {
+      "id": "veille",
+      "titre": "seo-veille · veille.py",
+      "dossier": ".",
+      "commande": "python3 skills/seo-veille/veille.py rapport evals/scripts/gsc-actuel.csv evals/scripts/gsc-precedent.csv",
+      "affiche": "python3 veille.py rapport octobre.csv septembre.csv"
+    }
+  ]
+}

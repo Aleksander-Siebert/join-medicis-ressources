@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="765" height="228" viewBox="0 0 765 228" role="img" aria-label="geo-visibility · visibilite.py">
+<title>geo-visibility · visibilite.py</title>
+<rect width="765" height="228" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h741a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="382" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">geo-visibility · visibilite.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 visibilite.py reponses.txt --marque Assurly</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">PLATEFORME     PROMPTS  PRÉSENCE  RANG  PART DE VOIX</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">ChatGPT              2       50%   1,0          100%</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">Perplexity           1      100%   1,0          100%</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">TOTAL                3       67%   1,0          100%</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">MARQUES CITÉES (mentions) : Assurly 4</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">SOURCES CITÉES (nombre de réponses) : service-public.fr 1, cfe.fr 1, assurly.example 1</text>
+</g></svg>

@@ -1,0 +1,26 @@
+{
+  "note": "Captures des README, produites par outils/visuels/capture.py à partir des vraies sorties des scripts. Ne pas modifier les SVG à la main : relancer le script. « affiche » est la commande telle qu'on la tape depuis le dossier du Skill ; « commande » est celle que lance le générateur depuis le dossier du pack.",
+  "captures": [
+    {
+      "id": "mentions",
+      "titre": "fondation-entreprise · entreprise.py",
+      "dossier": ".",
+      "commande": "python3 skills/fondation-entreprise/scripts/entreprise.py mentions evals/fondation-entreprise/fixtures/mentions-incoherentes.txt",
+      "affiche": "python3 scripts/entreprise.py mentions mentions-legales.txt"
+    },
+    {
+      "id": "etat",
+      "titre": "fondation · commun/contexte.py",
+      "dossier": ".",
+      "commande": "python3 commun/contexte.py etat templates/exemple-entreprise.md --aujourdhui 2026-10-13",
+      "affiche": "python3 commun/contexte.py etat templates/exemple-entreprise.md --aujourdhui 2026-10-13"
+    },
+    {
+      "id": "vide",
+      "titre": "fondation · commun/contexte.py",
+      "dossier": ".",
+      "commande": "python3 commun/contexte.py etat templates/entreprise.md --aujourdhui 2026-10-13",
+      "affiche": "python3 commun/contexte.py etat templates/entreprise.md --aujourdhui 2026-10-13"
+    }
+  ]
+}

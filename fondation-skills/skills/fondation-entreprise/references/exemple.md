@@ -25,27 +25,27 @@ Mentions légales :
 $ python3 scripts/entreprise.py mentions mentions-legales.html
 Lu sur la page :
   raison sociale               Assurly SAS
-                               « site www.assurly.example est édité par Assurly SAS, au capital social de 50 000 €, immatri »
+                               « … site www.assurly.example est édité par Assurly SAS, au capital social de 50 000 … »
   forme                        SAS
-                               « w.assurly.example est édité par Assurly SAS, au capital social de 50 000 €, immatri »
+                               « … est édité par Assurly SAS, au capital social de 50 000 … »
   capital                      50 000 €
-                               « y.example est édité par Assurly SAS, au capital social de 50 000 €, immatriculée au RCS de Lyon sous le nu »
+                               « … est édité par Assurly SAS, au capital social de 50 000 €, immatriculée au RCS de Lyon sous le … »
   SIREN                        123 456 782 (lu après le RCS)
-                               « tal social de 50 000 €, immatriculée au RCS de Lyon sous le numéro 123 456 782. Siège social : 10 rue de l'Exemple, 69 »
+                               « … social de 50 000 €, immatriculée au RCS de Lyon sous le numéro 123 456 782. Siège social : 10 rue de l'Exemple, … »
   SIRET                        123 456 782 00010
-                               « cial : 10 rue de l'Exemple, 69000 Lyon. SIRET : 123 456 782 00010 N° de TVA intracommunautaire : FR 11 12 »
+                               « … : 10 rue de l'Exemple, 69000 Lyon. SIRET : 123 456 782 00010 N° de TVA intracommunautaire : FR 11 … »
   RCS                          Lyon
-                               « tal social de 50 000 €, immatriculée au RCS de Lyon sous le numéro 123 456 782. Siège socia »
+                               « … social de 50 000 €, immatriculée au RCS de Lyon sous le numéro 123 456 782. Siège … »
   TVA                          FR 11 123 456 782
-                               « 82 00010 N° de TVA intracommunautaire : FR 11 123 456 782 Courtier en assurance immatriculé à l'O »
+                               « … 00010 N° de TVA intracommunautaire : FR 11 123 456 782 Courtier en assurance immatriculé à … »
   siège                        10 rue de l'Exemple, 69000 Lyon
-                               « RCS de Lyon sous le numéro 123 456 782. Siège social : 10 rue de l'Exemple, 69000 Lyon. SIRET : 123 456 782 00010 N° de TVA int »
+                               « … de Lyon sous le numéro 123 456 782. Siège social : 10 rue de l'Exemple, 69000 Lyon. SIRET : 123 456 782 00010 N° de TVA … »
   ORIAS                        12 345 678
-                               « 2 Courtier en assurance immatriculé à l'ORIAS sous le n° 12 345 678 (www.orias.fr). Directrice de la public »
+                               « … en assurance immatriculé à l'ORIAS sous le n° 12 345 678 (www.orias.fr). Directrice de la … »
   directeur de la publication  Claire M., présidente
-                               « S sous le n° 12 345 678 (www.orias.fr). Directrice de la publication : Claire M., présidente. Hébergement Hébergeur : Hébergeur Exemp »
+                               « … sous le n° 12 345 678 (www.orias.fr). Directrice de la publication : Claire M., présidente. Hébergement Hébergeur : Hébergeur … »
   hébergeur                    Hébergeur Exemple SAS, 1 avenue du Test, 75000 Paris
-                               « on : Claire M., présidente. Hébergement Hébergeur : Hébergeur Exemple SAS, 1 avenue du Test, 75000 Paris. »
+                               « … : Claire M., présidente. Hébergement Hébergeur : Hébergeur Exemple SAS, 1 avenue du Test, 75000 Paris. »
 Contrôles :
   SIREN  123 456 782 : clé correcte
   SIRET  123 456 782 00010 : clé correcte

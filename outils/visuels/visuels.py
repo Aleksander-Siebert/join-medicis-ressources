@@ -7,6 +7,7 @@ Chaque pack décrit ses visuels dans <pack>/docs/media/visuels.json :
    "accroche": "…", "puces": ["15 Skills", "247 tests", "MIT"],
    "familles": {"Écrire": "#B5552B", …},
    "icones": [{"nom": "linkedin-post", "glyphe": "plume", "famille": "Écrire"}, …],
+   (« "a_venir": true » : Skill annoncé, estompé dans la bannière, sans tuile)
    "piliers": [{"nom": "garde-fou", "glyphe": "bouclier"}, …]}
 
   python3 outils/visuels/visuels.py linkedin-skills/docs/media/visuels.json
@@ -136,7 +137,8 @@ def banniere(m):
     for i, ic in enumerate(icones):
         cx, cy = x0 + (i % cols) * pas, y0 + (i // cols) * pas
         fond = m["familles"][ic["famille"]]
-        o.append(f'<g transform="translate({cx:.0f} {cy:.0f}) scale({cote / 48:.4f})">'
+        opacite = ' opacity="0.35"' if ic.get("a_venir") else ""
+        o.append(f'<g transform="translate({cx:.0f} {cy:.0f}) scale({cote / 48:.4f})"{opacite}>'
                  f'<rect width="48" height="48" rx="12" fill="{fond}"/>'
                  f'<rect x="0.5" y="0.5" width="47" height="47" rx="11.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.16"/>'
                  f'<g transform="translate(12 12)">{glyphe(ic["glyphe"])}</g></g>')
@@ -148,6 +150,8 @@ def fichiers(m):
     """{chemin relatif : contenu} pour tout ce que décrit le manifeste."""
     res = {}
     for ic in m["icones"]:
+        if ic.get("a_venir"):
+            continue  # Skill annoncé : estompé dans la bannière, pas encore de tuile
         res[f"icones/{ic['nom']}.svg"] = tuile(ic["glyphe"], m["familles"][ic["famille"]], titre=ic["nom"])
     for p in m.get("piliers", []):
         res[f"icones/{p['nom']}.svg"] = tuile(p["glyphe"], p.get("couleur", FORET), titre=p["nom"])

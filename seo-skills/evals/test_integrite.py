@@ -145,6 +145,13 @@ def _():
         assert not interdits.search(f.read_text(encoding="utf-8")), f"nom réel dans {f.relative_to(PACK)}"
 
 
+@test("README : images, liens, version, icônes, captures et visuels conformes (outils/visuels/readme.py)")
+def _():
+    r = subprocess.run([sys.executable, str(PACK.parent / "outils" / "visuels" / "readme.py"), str(PACK)],
+                       capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout[-800:] + r.stderr[-400:]
+
+
 def main():
     for nom, err in resultats:
         print(("  ✔ " if err is None else "  ✖ ") + nom + ("" if err is None else f"\n      {err}"))

@@ -203,29 +203,10 @@ def _():
 VISUELS = PACK.parent / "outils" / "visuels"
 
 
-@test("README : chaque image et chaque lien local existent, version = manifeste")
+@test("README : images, liens, version, icônes, captures et visuels conformes (outils/visuels/readme.py)")
 def _():
-    readme = re.sub(r"<!--.*?-->", "", (PACK / "README.md").read_text(encoding="utf-8"), flags=re.S)
-    manquants = [c for c in re.findall(r'(?:src|href)="(?!https?:|#|mailto:)([^"]+)"', readme)
-                 + re.findall(r"\]\((?!https?:|#)([^)]+)\)", readme) if not (PACK / c).exists()]
-    assert not manquants, manquants
-    version = json.loads((PACK / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))["version"]
-    assert f"version-{version}-" in readme, f"badge de version différent de {version}"
-    assert f"**{version}**" in readme, f"{version} absente du tableau des versions"
-    assert "—" not in readme, "tiret cadratin dans le README"
-
-
-@test("README : une icône par Skill, captures et visuels conformes aux scripts")
-def _():
-    readme = (PACK / "README.md").read_text(encoding="utf-8")
-    for d in sorted((PACK / "skills").iterdir()):
-        if (d / "SKILL.md").exists():
-            assert f"docs/media/icones/{d.name}.svg" in readme, f"{d.name} : pas d'icône dans le README"
-    media = PACK / "docs" / "media"
-    for outil, arguments in (("capture.py", ["--manifeste", str(media / "captures.json"), "--verifier"]),
-                             ("visuels.py", [str(media / "visuels.json"), "--verifier"])):
-        r = subprocess.run([sys.executable, str(VISUELS / outil), *arguments], capture_output=True, text=True)
-        assert r.returncode == 0, f"{outil} : {r.stdout[-400:]}{r.stderr[-400:]} (relancer sans --verifier)"
+    r = subprocess.run([sys.executable, str(VISUELS / "readme.py"), str(PACK)], capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout[-800:] + r.stderr[-400:]
 
 
 @test("outils/visuels : tests unitaires du générateur")

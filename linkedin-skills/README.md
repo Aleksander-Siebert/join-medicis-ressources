@@ -9,7 +9,7 @@ Gratuits, sans inscription, sans clé d'API. Ils écrivent, comptent et vérifie
 
 <!-- github-seulement -->
 [![Version](https://img.shields.io/badge/version-2.1.0-0E3F2D)](#versions)
-[![Tests](https://img.shields.io/badge/tests-250%20au%20vert-2D7259)](#preuves)
+[![Tests](https://img.shields.io/badge/tests-249%20au%20vert-2D7259)](#preuves)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](LICENSE)
 [![Python](https://img.shields.io/badge/Python%203-sans%20d%C3%A9pendance-34495E?logo=python&logoColor=white)](#ce-qui-tient-le-pack)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white)](#claude-code)
@@ -274,7 +274,7 @@ dans un dépôt public.
 python3 evals/tout_tester.py
 ```
 
-**250 tests** : chaque script, les suites autonomes de l'humaniseur et les
+**249 tests** : chaque script, les suites autonomes de l'humaniseur et les
 tests d'intégrité du pack (frontmatter, fichiers cités, socle synchronisé,
 grilles sur 100, modèles vides). L'évaluation à l'aveugle de la v2 a gagné
 **8 tâches sur 10** face aux meilleures références. Les défaites et ce qui a

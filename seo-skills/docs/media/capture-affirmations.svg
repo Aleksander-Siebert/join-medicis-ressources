@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="875" height="548" viewBox="0 0 875 548" role="img" aria-label="seo-write · commun/affirmations.py">
+<title>seo-write · commun/affirmations.py</title>
+<rect width="875" height="548" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h851a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="438" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">seo-write · commun/affirmations.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 commun/affirmations.py article-ia.md --ymyl</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">AFFIRMATIONS · 5 relevées · 0 sourcées ou fournies · 0 à vérifier · 5 bloquantes · 0 trous · mode</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">  YMYL</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">BLOQUANTES (YMYL : pas de publication sans source)</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">  l.9    [pourcentage, étude · vague] Selon une étude récente, 73% des indépendants regrettent leur</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">    choix de mutuelle.</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">         → Nommer la source (organisme, date, lien) ou retirer l'affirmation. « Une étude » n'est</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">           pas une source.</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">  l.9    [étude · vague] Les experts estiment que c'est une erreur coûteuse.</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">         → Nommer la source (organisme, date, lien) ou retirer l'affirmation. « Une étude » n'est</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">           pas une source.</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">  l.13   [montant · sans source] Une mutuelle pourrait coûter entre 30 € et 150 € par mois.</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">         → Ajouter la source (lien ou « selon X, date »), ou la donnée dans site-context.md, ou</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">           remplacer par une formulation sans chiffre, ou {{à compléter : source}}.</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">  l.13   [pourcentage, promesse · sans source] Chez Assurly, la formule Essentielle est la moins</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre">    chère du marché et remboursée à 100% sans aucun risque.</text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">         → Ajouter la source (lien ou « selon X, date »), ou la donnée dans site-context.md, ou</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">           remplacer par une formulation sans chiffre, ou {{à compléter : source}}.</text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">  l.17   [délai · sans source] Votre dossier est étudié par nos conseillers sous 24 h.</text>
+<text x="20" y="458" xml:space="preserve" style="white-space:pre">         → Ajouter la source (lien ou « selon X, date »), ou la donnée dans site-context.md, ou</text>
+<text x="20" y="478" xml:space="preserve" style="white-space:pre">           remplacer par une formulation sans chiffre, ou {{à compléter : source}}.</text>
+<text x="20" y="498" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="518" xml:space="preserve" style="white-space:pre">VERDICT : <tspan fill="#E58A7B">BLOQUÉ</tspan></text>
+</g></svg>
