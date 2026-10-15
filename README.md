@@ -4,8 +4,8 @@
 
 <br>
 
-**Des Skills Claude en français pour les marketeurs, compatibles ChatGPT, Gemini et Mistral.**<br>
-LinkedIn, SEO, GEO et le contexte de ton entreprise : testés, sourcés, gratuits. **Rien n'est publié à ta place.**
+**Des Skills en français pour les marketeurs et non-techniciens, compatibles avec Claude, ChatGPT, Gemini, Mistral et pleins d'autres IA !**<br>
+Retrouve des skills autour de LinkedIn, du SEO/GEO et prochainement : Paids, UX/UI, etc...
 
 <!-- github-seulement -->
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](#licence)
