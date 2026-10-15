@@ -1,0 +1,131 @@
+{
+  "campaigns": [
+    {
+      "campaign_name": "PLANTEA_FR_Clics_Noel-2026",
+      "budget_max": 30,
+      "budget_type": "Daily",
+      "launch_date": "2026-11-16",
+      "end_date": "2026-12-20",
+      "objective": "Clicks",
+      "conversion_event_setting_ids": null,
+      "target_countries": [
+        "FR"
+      ]
+    }
+  ],
+  "adgroups": [
+    {
+      "campaign_name": "PLANTEA_FR_Clics_Noel-2026",
+      "adgroup_name": "PLANTEA_Faciles",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "plante d'intérieur facile d'entretien",
+        "plante qui supporte d'être oubliée sans arrosage",
+        "plante d'intérieur pour débutant",
+        "plante pour appartement en ville",
+        "ma plante d'intérieur dépérit, laquelle choisir à la place",
+        "acheter une plante d'intérieur en ligne livrée à domicile"
+      ]
+    },
+    {
+      "campaign_name": "PLANTEA_FR_Clics_Noel-2026",
+      "adgroup_name": "PLANTEA_Pieces-sombres",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "plante d'intérieur pour pièce sans lumière",
+        "plante pour salle de bains sans fenêtre",
+        "plante pour couloir sombre",
+        "plante pour bureau orienté nord",
+        "quelle plante pour un appartement peu lumineux"
+      ]
+    },
+    {
+      "campaign_name": "PLANTEA_FR_Clics_Noel-2026",
+      "adgroup_name": "PLANTEA_Animaux",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "plante d'intérieur non toxique pour les chats",
+        "plante d'intérieur sans danger pour les chiens",
+        "quelles plantes avoir chez soi avec un chat",
+        "plantes compatibles avec des animaux de compagnie"
+      ]
+    },
+    {
+      "campaign_name": "PLANTEA_FR_Clics_Noel-2026",
+      "adgroup_name": "PLANTEA_Cadeau",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "idée cadeau plante d'intérieur",
+        "offrir une plante à quelqu'un",
+        "idée de cadeau de Noël original",
+        "cadeau de dernière minute",
+        "cadeau de crémaillère"
+      ]
+    }
+  ],
+  "ads": [
+    {
+      "adgroup_name": "PLANTEA_Faciles",
+      "title": "Vous oubliez d'arroser ?",
+      "copy": "Des plantes faciles livrées en pot, dès 19 €",
+      "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=paid&utm_campaign=plantea-fr-clics-noel-2026&utm_content=faciles-v1",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "PLANTEA_Faciles",
+      "title": "Plantes faciles dès 19 €",
+      "copy": "Livrées arrosées, avec fiche d'entretien",
+      "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=paid&utm_campaign=plantea-fr-clics-noel-2026&utm_content=faciles-v2",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "PLANTEA_Faciles",
+      "title": "Plantes faciles à vivre",
+      "copy": "Collection plantes faciles, livrée chez vous",
+      "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=paid&utm_campaign=plantea-fr-clics-noel-2026&utm_content=faciles-v3",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "PLANTEA_Pieces-sombres",
+      "title": "Appartement sombre ?",
+      "copy": "Plantes pour salle de bains, couloir, nord",
+      "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=paid&utm_campaign=plantea-fr-clics-noel-2026&utm_content=sombres-v1",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "PLANTEA_Pieces-sombres",
+      "title": "Plantes peu de lumière",
+      "copy": "Livrées en pot avec leur fiche d'entretien",
+      "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=paid&utm_campaign=plantea-fr-clics-noel-2026&utm_content=sombres-v2",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "PLANTEA_Animaux",
+      "title": "Non toxiques pour chats",
+      "copy": "Sélection vérifiée par notre botaniste",
+      "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=paid&utm_campaign=plantea-fr-clics-noel-2026&utm_content=animaux-v1",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "PLANTEA_Animaux",
+      "title": "Un chat, un chien ?",
+      "copy": "Des plantes non toxiques, livrées en pot",
+      "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=paid&utm_campaign=plantea-fr-clics-noel-2026&utm_content=animaux-v2",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "PLANTEA_Cadeau",
+      "title": "Offrir une plante",
+      "copy": "Message personnalisé, emballage sans plastique",
+      "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=paid&utm_campaign=plantea-fr-clics-noel-2026&utm_content=cadeau-v1",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "PLANTEA_Cadeau",
+      "title": "Un cadeau qui pousse",
+      "copy": "Livrée en pot, frais de port offerts dès 49 €",
+      "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=paid&utm_campaign=plantea-fr-clics-noel-2026&utm_content=cadeau-v2",
+      "image_link": "{{à compléter}}"
+    }
+  ]
+}

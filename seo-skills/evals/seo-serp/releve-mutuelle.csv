@@ -1,0 +1,11 @@
+position,url,type,auteur,date,mots,donnees,titre
+1,https://www.comparateur-1.example/mutuelle-independant/,comparatif,non,2026-09-01,2400,non,Mutuelle indépendant : comparez
+2,https://www.comparateur-2.example/mutuelle-tns/,comparatif,oui,2026-06-12,3100,oui,Mutuelle TNS 2026
+3,https://www.blog-freelance.example/mutuelle/,guide,non,2025-03-10,1500,oui,Ma mutuelle de freelance après 3 ans
+4,https://www.assureur-a.example/independants/,produit,non,,800,non,Mutuelle pour indépendants
+5,https://www.comparateur-3.example/guide-mutuelle/,guide,oui,2026-08-20,2800,non,Guide de la mutuelle des indépendants
+6,https://www.service-public.fr/particuliers/vosdroits/F000,officiel,non,2026-01-01,900,non,Complémentaire santé
+7,https://www.comparateur-4.example/comparatif/,comparatif,non,2026-02-02,2000,non,Comparatif mutuelles TNS
+8,https://www.reddit.com/r/vosfinances/abc,forum,non,,,non,Quelle mutuelle en freelance ?
+9,https://www.assureur-b.example/tns/,produit,non,,700,non,Mutuelle TNS
+10,https://www.comparateur-5.example/mutuelle/,comparatif,oui,2026-07-07,2500,non,Meilleures mutuelles indépendants

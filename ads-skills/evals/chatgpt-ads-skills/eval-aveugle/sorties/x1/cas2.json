@@ -1,0 +1,405 @@
+{
+ "campaigns": [
+  {
+   "campaign_name": "factoria_demo_fr_be",
+   "budget_max": 40,
+   "budget_type": "Daily",
+   "launch_date": "2026-11-02",
+   "end_date": "2026-12-31",
+   "objective": "Conversions",
+   "conversion_event_setting_ids": [
+    "{{à compléter : identifiant de l'événement appointment_scheduled}}"
+   ],
+   "target_countries": [
+    "FR",
+    "BE"
+   ]
+  }
+ ],
+ "adgroups": [
+  {
+   "campaign_name": "factoria_demo_fr_be",
+   "adgroup_name": "devis_soir_tableur",
+   "max_bid": "{{à compléter : coût par demande de démo visé}}",
+   "context_hints": [
+    "artisan qui fait ses devis le soir sur Excel",
+    "remplacer le tableur pour ses devis et factures",
+    "artisan seul débordé par la paperasse du soir"
+   ]
+  },
+  {
+   "campaign_name": "factoria_demo_fr_be",
+   "adgroup_name": "devis_chantier_signature",
+   "max_bid": "{{à compléter : coût par demande de démo visé}}",
+   "context_hints": [
+    "faire un devis sur téléphone depuis le chantier",
+    "faire signer un devis en ligne au client",
+    "envoyer un devis juste après la visite client"
+   ]
+  },
+  {
+   "campaign_name": "factoria_demo_fr_be",
+   "adgroup_name": "factures_impayees_relance",
+   "max_bid": "{{à compléter : coût par demande de démo visé}}",
+   "context_hints": [
+    "artisan avec des factures impayées à relancer",
+    "relancer automatiquement les clients en retard de paiement",
+    "suivre les paiements clients d'une petite entreprise"
+   ]
+  },
+  {
+   "campaign_name": "factoria_demo_fr_be",
+   "adgroup_name": "export_expert_comptable",
+   "max_bid": "{{à compléter : coût par demande de démo visé}}",
+   "context_hints": [
+    "artisan qui envoie ses factures à son comptable",
+    "préparer les documents pour son expert-comptable",
+    "simplifier sa compta de TPE, pas pour un cabinet"
+   ]
+  },
+  {
+   "campaign_name": "factoria_demo_fr_be",
+   "adgroup_name": "reforme_facture_electronique",
+   "max_bid": "{{à compléter : coût par demande de démo visé}}",
+   "context_hints": [
+    "artisan inquiet de la réforme de la facture électronique",
+    "préparer sa TPE à la facturation électronique",
+    "choisir un logiciel de factures avant la réforme"
+   ]
+  },
+  {
+   "campaign_name": "factoria_demo_fr_be",
+   "adgroup_name": "choisir_logiciel_tpe_services",
+   "max_bid": "{{à compléter : coût par demande de démo visé}}",
+   "context_hints": [
+    "gérant de TPE de services qui compare des outils de facturation",
+    "choisir un logiciel de devis pour une petite équipe",
+    "facturation simple pour TPE, pas pour une grande entreprise"
+   ]
+  }
+ ],
+ "ads": [
+  {
+   "adgroup_name": "devis_soir_tableur",
+   "title": "Vos devis le soir ?",
+   "copy": "Voyez une autre façon en démo de 20 minutes.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_soir_tableur",
+   "image_link": "https://www.factoria.example/img/tableur.png"
+  },
+  {
+   "adgroup_name": "devis_soir_tableur",
+   "title": "Quittez le tableur",
+   "copy": "Devis, factures et relances au même endroit.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_soir_tableur",
+   "image_link": "https://www.factoria.example/img/tableur.png"
+  },
+  {
+   "adgroup_name": "devis_soir_tableur",
+   "title": "Le devis devient facture",
+   "copy": "Un clic suffit. Démo de 20 minutes en ligne.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_soir_tableur",
+   "image_link": "https://www.factoria.example/img/tableur.png"
+  },
+  {
+   "adgroup_name": "devis_soir_tableur",
+   "title": "Le soir, sans devis",
+   "copy": "Faites le devis sur place, depuis le téléphone.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_soir_tableur",
+   "image_link": "https://www.factoria.example/img/tableur.png"
+  },
+  {
+   "adgroup_name": "devis_soir_tableur",
+   "title": "Logiciel pour artisans",
+   "copy": "Devis et factures en ligne, pour le bâtiment.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_soir_tableur",
+   "image_link": "https://www.factoria.example/img/tableur.png"
+  },
+  {
+   "adgroup_name": "devis_soir_tableur",
+   "title": "Assez des formules ?",
+   "copy": "Découvrez Factoria en 20 minutes de démo.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_soir_tableur",
+   "image_link": "https://www.factoria.example/img/tableur.png"
+  },
+  {
+   "adgroup_name": "devis_soir_tableur",
+   "title": "Du tableur au logiciel",
+   "copy": "On vous montre la bascule en démo de 20 min.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_soir_tableur",
+   "image_link": "https://www.factoria.example/img/tableur.png"
+  },
+  {
+   "adgroup_name": "devis_soir_tableur",
+   "title": "Fini la double saisie",
+   "copy": "Le devis signé devient facture en un clic.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_soir_tableur",
+   "image_link": "https://www.factoria.example/img/tableur.png"
+  },
+  {
+   "adgroup_name": "devis_chantier_signature",
+   "title": "Devis signé sur place",
+   "copy": "Créé sur téléphone, signé en ligne.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_chantier_signature",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "devis_chantier_signature",
+   "title": "Le devis sur le chantier",
+   "copy": "Créez et envoyez-le depuis votre téléphone.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_chantier_signature",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "devis_chantier_signature",
+   "title": "Signature en ligne",
+   "copy": "Votre client signe le devis à distance.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_chantier_signature",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "devis_chantier_signature",
+   "title": "Un client qui hésite ?",
+   "copy": "Faites-lui signer le devis en ligne.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_chantier_signature",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "devis_chantier_signature",
+   "title": "Le devis avant de partir",
+   "copy": "Créez-le sur votre téléphone, chez le client.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_chantier_signature",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "devis_chantier_signature",
+   "title": "Du devis à la facture",
+   "copy": "Un clic transforme le devis signé en facture.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_chantier_signature",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "devis_chantier_signature",
+   "title": "Voir l'appli en 20 min",
+   "copy": "Une démo du devis sur téléphone, pour artisans.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_chantier_signature",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "devis_chantier_signature",
+   "title": "Fait pour le bâtiment",
+   "copy": "Devis sur téléphone et signature en ligne.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=devis_chantier_signature",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "factures_impayees_relance",
+   "title": "Des factures impayées ?",
+   "copy": "Factoria relance vos clients par e-mail.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=factures_impayees_relance",
+   "image_link": "https://www.factoria.example/img/relances.png"
+  },
+  {
+   "adgroup_name": "factures_impayees_relance",
+   "title": "Relances automatiques",
+   "copy": "Les factures en retard relancées par e-mail.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=factures_impayees_relance",
+   "image_link": "https://www.factoria.example/img/relances.png"
+  },
+  {
+   "adgroup_name": "factures_impayees_relance",
+   "title": "Relancer sans y penser",
+   "copy": "Relance des impayés par e-mail, automatique.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=factures_impayees_relance",
+   "image_link": "https://www.factoria.example/img/relances.png"
+  },
+  {
+   "adgroup_name": "factures_impayees_relance",
+   "title": "Un client qui tarde ?",
+   "copy": "La relance part par e-mail, automatiquement.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=factures_impayees_relance",
+   "image_link": "https://www.factoria.example/img/relances.png"
+  },
+  {
+   "adgroup_name": "factures_impayees_relance",
+   "title": "Les relances, en démo",
+   "copy": "20 minutes pour voir les relances automatiques.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=factures_impayees_relance",
+   "image_link": "https://www.factoria.example/img/relances.png"
+  },
+  {
+   "adgroup_name": "factures_impayees_relance",
+   "title": "Qui n'a pas payé ?",
+   "copy": "Suivez factures et relances au même endroit.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=factures_impayees_relance",
+   "image_link": "https://www.factoria.example/img/relances.png"
+  },
+  {
+   "adgroup_name": "factures_impayees_relance",
+   "title": "Relancer sans gêne",
+   "copy": "Un e-mail de relance part pour vous.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=factures_impayees_relance",
+   "image_link": "https://www.factoria.example/img/relances.png"
+  },
+  {
+   "adgroup_name": "factures_impayees_relance",
+   "title": "Pour artisans et TPE",
+   "copy": "Relance automatique des factures impayées.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=factures_impayees_relance",
+   "image_link": "https://www.factoria.example/img/relances.png"
+  },
+  {
+   "adgroup_name": "export_expert_comptable",
+   "title": "Votre comptable attend ?",
+   "copy": "Exportez vos écritures depuis Factoria.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=export_expert_comptable",
+   "image_link": "https://www.factoria.example/img/comptable.png"
+  },
+  {
+   "adgroup_name": "export_expert_comptable",
+   "title": "Export pour le comptable",
+   "copy": "Vos écritures exportées depuis vos factures.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=export_expert_comptable",
+   "image_link": "https://www.factoria.example/img/comptable.png"
+  },
+  {
+   "adgroup_name": "export_expert_comptable",
+   "title": "Moins de papiers à trier",
+   "copy": "Vos devis et factures en ligne, au même endroit.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=export_expert_comptable",
+   "image_link": "https://www.factoria.example/img/comptable.png"
+  },
+  {
+   "adgroup_name": "export_expert_comptable",
+   "title": "Bilan en vue ?",
+   "copy": "Exportez vos écritures pour l'expert-comptable.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=export_expert_comptable",
+   "image_link": "https://www.factoria.example/img/comptable.png"
+  },
+  {
+   "adgroup_name": "export_expert_comptable",
+   "title": "Le lien avec le cabinet",
+   "copy": "Factoria exporte les écritures pour lui.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=export_expert_comptable",
+   "image_link": "https://www.factoria.example/img/comptable.png"
+  },
+  {
+   "adgroup_name": "export_expert_comptable",
+   "title": "Ressaisir ? Non merci",
+   "copy": "Exportez les écritures pour votre comptable.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=export_expert_comptable",
+   "image_link": "https://www.factoria.example/img/comptable.png"
+  },
+  {
+   "adgroup_name": "export_expert_comptable",
+   "title": "Voir l'export en démo",
+   "copy": "20 minutes pour voir l'export comptable.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=export_expert_comptable",
+   "image_link": "https://www.factoria.example/img/comptable.png"
+  },
+  {
+   "adgroup_name": "export_expert_comptable",
+   "title": "Facturer, puis exporter",
+   "copy": "Le devis devient facture, l'export suit.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=export_expert_comptable",
+   "image_link": "https://www.factoria.example/img/comptable.png"
+  },
+  {
+   "adgroup_name": "reforme_facture_electronique",
+   "title": "Facture électronique ?",
+   "copy": "Nous préparons la réforme : parlons-en en démo.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=reforme_facture_electronique",
+   "image_link": "https://www.factoria.example/img/reforme.png"
+  },
+  {
+   "adgroup_name": "reforme_facture_electronique",
+   "title": "Réforme en vue ?",
+   "copy": "Voyez en démo où en est Factoria sur la réforme.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=reforme_facture_electronique",
+   "image_link": "https://www.factoria.example/img/reforme.png"
+  },
+  {
+   "adgroup_name": "reforme_facture_electronique",
+   "title": "Quittez Word et Excel",
+   "copy": "Factures en ligne, réforme en préparation.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=reforme_facture_electronique",
+   "image_link": "https://www.factoria.example/img/reforme.png"
+  },
+  {
+   "adgroup_name": "reforme_facture_electronique",
+   "title": "Facturation : on avance",
+   "copy": "Nous préparons la réforme, démo de 20 minutes.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=reforme_facture_electronique",
+   "image_link": "https://www.factoria.example/img/reforme.png"
+  },
+  {
+   "adgroup_name": "reforme_facture_electronique",
+   "title": "Préparer la réforme",
+   "copy": "Nous y travaillons : voyez où nous en sommes.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=reforme_facture_electronique",
+   "image_link": "https://www.factoria.example/img/reforme.png"
+  },
+  {
+   "adgroup_name": "reforme_facture_electronique",
+   "title": "Vos factures en ligne",
+   "copy": "Pour artisans, réforme en préparation.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=reforme_facture_electronique",
+   "image_link": "https://www.factoria.example/img/reforme.png"
+  },
+  {
+   "adgroup_name": "choisir_logiciel_tpe_services",
+   "title": "Une TPE, un seul outil",
+   "copy": "Devis, factures et relances au même endroit.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=choisir_logiciel_tpe_services",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "choisir_logiciel_tpe_services",
+   "title": "Quel outil pour la TPE ?",
+   "copy": "Voyez Factoria en démo de 20 minutes.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=choisir_logiciel_tpe_services",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "choisir_logiciel_tpe_services",
+   "title": "Pensé pour les TPE",
+   "copy": "Devis et factures pour les TPE de services.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=choisir_logiciel_tpe_services",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "choisir_logiciel_tpe_services",
+   "title": "Avant de choisir, voyez",
+   "copy": "Une démo de 20 minutes pour vous faire un avis.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=choisir_logiciel_tpe_services",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "choisir_logiciel_tpe_services",
+   "title": "Devis signés en ligne",
+   "copy": "Vos clients signent le devis en ligne.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=choisir_logiciel_tpe_services",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "choisir_logiciel_tpe_services",
+   "title": "France ou Belgique",
+   "copy": "Factoria est disponible dans les deux pays.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=choisir_logiciel_tpe_services",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "choisir_logiciel_tpe_services",
+   "title": "Relances incluses",
+   "copy": "Les factures impayées relancées par e-mail.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=choisir_logiciel_tpe_services",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  },
+  {
+   "adgroup_name": "choisir_logiciel_tpe_services",
+   "title": "Plusieurs utilisateurs",
+   "copy": "Un logiciel en ligne pour toute l'équipe.",
+   "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=factoria_demo_fr_be&utm_content=choisir_logiciel_tpe_services",
+   "image_link": "https://www.factoria.example/img/devis.png"
+  }
+ ]
+}

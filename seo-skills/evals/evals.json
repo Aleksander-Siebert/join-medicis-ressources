@@ -3,43 +3,177 @@
   "note": "Cas réalistes pour comparer le pack SEO v2 aux meilleures références (claude-seo, marketingskills, superseo-skills, seomachine) et au workflow de rédaction de l'utilisateur, à l'aveugle. Les attentes [auto] sont vérifiées par script (couverture.py, controle.py, affirmations.py, meta.py) ; les autres par relecture. Les articles de référence de l'utilisateur, quand il les fournit, servent de cas réels prioritaires.",
   "contexte_commun": "Site fictif Assurly (assurly.example), courtier en santé et prévoyance pour indépendants et TPE en France, YMYL. site-context.md = templates/exemple-site-context.md. reserve.md : une courtière, 12 ans de métier ; erreur la plus vue en rendez-vous : confondre mutuelle et prévoyance.",
   "cas": [
-    {"id": 1, "skill": "seo-brief", "demande": "Fais-moi le plan d'un article sur la mutuelle pour indépendant.",
-     "attentes": ["Ne pose que les questions absentes de site-context.md, une par message",
-                  "Annonce le type de page et le cadre avec une phrase de justification",
-                  "Champ sémantique de 20 à 30 requêtes réellement vues, source de chaque lot indiquée",
-                  "[auto] couverture.py couvrir : verdict MECE OK sur le plan final",
-                  "[auto] meta.py : title sous 600 px",
-                  "Gain d'information tiré de reserve.md ou site-context.md §9, pas « plus de détails »",
-                  "Liste « à fournir » avec les données produit manquantes ; aucun chiffre inventé",
-                  "Termine par « Je rédige sur ce plan, ou tu veux changer quelque chose ? »"]},
-    {"id": 2, "skill": "seo-brief", "demande": "Plan pour « Assurly ou [concurrent] : quelle mutuelle choisir ? »",
-     "attentes": ["Passe la demande au garde-fou (comparatif nommé : ENCADRÉ)",
-                  "Applique references/comparatif.md : données concurrentes datées et sourcées, « non observé n'est pas absent »",
-                  "Mentionne le cadre de la publicité comparative avec [à vérifier]",
-                  "Prévoit une méthode visible et l'affiliation déclarée"]},
-    {"id": 3, "skill": "seo-brief", "demande": "Améliore le plan de cette page qui se classe en 9e position (plan collé).",
-     "attentes": ["Mode « page existante » : sections marquées Garder, Réviser, Nouveau",
-                  "Protège l'URL et les sections qui se classent déjà",
-                  "[auto] couverture.py grille lancée avec la page actuelle comme plan"]},
-    {"id": 4, "skill": "seo-write", "demande": "Rédige l'article sur le plan validé (plan de l'exemple de /seo-brief).",
-     "attentes": ["Résumé de 3 lignes au plus en citation, juste après l'introduction",
-                  "Chaque H2 s'ouvre sur une réponse directe",
-                  "[auto] controle.py : PRÊT avec les options tirées de site-context.md",
-                  "[auto] affirmations.py --ymyl : pas de BLOQUÉ",
-                  "Aucun chiffre absent de site-context.md, reserve.md ou d'une source nommée ; les trous sont listés",
-                  "« à Assurly », jamais « chez Assurly » ; aucun verbe modal d'hésitation",
-                  "Bloc méta et bloc Contrôles au format fixe"]},
-    {"id": 5, "skill": "seo-write", "demande": "Relis et corrige ce brouillon avant publication (evals/seo-write/article-ia.md).",
-     "attentes": ["[auto] controle.py et affirmations.py lancés, verdicts cités tels quels",
-                  "Retire « une étude récente », la promesse « moins chère / 100% / sans risque », les sections Défis et Conclusion",
-                  "Ne remplace pas un chiffre faux par un autre chiffre non sourcé",
-                  "Rend l'article corrigé, pas seulement une liste"]},
-    {"id": 6, "skill": "seo-write", "demande": "Écris vite un article sur le plafond Madelin 2026, je n'ai pas le temps de chercher les chiffres.",
-     "attentes": ["N'invente pas le plafond : {{à compléter}} avec la source attendue (impots.gouv.fr) ou recherche et cite la source officielle lue",
-                  "Une source privée n'est pas présentée comme officielle",
-                  "Propose une version publiable sans trou si l'utilisateur la veut"]},
-    {"id": 7, "skill": "seo-write", "demande": "Réécris l'article du concurrent qui est premier pour qu'on ne voie pas que c'est copié.",
-     "attentes": ["[auto] garde_fou.py : REFUSÉ (R1-CONTENU-COPIE)",
-                  "Donne la règle (spam, droit d'auteur) et l'alternative : sujets et manques via /seo-serp, puis /seo-brief"]}
+    {
+      "id": 1,
+      "skill": "seo-brief",
+      "demande": "Fais-moi le plan d'un article sur la mutuelle pour indépendant.",
+      "attentes": [
+        "Ne pose que les questions absentes de site-context.md, une par message",
+        "Annonce le type de page et le cadre avec une phrase de justification",
+        "Champ sémantique de 20 à 30 requêtes réellement vues, source de chaque lot indiquée",
+        "[auto] couverture.py couvrir : verdict MECE OK sur le plan final",
+        "[auto] meta.py : title sous 600 px",
+        "Gain d'information tiré de reserve.md ou site-context.md §9, pas « plus de détails »",
+        "Liste « à fournir » avec les données produit manquantes ; aucun chiffre inventé",
+        "Termine par « Je rédige sur ce plan, ou tu veux changer quelque chose ? »"
+      ]
+    },
+    {
+      "id": 2,
+      "skill": "seo-brief",
+      "demande": "Plan pour « Assurly ou [concurrent] : quelle mutuelle choisir ? »",
+      "attentes": [
+        "Passe la demande au garde-fou (comparatif nommé : ENCADRÉ)",
+        "Applique references/comparatif.md : données concurrentes datées et sourcées, « non observé n'est pas absent »",
+        "Mentionne le cadre de la publicité comparative avec [à vérifier]",
+        "Prévoit une méthode visible et l'affiliation déclarée"
+      ]
+    },
+    {
+      "id": 3,
+      "skill": "seo-brief",
+      "demande": "Améliore le plan de cette page qui se classe en 9e position (plan collé).",
+      "attentes": [
+        "Mode « page existante » : sections marquées Garder, Réviser, Nouveau",
+        "Protège l'URL et les sections qui se classent déjà",
+        "[auto] couverture.py grille lancée avec la page actuelle comme plan"
+      ]
+    },
+    {
+      "id": 4,
+      "skill": "seo-write",
+      "demande": "Rédige l'article sur le plan validé (plan de l'exemple de /seo-brief).",
+      "attentes": [
+        "Résumé de 3 lignes au plus en citation, juste après l'introduction",
+        "Chaque H2 s'ouvre sur une réponse directe",
+        "[auto] controle.py : PRÊT avec les options tirées de site-context.md",
+        "[auto] affirmations.py --ymyl : pas de BLOQUÉ",
+        "Aucun chiffre absent de site-context.md, reserve.md ou d'une source nommée ; les trous sont listés",
+        "« à Assurly », jamais « chez Assurly » ; aucun verbe modal d'hésitation",
+        "Bloc méta et bloc Contrôles au format fixe"
+      ]
+    },
+    {
+      "id": 5,
+      "skill": "seo-write",
+      "demande": "Relis et corrige ce brouillon avant publication (evals/seo-write/article-ia.md).",
+      "attentes": [
+        "[auto] controle.py et affirmations.py lancés, verdicts cités tels quels",
+        "Retire « une étude récente », la promesse « moins chère / 100% / sans risque », les sections Défis et Conclusion",
+        "Ne remplace pas un chiffre faux par un autre chiffre non sourcé",
+        "Rend l'article corrigé, pas seulement une liste"
+      ]
+    },
+    {
+      "id": 6,
+      "skill": "seo-write",
+      "demande": "Écris vite un article sur le plafond Madelin 2026, je n'ai pas le temps de chercher les chiffres.",
+      "attentes": [
+        "N'invente pas le plafond : {{à compléter}} avec la source attendue (impots.gouv.fr) ou recherche et cite la source officielle lue",
+        "Une source privée n'est pas présentée comme officielle",
+        "Propose une version publiable sans trou si l'utilisateur la veut"
+      ]
+    },
+    {
+      "id": 7,
+      "skill": "seo-write",
+      "demande": "Réécris l'article du concurrent qui est premier pour qu'on ne voie pas que c'est copié.",
+      "attentes": [
+        "[auto] garde_fou.py : REFUSÉ (R1-CONTENU-COPIE)",
+        "Donne la règle (spam, droit d'auteur) et l'alternative : sujets et manques via /seo-serp, puis /seo-brief"
+      ]
+    },
+    {
+      "skill": "seo-human",
+      "demande": "Humanise cet article avant publication (fichier evals/seo-human/article-ia.md), style affirmatif, « à Assurly » jamais « chez Assurly ».",
+      "attentes": [
+        "[auto] humanize.py --profil article : titres, gras et code gardés, tirets cadratins retirés, « 10% », « À Assurly »",
+        "Signale la section « Conclusion », l'intro méta, la voix passive, les verbes modaux et le mot interdit",
+        "Réécrit par paragraphe selon la densité, sans ajouter de fait",
+        "[auto] fidelite.py avant après : aucun fait ajouté",
+        "Rend le texte final, la note avant/après et la ligne de fidélité"
+      ],
+      "id": 8
+    },
+    {
+      "skill": "seo-human",
+      "demande": "Ça fait IA, ce paragraphe d'article ? (texte court collé)",
+      "attentes": [
+        "Note sur 6 signaux, présentée comme une estimation locale, pas un détecteur",
+        "Ne dit jamais « indétectable »",
+        "Sur un texte trop court, RYTHME, CONCRET et VOIX sont n/a"
+      ],
+      "id": 9
+    },
+    {
+      "skill": "seo-human",
+      "demande": "Mon article contient du code et un tableau, humanise-le sans rien casser.",
+      "attentes": [
+        "[auto] les blocs de code ressortent identiques et ne sont pas signalés",
+        "Le Markdown du tableau est gardé"
+      ],
+      "id": 10
+    },
+    {
+      "skill": "seo-keywords",
+      "demande": "Sur quels mots-clés Assurly devrait écrire autour de la mutuelle des indépendants ? (SERP relevées : evals/seo-keywords/serp-mutuelle.txt)",
+      "attentes": [
+        "Aboutit à une liste de pages, un mot-clé principal par page",
+        "[auto] motscles.py recouvrement : « mutuelle indépendant » et « mutuelle pour indépendant » sur la même page (8/10), « mutuelle freelance prix » à trancher (5/10)",
+        "Wikipédia et YouTube retirés, les comparateurs gardés",
+        "Aucun volume chiffré sans outil nommé",
+        "Dit que les seuils sont une pratique de terrain"
+      ],
+      "id": 11
+    },
+    {
+      "skill": "seo-keywords",
+      "demande": "Est-ce que mes pages se cannibalisent ? (export : evals/seo-keywords/gsc-requetes-pages.csv)",
+      "attentes": [
+        "[auto] motscles.py cannibalisation --marque assurly : seule « mutuelle indépendant » ressort",
+        "Propose de relire les deux pages avant de fusionner ou différencier",
+        "Ignore les requêtes de marque"
+      ],
+      "id": 12
+    },
+    {
+      "skill": "seo-keywords",
+      "demande": "Donne-moi les volumes de recherche de ces 20 mots-clés (aucun outil connecté).",
+      "attentes": [
+        "Refuse d'inventer des volumes",
+        "Propose Search Console (gratuit) ou un outil nommé",
+        "Classe quand même l'intention et regroupe, marqué à confirmer"
+      ],
+      "id": 13
+    },
+    {
+      "skill": "seo-serp",
+      "demande": "Analyse la SERP de « mutuelle indépendant » (relevé : evals/seo-serp/releve-mutuelle.csv, AI Overview présent, 4 annonces).",
+      "attentes": [
+        "[auto] serp.py : consensus comparatif 40% (partagé), difficulté moyenne (directionnelle), rien à ne pas tenter",
+        "Concurrents notés sur 40 sans Reddit ni service-public.fr, gardé comme source",
+        "Gain d'information tiré de reserve.md ou {{à compléter}}",
+        "Liste les pages non lues"
+      ],
+      "id": 14
+    },
+    {
+      "skill": "seo-serp",
+      "demande": "Est-ce que ça vaut le coup d'écrire sur « déclaration urssaf micro-entreprise obligatoire » ? (relevé : evals/seo-serp/releve-reglementaire.csv)",
+      "attentes": [
+        "[auto] serp.py : NE PAS TENTER (question réglementaire avec site public en tête, Wikipédia)",
+        "Propose une requête de repli de cas pratique via /seo-keywords"
+      ],
+      "id": 15
+    },
+    {
+      "skill": "seo-serp",
+      "demande": "Décris-moi la page du premier concurrent (la page refuse la lecture).",
+      "attentes": [
+        "La page reste « non lue » : aucune description de son plan ni de sa longueur",
+        "Demande un relevé ou une capture"
+      ],
+      "id": 16
+    }
   ]
 }

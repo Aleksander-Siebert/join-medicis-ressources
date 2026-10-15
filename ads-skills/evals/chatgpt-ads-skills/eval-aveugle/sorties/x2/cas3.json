@@ -1,0 +1,97 @@
+{
+  "campaigns": [
+    {
+      "campaign_name": "Assurly - FR - Devis mutuelle - 2026",
+      "budget_max": 60,
+      "budget_type": "Daily",
+      "launch_date": "2026-11-09",
+      "end_date": "",
+      "objective": "Conversions",
+      "conversion_event_setting_ids": [
+        "{{à compléter}}"
+      ],
+      "target_countries": [
+        "FR"
+      ]
+    }
+  ],
+  "adgroups": [
+    {
+      "campaign_name": "Assurly - FR - Devis mutuelle - 2026",
+      "adgroup_name": "Création d'entreprise",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "je viens de créer mon entreprise, dois-je prendre une mutuelle",
+        "mutuelle santé pour freelance ou micro-entrepreneur",
+        "protection sociale quand on devient indépendant",
+        "démarches après la création d'une entreprise individuelle"
+      ]
+    },
+    {
+      "campaign_name": "Assurly - FR - Devis mutuelle - 2026",
+      "adgroup_name": "Fin de la mutuelle d'entreprise",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "je quitte mon CDI, que devient ma mutuelle d'entreprise",
+        "mutuelle après une démission pour se mettre à son compte",
+        "passer de salarié à freelance, quelle couverture santé",
+        "fin de la portabilité de la mutuelle d'entreprise"
+      ]
+    },
+    {
+      "campaign_name": "Assurly - FR - Devis mutuelle - 2026",
+      "adgroup_name": "Changer de mutuelle",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "comment changer de mutuelle en cours d'année",
+        "résilier sa mutuelle santé d'indépendant",
+        "comparer les mutuelles pour indépendants",
+        "ma mutuelle d'indépendant ne me convient plus"
+      ]
+    }
+  ],
+  "ads": [
+    {
+      "adgroup_name": "Création d'entreprise",
+      "title": "Vous vous lancez ?",
+      "copy": "Un courtier compare des mutuelles pour vous.",
+      "link": "https://www.assurly.example/mutuelle-independant/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=assurly-fr-devis-2026&utm_content=creation_a",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Création d'entreprise",
+      "title": "Mutuelle d'indépendant",
+      "copy": "Déjà 3 200 indépendants accompagnés.",
+      "link": "https://www.assurly.example/mutuelle-independant/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=assurly-fr-devis-2026&utm_content=creation_b",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Fin de la mutuelle d'entreprise",
+      "title": "Vous quittez votre CDI ?",
+      "copy": "Votre mutuelle d'indépendant, via un courtier.",
+      "link": "https://www.assurly.example/mutuelle-independant/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=assurly-fr-devis-2026&utm_content=fin-cdi_a",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Fin de la mutuelle d'entreprise",
+      "title": "Mutuelle après un CDI",
+      "copy": "5 min en ligne, puis un courtier vous rappelle.",
+      "link": "https://www.assurly.example/mutuelle-independant/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=assurly-fr-devis-2026&utm_content=fin-cdi_b",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Changer de mutuelle",
+      "title": "Changer de mutuelle ?",
+      "copy": "Nous gérons la résiliation de l'ancien contrat.",
+      "link": "https://www.assurly.example/mutuelle-independant/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=assurly-fr-devis-2026&utm_content=changer_a",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Changer de mutuelle",
+      "title": "Conseil gratuit",
+      "copy": "Nous sommes rémunérés par l'assureur.",
+      "link": "https://www.assurly.example/mutuelle-independant/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=assurly-fr-devis-2026&utm_content=changer_b",
+      "image_link": "{{à compléter}}"
+    }
+  ]
+}

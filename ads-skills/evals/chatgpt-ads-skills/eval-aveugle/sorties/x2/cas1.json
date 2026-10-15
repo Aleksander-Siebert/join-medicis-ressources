@@ -1,0 +1,147 @@
+{
+  "campaigns": [
+    {
+      "campaign_name": "Plantéa - FR - Clics - fin 2026",
+      "budget_max": 30,
+      "budget_type": "Daily",
+      "launch_date": "2026-11-16",
+      "end_date": "2026-12-20",
+      "objective": "Clicks",
+      "conversion_event_setting_ids": [],
+      "target_countries": [
+        "FR"
+      ]
+    }
+  ],
+  "adgroups": [
+    {
+      "campaign_name": "Plantéa - FR - Clics - fin 2026",
+      "adgroup_name": "Plantes faciles - oubli d'arrosage",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "quelle plante d'intérieur choisir quand on oublie d'arroser",
+        "plantes d'intérieur faciles d'entretien pour débutant",
+        "plante qui supporte le manque d'eau en appartement",
+        "acheter une plante d'intérieur en ligne",
+        "idées de plantes pour un appartement en ville"
+      ]
+    },
+    {
+      "campaign_name": "Plantéa - FR - Clics - fin 2026",
+      "adgroup_name": "Plante qui dépérit",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "ma plante d'intérieur perd ses feuilles",
+        "plante d'intérieur qui jaunit ou qui sèche",
+        "comment sauver une plante d'intérieur qui dépérit",
+        "remplacer une plante morte par une plante plus facile"
+      ]
+    },
+    {
+      "campaign_name": "Plantéa - FR - Clics - fin 2026",
+      "adgroup_name": "Pièces sombres",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "plante d'intérieur pour une pièce sans lumière",
+        "plante pour salle de bains sans fenêtre",
+        "plante pour couloir sombre ou bureau orienté nord",
+        "quelles plantes pour un appartement peu lumineux"
+      ]
+    },
+    {
+      "campaign_name": "Plantéa - FR - Clics - fin 2026",
+      "adgroup_name": "Chats et chiens - plantes non toxiques",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "plantes d'intérieur non toxiques pour les chats",
+        "plantes d'intérieur sans danger pour les chiens",
+        "mon chat mâchouille mes plantes, lesquelles choisir",
+        "quelles plantes d'intérieur éviter quand on a un animal"
+      ]
+    },
+    {
+      "campaign_name": "Plantéa - FR - Clics - fin 2026",
+      "adgroup_name": "Offrir une plante",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "idée cadeau plante d'intérieur",
+        "offrir une plante pour Noël",
+        "cadeau de pendaison de crémaillère",
+        "envoyer une plante en cadeau avec un message",
+        "cadeau durable et sans plastique"
+      ]
+    }
+  ],
+  "ads": [
+    {
+      "adgroup_name": "Plantes faciles - oubli d'arrosage",
+      "title": "Vous oubliez d'arroser ?",
+      "copy": "Plantes faciles livrées en pot, dès 19 €.",
+      "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=faciles_a",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Plantes faciles - oubli d'arrosage",
+      "title": "Plantes faciles dès 19 €",
+      "copy": "Livrées arrosées, avec leur fiche d'entretien.",
+      "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=faciles_b",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Plante qui dépérit",
+      "title": "Votre plante dépérit ?",
+      "copy": "Passez à une plante facile, livrée arrosée.",
+      "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=deperit_a",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Plante qui dépérit",
+      "title": "Une plante plus facile",
+      "copy": "Chaque plante arrive avec sa fiche d'entretien.",
+      "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=deperit_b",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Pièces sombres",
+      "title": "Appartement sombre ?",
+      "copy": "Des plantes choisies pour les pièces sombres.",
+      "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=sombre_a",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Pièces sombres",
+      "title": "Un bureau orienté nord ?",
+      "copy": "Des plantes pour pièces sombres, livrées en pot.",
+      "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=sombre_b",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Chats et chiens - plantes non toxiques",
+      "title": "Vous avez un chat ?",
+      "copy": "Plantes non toxiques pour chats et chiens.",
+      "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=animaux_a",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Chats et chiens - plantes non toxiques",
+      "title": "Un chien à la maison ?",
+      "copy": "Non toxiques : vérifiées par notre botaniste.",
+      "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=animaux_b",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Offrir une plante",
+      "title": "Offrir une plante",
+      "copy": "Message personnalisé, emballage sans plastique.",
+      "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=cadeau_a",
+      "image_link": "{{à compléter}}"
+    },
+    {
+      "adgroup_name": "Offrir une plante",
+      "title": "Un cadeau qui pousse",
+      "copy": "Frais de port offerts dès 49 € d'achat.",
+      "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=plantea-fr-clics-fin2026&utm_content=cadeau_b",
+      "image_link": "{{à compléter}}"
+    }
+  ]
+}

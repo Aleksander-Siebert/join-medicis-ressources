@@ -25,18 +25,6 @@ Quatre passes, dans cet ordre :
                   est SIGNALÉ avec la ligne et une piste, jamais réécrit
                   par une regex.
 
-Deux profils :
-  --profil linkedin (défaut)  posts, commentaires, messages : le Markdown est
-                              retiré (LinkedIn ne l'affiche pas).
-  --profil article            articles de blog : titres et gras Markdown gardés,
-                              plus les contrôles propres aux articles (sections
-                              « Conclusion », voix passive, intro « Dans cet
-                              article », gras en excès).
-Options de site (tirées de site-context.md) :
-  --affirmatif                signale les verbes modaux (peut-être, pourrait…)
-  --remplacer "A=>B"          remplacement obligatoire (répétable)
-  --interdire "mot"           mot interdit à signaler (répétable)
-
 Usage
   python3 humanize.py brouillon.txt                 # texte nettoyé sur la sortie
   python3 humanize.py brouillon.txt --rapport       # + le détail des changements
@@ -44,6 +32,10 @@ Usage
   python3 humanize.py brouillon.txt --insecables    # garde des insécables avant ; : ! ?
   python3 humanize.py brouillon.txt --json
   pbpaste | python3 humanize.py - --rapport
+
+Pack SEO : profil « article » par défaut (titres et gras Markdown gardés,
+blocs de code intacts), profil « court » pour un texte sans Markdown, et
+règles du site : --affirmatif, --remplacer "A=>B", --interdire "mot".
 
 Adapté de humanize.py de Jake Schincariol (MIT), réécrit pour le français.
 """
@@ -133,7 +125,7 @@ def pass_invisible(text, keep_nbsp=False):
 
 
 # ------------------------------------------------------------------ passe 2
-def pass_typography(text, lex, keep_nbsp=False, profil="linkedin"):
+def pass_typography(text, lex, keep_nbsp=False, profil="article"):
     log = Counter()
     space = NBSP if keep_nbsp else " "
 
@@ -186,10 +178,10 @@ def pass_typography(text, lex, keep_nbsp=False, profil="linkedin"):
         pattern = r"(?:(?<=^)|(?<=[.!?…]\s)|(?<=\n)|(?<=[«\"]\s)|(?<=[«\"]))" + re.escape(wrong) + (r"\b" if not wrong.endswith(" ") else "")
         sub(pattern, right, f"majuscule accentuée : {wrong.strip()} -> {right.strip()}", flags=re.M)
 
-    # Markdown que LinkedIn n'affiche pas (un article, lui, le garde).
-    if profil == "linkedin":
-        sub(r"\*\*([^*\n]+)\*\*", r"\1", "gras Markdown retiré (non affiché par LinkedIn)")
-        sub(r"(?m)^#{1,6} (?=\S)", "", "titre Markdown retiré")
+    # Markdown : gardé dans un article, retiré d'un texte court (réseaux, messages).
+    if profil == "court":
+        sub(r"\*\*([^*\n]+)\*\*", r"\1", "gras Markdown retiré (texte court)")
+        sub(r"(?m)^#{1,6} (?=\S)", "", "titre Markdown retiré (texte court)")
 
     # Espaces multiples créées par les passes précédentes.
     sub(r"(?<=\S)[ ]{2,}(?=\S)", " ", "espaces doublées")
@@ -211,11 +203,12 @@ CAP = "\x01"  # marque « remettre une majuscule ici » après une suppression
 def pass_lexical(text, lex, remplacer=()):
     log = Counter()
     extra = []
-    for rule in remplacer:
-        if "=>" in rule:
-            a, b = rule.split("=>", 1)
-            extra.append({"trouver": a.strip(), "remplacer": b.strip()})
-    entries = sorted(lex["remplacements"] + extra, key=lambda e: -len(e["trouver"]))
+    for regle in remplacer:
+        if "=>" in regle:
+            a, b = regle.split("=>", 1)
+            if a.strip():
+                extra.append({"trouver": a.strip(), "remplacer": b.strip()})
+    entries = sorted(list(lex["remplacements"]) + extra, key=lambda e: -len(e["trouver"]))
     for e in entries:
         find, repl = e["trouver"], e["remplacer"]
         pat = re.compile(r"(?<![\w])" + re.escape(find).replace(r"\ ", r"\s+")
@@ -238,118 +231,33 @@ def pass_lexical(text, lex, remplacer=()):
 
 
 # ------------------------------------------------------------------ passe 4
-def _line_of(text, idx):
-    return text.count("\n", 0, idx) + 1
-
-
-def mask_code(text):
-    """Remplace les blocs de code (``` … ```) par des lignes vides : ce n'est pas de la prose."""
-    return re.sub(r"(?ms)^```.*?^```[^\n]*$", lambda m: "\n" * m.group(0).count("\n"), text)
-
-
-def find_flags(text, lex, profil="linkedin", affirmatif=False, interdire=()):
-    """Tout ce qui demande un jugement humain : liste de signalements."""
-    text = mask_code(text)
-    flags = []
-    nwords = max(len(re.findall(r"\w+", text)), 1)
-    signaler = list(lex["signaler"])
-    structures = list(lex["structures"])
-    if profil == "article":
-        art = lex.get("article", {})
-        signaler += art.get("signaler", [])
-        structures += art.get("structures", [])
-        # Le Markdown est voulu dans un article : on ne le signale pas.
-        structures = [e for e in structures if e.get("id") not in ("markdown-gras", "titre-markdown")]
-    if affirmatif:
-        signaler += lex.get("modaux", [])
-    for mot in interdire:
-        mot = mot.strip()
-        if mot:
-            signaler.append({"motif": r"(?<!\w)" + re.escape(mot) + r"(?!\w)", "famille": "regle-site",
-                             "conseil": "Mot interdit par site-context.md."})
-    for e in signaler:
-        for m in re.finditer(e["motif"], text, re.IGNORECASE | re.MULTILINE):
-            flags.append({"ligne": _line_of(text, m.start()), "extrait": m.group(0).strip(),
-                          "famille": e["famille"], "conseil": e["conseil"]})
-    for e in structures:
-        for m in re.finditer(e["motif"], text, re.IGNORECASE):
-            flags.append({"ligne": _line_of(text, m.start()), "extrait": m.group(0).strip()[:60],
-                          "famille": e["famille"], "conseil": e["conseil"], "id": e["id"]})
-
-    # Listes « Titre : texte » (avec ou sans gras) : signature visuelle des LLM.
-    headed = [m for m in re.finditer(
-        r"^\s*(?:[-•*▪✅👉➡✔🔹▶]\S*\s*)(?:\*\*[^*\n]{1,40}\*\*\s*:|\*\*[^*\n]{1,40}:\s*\*\*|[^\s:][^:\n.!?]{0,30}\s?:\s)"
-        r"|^\s*\*\*[^*\n]{1,40}(?:\*\*\s*:|:\s*\*\*)", text, re.M)]
-    if len(headed) >= 2:
-        for m in headed:
-            flags.append({"ligne": _line_of(text, m.start()), "extrait": m.group(0).strip(),
-                          "famille": "mise-en-forme",
-                          "conseil": "Liste « Titre : texte » : signature visuelle d'IA. Écris des phrases."})
-
-    # Anaphores : 3 phrases ou lignes de suite qui commencent par le même mot.
-    units = [u.strip() for u in re.split(r"(?<=[.!?])\s+|\n+", text) if u.strip()]
-    firsts = [re.sub(r"^[-•*#\s]+", "", u).split(" ")[0].lower() for u in units]
-    i = 0
-    while i < len(firsts) - 2:
-        if firsts[i] and firsts[i] == firsts[i + 1] == firsts[i + 2] and len(firsts[i]) > 1:
-            flags.append({"ligne": _line_of(text, text.find(units[i])), "extrait": units[i][:60],
-                          "famille": "anaphore",
-                          "conseil": f"Trois phrases de suite commencent par « {firsts[i]} » : effet slogan."})
-            i += 3
-        else:
-            i += 1
-
-    # Triades : plus d'une énumération « A, B et C » à éléments courts = tic.
-    triads = list(re.finditer(r"\b[\w'-]+(?: [\w'-]+){0,2}, [\w'-]+(?: [\w'-]+){0,2},? et [\w'-]+(?: [\w'-]+){0,2}\b", text))
-    if len(triads) >= max(2, nwords // 300):
-        for m in triads:
-            flags.append({"ligne": _line_of(text, m.start()), "extrait": m.group(0),
-                          "famille": "triade", "conseil": "Triades en série. Garde la plus forte, casse les autres."})
-
-    # Connecteurs en pluie : 2 débuts de phrase connecteurs ou plus.
-    conn = [c for c in lex.get("connecteurs_debut", [])]
-    hits = [m for m in re.finditer(r"(?:^|(?<=[.!?]\s)|(?<=\n))(" + "|".join(map(re.escape, conn)) + r")\b", text)]
-    if len(hits) >= max(2, nwords // 250):
-        flags.append({"ligne": _line_of(text, hits[0].start()), "extrait": ", ".join(h.group(1) for h in hits[:4]),
-                      "famille": "connecteurs-en-pluie", "conseil": f"{len(hits)} phrases ouvertes par un connecteur. Supprime-en la plupart."})
-
-    # Rythme uniforme : toutes les phrases de longueur proche.
-    lens = [len(u.split()) for u in units if len(u.split()) > 2]
-    if len(lens) >= 5:
-        mean = sum(lens) / len(lens)
-        sd = (sum((x - mean) ** 2 for x in lens) / len(lens)) ** 0.5
-        if mean and sd / mean < 0.3:
-            flags.append({"ligne": 1, "extrait": f"{len(lens)} phrases, ~{mean:.0f} mots chacune",
-                          "famille": "rythme", "conseil": "Phrases de longueur uniforme. Mélange une phrase très courte et une longue."})
-    # Article : titre répété mot pour mot dans la première phrase de la section.
-    if profil == "article":
-        for m in re.finditer(r"(?m)^#{2,6}\s+(.+)\n+([^#\n][^\n]*)", text):
-            titre = set(w for w in re.findall(r"\w{4,}", m.group(1).lower()))
-            debut = set(re.findall(r"\w{4,}", " ".join(m.group(2).lower().split()[:14])))
-            if len(titre) >= 3 and len(titre & debut) / len(titre) >= 0.8:
-                flags.append({"ligne": _line_of(text, m.start(2)), "extrait": m.group(2)[:60],
-                              "famille": "structure-article",
-                              "conseil": "La section répète son titre. Commence par la réponse."})
-    # Article : gras en excès (plus d'un passage en gras pour 150 mots).
-    if profil == "article":
-        bold = re.findall(r"\*\*[^*\n]+\*\*", text)
-        if len(bold) > max(3, nwords // 150):
-            flags.append({"ligne": 1, "extrait": f"{len(bold)} passages en gras pour {nwords} mots",
-                          "famille": "mise-en-forme",
-                          "conseil": "Trop de gras. Réserve-le aux notions clés, jamais à des phrases entières."})
-    flags.sort(key=lambda f: f["ligne"])
-    return flags
+# Le repérage de ce qui demande du jugement vit dans marqueurs.py (partagé
+# avec detect.py) : densité par paragraphe, rythme, triades, sincérité...
+from marqueurs import find_flags, formulations_retirees  # noqa: E402
 
 
 # ------------------------------------------------------------------ pipeline
-def humanize(text, lex, keep_nbsp=False, profil="linkedin", affirmatif=False, remplacer=(), interdire=()):
+def _proteger_code(text):
+    """Les blocs de code ne passent par aucune correction."""
+    blocs = []
+
+    def stash(m):
+        blocs.append(m.group(0))
+        return f"\x00CODE{len(blocs) - 1}\x00"
+    return re.sub(r"(?ms)^```.*?^```[^\n]*$", stash, text), blocs
+
+
+def humanize(text, lex, keep_nbsp=False, niveau="strict", retirees=None, profil="article",
+             affirmatif=False, remplacer=(), interdire=()):
+    text, code = _proteger_code(text)
     text, urls = protect_urls(text)
     text, log1 = pass_invisible(text, keep_nbsp)
     text, log2 = pass_typography(text, lex, keep_nbsp, profil)
     text, log3 = pass_lexical(text, lex, remplacer)
     text = restore_urls(text, urls)
+    text = re.sub(r"\x00CODE(\d+)\x00", lambda m: code[int(m.group(1))], text)
     # Les signalements portent sur le texte nettoyé : ce qui reste à réécrire.
-    flags = find_flags(text, lex, profil, affirmatif, interdire)
+    flags = find_flags(text, lex, niveau, retirees, profil, affirmatif, interdire)
     return text, {"invisibles": log1, "typographie": log2, "lexique": log3}, flags
 
 
@@ -367,7 +275,8 @@ def render_report(logs, flags, out):
         title = "4. À RÉÉCRIRE (jugement humain)"
         out.write(f"\n{title}\n{'-' * len(title)}\n")
         for f in flags:
-            out.write(f"  l.{f['ligne']:<3} [{f['famille']}] « {f['extrait']} »\n        -> {f['conseil']}\n")
+            force = " (fort)" if f.get("force") in ("fort", "forensique") else ""
+            out.write(f"  l.{f['ligne']:<3} [{f['famille']}{force}] « {f['extrait']} »\n        -> {f['conseil']}\n")
 
 
 def main():
@@ -379,20 +288,24 @@ def main():
                     help="garde des espaces insécables avant ; : ! ? et dans « » (typographie soignée)")
     ap.add_argument("--json", action="store_true", help="sortie JSON (texte, corrections, signalements)")
     ap.add_argument("--lexique", default=LEX, help="chemin vers tics-ia.json")
-    ap.add_argument("--profil", choices=["linkedin", "article"], default="linkedin")
+    ap.add_argument("--niveau", choices=["forensique", "strict", "esthetique"], default="strict",
+                    help="forensique : fuites de modèle seulement ; strict (défaut) ; esthétique : tout")
+    ap.add_argument("--contexte", help="fichier de contexte : signale les formulations retirées")
+    ap.add_argument("--profil", choices=["article", "court"], default="article",
+                    help="article (défaut) : Markdown gardé ; court : texte sans Markdown")
     ap.add_argument("--affirmatif", action="store_true", help="signale les verbes modaux (style affirmatif)")
-    ap.add_argument("--remplacer", action="append", default=[], metavar="A=>B", help="remplacement obligatoire")
-    ap.add_argument("--interdire", action="append", default=[], metavar="MOT", help="mot interdit à signaler")
+    ap.add_argument("--remplacer", action="append", default=[], metavar="A=>B", help="remplacement obligatoire (répétable)")
+    ap.add_argument("--interdire", action="append", default=[], metavar="MOT", help="mot interdit à signaler (répétable)")
     args = ap.parse_args()
 
     raw = sys.stdin.read() if args.fichier == "-" else open(args.fichier, encoding="utf-8").read()
     lex = load_lexicon(args.lexique)
-    clean, logs, flags = humanize(raw, lex, args.insecables, args.profil, args.affirmatif,
-                                  args.remplacer, args.interdire)
+    clean, logs, flags = humanize(raw, lex, args.insecables, args.niveau, formulations_retirees(args.contexte),
+                                  args.profil, args.affirmatif, args.remplacer, args.interdire)
 
     if args.json:
         json.dump({"texte": clean, "corrections": {k: dict(v) for k, v in logs.items()}, "signalements": flags},
-                  sys.stdout, ensure_ascii=False, indent=2)
+                  sys.stdout, ensure_ascii=False, indent=2, default=str)
         sys.stdout.write("\n")
         return
     if args.sortie:

@@ -363,3 +363,31 @@ C'est à trancher, voir section 6.
 - **Prochaine étape** : relecture du modèle par l'utilisateur, puis éval à
   l'aveugle contre ses articles. Viendront ensuite `/seo-human` (moteur
   LinkedIn v2, nécessaire à `/seo-write`) et les autres Skills.
+
+## 9. Avancement (15 octobre 2026)
+
+À la demande d'Aleksander (« attaque le chantier SEO v2 »), le gabarit des
+Skills modèles est appliqué aux Skills suivants :
+
+- **`/seo-human`** : moteur de `/linkedin-human` v2 repris tel quel, avec
+  un profil `article` par défaut. Markdown et code intacts, note calculée
+  sur la prose seule, contrôles propres aux articles, règles du site. Les
+  scripts v1 sont retirés.
+- **`/seo-keywords`** : `motscles.py`. Recouvrement de SERP (plateformes
+  généralistes retirées, concurrents gardés), cannibalisation et groupes à
+  partir de l'export requête × page de Search Console. SKILL.md v2 et
+  référence des données.
+- **`/seo-serp`** : `serp.py`. Consensus de type, difficulté lue dans la
+  SERP, signaux « ne pas tenter » à la française. SKILL.md v2 et format du
+  relevé.
+- **Tests** : 147 au vert.
+
+Restent :
+
+- les Skills `/seo-article`, `/seo-audit` (absorbe `/seo-drift`),
+  `/seo-maillage`, `/seo-refresh`, `/seo-veille`, `/seo-local`,
+  `/seo-social`, `/seo-plan` (absorbe `/seo-programmatic`) et
+  `/seo-context` ;
+- les tendances Marketer Milk en options dans `/seo-plan`, `/seo-write`,
+  `/seo-refresh` et `/seo-veille` ;
+- l'éval à l'aveugle contre les articles d'Aleksander.

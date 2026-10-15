@@ -90,7 +90,8 @@ def _():
 def _():
     fautes = []
     for s in V2:
-        fichiers = [s / "SKILL.md"] + sorted((s / "references").glob("*.md"))
+        # L'humaniseur montre le tiret cadratin comme exemple de ce qu'il corrige.
+        fichiers = [s / "SKILL.md"] + ([] if s.name == "seo-human" else sorted((s / "references").glob("*.md")))
         for f in fichiers:
             for n, ligne in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
                 if "—" in ligne and "commun/" not in ligne:

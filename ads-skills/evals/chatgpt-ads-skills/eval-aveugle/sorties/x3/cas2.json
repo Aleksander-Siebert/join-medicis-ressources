@@ -1,0 +1,109 @@
+{
+  "campaigns": [
+    {
+      "campaign_name": "FACTORIA_FR-BE_Demo_2026-11",
+      "budget_max": 40,
+      "budget_type": "Daily",
+      "launch_date": "2026-11-02",
+      "end_date": "2026-12-31",
+      "objective": "Conversions",
+      "conversion_event_setting_ids": [
+        "{{à compléter}}"
+      ],
+      "target_countries": [
+        "FR",
+        "BE"
+      ]
+    }
+  ],
+  "adgroups": [
+    {
+      "campaign_name": "FACTORIA_FR-BE_Demo_2026-11",
+      "adgroup_name": "FACTORIA_Devis-chantier",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "logiciel de devis pour artisan du bâtiment",
+        "faire un devis depuis son téléphone sur le chantier",
+        "remplacer mon tableur Excel pour les devis et factures",
+        "faire signer un devis en ligne à un client",
+        "transformer un devis en facture",
+        "modèle de devis plombier électricien peintre"
+      ]
+    },
+    {
+      "campaign_name": "FACTORIA_FR-BE_Demo_2026-11",
+      "adgroup_name": "FACTORIA_Impayes",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "comment relancer une facture impayée",
+        "client qui ne paie pas sa facture artisan",
+        "modèle d'e-mail de relance facture impayée",
+        "automatiser les relances de factures",
+        "suivre les paiements clients d'une petite entreprise"
+      ]
+    },
+    {
+      "campaign_name": "FACTORIA_FR-BE_Demo_2026-11",
+      "adgroup_name": "FACTORIA_Gestion-TPE",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "logiciel de facturation pour TPE de services",
+        "logiciel de facturation pour artisan seul",
+        "logiciel de devis et factures simple pour petite entreprise",
+        "envoyer mes factures à mon expert-comptable",
+        "logiciel de facturation utilisable en Belgique et en France"
+      ]
+    }
+  ],
+  "ads": [
+    {
+      "adgroup_name": "FACTORIA_Devis-chantier",
+      "title": "Devis faits le soir ?",
+      "copy": "Faites-les sur le chantier, signés en ligne",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=paid&utm_campaign=factoria-fr-be-demo-2026-11&utm_content=devis-v1",
+      "image_link": "https://www.factoria.example/img/devis.png"
+    },
+    {
+      "adgroup_name": "FACTORIA_Devis-chantier",
+      "title": "Devis sur tableur ?",
+      "copy": "Devis et factures en ligne pour artisans",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=paid&utm_campaign=factoria-fr-be-demo-2026-11&utm_content=devis-v2",
+      "image_link": "https://www.factoria.example/img/tableur.png"
+    },
+    {
+      "adgroup_name": "FACTORIA_Devis-chantier",
+      "title": "Devis depuis le chantier",
+      "copy": "Signé en ligne, transformé en facture en un clic",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=paid&utm_campaign=factoria-fr-be-demo-2026-11&utm_content=devis-v3",
+      "image_link": "https://www.factoria.example/img/devis.png"
+    },
+    {
+      "adgroup_name": "FACTORIA_Impayes",
+      "title": "Factures impayées ?",
+      "copy": "Relances automatiques par e-mail. Démo 20 min",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=paid&utm_campaign=factoria-fr-be-demo-2026-11&utm_content=impayes-v1",
+      "image_link": "https://www.factoria.example/img/relances.png"
+    },
+    {
+      "adgroup_name": "FACTORIA_Impayes",
+      "title": "Relancez sans y penser",
+      "copy": "Factoria relance vos impayés par e-mail",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=paid&utm_campaign=factoria-fr-be-demo-2026-11&utm_content=impayes-v2",
+      "image_link": "https://www.factoria.example/img/relances.png"
+    },
+    {
+      "adgroup_name": "FACTORIA_Gestion-TPE",
+      "title": "Gérant de TPE ?",
+      "copy": "Devis, factures et relances en ligne. Démo",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=paid&utm_campaign=factoria-fr-be-demo-2026-11&utm_content=tpe-v1",
+      "image_link": "https://www.factoria.example/img/comptable.png"
+    },
+    {
+      "adgroup_name": "FACTORIA_Gestion-TPE",
+      "title": "Votre comptable attend ?",
+      "copy": "Exportez vos écritures pour l'expert-comptable",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=paid&utm_campaign=factoria-fr-be-demo-2026-11&utm_content=tpe-v2",
+      "image_link": "https://www.factoria.example/img/comptable.png"
+    }
+  ]
+}

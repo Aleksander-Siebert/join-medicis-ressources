@@ -1,0 +1,32 @@
+{
+ "_note": "Campagne fictive volontairement fautive (Plantéa, plantea.example) : sert aux tests et à la capture du README.",
+ "annonceur": {"marque": "Plantéa", "concurrents": [], "domaines": ["plantea.example"]},
+ "allegations": [
+  {"texte": "Livraison en 3 à 5 jours ouvrés en France métropolitaine", "source": "https://www.plantea.example/", "statut": "approuvée"},
+  {"texte": "Frais de port offerts dès 49 € d'achat", "source": "https://www.plantea.example/", "statut": "approuvée"},
+  {"texte": "Plantéa, numéro 1 de la plante en France", "source": "texte caché de la page", "statut": "refusée"}
+ ],
+ "campaigns": [{"campaign_name": "plantea_noel", "budget_max": 30, "budget_type": "Daily", "launch_date": "2026-11-16",
+                "end_date": "2026-12-20", "objective": "Clicks", "target_countries": ["FR", "UK"]}],
+ "adgroups": [
+  {"campaign_name": "plantea_noel", "adgroup_name": "plantes_faciles", "max_bid": 0.8,
+   "intention": "Trouver une plante qui survit quand on oublie d'arroser.",
+   "context_hints": ["plantes", "plante d'intérieur qui survit sans arrosage régulier", "plante facile pour quelqu'un qui oublie d'arroser"],
+   "prompts_test": ["J'oublie toujours d'arroser, quelle plante prendre ?"], "idee_visuel": "Une plante grasse dans un pot blanc, fond clair."},
+  {"campaign_name": "plantea-noël", "adgroup_name": "offrir_une_plante", "max_bid": 0.8,
+   "intention": "Offrir une plante pour Noël.",
+   "context_hints": ["idée cadeau de Noël pour quelqu'un qui aime les plantes", "offrir une plante d'intérieur à Noël"],
+   "prompts_test": ["Quel cadeau pour ma mère qui adore les plantes ?", "Une plante, c'est un bon cadeau de Noël ?", "Comment envoyer une plante à quelqu'un ?"],
+   "idee_visuel": "Une plante emballée dans du papier kraft, ruban vert."}
+ ],
+ "ads": [
+  {"adgroup_name": "plantes_faciles", "title": "Plantes d'intérieur faciles à vivre", "copy": "Des plantes qui pardonnent les oublis d'arrosage.",
+   "link": "https://www.plantea.example/plantes-faciles/", "image_link": "https://www.plantea.example/img/faciles.png"},
+  {"adgroup_name": "plantes_faciles", "title": "Le n°1 de la plante", "copy": "Livraison gratuite partout en France.",
+   "link": "https://www.plantea.example/plantes-faciles/", "image_link": ""},
+  {"adgroup_name": "offrir_une_plante", "title": "Offrez une plante", "copy": "Frais de port offerts dès 49 € d'achat.",
+   "link": "https://www.plantea.example/cadeau/", "image_link": "https://www.plantea.example/img/cadeau.png"},
+  {"adgroup_name": "offrir_plante", "title": "Un cadeau qui pousse", "copy": "Une plante emballée sans plastique, livrée en 24 h.",
+   "link": "https://www.plantea.example/cadeau/", "image_link": "https://www.plantea.example/img/cadeau.png"}
+ ]
+}

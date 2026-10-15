@@ -1,0 +1,43 @@
+{
+  "note": "Icônes et bannière du README, produites par outils/visuels/visuels.py. Ne pas modifier les SVG à la main.",
+  "pack": "Ads",
+  "surtitre": "Join Médicis · pack de Skills",
+  "accroche": [
+    "Des campagnes ChatGPT Ads ciblées par intention,",
+    "écrites juste, prêtes à importer."
+  ],
+  "puces": [
+    "1 Skill",
+    "142 tests",
+    "MIT",
+    "v0.1"
+  ],
+  "colonnes": 1,
+  "familles": {
+    "ChatGPT Ads": "#1F6F7A"
+  },
+  "icones": [
+    {
+      "nom": "chatgpt-ads-skills",
+      "glyphe": "cible",
+      "famille": "ChatGPT Ads"
+    }
+  ],
+  "piliers": [
+    {
+      "nom": "pilier-allegations",
+      "glyphe": "bouclier",
+      "couleur": "#0E3F2D"
+    },
+    {
+      "nom": "pilier-modele",
+      "glyphe": "document",
+      "couleur": "#34495E"
+    },
+    {
+      "nom": "pilier-hypotheses",
+      "glyphe": "loupe",
+      "couleur": "#B89253"
+    }
+  ]
+}
