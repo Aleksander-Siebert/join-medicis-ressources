@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="875" height="308" viewBox="0 0 875 308" role="img" aria-label="chatgpt-ads-skills · valider_exporter.py">
+<title>chatgpt-ads-skills · valider_exporter.py</title>
+<rect width="875" height="308" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h851a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="438" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">chatgpt-ads-skills · valider_exporter.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/valider_exporter.py exporter assets/exemple-campagne.json -o /tmp/import.xlsx</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">CAMPAGNE · <tspan fill="#6FC79B">PRÊT</tspan> · 1 campagne(s), 5 ad group(s), 40 annonce(s) · limites du modèle : titre 24, copie</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">  48</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">  0 bloquant(s) · 0 attention · 1 info</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">INFO</tspan></text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  [campaigns · campaigns[1]] pays ciblés : FR</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">      → un code ISO valide n'est pas forcément ouvert à la publicité (docs OpenAI) : vérifier dans</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">        Ads Manager</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">Fichier écrit : /tmp/import.xlsx (onglets campaigns, adgroups, ads). À relire par une personne</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">  qualifiée avant import.</text>
+</g></svg>

@@ -1,0 +1,20 @@
+{
+  "name": "ads-skills",
+  "description": "Préparer des campagnes publicitaires en français, à commencer par ChatGPT Ads : carte des intentions, ad groups, context hints, annonces aux limites du modèle d'import, contrôle par script et fichier XLSX prêt à relire. Rien n'est lancé ni publié à ta place.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Aleksander Siebert",
+    "url": "https://joinmedicis.com/auteurs/aleksander-siebert"
+  },
+  "homepage": "https://joinmedicis.com/ressources/skills/ads-skills",
+  "repository": "https://github.com/Aleksander-Siebert/join-medicis-ressources",
+  "license": "MIT",
+  "keywords": [
+    "chatgpt-ads",
+    "openai-ads",
+    "publicité",
+    "context-hints",
+    "français",
+    "annonces"
+  ]
+}

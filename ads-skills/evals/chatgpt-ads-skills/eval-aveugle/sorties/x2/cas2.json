@@ -1,0 +1,100 @@
+{
+  "campaigns": [
+    {
+      "campaign_name": "Factoria - FR BE - Démos - fin 2026",
+      "budget_max": 40,
+      "budget_type": "Daily",
+      "launch_date": "2026-11-02",
+      "end_date": "2026-12-31",
+      "objective": "Conversions",
+      "conversion_event_setting_ids": [
+        "{{à compléter}}"
+      ],
+      "target_countries": [
+        "FR",
+        "BE"
+      ]
+    }
+  ],
+  "adgroups": [
+    {
+      "campaign_name": "Factoria - FR BE - Démos - fin 2026",
+      "adgroup_name": "Devis du soir sur tableur",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "modèle de devis artisan sur Excel ou sur tableur",
+        "faire ses devis le soir après le chantier",
+        "remplacer un tableur par un logiciel de devis",
+        "faire signer un devis en ligne à un client",
+        "transformer un devis en facture"
+      ]
+    },
+    {
+      "campaign_name": "Factoria - FR BE - Démos - fin 2026",
+      "adgroup_name": "Factures impayées",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "client qui ne paie pas sa facture, comment le relancer",
+        "modèle de mail de relance pour facture impayée",
+        "relancer automatiquement ses factures",
+        "retards de paiement quand on est artisan ou TPE"
+      ]
+    },
+    {
+      "campaign_name": "Factoria - FR BE - Démos - fin 2026",
+      "adgroup_name": "Choix d'un logiciel de devis",
+      "max_bid": "{{à compléter}}",
+      "context_hints": [
+        "logiciel de devis et factures pour artisan du bâtiment",
+        "comparatif de logiciels de facturation pour TPE",
+        "faire ses devis sur téléphone depuis le chantier",
+        "logiciel de facturation pour indépendant en Belgique",
+        "logiciel de devis pour artisan seul ou petite équipe"
+      ]
+    }
+  ],
+  "ads": [
+    {
+      "adgroup_name": "Devis du soir sur tableur",
+      "title": "Vos devis sur tableur ?",
+      "copy": "Créez vos devis sur téléphone, signés en ligne.",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=factoria-frbe-demos-fin2026&utm_content=tableur_a",
+      "image_link": "https://www.factoria.example/img/tableur.png"
+    },
+    {
+      "adgroup_name": "Devis du soir sur tableur",
+      "title": "Le devis devient facture",
+      "copy": "En un clic. Voyez-le en démo de 20 minutes.",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=factoria-frbe-demos-fin2026&utm_content=tableur_b",
+      "image_link": "https://www.factoria.example/img/tableur.png"
+    },
+    {
+      "adgroup_name": "Factures impayées",
+      "title": "Des factures impayées ?",
+      "copy": "Relances automatiques par e-mail. Démo 20 min.",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=factoria-frbe-demos-fin2026&utm_content=impayes_a",
+      "image_link": "https://www.factoria.example/img/relances.png"
+    },
+    {
+      "adgroup_name": "Factures impayées",
+      "title": "Relancez sans y penser",
+      "copy": "Les impayés relancés automatiquement par e-mail.",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=factoria-frbe-demos-fin2026&utm_content=impayes_b",
+      "image_link": "https://www.factoria.example/img/relances.png"
+    },
+    {
+      "adgroup_name": "Choix d'un logiciel de devis",
+      "title": "Logiciel de devis ?",
+      "copy": "Pour artisans du bâtiment et TPE de services.",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=factoria-frbe-demos-fin2026&utm_content=logiciel_a",
+      "image_link": "https://www.factoria.example/img/devis.png"
+    },
+    {
+      "adgroup_name": "Choix d'un logiciel de devis",
+      "title": "Une démo de 20 minutes",
+      "copy": "Du devis signé à la relance, vu en direct.",
+      "link": "https://www.factoria.example/demo/?utm_source=chatgpt&utm_medium=cpc&utm_campaign=factoria-frbe-demos-fin2026&utm_content=logiciel_b",
+      "image_link": "https://www.factoria.example/img/devis.png"
+    }
+  ]
+}

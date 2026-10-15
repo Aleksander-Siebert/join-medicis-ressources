@@ -1,0 +1,512 @@
+{
+ "_note": "Exemple fictif : Vélora (velora.example) n'existe pas. Les allégations, prix, enchères et URL sont inventés pour montrer le format.",
+ "annonceur": {
+  "marque": "Vélora",
+  "concurrents": [],
+  "domaines": [
+   "velora.example"
+  ],
+  "categorie": "consommation"
+ },
+ "mode": "standard",
+ "allegations": [
+  {
+   "texte": "Garantie 12 mois sur chaque vélo",
+   "source": "https://www.velora.example/garantie/",
+   "statut": "approuvée"
+  },
+  {
+   "texte": "Chaque vélo est contrôlé et révisé en atelier",
+   "source": "https://www.velora.example/reconditionne/",
+   "statut": "approuvée"
+  },
+  {
+   "texte": "Batterie testée en atelier avant la vente, capacité indiquée sur chaque fiche",
+   "source": "https://www.velora.example/batterie/",
+   "statut": "approuvée"
+  },
+  {
+   "texte": "Prix affiché sur chaque fiche produit",
+   "source": "https://www.velora.example/velos-ville/",
+   "statut": "approuvée"
+  },
+  {
+   "texte": "Livré monté, réglé, batterie chargée",
+   "source": "https://www.velora.example/livraison/",
+   "statut": "approuvée"
+  },
+  {
+   "texte": "Livraison à domicile en France métropolitaine",
+   "source": "https://www.velora.example/livraison/",
+   "statut": "approuvée"
+  },
+  {
+   "texte": "Le vélo électrique reconditionné le moins cher de France",
+   "source": "ancienne annonce Google Ads",
+   "statut": "refusée"
+  }
+ ],
+ "campaigns": [
+  {
+   "campaign_name": "velora_lancement_fr",
+   "budget_max": 150,
+   "budget_type": "Daily",
+   "launch_date": "2026-11-02",
+   "end_date": "2026-11-29",
+   "objective": "Clicks",
+   "conversion_event_setting_ids": [],
+   "target_countries": [
+    "FR"
+   ]
+  }
+ ],
+ "adgroups": [
+  {
+   "campaign_name": "velora_lancement_fr",
+   "adgroup_name": "trajet_travail_sans_voiture",
+   "max_bid": 3,
+   "context_hints": [
+    "aller au travail à vélo sans arriver en sueur",
+    "remplacer la voiture pour les trajets quotidiens",
+    "vélo électrique pour un long trajet domicile travail"
+   ],
+   "intention": "Remplacer la voiture ou les transports pour aller travailler, sur un trajet de quelques dizaines de kilomètres.",
+   "prompts_test": [
+    "Je veux arrêter de prendre la voiture pour aller au bureau, 18 km, un vélo électrique c'est jouable ?",
+    "Comment aller au travail à vélo sans arriver trempé de sueur ?",
+    "Vélo électrique ou transports en commun pour mon trajet quotidien, qu'est-ce qui revient le moins cher ?"
+   ],
+   "idee_visuel": "Un vélo de ville électrique devant une entrée de bureau, lumière du matin, sans personne identifiable."
+  },
+  {
+   "campaign_name": "velora_lancement_fr",
+   "adgroup_name": "reconditionne_ou_neuf",
+   "max_bid": 3,
+   "context_hints": [
+    "choisir entre vélo électrique neuf et reconditionné",
+    "acheter un vélo électrique avec un budget serré",
+    "savoir si un vélo reconditionné est fiable"
+   ],
+   "intention": "Hésiter entre un vélo électrique neuf et reconditionné pour tenir un budget.",
+   "prompts_test": [
+    "Vélo électrique reconditionné ou neuf, lequel choisir avec 1500 euros ?",
+    "Est-ce qu'un vélo électrique reconditionné tient vraiment dans le temps ?",
+    "Quelles vérifications faire avant d'acheter un VAE d'occasion ?"
+   ],
+   "idee_visuel": "Un vélo électrique sur un pied d'atelier, outils rangés autour, cadrage serré."
+  },
+  {
+   "campaign_name": "velora_lancement_fr",
+   "adgroup_name": "etat_batterie_occasion",
+   "max_bid": 3,
+   "context_hints": [
+    "vérifier la batterie d'un vélo électrique d'occasion",
+    "autonomie réelle d'un vélo électrique reconditionné",
+    "remplacer la batterie d'un vélo électrique"
+   ],
+   "intention": "S'inquiéter de l'état et de l'autonomie de la batterie d'un vélo électrique d'occasion.",
+   "prompts_test": [
+    "Comment savoir si la batterie d'un vélo électrique d'occasion est encore bonne ?",
+    "Quelle autonomie réelle pour un VAE reconditionné de 3 ans ?",
+    "Combien coûte le remplacement d'une batterie de vélo électrique ?"
+   ],
+   "idee_visuel": "Gros plan sur une batterie de vélo posée sur un établi, sans marque visible."
+  },
+  {
+   "campaign_name": "velora_lancement_fr",
+   "adgroup_name": "cargo_enfants_ecole",
+   "max_bid": 3,
+   "context_hints": [
+    "emmener ses enfants à l'école à vélo",
+    "choisir un vélo cargo pour transporter deux enfants",
+    "faire les courses à vélo en famille"
+   ],
+   "intention": "Transporter un ou deux enfants à vélo pour l'école et les courses.",
+   "prompts_test": [
+    "Quel vélo pour emmener mes deux enfants à l'école ?",
+    "Biporteur ou longtail pour une famille avec deux petits ?",
+    "Peut-on remplacer la deuxième voiture par un vélo cargo ?"
+   ],
+   "idee_visuel": "Un vélo cargo garé devant une école, caisse vide, sans enfant identifiable."
+  },
+  {
+   "campaign_name": "velora_lancement_fr",
+   "adgroup_name": "livraison_velo_monte",
+   "max_bid": 3,
+   "context_hints": [
+    "acheter un vélo électrique en ligne et le recevoir chez soi",
+    "comment se passe la livraison d'un vélo",
+    "éviter de monter soi-même un vélo livré en carton"
+   ],
+   "intention": "Acheter un vélo électrique en ligne et se demander comment il est livré et réglé.",
+   "prompts_test": [
+    "Si j'achète un vélo électrique en ligne, il arrive monté ?",
+    "Comment se passe la livraison d'un vélo à domicile ?",
+    "Je ne suis pas bricoleur, est-ce que je devrai régler le vélo moi-même ?"
+   ],
+   "idee_visuel": "Un vélo électrique monté, posé devant une porte d'entrée, sans emballage."
+  }
+ ],
+ "ads": [
+  {
+   "adgroup_name": "trajet_travail_sans_voiture",
+   "title": "Au bureau sans sueur",
+   "copy": "Un VAE reconditionné pour vos trajets du matin.",
+   "link": "https://www.velora.example/velos-ville/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=trajet_travail_sans_voiture",
+   "image_link": "https://www.velora.example/images/ville-1080.png",
+   "angle": "situation",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "trajet_travail_sans_voiture",
+   "title": "Laissez la voiture",
+   "copy": "Des vélos électriques révisés, prêts à rouler.",
+   "link": "https://www.velora.example/velos-ville/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=trajet_travail_sans_voiture",
+   "image_link": "https://www.velora.example/images/ville-1080.png",
+   "angle": "bénéfice",
+   "allegation": "Chaque vélo est contrôlé et révisé en atelier"
+  },
+  {
+   "adgroup_name": "trajet_travail_sans_voiture",
+   "title": "Vos trajets, sans effort",
+   "copy": "Assistance électrique, vélo révisé en atelier.",
+   "link": "https://www.velora.example/velos-ville/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=trajet_travail_sans_voiture",
+   "image_link": "https://www.velora.example/images/ville-1080.png",
+   "angle": "bénéfice",
+   "allegation": "Chaque vélo est contrôlé et révisé en atelier"
+  },
+  {
+   "adgroup_name": "trajet_travail_sans_voiture",
+   "title": "Fini les bouchons",
+   "copy": "Choisissez un VAE adapté à votre trajet.",
+   "link": "https://www.velora.example/velos-ville/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=trajet_travail_sans_voiture",
+   "image_link": "https://www.velora.example/images/ville-1080.png",
+   "angle": "problème",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "trajet_travail_sans_voiture",
+   "title": "Un vélo pour le boulot",
+   "copy": "Reconditionné et garanti 12 mois.",
+   "link": "https://www.velora.example/velos-ville/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=trajet_travail_sans_voiture",
+   "image_link": "https://www.velora.example/images/ville-1080.png",
+   "angle": "preuve",
+   "allegation": "Garantie 12 mois sur chaque vélo"
+  },
+  {
+   "adgroup_name": "trajet_travail_sans_voiture",
+   "title": "Pédalez jusqu'au travail",
+   "copy": "Comparez nos modèles ville selon votre trajet.",
+   "link": "https://www.velora.example/velos-ville/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=trajet_travail_sans_voiture",
+   "image_link": "https://www.velora.example/images/ville-1080.png",
+   "angle": "comparaison",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "trajet_travail_sans_voiture",
+   "title": "Le trajet devient sport",
+   "copy": "Une aide électrique qui suit votre rythme.",
+   "link": "https://www.velora.example/velos-ville/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=trajet_travail_sans_voiture",
+   "image_link": "https://www.velora.example/images/ville-1080.png",
+   "angle": "bénéfice",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "trajet_travail_sans_voiture",
+   "title": "Moins de voiture, enfin",
+   "copy": "Des vélos de ville révisés, prix affichés.",
+   "link": "https://www.velora.example/velos-ville/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=trajet_travail_sans_voiture",
+   "image_link": "https://www.velora.example/images/ville-1080.png",
+   "angle": "objection prix",
+   "allegation": "Prix affiché sur chaque fiche produit"
+  },
+  {
+   "adgroup_name": "reconditionne_ou_neuf",
+   "title": "Neuf ou reconditionné ?",
+   "copy": "Comparez état, garantie et prix avant d'acheter.",
+   "link": "https://www.velora.example/reconditionne/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=reconditionne_ou_neuf",
+   "image_link": "https://www.velora.example/images/atelier-1080.png",
+   "angle": "question",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "reconditionne_ou_neuf",
+   "title": "Un VAE sans prix du neuf",
+   "copy": "Vélos révisés en atelier, garantie 12 mois.",
+   "link": "https://www.velora.example/reconditionne/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=reconditionne_ou_neuf",
+   "image_link": "https://www.velora.example/images/atelier-1080.png",
+   "angle": "objection prix",
+   "allegation": "Garantie 12 mois sur chaque vélo"
+  },
+  {
+   "adgroup_name": "reconditionne_ou_neuf",
+   "title": "Reconditionné, fiable ?",
+   "copy": "Chaque vélo passe un contrôle en atelier.",
+   "link": "https://www.velora.example/reconditionne/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=reconditionne_ou_neuf",
+   "image_link": "https://www.velora.example/images/atelier-1080.png",
+   "angle": "objection fiabilité",
+   "allegation": "Chaque vélo est contrôlé et révisé en atelier"
+  },
+  {
+   "adgroup_name": "reconditionne_ou_neuf",
+   "title": "Budget serré, bon vélo",
+   "copy": "Des VAE reconditionnés, prix affiché par modèle.",
+   "link": "https://www.velora.example/reconditionne/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=reconditionne_ou_neuf",
+   "image_link": "https://www.velora.example/images/atelier-1080.png",
+   "angle": "budget",
+   "allegation": "Prix affiché sur chaque fiche produit"
+  },
+  {
+   "adgroup_name": "reconditionne_ou_neuf",
+   "title": "Bien choisir son VAE",
+   "copy": "Nos conseils pour choisir sans se tromper.",
+   "link": "https://www.velora.example/reconditionne/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=reconditionne_ou_neuf",
+   "image_link": "https://www.velora.example/images/atelier-1080.png",
+   "angle": "conseil",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "reconditionne_ou_neuf",
+   "title": "Reconditionné, expliqué",
+   "copy": "Ce qui est vérifié sur chaque vélo.",
+   "link": "https://www.velora.example/reconditionne/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=reconditionne_ou_neuf",
+   "image_link": "https://www.velora.example/images/atelier-1080.png",
+   "angle": "transparence",
+   "allegation": "Chaque vélo est contrôlé et révisé en atelier"
+  },
+  {
+   "adgroup_name": "reconditionne_ou_neuf",
+   "title": "Un VAE révisé, garanti",
+   "copy": "12 mois de garantie, batterie testée.",
+   "link": "https://www.velora.example/reconditionne/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=reconditionne_ou_neuf",
+   "image_link": "https://www.velora.example/images/atelier-1080.png",
+   "angle": "preuve",
+   "allegation": "Garantie 12 mois sur chaque vélo"
+  },
+  {
+   "adgroup_name": "reconditionne_ou_neuf",
+   "title": "VAE d'occasion, contrôlé",
+   "copy": "Pas une annonce entre particuliers : un atelier.",
+   "link": "https://www.velora.example/reconditionne/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=reconditionne_ou_neuf",
+   "image_link": "https://www.velora.example/images/atelier-1080.png",
+   "angle": "contraste",
+   "allegation": "Chaque vélo est contrôlé et révisé en atelier"
+  },
+  {
+   "adgroup_name": "etat_batterie_occasion",
+   "title": "Et la batterie ?",
+   "copy": "Chaque batterie est testée avant la vente.",
+   "link": "https://www.velora.example/batterie/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=etat_batterie_occasion",
+   "image_link": "https://www.velora.example/images/batterie-1080.png",
+   "angle": "objection",
+   "allegation": "Batterie testée en atelier avant la vente, capacité indiquée sur chaque fiche"
+  },
+  {
+   "adgroup_name": "etat_batterie_occasion",
+   "title": "Une batterie contrôlée",
+   "copy": "Capacité mesurée et indiquée sur la fiche.",
+   "link": "https://www.velora.example/batterie/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=etat_batterie_occasion",
+   "image_link": "https://www.velora.example/images/batterie-1080.png",
+   "angle": "preuve",
+   "allegation": "Batterie testée en atelier avant la vente, capacité indiquée sur chaque fiche"
+  },
+  {
+   "adgroup_name": "etat_batterie_occasion",
+   "title": "Autonomie sans surprise",
+   "copy": "L'état de la batterie est écrit sur la fiche.",
+   "link": "https://www.velora.example/batterie/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=etat_batterie_occasion",
+   "image_link": "https://www.velora.example/images/batterie-1080.png",
+   "angle": "transparence",
+   "allegation": "Batterie testée en atelier avant la vente, capacité indiquée sur chaque fiche"
+  },
+  {
+   "adgroup_name": "etat_batterie_occasion",
+   "title": "Batterie testée d'abord",
+   "copy": "Un test en atelier avant chaque mise en vente.",
+   "link": "https://www.velora.example/batterie/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=etat_batterie_occasion",
+   "image_link": "https://www.velora.example/images/batterie-1080.png",
+   "angle": "processus",
+   "allegation": "Batterie testée en atelier avant la vente, capacité indiquée sur chaque fiche"
+  },
+  {
+   "adgroup_name": "etat_batterie_occasion",
+   "title": "Rouler sans panne sèche",
+   "copy": "Choisissez l'autonomie selon votre trajet.",
+   "link": "https://www.velora.example/batterie/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=etat_batterie_occasion",
+   "image_link": "https://www.velora.example/images/batterie-1080.png",
+   "angle": "bénéfice",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "etat_batterie_occasion",
+   "title": "Batterie à remplacer ?",
+   "copy": "Nos fiches indiquent l'état de chaque batterie.",
+   "link": "https://www.velora.example/batterie/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=etat_batterie_occasion",
+   "image_link": "https://www.velora.example/images/batterie-1080.png",
+   "angle": "question",
+   "allegation": "Batterie testée en atelier avant la vente, capacité indiquée sur chaque fiche"
+  },
+  {
+   "adgroup_name": "etat_batterie_occasion",
+   "title": "L'autonomie, mesurée",
+   "copy": "Capacité testée en atelier, sans promesse.",
+   "link": "https://www.velora.example/batterie/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=etat_batterie_occasion",
+   "image_link": "https://www.velora.example/images/batterie-1080.png",
+   "angle": "contraste",
+   "allegation": "Batterie testée en atelier avant la vente, capacité indiquée sur chaque fiche"
+  },
+  {
+   "adgroup_name": "etat_batterie_occasion",
+   "title": "Une batterie, un test",
+   "copy": "Un VAE d'occasion avec une batterie contrôlée.",
+   "link": "https://www.velora.example/batterie/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=etat_batterie_occasion",
+   "image_link": "https://www.velora.example/images/batterie-1080.png",
+   "angle": "processus",
+   "allegation": "Batterie testée en atelier avant la vente, capacité indiquée sur chaque fiche"
+  },
+  {
+   "adgroup_name": "cargo_enfants_ecole",
+   "title": "Les enfants à l'école",
+   "copy": "Des vélos cargo électriques révisés en atelier.",
+   "link": "https://www.velora.example/cargo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=cargo_enfants_ecole",
+   "image_link": "https://www.velora.example/images/cargo-1080.png",
+   "angle": "situation",
+   "allegation": "Chaque vélo est contrôlé et révisé en atelier"
+  },
+  {
+   "adgroup_name": "cargo_enfants_ecole",
+   "title": "Un cargo pour la famille",
+   "copy": "Deux enfants, les courses, sans la voiture.",
+   "link": "https://www.velora.example/cargo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=cargo_enfants_ecole",
+   "image_link": "https://www.velora.example/images/cargo-1080.png",
+   "angle": "bénéfice",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "cargo_enfants_ecole",
+   "title": "Cargo au budget maîtrisé",
+   "copy": "Des modèles reconditionnés, prix affiché.",
+   "link": "https://www.velora.example/cargo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=cargo_enfants_ecole",
+   "image_link": "https://www.velora.example/images/cargo-1080.png",
+   "angle": "budget",
+   "allegation": "Prix affiché sur chaque fiche produit"
+  },
+  {
+   "adgroup_name": "cargo_enfants_ecole",
+   "title": "L'école à vélo cargo",
+   "copy": "Choisissez la caisse ou le porte-bagage long.",
+   "link": "https://www.velora.example/cargo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=cargo_enfants_ecole",
+   "image_link": "https://www.velora.example/images/cargo-1080.png",
+   "angle": "conseil",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "cargo_enfants_ecole",
+   "title": "Vélo cargo d'occasion",
+   "copy": "Contrôlé en atelier, garanti 12 mois.",
+   "link": "https://www.velora.example/cargo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=cargo_enfants_ecole",
+   "image_link": "https://www.velora.example/images/cargo-1080.png",
+   "angle": "preuve",
+   "allegation": "Garantie 12 mois sur chaque vélo"
+  },
+  {
+   "adgroup_name": "cargo_enfants_ecole",
+   "title": "Courses et école à vélo",
+   "copy": "Un vélo cargo à la place de la voiture.",
+   "link": "https://www.velora.example/cargo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=cargo_enfants_ecole",
+   "image_link": "https://www.velora.example/images/cargo-1080.png",
+   "angle": "bénéfice",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "cargo_enfants_ecole",
+   "title": "Quel cargo choisir ?",
+   "copy": "Biporteur ou longtail : comparez nos modèles.",
+   "link": "https://www.velora.example/cargo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=cargo_enfants_ecole",
+   "image_link": "https://www.velora.example/images/cargo-1080.png",
+   "angle": "comparaison",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "cargo_enfants_ecole",
+   "title": "Famille et vélo cargo",
+   "copy": "L'assistance électrique pour les côtes.",
+   "link": "https://www.velora.example/cargo/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=cargo_enfants_ecole",
+   "image_link": "https://www.velora.example/images/cargo-1080.png",
+   "angle": "objection effort",
+   "allegation": ""
+  },
+  {
+   "adgroup_name": "livraison_velo_monte",
+   "title": "Livré prêt à rouler",
+   "copy": "Votre VAE arrive monté et réglé en atelier.",
+   "link": "https://www.velora.example/livraison/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=livraison_velo_monte",
+   "image_link": "https://www.velora.example/images/livraison-1080.png",
+   "angle": "bénéfice",
+   "allegation": "Livré monté, réglé, batterie chargée"
+  },
+  {
+   "adgroup_name": "livraison_velo_monte",
+   "title": "Pas de montage à faire",
+   "copy": "Le vélo arrive réglé, il suffit de l'enfourcher.",
+   "link": "https://www.velora.example/livraison/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=livraison_velo_monte",
+   "image_link": "https://www.velora.example/images/livraison-1080.png",
+   "angle": "objection",
+   "allegation": "Livré monté, réglé, batterie chargée"
+  },
+  {
+   "adgroup_name": "livraison_velo_monte",
+   "title": "Acheter un VAE en ligne",
+   "copy": "Livraison à domicile en France métropolitaine.",
+   "link": "https://www.velora.example/livraison/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=livraison_velo_monte",
+   "image_link": "https://www.velora.example/images/livraison-1080.png",
+   "angle": "situation",
+   "allegation": "Livraison à domicile en France métropolitaine"
+  },
+  {
+   "adgroup_name": "livraison_velo_monte",
+   "title": "Un vélo livré chez vous",
+   "copy": "Monté, réglé, avec sa batterie chargée.",
+   "link": "https://www.velora.example/livraison/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=livraison_velo_monte",
+   "image_link": "https://www.velora.example/images/livraison-1080.png",
+   "angle": "preuve",
+   "allegation": "Livré monté, réglé, batterie chargée"
+  },
+  {
+   "adgroup_name": "livraison_velo_monte",
+   "title": "Le vélo vient à vous",
+   "copy": "Commandez en ligne, recevez un vélo prêt.",
+   "link": "https://www.velora.example/livraison/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=livraison_velo_monte",
+   "image_link": "https://www.velora.example/images/livraison-1080.png",
+   "angle": "processus",
+   "allegation": "Livré monté, réglé, batterie chargée"
+  },
+  {
+   "adgroup_name": "livraison_velo_monte",
+   "title": "Un vélo, pas un carton",
+   "copy": "Livré monté : rien à assembler en arrivant.",
+   "link": "https://www.velora.example/livraison/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=livraison_velo_monte",
+   "image_link": "https://www.velora.example/images/livraison-1080.png",
+   "angle": "contraste",
+   "allegation": "Livré monté, réglé, batterie chargée"
+  },
+  {
+   "adgroup_name": "livraison_velo_monte",
+   "title": "Commander en confiance",
+   "copy": "Vélo contrôlé, garanti 12 mois, livré monté.",
+   "link": "https://www.velora.example/livraison/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=livraison_velo_monte",
+   "image_link": "https://www.velora.example/images/livraison-1080.png",
+   "angle": "preuve",
+   "allegation": "Garantie 12 mois sur chaque vélo"
+  },
+  {
+   "adgroup_name": "livraison_velo_monte",
+   "title": "Livré jusqu'à la porte",
+   "copy": "Livraison à domicile, vélo réglé en atelier.",
+   "link": "https://www.velora.example/livraison/?utm_source=chatgpt&utm_medium=ads&utm_campaign=velora_lancement_fr&utm_content=livraison_velo_monte",
+   "image_link": "https://www.velora.example/images/livraison-1080.png",
+   "angle": "bénéfice",
+   "allegation": "Livraison à domicile en France métropolitaine"
+  }
+ ]
+}

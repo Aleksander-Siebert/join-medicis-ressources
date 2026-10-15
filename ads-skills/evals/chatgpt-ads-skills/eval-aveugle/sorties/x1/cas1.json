@@ -1,0 +1,350 @@
+{
+ "campaigns": [
+  {
+   "campaign_name": "plantea_fr_hiver2026",
+   "budget_max": 30,
+   "budget_type": "Daily",
+   "launch_date": "2026-11-16",
+   "end_date": "2026-12-20",
+   "objective": "Clicks",
+   "conversion_event_setting_ids": [],
+   "target_countries": [
+    "FR"
+   ]
+  }
+ ],
+ "adgroups": [
+  {
+   "campaign_name": "plantea_fr_hiver2026",
+   "adgroup_name": "plantes_faciles_oubli_arrosage",
+   "max_bid": 3,
+   "context_hints": [
+    "plante d'intérieur pour qui oublie d'arroser",
+    "choisir sa première plante quand on débute",
+    "plante robuste pour un actif souvent absent"
+   ]
+  },
+  {
+   "campaign_name": "plantea_fr_hiver2026",
+   "adgroup_name": "plantes_piece_sombre",
+   "max_bid": 3,
+   "context_hints": [
+    "plante pour un appartement avec peu de lumière",
+    "plante pour une salle de bains sombre",
+    "plante pour un bureau orienté au nord"
+   ]
+  },
+  {
+   "campaign_name": "plantea_fr_hiver2026",
+   "adgroup_name": "plantes_chat_chien",
+   "max_bid": 3,
+   "context_hints": [
+    "plante d'intérieur non toxique pour les chats",
+    "choisir des plantes quand on a un chien",
+    "décorer un appartement avec un chat curieux"
+   ]
+  },
+  {
+   "campaign_name": "plantea_fr_hiver2026",
+   "adgroup_name": "offrir_une_plante",
+   "max_bid": 3,
+   "context_hints": [
+    "offrir une plante d'intérieur à un proche",
+    "idée de cadeau pour une crémaillère",
+    "cadeau de dernière minute à faire livrer"
+   ]
+  },
+  {
+   "campaign_name": "plantea_fr_hiver2026",
+   "adgroup_name": "plante_qui_deperit",
+   "max_bid": 3,
+   "context_hints": [
+    "plante d'intérieur qui perd ses feuilles",
+    "racheter une plante après en avoir perdu une",
+    "plante d'intérieur qui jaunit et dépérit"
+   ]
+  }
+ ],
+ "ads": [
+  {
+   "adgroup_name": "plantes_faciles_oubli_arrosage",
+   "title": "Vous oubliez d'arroser ?",
+   "copy": "Une collection pensée pour ceux qui oublient.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_faciles_oubli_arrosage",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_faciles_oubli_arrosage",
+   "title": "Pas la main verte ?",
+   "copy": "Commencez par nos plantes faciles, dès 19 €.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_faciles_oubli_arrosage",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_faciles_oubli_arrosage",
+   "title": "Première plante ?",
+   "copy": "Livrée en pot, arrosée, avec sa fiche illustrée.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_faciles_oubli_arrosage",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_faciles_oubli_arrosage",
+   "title": "Prête à poser chez vous",
+   "copy": "Elle arrive arrosée, dans son pot.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_faciles_oubli_arrosage",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_faciles_oubli_arrosage",
+   "title": "L'entretien, expliqué",
+   "copy": "Une fiche illustrée livrée avec chaque plante.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_faciles_oubli_arrosage",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_faciles_oubli_arrosage",
+   "title": "Jamais à la maison ?",
+   "copy": "Des plantes faciles pour un rythme chargé.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_faciles_oubli_arrosage",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_faciles_oubli_arrosage",
+   "title": "Abîmée à l'arrivée ?",
+   "copy": "Une photo sous 48 h et nous la remplaçons.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_faciles_oubli_arrosage",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_faciles_oubli_arrosage",
+   "title": "Du vert, version facile",
+   "copy": "Plantes faciles dès 19 €, livrées en pot.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_faciles_oubli_arrosage",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_piece_sombre",
+   "title": "Appartement sombre ?",
+   "copy": "Une sélection pour les pièces peu éclairées.",
+   "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_piece_sombre",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_piece_sombre",
+   "title": "Une plante côté nord",
+   "copy": "Notre sélection pour bureau orienté au nord.",
+   "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_piece_sombre",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_piece_sombre",
+   "title": "Salle de bains, couloir",
+   "copy": "Des plantes choisies pour les coins sombres.",
+   "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_piece_sombre",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_piece_sombre",
+   "title": "Un salon sans soleil ?",
+   "copy": "Voyez nos plantes pour pièces sombres.",
+   "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_piece_sombre",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_piece_sombre",
+   "title": "Du vert dans le couloir",
+   "copy": "Plantes pour pièces sombres, livrées en pot.",
+   "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_piece_sombre",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_piece_sombre",
+   "title": "Livrée prête à poser",
+   "copy": "En pot, arrosée, avec sa fiche d'entretien.",
+   "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_piece_sombre",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_piece_sombre",
+   "title": "Pas de plante au hasard",
+   "copy": "Choisissez parmi notre sélection peu de lumière.",
+   "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_piece_sombre",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_piece_sombre",
+   "title": "Des soins bien expliqués",
+   "copy": "Une fiche illustrée adaptée à chaque plante.",
+   "link": "https://www.plantea.example/peu-de-lumiere/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_piece_sombre",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_chat_chien",
+   "title": "Un chat qui mordille ?",
+   "copy": "Choisissez parmi nos plantes non toxiques.",
+   "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_chat_chien",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_chat_chien",
+   "title": "Vu par notre botaniste",
+   "copy": "Plantes non toxiques pour chats et chiens.",
+   "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_chat_chien",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_chat_chien",
+   "title": "Du vert, chat compris",
+   "copy": "Une sélection non toxique pour vos animaux.",
+   "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_chat_chien",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_chat_chien",
+   "title": "Un chien à la maison ?",
+   "copy": "Notre sélection de plantes non toxiques.",
+   "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_chat_chien",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_chat_chien",
+   "title": "Animaux et plantes",
+   "copy": "Sélection non toxique vérifiée par un botaniste.",
+   "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_chat_chien",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_chat_chien",
+   "title": "Chat, chien et plantes",
+   "copy": "Une sélection pour foyers avec chat ou chien.",
+   "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_chat_chien",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_chat_chien",
+   "title": "Livrée prête à poser",
+   "copy": "Plante en pot et sa fiche d'entretien illustrée.",
+   "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_chat_chien",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plantes_chat_chien",
+   "title": "Des plantes pour Félix",
+   "copy": "Non toxiques pour les chats et les chiens.",
+   "link": "https://www.plantea.example/animaux/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plantes_chat_chien",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "offrir_une_plante",
+   "title": "Offrez une plante",
+   "copy": "Message personnalisé, emballage sans plastique.",
+   "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=offrir_une_plante",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "offrir_une_plante",
+   "title": "Un cadeau qui pousse",
+   "copy": "En pot, avec sa fiche d'entretien illustrée.",
+   "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=offrir_une_plante",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "offrir_une_plante",
+   "title": "Pour une crémaillère",
+   "copy": "Une plante en pot et votre message personnalisé.",
+   "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=offrir_une_plante",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "offrir_une_plante",
+   "title": "Toujours pas de cadeau ?",
+   "copy": "Livré en 3 à 5 jours ouvrés en métropole.",
+   "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=offrir_une_plante",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "offrir_une_plante",
+   "title": "Un cadeau sans plastique",
+   "copy": "Une plante en pot, emballée sans plastique.",
+   "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=offrir_une_plante",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "offrir_une_plante",
+   "title": "Votre mot avec la plante",
+   "copy": "Ajoutez un message personnalisé à votre cadeau.",
+   "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=offrir_une_plante",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "offrir_une_plante",
+   "title": "Plusieurs à offrir ?",
+   "copy": "Frais de port offerts dès 49 € d'achat.",
+   "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=offrir_une_plante",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "offrir_une_plante",
+   "title": "Un cadeau vivant",
+   "copy": "Une plante d'intérieur prête à poser, en pot.",
+   "link": "https://www.plantea.example/cadeau/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=offrir_une_plante",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plante_qui_deperit",
+   "title": "Votre plante dépérit ?",
+   "copy": "Repartez avec une plante facile et sa fiche.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plante_qui_deperit",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plante_qui_deperit",
+   "title": "Elle perd ses feuilles ?",
+   "copy": "Chaque plante arrive avec sa fiche illustrée.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plante_qui_deperit",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plante_qui_deperit",
+   "title": "Repartir du bon pied",
+   "copy": "Une plante pour ceux qui oublient d'arroser.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plante_qui_deperit",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plante_qui_deperit",
+   "title": "Une plante plus facile",
+   "copy": "Livrée en pot, arrosée, prête à poser.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plante_qui_deperit",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plante_qui_deperit",
+   "title": "Encore une de perdue ?",
+   "copy": "Essayez nos plantes faciles, dès 19 €.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plante_qui_deperit",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plante_qui_deperit",
+   "title": "Moins d'entretien",
+   "copy": "Des plantes choisies pour les oublis d'arrosage.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plante_qui_deperit",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plante_qui_deperit",
+   "title": "L'entretien, illustré",
+   "copy": "Une fiche livrée avec chaque plante, en pot.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plante_qui_deperit",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  },
+  {
+   "adgroup_name": "plante_qui_deperit",
+   "title": "Arrivée abîmée ?",
+   "copy": "Envoyez une photo sous 48 h : on la remplace.",
+   "link": "https://www.plantea.example/plantes-faciles/?utm_source=chatgpt&utm_medium=ads&utm_campaign=plantea_fr_hiver2026&utm_content=plante_qui_deperit",
+   "image_link": "{{à compléter : URL de l'image carrée du groupe}}"
+  }
+ ]
+}
