@@ -1,8 +1,21 @@
 # Sources d'inspiration
 
-Ce pack est né d'une méthode : décortiquer les Skills SEO les plus utilisés,
-garder ce qui marche, puis le réécrire pour le français avec un workflow de
-rédaction éprouvé en secteur YMYL. Merci aux auteurs de ces projets :
+Les skills Join Médicis sont des créations 100% originales, conçues à la main.
+
+Nous sommes partis d'un constat simple, la majorité des prompts et agents disponibles aujourd'hui sont pensés pour le marché américain, restent trop généralistes et se cassent souvent les dents sur des secteurs exigeants (notamment les thématiques YMYL - Your Money or Your Life).
+
+Pour créer ce pack, nous n'avons pas fait de simple compilation. Notre processus repose sur la rétro-ingénierie :
+- Analyse de l'écosystème : Nous décortiquons la logique des meilleurs skills mondiaux.
+- Rétro-ingénierie : Nous isolons les mécaniques qui performent réellement (architecture des pipelines, boucles de qualité, logique de raisonnement, scripts, etc...).
+- Reconstruction & expertise : Nous recréons entièrement le skill en y injectant notre expérience de terrain, nos propres workflows et notre contexte métier.
+- Localisation experte : Nous calibrons chaque instruction pour les nuances de la langue française, les règles/réglementations locales et la rigueur de rédaction anti-hallucination indispensable aux différents secteurs.
+
+Le résultat ? Ce que ce pack vous apporte en exclusivité : un SEO pensé pour la France, une rédaction experte sans invention, des workflows d'optimisation (maillage, veille, rapports Search Console) pensés pour s'exécuter de manière autonome et des gardes-fous stricts contre les régressions.
+
+# Transparence & inspirations
+Bien que le code et les directives de chaque skill soient une création propre à Join Médicis, nous croyons en la culture open-source. Nos travaux de R&D s'appuient sur l'analyse et la compréhension d'excellents projets internationaux.
+
+Nous tenons à remercier et créditer les auteurs des projets suivants, qui ont nourri notre réflexion :
 
 - [claude-seo](https://github.com/AgriciDaniel/claude-seo), Daniel Agrici (MIT), dont seo-drift (auteur d'origine Dan Colta), seo-sxo (Florian Schmitz), seo-plan, seo-images et seo-technical
 - [marketingskills](https://github.com/coreyhaines31/marketingskills), Corey Haines (MIT)
