@@ -1,7 +1,7 @@
 ---
 name: ads-skills
 description: >-
-  Pack Ads en français, en un seul Skill : préparer une campagne ChatGPT Ads
+  Pack ChatGPT Ads en français, en un seul Skill : préparer une campagne ChatGPT Ads
   (OpenAI Ads) prête à importer. Entretien d'une question à la fois,
   allégations étayées, carte des intentions, 5 ad groups ou plus, context
   hints écrits comme des situations et testés sur des prompts simulés, 40 à
@@ -14,9 +14,9 @@ description: >-
   juridique.
 ---
 
-# Ads Skills (Join Médicis)
+# ChatGPT Ads (Join Médicis)
 
-Ce Skill regroupe les modules du pack Ads. Chaque module est un mode
+Ce Skill regroupe les modules du pack ChatGPT Ads. Chaque module est un mode
 d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 (références, scripts, modèle d'import, socle `commun/`) dans le même
 dossier.

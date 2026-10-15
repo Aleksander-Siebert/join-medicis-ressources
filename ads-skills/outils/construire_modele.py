@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""construire_modele.py : écrit le modèle d'import du pack Ads (Python 3, sans dépendance).
+"""construire_modele.py : écrit le modèle d'import du pack ChatGPT Ads (Python 3, sans dépendance).
 
 Le modèle de Join Médicis reprend ce qu'un fichier d'import ChatGPT Ads doit
 contenir pour être lu (3 onglets, noms de colonnes, ordre) et rien d'autre :
@@ -185,7 +185,7 @@ def construire(sortie=SORTIE, prefixe="", exemple=False, langue="fr"):
             '<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" '
             'xmlns:dc="http://purl.org/dc/elements/1.1/">'
             '<dc:title>Modèle d\'import ChatGPT Ads (Join Médicis)</dc:title>'
-            '<dc:creator>Join Médicis, pack Ads (MIT)</dc:creator></cp:coreProperties>'),
+            '<dc:creator>Join Médicis, pack ChatGPT Ads (MIT)</dc:creator></cp:coreProperties>'),
         "xl/workbook.xml": (
             f'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
             f'<{p}workbook xmlns{ns}="http://schemas.openxmlformats.org/spreadsheetml/2006/main" '

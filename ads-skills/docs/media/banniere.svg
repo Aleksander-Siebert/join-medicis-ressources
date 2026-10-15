@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-label="Ads, par Join Médicis">
-<title>Ads, par Join Médicis</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-label="ChatGPT Ads, par Join Médicis">
+<title>ChatGPT Ads, par Join Médicis</title>
 <defs><radialGradient id="lueur" cx="0.18" cy="0.1" r="0.9"><stop offset="0" stop-color="#1F5B43"/><stop offset="1" stop-color="#0E3F2D"/></radialGradient></defs>
 <rect width="1280" height="400" rx="20" fill="url(#lueur)"/>
 <rect x="18" y="18" width="1244" height="364" rx="10" fill="none" stroke="#B89253" stroke-opacity="0.55"/>
@@ -8,7 +8,7 @@
 <path d="M18 348 V372 Q18 382 28 382 H52" fill="none" stroke="#D4B681" stroke-width="2.5" stroke-linecap="round"/>
 <path d="M1262 348 V372 Q1262 382 1252 382 H1228" fill="none" stroke="#D4B681" stroke-width="2.5" stroke-linecap="round"/>
 <text x="72" y="104" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3.2" fill="#D4B681">JOIN MÉDICIS · PACK DE SKILLS</text>
-<text x="70" y="186" font-family="Georgia, 'Times New Roman', serif" font-size="76" fill="#FAF7F2">Ads</text>
+<text x="70" y="186" font-family="Georgia, 'Times New Roman', serif" font-size="76" fill="#FAF7F2">ChatGPT Ads</text>
 <text x="72" y="236" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="23" fill="#FAF7F2" fill-opacity="0.86">Des campagnes ChatGPT Ads ciblées par intention,</text>
 <text x="72" y="268" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="23" fill="#FAF7F2" fill-opacity="0.86">écrites juste, prêtes à importer.</text>
 <rect x="72" y="318" width="94" height="36" rx="18" fill="#FAF7F2" fill-opacity="0.1" stroke="#D4B681" stroke-opacity="0.6"/>
