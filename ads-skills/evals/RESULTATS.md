@@ -1,4 +1,4 @@
-# Résultats des évaluations : pack Ads
+# Résultats des évaluations : pack ChatGPT Ads
 
 ## Tests automatiques
 

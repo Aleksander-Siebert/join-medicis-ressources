@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/media/banniere.svg" width="100%" alt="Ads, par Join Médicis : des campagnes ChatGPT Ads ciblées par intention, écrites juste, prêtes à importer">
+<img src="docs/media/banniere.svg" width="100%" alt="ChatGPT Ads, par Join Médicis : des campagnes ChatGPT Ads ciblées par intention, écrites juste, prêtes à importer">
 
 <br>
 

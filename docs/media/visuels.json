@@ -18,7 +18,7 @@
     "SEO": "#B5552B",
     "GEO": "#6B3F7E",
     "Fondation": "#2D7259",
-    "Ads": "#1F6F7A"
+    "ChatGPT Ads": "#1F6F7A"
   },
   "icones": [
     {
@@ -44,7 +44,7 @@
     {
       "nom": "pack-ads",
       "glyphe": "cible",
-      "famille": "Ads"
+      "famille": "ChatGPT Ads"
     }
   ]
 }

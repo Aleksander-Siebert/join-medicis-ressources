@@ -1,4 +1,4 @@
-# Règles communes du pack Ads
+# Règles communes du pack ChatGPT Ads
 
 Ce fichier est le même dans chaque Skill du pack (`commun/regles.md`). Le
 SKILL.md qui t'a envoyé ici reste la consigne principale. Ces règles passent

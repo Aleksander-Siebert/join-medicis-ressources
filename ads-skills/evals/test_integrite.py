@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests d'intégrité du pack Ads : python3 evals/test_integrite.py
+"""Tests d'intégrité du pack ChatGPT Ads : python3 evals/test_integrite.py
 
 Vérifie ce qu'aucun test de script ne voit : frontmatter et description
 (1 024 caractères au plus, « Pas pour »), fichiers cités qui existent, socle

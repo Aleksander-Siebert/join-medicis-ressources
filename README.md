@@ -38,7 +38,7 @@ Retrouve des skills autour de LinkedIn, du SEO/GEO et prochainement : Paids, UX/
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-ads.svg" width="52" alt=""></td>
-<td><b><a href="ads-skills/">Ads Skills</a></b> · 1 Skill · v0.1<br>Préparer une campagne ChatGPT Ads : carte des intentions, ad groups, context hints écrits comme des situations, annonces dont chaque promesse a une source, fichier XLSX au format du modèle d'import. Rien n'est lancé à ta place.<br><sub><a href="ads-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
+<td><b><a href="ads-skills/">ChatGPT Ads</a></b> · 1 Skill · v0.1<br>Préparer une campagne ChatGPT Ads : carte des intentions, ad groups, context hints écrits comme des situations, annonces dont chaque promesse a une source, fichier XLSX au format du modèle d'import. Rien n'est lancé à ta place.<br><sub><a href="ads-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-fondation.svg" width="52" alt=""></td>

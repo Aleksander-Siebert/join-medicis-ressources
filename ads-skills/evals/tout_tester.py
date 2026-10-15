@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lance tous les tests du pack Ads : python3 evals/tout_tester.py
+"""Lance tous les tests du pack ChatGPT Ads : python3 evals/tout_tester.py
 
 Deux familles : les suites unittest (evals/<dossier>/test_*.py) et les tests
 d'intégrité. Code 0 si tout passe.

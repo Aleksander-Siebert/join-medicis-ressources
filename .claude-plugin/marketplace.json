@@ -30,7 +30,7 @@
     },
     {
       "name": "ads-skills",
-      "description": "Un Skill en français pour préparer une campagne ChatGPT Ads : intentions, ad groups, context hints, annonces contrôlées par script et fichier d'import XLSX.",
+      "description": "ChatGPT Ads : un pack en français pour préparer des campagnes ChatGPT Ads, de l'éligibilité au fichier d'import XLSX contrôlé par script.",
       "source": "./ads-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/ads-skills"
