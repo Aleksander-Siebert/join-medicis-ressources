@@ -4,7 +4,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", "..", "skills", "seo-human"))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "skills", "seo-human", "scripts"))
 
 from humanize import humanize, load_lexicon  # noqa: E402
 from detect import run  # noqa: E402
@@ -22,9 +22,20 @@ def test_garde_le_markdown_d_un_article():
     assert "**Important :**" in CLEAN
 
 
-def test_le_profil_linkedin_retire_toujours_le_markdown():
-    out = humanize(SRC, LEX)[0]
+def test_le_profil_court_retire_le_markdown():
+    out = humanize(SRC, LEX, profil="court")[0]
     assert "## " not in out and "**" not in out
+
+
+def test_le_profil_article_est_le_defaut():
+    assert humanize(SRC, LEX)[0].startswith("# Assurance santé expatrié")
+
+
+def test_bloc_de_code_intact():
+    texte = "## Exemple\n\nVoici la balise :\n\n```html\n<a href=\"x\">Lien — test</a> 15 %\n```\n\nFin du texte."
+    out, _, flags = humanize(texte, LEX)
+    assert "<a href=\"x\">Lien — test</a> 15 %" in out
+    assert not any("Lien" in f["extrait"] for f in flags)
 
 
 def test_tiret_cadratin_et_pourcentage():
@@ -36,9 +47,13 @@ def test_remplacement_de_site():
 
 
 def test_signalements_propres_aux_articles():
-    for fid in ("section-conclusion", "intro-meta", "passif-agent", "passif-futur"):
+    for fid in ("section-conclusion", "intro-meta"):
         assert fid in IDS, fid
-    assert "modal" in FAM and "regle-site" in FAM and "copule" in FAM
+    assert "voix-passive" in FAM
+    assert "modal" in FAM and "regle-site" in FAM
+    # La copule évitée (« constitue », « représente ») relève du niveau esthétique (moteur v2).
+    esth = {f["famille"] for f in humanize(SRC, LEX, niveau="esthetique", **{k: v for k, v in OPTS.items()})[2]}
+    assert "copule" in esth
 
 
 def test_gras_en_exces():
@@ -51,12 +66,12 @@ def test_modaux_seulement_en_style_affirmatif():
 
 
 def test_markdown_non_penalise_dans_l_empreinte():
-    res_article = run(CLEAN, LEX, "article")[0]["EMPREINTE"][1]
+    res_article = run(CLEAN, LEX, profil="article")[0]["EMPREINTE"][1]
     assert "0 gras" in res_article, res_article
 
 
 def test_article_ia_signale():
-    _, score, verdict = run(SRC, LEX, "article", True)
+    _, score, verdict, _ = run(SRC, LEX, profil="article", affirmatif=True)
     assert verdict == "SIGNALÉ", (score, verdict)
 
 

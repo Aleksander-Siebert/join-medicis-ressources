@@ -1,186 +1,162 @@
 ---
 name: seo-human
 description: >-
-  Humaniseur français pour les articles et pages SEO (et les textes courts) :
-  retire les marques d'écriture IA sans casser la typographie française ni le
-  Markdown d'un article, applique les règles du site (style affirmatif,
-  remplacements, mots interdits), signale voix passive, sections
-  « Conclusion », intros méta, gras en excès, et note le texte sur cinq
-  signaux. Utilise-le pour « humanise cet article », « ça fait IA ? », après
-  chaque rédaction de /seo-write, ou avant de publier.
+  Humaniseur français pour les articles et pages SEO, en 4 passes : nettoie
+  les marques d'écriture IA (tirets cadratins, invisibles, « Dans cet
+  article », « Ce n'est pas X, c'est Y », sections « Conclusion », staccato,
+  sincérité annoncée, lexique compté par paragraphe) sans casser le Markdown,
+  le code ni la typographie française ; applique les règles du site (style
+  affirmatif, remplacements, mots interdits) ; vérifie qu'aucun fait n'a été
+  ajouté ni perdu et garde contre la sur-correction. 3 niveaux, note sur 6
+  signaux calculée sur la prose seule. Utilise-le pour « humanise cet
+  article », « ça fait IA ? », après chaque rédaction de /seo-write et avant
+  de publier. Pas pour rédiger un article (/seo-write), ni pour promettre
+  qu'un texte passera un détecteur.
 ---
 
 # seo-human
 
-Le filtre par lequel passe tout ce que le pack écrit. Il fait deux choses :
-nettoyer ce qu'une machine peut nettoyer sans risque, et montrer précisément ce
-qu'un humain doit réécrire.
+Le filtre par lequel passe tout ce que le pack écrit. Il fait trois choses :
+nettoyer ce qu'une machine peut nettoyer sans risque, montrer précisément ce
+qu'un humain doit réécrire, et vérifier que la réécriture n'a rien inventé.
 
-Les marqueurs viennent de la page d'aide de Wikipédia « Identifier l'usage
-d'une IA générative » et de ses déclinaisons francophones. Ils sont détaillés,
-avec des exemples avant/après, dans `references/marqueurs-ia-fr.md`.
+C'est le **même moteur** que `/linkedin-human` (version 2 des packs,
+octobre 2026), avec un profil `article` par défaut : `references/article.md`.
 
-## Deux profils
+**À lire avant de commencer :** `commun/regles.md` (règles du pack) et
+`site-context.md` s'il existe (règles maison : entité, remplacements, mots
+interdits, style affirmatif).
 
-| Profil | Pour | Ce qui change |
+## La doctrine, en une phrase
+
+Un modèle fait le choix qui convient au plus grand nombre ; un humain choisit
+pour **un** lecteur et **un** sujet. On corrige les choix par défaut (mots
+passe-partout, mises en scène, structures toutes faites), pas les signes
+isolés, et on n'ajoute jamais de faux humain.
+
+| Version 1 du Skill | Version 2 | Pourquoi |
 |---|---|---|
-| `--profil article` | articles, pages, briefs | Markdown gardé (titres, gras modéré) ; en plus : sections « Conclusion »/« Défis », intro « Dans cet article », titre répété, voix passive, gras en excès |
-| `--profil linkedin` (défaut) | posts, commentaires, messages | Markdown retiré (LinkedIn ne l'affiche pas) |
+| marqueurs comptés mot par mot | comptés **par paragraphe** : 3 = réécrire, 2 = remplacer le plus faible, 1 faible = laisser | les lecteurs repèrent les grappes |
+| récompenser la variation de longueur | signaler le paragraphe plat **et** la variation fabriquée (staccato) | l'alternance forcée est le premier tic des textes « humanisés » |
+| rien sur les faits | **vérification de fidélité** (`fidelite.py`) | une réécriture qui ajoute un chiffre invente |
+| aucune garde | **garde anti-sur-correction** | un texte trop « nettoyé » a sa propre empreinte |
+| titres et gras comptés dans la note | note calculée sur la **prose seule** | un article structuré n'est pas un texte d'IA |
 
-Options tirées de `site-context.md` :
+## Les trois niveaux
 
-- `--affirmatif` : signale les verbes modaux (style affirmatif demandé) ;
-- `--remplacer "chez Marque=>à Marque"` : remplacement obligatoire (répétable) ;
-- `--interdire "mot"` : mot interdit à signaler (répétable).
+| Niveau | Ce qu'il traite | Quand |
+|---|---|---|
+| **forensique** | fuites de modèle (« En tant qu'IA », `oaicite`, « Voici une version révisée »), gabarits non remplis, invisibles, typographie | toujours |
+| **strict** (défaut) | forensique + lexique par densité, verbes vides, calques, révélations, parallélismes, staccato, sincérité annoncée, triades creuses, contrôles d'article | tout texte publié |
+| **esthétique** | strict + copule évitée (« constitue », « représente »), voix passive sans agent, vocabulaire en déclin | sur demande |
+
+Conflit entre la voix du site et une règle : forensique, on corrige
+toujours ; strict, on **demande** ; esthétique, on laisse. Détail :
+`references/niveaux.md`.
+
+## Avec exécution de code
+
+Scripts sans dépendance, dans `scripts/`. Rien n'est envoyé.
 
 ```bash
-python3 humanize.py article.md --profil article --affirmatif \
-  --remplacer "chez Assurly=>à Assurly" --interdire cash -o propre.md --rapport
-python3 detect.py article.md propre.md --profil article --affirmatif
+python3 scripts/humanize.py article.md -o propre.md --rapport \
+  --affirmatif --remplacer "chez Assurly=>à Assurly" --interdire cash
+python3 scripts/detect.py article.md propre.md --affirmatif     # 6 signaux, densité, garde anti-sur-correction
+python3 scripts/fidelite.py article.md propre.md               # faits ajoutés (bloquant) ou perdus
 ```
 
-## Avec exécution de code (Claude Code, claude.ai avec l'option activée)
+Options : `--profil article|court` (court : texte sans Markdown, pour un
+extrait ou une publication sociale), `--niveau forensique|strict|esthetique`,
+`--json`. `tics-ia.json` est fait pour être modifié : si un mot fait partie
+de la voix du site, retire-le du fichier plutôt que de le combattre.
 
-Deux scripts sans dépendance, qui tournent en local. Rien n'est envoyé.
+## Sans exécution de code
 
-```bash
-python3 humanize.py brouillon.txt -o propre.txt --rapport   # nettoie + liste ce qui reste à réécrire
-python3 detect.py brouillon.txt propre.txt                  # note avant / après, cinq contrôles
-```
+Applique la même méthode à la main avec `references/marqueurs-ia-fr.md`,
+`references/passes.md` et `references/article.md`. Donne la note de chaque
+signal en expliquant d'où elle vient, et dis que c'est une estimation, pas
+un calcul. Fais la vérification de fidélité en listant les chiffres, dates
+et noms avant et après.
 
-Les deux lisent `tics-ia.json` : 25 remplacements sûrs, 66 tics signalés,
-13 structures. Le fichier est fait pour être modifié : si un mot fait partie
-de la voix de l'utilisateur, retire-le du fichier plutôt que de le combattre.
+## Les quatre passes
 
-## Sans exécution de code (ChatGPT, Gemini, Mistral, claude.ai sans l'option)
+Détail, exemples et cas limites : `references/passes.md`.
 
-Applique la même chose à la main : lis `references/marqueurs-ia-fr.md`,
-passe le texte au crible famille par famille, puis donne une note sur 100
-pour chacun des cinq contrôles ci-dessous en expliquant d'où elle vient.
-Dis clairement que la note est une estimation, pas un calcul.
+1. **NETTOYER.** `humanize.py` corrige seul ce qui ne peut pas casser le
+   sens (invisibles, tirets cadratins supprimés ou remplacés par une
+   virgule, « 15% », guillemets « », espaces avant `: ; ! ?`, majuscules
+   accentuées, formules sûres, remplacements du site) et laisse intacts
+   titres, gras, code et URL. Puis il **signale** le reste : réécris par
+   paragraphe selon la densité. Un marqueur fort (révélation, parallélisme,
+   staccato, sincérité, intro méta, section « Conclusion ») se corrige dès
+   la première fois.
+2. **RYTHME.** Corrige seulement ce qui est plat ou mis en scène : relie une
+   phrase à sa voisine dans un paragraphe plat ; réécris le staccato en
+   phrase. Jamais d'alternance long/court mécanique.
+3. **AJOUTER (seulement du vrai).** Un passage vague reçoit un chiffre avec
+   son référent, un nom, un exemple daté, **venant de `reserve.md`, de
+   `site-context.md` ou de l'utilisateur**. Sinon `{{à compléter : …}}`
+   dans la version enrichie.
+4. **CONTRÔLER.** `detect.py avant après` (garde anti-sur-correction) puis
+   `fidelite.py avant après` : un fait ajouté est bloquant, un fait perdu
+   est une erreur sauf règle qui l'impose.
 
-## Ce qui est corrigé automatiquement
+## Les six signaux (detect.py)
 
-**1. Caractères invisibles.** Espaces sans chasse, joints, traits d'union
-conditionnels, BOM, marques de direction, caractères de balise Unicode et
-sélecteurs de variante isolés (deux procédés pour cacher du texte dans un
-autre ; ceux des émojis sont gardés). Les
-espaces insécables et fines deviennent des espaces normales **sans être
-supprimées** : en français, l'espace avant `; : ! ?` reste. Avec
-`--insecables`, le script pose au contraire de vraies insécables, pour une
-typographie soignée.
-
-Les filigranes statistiques (du type SynthID) se trouvent dans le choix des
-mots, pas dans les caractères : aucun outil ne les détecte ni ne les retire de
-façon fiable, et le Skill ne le promet pas. Il sert à corriger vos propres
-textes, pas à masquer l'origine d'un contenu qui n'est pas le vôtre.
-
-**2. Typographie française.**
-
-| Avant | Après |
-|---|---|
-| `morte — elle a changé` | `morte, elle a changé` (jamais de point-virgule) |
-| `— Premier point` · `une idée —` | `Premier point` · `une idée` (tiret supprimé) |
-| `15 %` (espace avant %) | `15%` |
-| `“on signe”` | `« on signe »` |
-| `Résultat: 212 rendez-vous!` | `Résultat : 212 rendez-vous !` |
-| `Etat des lieux` · `A propos` | `État des lieux` · `À propos` |
-| `**Important**` | `Important` en profil linkedin ; gardé en profil article |
-| `l'équipe` et `l’équipe` mélangés | une seule forme, la majoritaire |
-
-Les heures (`14:30`), les URL et les émojis composés (👨‍💻) ne sont pas touchés.
-
-**3. Formules sûres.** Seulement celles qui ne peuvent casser ni l'accord ni le
-sens : « il est important de noter que » supprimé (et la phrase reprend sa
-majuscule), « afin de » → « pour », « au sein de l'équipe » → « dans
-l'équipe », « une véritable révolution » → « une révolution », « fait du
-sens » → « a du sens »…
-
-## Ce qui est signalé, jamais réécrit par le script
-
-Changer la forme d'une phrase demande du jugement. Le rapport donne la ligne,
-l'extrait et une piste :
-
-- **Parallélismes** : « Ce n'est pas X, c'est Y », « Non seulement… mais »,
-  « Bien plus qu'un simple… », « Le vrai sujet n'est pas… »
-- **Ponts de révélation** : « Le résultat ? », « Le secret : », « Voici
-  pourquoi 👇 »
-- **Lexique IA** : crucial, essentiel, incontournable, levier, holistique,
-  « plonger dans », « dans un monde en constante évolution »…
-- **Verbes vides et faux soutenu** : permettre de, optimiser, mettre en place,
-  effectuer, procéder à, s'avérer, constituer, représenter
-- **Connecteurs en pluie** : Par ailleurs, De plus, En outre, Néanmoins…
-- **Participes de fin de phrase** : « …, témoignant de notre engagement »
-- **Anglicismes** : adresser un problème, impacter, en termes de
-- **Artefacts de chatbot** : « Bien sûr ! », « N'hésitez pas à… »,
-  « Excellente question »
-- **Tics LinkedIn** : « Et si je vous disais », « Qu'en pensez-vous ? »,
-  appâts à engagement, mur de hashtags, émojis en début de ligne, listes
-  « Titre : texte »
-- **Rythme** : anaphores, triades en série, phrases toutes de même longueur
-
-C'est ton travail : réécris chaque passage signalé en gardant le sens, puis
-relance `detect.py`. C'est cette étape qui fait passer de « À REVOIR » à
-« OK », et aucun script ne peut la faire.
-
-## Les cinq contrôles
-
-| Contrôle | Ce qu'il mesure | Ce qui fait « machine » |
+| Signal | Mesure | Ce qui fait « machine » |
 |---|---|---|
-| RYTHME | variation de longueur des phrases | toutes les phrases de même longueur |
-| PRÉCISION | chiffres, noms propres, montants pour 100 mots | des abstractions, aucun chiffre |
-| TICS | densité du lexique pour 100 mots | vocabulaire de plaquette |
-| EMPREINTE | invisibles, tirets cadratins, guillemets anglais, gras, pour 1 000 caractères | une typographie de machine |
-| VOIX | pronoms, marques d'oral (« on », « ça », « j' »), structures types | pas de « je », des révélations mises en scène |
+| FORENSIQUE | fuites de modèle | une seule : verdict SIGNALÉ |
+| DENSITÉ | marqueurs par paragraphe | un paragraphe à 3 marqueurs, un marqueur fort |
+| RYTHME | paragraphes plats, staccato, fragments | du plat mécanique ou de la variation fabriquée |
+| CONCRET | chiffres, noms, montants pour 100 mots | des abstractions |
+| EMPREINTE | invisibles, tirets cadratins, guillemets anglais | une typographie de machine |
+| VOIX | pronoms, oral, structures types | des mises en scène |
 
-Le verdict pèse la moyenne à 60% et le contrôle le plus faible à 40%, parce
-qu'un détecteur n'a besoin que d'un signal. **OK** : 70 et plus sans contrôle
-sous 55. **À REVOIR** : 50 et plus. **SIGNALÉ** en dessous.
+En profil article, titres, code et gras sortent du calcul. Verdict : moyenne
+à 60% et signal le plus faible à 40%. **OK** : 70 et plus sans signal sous
+55. **À REVOIR** : 50 et plus. **SIGNALÉ** sinon, ou dès une fuite
+forensique. N'allonge jamais un texte pour faire monter la note.
 
-Sur un texte court (moins de 25 mots ou de 4 phrases : note d'invitation,
-commentaire), RYTHME, PRÉCISION et VOIX sont marqués « n/a » et sortent du
-verdict. N'allonge jamais un texte pour faire monter la note : on écrit pour
-le lecteur, pas pour le script.
+## Modes de sortie
+
+| Mode | Quand | Ce que tu rends |
+|---|---|---|
+| **collé** (défaut) | l'utilisateur colle un article | le texte final, puis la note avant/après, les tics laissés et pourquoi, la ligne de fidélité |
+| **fichier** | un fichier `.md` à corriger | le fichier corrigé, Markdown, code, URL et noms intacts |
+| **intégré** | appelé par `/seo-write` ou `/seo-article` | seulement le texte final ; l'autre Skill affiche la note |
+
+```
+{{texte final, publiable tel quel}}
+
+HUMANISEUR · profil article · niveau strict · {{date}}
+Avant {{note}} ({{verdict}}) → après {{note}} ({{verdict}})
+Corrigé : {{n}} automatiques · {{n}} paragraphes réécrits
+Laissé volontairement : {{tic et raison, ou « rien »}}
+Fidélité : {{FIDÈLE | faits ajoutés ou perdus listés}}
+```
 
 ## Dis-le honnêtement
 
-Ce sont cinq heuristiques locales, construites sur les signaux qu'utilisent
-les détecteurs publics et les contributeurs de Wikipédia. Ce ne sont ni
-GPTZero, ni Originality, ni Compilatio, et elles ne promettent pas leurs
-verdicts. Corriger ce qu'elles mesurent fait en général bouger ces outils,
-parce qu'ils regardent la même chose. C'est tout ce qu'on peut affirmer. Ne
-dis jamais à l'utilisateur que son texte est « indétectable ».
+Ce sont des heuristiques locales, construites sur les signaux que repèrent
+les lecteurs et les contributeurs de Wikipédia. Ce ne sont ni GPTZero, ni
+Pangram, ni Compilatio, et aucune réécriture ne garantit leur verdict. Ne dis
+jamais qu'un texte est « indétectable ». Google ne pénalise pas un texte
+parce qu'il est écrit avec une IA, mais parce qu'il n'apporte rien
+(`commun/preuves.md`) : l'humaniseur corrige la forme, la valeur vient du
+brief et des faits.
 
-Et rappelle la règle de Wikipédia elle-même : ces signes orientent, ils ne
-prouvent rien. Un humain peut écrire « crucial ». Ce qui trahit l'IA, c'est
-l'accumulation et le vide derrière.
+## Erreurs et cas limites
 
-## Ordre des opérations
-
-1. `humanize.py brouillon.txt -o propre.txt --rapport`
-2. Réécris chaque passage signalé, toi-même, en gardant le sens et la voix
-   décrite dans `site-context.md`.
-3. `detect.py brouillon.txt propre.txt` pour montrer l'écart.
-4. Si le verdict n'est pas OK, corrige le contrôle le plus faible et relance.
-   Deux tours, c'est normal. Cinq tours veulent dire que le brouillon a été
-   écrit par formule : il faut un autre brouillon, pas un sixième tour.
-5. Montre le texte propre **et** la note. Jamais la note seule.
+| Situation | Que faire |
+|---|---|
+| « C'est mon texte, publie-le tel quel » | passe quand même le niveau forensique ; pour le reste, propose et laisse décider |
+| Le site emploie lui-même un tic | `apprentissages.md` et `site-context.md` priment sur la règle de style, jamais sur le forensique ni sur la règle du tiret cadratin |
+| Citation, nom de produit, titre d'œuvre, mot-clé validé dans le brief | ne pas toucher |
+| Bloc de code, tableau de données | intact ; seul le texte autour est traité |
+| Texte anglais | les scripts sont faits pour le français : signale-le et applique la méthode à la main |
 
 ## Fin de tâche
 
 Si l'utilisateur a corrigé à la main un mot que le lexique laissait passer,
 ou rétabli un mot que le lexique retirait, propose d'ajouter la règle à
-`~/.claude/seo/apprentissages.md` (ou à `tics-ia.json`). N'écris rien
-sans son accord.
-
-## Règles du pack
-
-- Lis `site-context.md` et `apprentissages.md` s'ils existent (ou leur
-  contenu dans le Projet). `apprentissages.md` passe avant les règles
-  générales : c'est ce qui marche pour ce site.
-- N'invente aucun chiffre, nom, client ou résultat. S'il manque, écris
-  `{{à compléter}}` et signale-le.
-- Ce Skill est le filtre des autres : il change la forme, jamais les faits. Il
-  n'ajoute un fait que s'il vient de l'utilisateur (`site-context.md`, la conversation) ; sinon il laisse `{{à compléter}}` à la place de la phrase
-  générique.
-- Rien n'est publié ni envoyé par le Skill. L'utilisateur copie et colle.
+`apprentissages.md` (ou à `tics-ia.json`). N'écris rien sans son accord.
