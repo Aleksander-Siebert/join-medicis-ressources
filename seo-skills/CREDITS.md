@@ -1,4 +1,4 @@
-# Sources d'inspiration
+# Notre méthodologie
 
 Les skills Join Médicis sont des créations 100% originales, conçues à la main.
 
