@@ -1,0 +1,39 @@
+{
+  "noms": {
+    "marque": "Assurly",
+    "lignes": [
+      {
+        "source": "title",
+        "brut": "Assurly, courtier en ligne",
+        "segments": [
+          "Assurly, courtier en ligne"
+        ],
+        "etat": "marque",
+        "lu": "Assurly, courtier en ligne"
+      },
+      {
+        "source": "H1",
+        "brut": "Le courtier des indépendants",
+        "segments": [
+          "Le courtier des indépendants"
+        ],
+        "etat": "absente",
+        "lu": "Le courtier des indépendants"
+      }
+    ],
+    "variantes": []
+  },
+  "organisation": {
+    "orgs": 0,
+    "types": [],
+    "manque": [],
+    "profils": [],
+    "alertes": [
+      "aucun bloc Organization (ni sous-type) : l'entité n'est pas décrite"
+    ]
+  },
+  "visible": [],
+  "wikidata": null
+}
+
+--- stderr ---

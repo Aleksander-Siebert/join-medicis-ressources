@@ -1,0 +1,197 @@
+{
+  "domain": "assurly.example",
+  "runs_scored": 1,
+  "unfilled_rows": 0,
+  "skipped_rows": [],
+  "engines": {
+    "chatgpt": {
+      "runs": 1,
+      "cited_runs": 0,
+      "citation_rate": 0.0,
+      "ci95": [
+        0.0,
+        0.793
+      ],
+      "verdict": "too few runs",
+      "mention_rate": 1.0
+    }
+  },
+  "share_of_voice": {
+    "chatgpt": null
+  },
+  "top_cited_domains": {
+    "chatgpt": []
+  },
+  "prompts": [
+    {
+      "engine": "chatgpt",
+      "prompt": "Which health insurance for a freelancer?",
+      "runs": 1,
+      "cited_runs": 0,
+      "citation_rate": 0.0,
+      "ci95": [
+        0.0,
+        0.793
+      ],
+      "verdict": "too few runs",
+      "mention_rate": 1.0
+    }
+  ],
+  "issues": [
+    "ℹ️ 1 prompt/engine pair(s) have fewer than 5 runs and get no verdict",
+    {
+      "severity": "medium",
+      "code": "brand_fact.free-plan",
+      "finding": "AI answers state Assurly's free plan wrongly in 1 of 1 answers that state it (chatgpt 1/1).",
+      "evidence": "chatgpt, \"Which health insurance for a freelancer?\" run 1: \"Assurly n'a pas de formule gratuite.\"",
+      "impact": "Buyers who ask an AI assistant get a wrong fact about the brand, and engines repeat what their sources say.",
+      "fix": "State the fact plainly and early on grille tarifaire (one sentence, e.g. \"Assurly does not have a free plan\"), then correct your third-party profiles (Wikipedia, Wikidata, Crunchbase, LinkedIn, G2). Re-run the same prompts in a month.",
+      "confidence": "Likely",
+      "falsifiability": "Wrong if the quoted sentence is about another company.",
+      "leading_indicator": "Wrong-answer rate for free plan on the same prompts, one month after the fix.",
+      "lane": "Human"
+    }
+  ],
+  "limits": [
+    "Every run must be a fresh session (logged out or history off), with location and search mode noted. Personalised answers are not comparable.",
+    "Rates describe the prompts sampled, not every query. Write prompts the way users ask, across intents, and keep the set fixed between measurements.",
+    "The 95% interval is the margin of error of this sample. Engines or months whose intervals overlap show no demonstrated difference."
+  ],
+  "error": null,
+  "brand_facts": {
+    "brand": "Assurly",
+    "answers_recorded": 1,
+    "answers_naming_brand": 1,
+    "facts": [
+      {
+        "field": "founding year",
+        "type": "year",
+        "official": 2019,
+        "source": "mentions légales",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "pricing",
+        "type": "money",
+        "official": [
+          39
+        ],
+        "source": "grille tarifaire",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "free plan",
+        "type": "claim",
+        "official": false,
+        "source": "grille tarifaire",
+        "stated_in": 1,
+        "correct": 0,
+        "wrong": 1,
+        "wrong_rate": 1.0,
+        "wrong_ci95": [
+          0.2065493117918027,
+          1.0
+        ],
+        "by_engine": {
+          "chatgpt": {
+            "stated": 1,
+            "wrong": 1
+          }
+        },
+        "wrong_examples": [
+          {
+            "engine": "chatgpt",
+            "prompt": "Which health insurance for a freelancer?",
+            "run": "1",
+            "sentence": "Assurly n'a pas de formule gratuite.",
+            "stated": "formule gratuite"
+          }
+        ]
+      },
+      {
+        "field": "false claim: covers pets",
+        "type": "claim",
+        "official": false,
+        "source": "conditions",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "false claim: assure aussi les animaux",
+        "type": "claim",
+        "official": false,
+        "source": "conditions",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "false claim: first month free",
+        "type": "claim",
+        "official": false,
+        "source": "offre terminée",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "false claim: premier mois offert",
+        "type": "claim",
+        "official": false,
+        "source": "offre terminée",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      }
+    ],
+    "issues": [
+      {
+        "severity": "medium",
+        "code": "brand_fact.free-plan",
+        "finding": "AI answers state Assurly's free plan wrongly in 1 of 1 answers that state it (chatgpt 1/1).",
+        "evidence": "chatgpt, \"Which health insurance for a freelancer?\" run 1: \"Assurly n'a pas de formule gratuite.\"",
+        "impact": "Buyers who ask an AI assistant get a wrong fact about the brand, and engines repeat what their sources say.",
+        "fix": "State the fact plainly and early on grille tarifaire (one sentence, e.g. \"Assurly does not have a free plan\"), then correct your third-party profiles (Wikipedia, Wikidata, Crunchbase, LinkedIn, G2). Re-run the same prompts in a month.",
+        "confidence": "Likely",
+        "falsifiability": "Wrong if the quoted sentence is about another company.",
+        "leading_indicator": "Wrong-answer rate for free plan on the same prompts, one month after the fix.",
+        "lane": "Human"
+      }
+    ],
+    "limits": [
+      "Only sentences that name the brand are read; a fact stated through a pronoun counts as not stated.",
+      "A price differs from the official list when the answer quotes an old or regional plan; money findings are hypotheses until read.",
+      "A fact with context terms is judged only where the sentence or the prompt uses one; a segment the answer never names is not checked.",
+      "Answers without an answer column are skipped: paste the whole answer text to have it checked."
+    ]
+  }
+}

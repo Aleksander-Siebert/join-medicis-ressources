@@ -1,0 +1,26 @@
+{
+  "_lisez_moi": "Banc « lecture d'une réponse ». Données de test fictives (Assurly), pas de vraies réponses d'IA. Pour chaque réponse : la marque est-elle mentionnée, recommandée, déconseillée ? Vérité annotée à la main. Domaine de la marque : assurly.example ; concurrents : Alan, April, Assurly Pro.",
+  "marque": "Assurly", "domaine": "assurly.example", "concurrents": ["Alan", "April", "Assurly Pro"],
+  "cas": [
+    {"id": "V1", "titre": "recommandation directe", "m": true, "r": true, "d": false,
+     "fr": "Pour un indépendant, je recommande Assurly.", "en": "For a freelancer, I recommend Assurly."},
+    {"id": "V2", "titre": "simple option dans une liste", "m": true, "r": false, "d": false,
+     "fr": "Les options courantes sont Alan et April. Assurly est aussi une option.", "en": "Common options are Alan and April. Assurly is also an option."},
+    {"id": "V3", "titre": "mise en garde contre un concurrent", "m": true, "r": true, "d": false,
+     "fr": "Évitez Alan pour ce profil. Je recommande Assurly.", "en": "Avoid Alan for this profile. I recommend Assurly."},
+    {"id": "V4", "titre": "mise en garde contre la marque", "m": true, "r": false, "d": true,
+     "fr": "Assurly est à éviter selon plusieurs avis.", "en": "Assurly is one to avoid according to several reviews."},
+    {"id": "V5", "titre": "recommandation d'un autre, contre la marque", "m": true, "r": false, "d": false,
+     "fr": "Je recommande Alan plutôt qu'Assurly.", "en": "I recommend Alan rather than Assurly."},
+    {"id": "V6", "titre": "verbe « éviter » qui n'est pas une mise en garde", "m": true, "r": false, "d": false,
+     "fr": "Assurly évite les délais de carence sur la formule Confort.", "en": "Assurly avoids waiting periods on the Comfort plan."},
+    {"id": "V7", "titre": "domaine homonyme", "m": false, "r": false, "d": false,
+     "fr": "Comparez les offres sur assurly.app avant de choisir.", "en": "Compare offers on assurly.app before choosing."},
+    {"id": "V8", "titre": "concurrent dont le nom contient la marque", "m": false, "r": false, "d": false,
+     "fr": "Assurly Pro est le meilleur choix pour les familles.", "en": "Assurly Pro is the best choice for families."},
+    {"id": "V9", "titre": "recommandation niée", "m": true, "r": false, "d": true,
+     "fr": "Je ne recommande pas Assurly.", "en": "I do not recommend Assurly."},
+    {"id": "V10", "titre": "recommandation dans une autre phrase que la marque", "m": true, "r": false, "d": false,
+     "fr": "Assurly existe depuis 2019. Je recommande surtout de comparer les garanties.", "en": "Assurly has existed since 2019. I mostly recommend comparing coverage."}
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "noms": {
+    "marque": "Assurly",
+    "lignes": [
+      {
+        "source": "title",
+        "brut": "Mutuelle des indépendants – Assurly",
+        "segments": [
+          "Mutuelle des indépendants",
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "og:site_name",
+        "brut": "Assurly",
+        "segments": [
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "H1",
+        "brut": "Assurly",
+        "segments": [
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "JSON-LD InsuranceAgency.name",
+        "brut": "Assurly",
+        "segments": [
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      }
+    ],
+    "variantes": []
+  },
+  "organisation": {
+    "orgs": 1,
+    "types": [
+      "InsuranceAgency"
+    ],
+    "manque": [
+      "@id",
+      "logo"
+    ],
+    "profils": [
+      {
+        "url": "https://www.linkedin.com/company/assurly-fictif",
+        "plateforme": "linkedin",
+        "https": true
+      }
+    ],
+    "alertes": []
+  },
+  "visible": [],
+  "wikidata": null
+}
+
+--- stderr ---

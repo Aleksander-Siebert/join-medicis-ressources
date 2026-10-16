@@ -1,0 +1,8 @@
+id;mots;valeur;unite;statut;source;gravite
+F1;formule essentielle|essentielle|essential plan|essential;39;€;LIVE;grille tarifaire, sept. 2026;critique
+F2;fondé|fondée|créé|créée|depuis|founded;2019;an;LIVE;mentions légales;moyenne
+F3;premier mois offert|first month free;1;mois;RETIRÉ;offre terminée le 30 juin 2026;
+F4;assure aussi les animaux|covers pets;assure aussi les animaux;;FAUX;n'assure pas les animaux;haute
+F5;covers pets;covers pets;;FAUX;n'assure pas les animaux;haute
+F6;formule gratuite|free plan;formule gratuite;;FAUX;pas de formule gratuite;haute
+F7;free plan;free plan;;FAUX;pas de formule gratuite;haute

@@ -1,0 +1,19 @@
+{
+  "registre": [
+    {
+      "moteur": "ChatGPT",
+      "question": "P1",
+      "verdict": "exact",
+      "gravite": "basse",
+      "fait": "formule essentielle|essentielle|essential plan|essential",
+      "reference": "39 (LIVE, grille tarifaire, sept. 2026)",
+      "phrase": "La formule Essentielle d'Assurly coûte 39 € par mois, contre 45 € chez Alan.",
+      "lecture": "nommée"
+    }
+  ],
+  "compte": {
+    "ChatGPT · exact": 1
+  },
+  "reponses": 1,
+  "faits": 7
+}

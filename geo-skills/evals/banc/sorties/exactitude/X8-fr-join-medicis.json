@@ -1,0 +1,19 @@
+{
+  "registre": [
+    {
+      "moteur": "ChatGPT",
+      "question": "P1",
+      "verdict": "faux",
+      "gravite": "haute",
+      "fait": "assure aussi les animaux|covers pets",
+      "reference": "assure aussi les animaux (FAUX, n'assure pas les animaux)",
+      "phrase": "Elle assure aussi les animaux.",
+      "lecture": "reprise"
+    }
+  ],
+  "compte": {
+    "ChatGPT · faux": 1
+  },
+  "reponses": 1,
+  "faits": 7
+}

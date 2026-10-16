@@ -1,0 +1,437 @@
+{
+  "url": "http://site-de-test/",
+  "generatedAt": "2026-10-16T19:30:00.633Z",
+  "crawledPages": 1,
+  "maxPages": 1,
+  "scoring": {
+    "foundationalScore": 30,
+    "heuristicIntelligenceScore": 16,
+    "provisionalScore": 23,
+    "provisionalGrade": "F",
+    "note": "provisionalScore uses a deterministic heuristic for the intelligence half. The agent should replace heuristicIntelligenceScore with its own 6-dimension LLM evaluation, then compute finalScore = round(0.5*foundationalScore + 0.5*llmIntelligenceScore)."
+  },
+  "checks": [
+    {
+      "id": "title",
+      "label": "Clear page title",
+      "points": 10,
+      "passed": true,
+      "details": "1/1 pages passed this check."
+    },
+    {
+      "id": "meta-description",
+      "label": "Meta description",
+      "points": 10,
+      "passed": false,
+      "details": "0/1 pages passed this check."
+    },
+    {
+      "id": "canonical",
+      "label": "Canonical URL",
+      "points": 8,
+      "passed": false,
+      "details": "0/1 pages passed this check."
+    },
+    {
+      "id": "h1",
+      "label": "Single H1 heading",
+      "points": 8,
+      "passed": true,
+      "details": "1/1 pages passed this check."
+    },
+    {
+      "id": "schema",
+      "label": "Structured data present",
+      "points": 8,
+      "passed": false,
+      "details": "0/1 pages passed this check."
+    },
+    {
+      "id": "schema-types",
+      "label": "Schema types identified",
+      "points": 8,
+      "passed": false,
+      "details": "0/1 pages passed this check."
+    },
+    {
+      "id": "og",
+      "label": "Open Graph basics",
+      "points": 8,
+      "passed": false,
+      "details": "0/1 pages passed this check."
+    },
+    {
+      "id": "internal-links",
+      "label": "Internal linking",
+      "points": 10,
+      "passed": false,
+      "details": "0/1 pages passed this check."
+    },
+    {
+      "id": "image-alt",
+      "label": "Image alt coverage",
+      "points": 8,
+      "passed": true,
+      "details": "1/1 pages passed this check."
+    },
+    {
+      "id": "text-depth",
+      "label": "Readable content depth",
+      "points": 12,
+      "passed": false,
+      "details": "0/1 pages passed this check."
+    },
+    {
+      "id": "indexability",
+      "label": "Indexable for discovery",
+      "points": 10,
+      "passed": true,
+      "details": "1/1 pages passed this check."
+    },
+    {
+      "id": "ai-meta-tags",
+      "label": "AI-accessible meta tags",
+      "points": 6,
+      "passed": true,
+      "details": "1/1 pages passed this check."
+    },
+    {
+      "id": "heading-hierarchy",
+      "label": "Content structure",
+      "points": 6,
+      "passed": false,
+      "details": "0/1 pages passed this check."
+    },
+    {
+      "id": "llms-txt",
+      "label": "llms.txt valid",
+      "passed": false,
+      "points": 10,
+      "details": "No llms.txt found."
+    },
+    {
+      "id": "ai-bot-access",
+      "label": "AI bot access",
+      "passed": false,
+      "points": 12,
+      "details": "Blocked: gptbot, claudebot"
+    },
+    {
+      "id": "rss-feed",
+      "label": "RSS/Atom feed",
+      "passed": false,
+      "points": 8,
+      "details": "No RSS/Atom feed found."
+    }
+  ],
+  "coverage": [
+    {
+      "pageType": "home",
+      "pages": 1,
+      "avgScore": 38
+    }
+  ],
+  "prioritizedFixes": [
+    {
+      "title": "Unblock major AI crawlers in robots.txt",
+      "impact": "High",
+      "effort": "Low",
+      "why": "You're blocking gptbot, claudebot — these bots can't index your content."
+    },
+    {
+      "title": "Add structured data (JSON-LD) on key templates",
+      "impact": "High",
+      "effort": "Medium",
+      "why": "Agents rely on machine-readable entities and page intent signals."
+    },
+    {
+      "title": "Standardize title and meta description quality",
+      "impact": "High",
+      "effort": "Low",
+      "why": "Weak metadata reduces retrieval accuracy and snippet quality."
+    },
+    {
+      "title": "Expand answer-first content on thin pages",
+      "impact": "High",
+      "effort": "Medium",
+      "why": "Agents need enough explicit facts and context to answer safely."
+    },
+    {
+      "title": "Improve internal linking between key pages",
+      "impact": "Medium",
+      "effort": "Low",
+      "why": "Better graph connectivity improves crawl and context propagation."
+    },
+    {
+      "title": "Publish a valid llms.txt with heading, links, and policy info",
+      "impact": "Medium",
+      "effort": "Low",
+      "why": "It gives AI systems a direct index of trusted URLs and constraints."
+    },
+    {
+      "title": "Add an RSS or Atom feed",
+      "impact": "Medium",
+      "effort": "Low",
+      "why": "RSS feeds help AI systems discover and track new content."
+    },
+    {
+      "title": "Improve content structure with clear heading levels",
+      "impact": "Medium",
+      "effort": "Low",
+      "why": "Well-structured H1 → H2 → H3 outlines help AI agents chunk, extract, and cite specific sections."
+    }
+  ],
+  "worstPages": [
+    {
+      "url": "http://site-de-test/",
+      "score": 42,
+      "maxScore": 112,
+      "pageType": "home"
+    }
+  ],
+  "diagnostics": {
+    "crawlMs": 806,
+    "robotsFound": true,
+    "robotsBlockedCount": 0,
+    "discoveredFromSitemap": 0,
+    "failedPages": 0
+  },
+  "robots": {
+    "found": true,
+    "aiBotBlocked": [
+      "gptbot",
+      "claudebot"
+    ],
+    "sitemapCount": 0
+  },
+  "llmsTxt": {
+    "found": false,
+    "hasH1": false,
+    "hasLink": false,
+    "contentLength": 0,
+    "fullTxtFound": false
+  },
+  "rssFeed": false,
+  "heuristicIntelligenceSignals": [
+    {
+      "id": "answer-readiness",
+      "signal": "Answer Readiness",
+      "score": 0,
+      "rationale": "Does the content lead with direct answers to questions agents get asked?",
+      "keyFinding": "0% pages have Q&A-style headings; 0% lead with definitions.",
+      "status": "Weak",
+      "fixPriority": "Critical"
+    },
+    {
+      "id": "quotability",
+      "signal": "Quotability",
+      "score": 5,
+      "rationale": "Can an agent extract clean, self-contained passages to quote as citations?",
+      "keyFinding": "0% pages have rich headings; 0% meet depth threshold.",
+      "status": "Weak",
+      "fixPriority": "Critical"
+    },
+    {
+      "id": "content-depth",
+      "signal": "Content Depth",
+      "score": 5,
+      "rationale": "Substantive long-form content that covers topics with depth and breadth.",
+      "keyFinding": "0% pages meet depth threshold across 1 template types.",
+      "status": "Weak",
+      "fixPriority": "Critical"
+    },
+    {
+      "id": "freshness",
+      "signal": "Freshness",
+      "score": 25,
+      "rationale": "Date signals, update timestamps, and active maintenance indicators.",
+      "keyFinding": "0% pages have date signals; no RSS feed.",
+      "status": "Weak",
+      "fixPriority": "Critical"
+    },
+    {
+      "id": "structural-clarity",
+      "signal": "Structural Clarity",
+      "score": 25,
+      "rationale": "Clean semantic HTML structure that survives extraction to markdown.",
+      "keyFinding": "0% clean heading hierarchy; 100% have single H1.",
+      "status": "Weak",
+      "fixPriority": "Critical"
+    },
+    {
+      "id": "evidence-density",
+      "signal": "Evidence Density",
+      "score": 35,
+      "rationale": "Density of statistics, data points, named sources, and in-text citations.",
+      "keyFinding": "100% pages include numeric evidence; 0% have author attribution.",
+      "status": "Weak",
+      "fixPriority": "Critical"
+    }
+  ],
+  "pagesForReview": [
+    {
+      "url": "http://site-de-test/",
+      "pageType": "home",
+      "score": 42,
+      "maxScore": 112,
+      "aiView": {
+        "title": "Mutuelle | Assurly",
+        "metaDescription": "",
+        "h1": [
+          "Mutuelle des indépendants"
+        ],
+        "h1Count": 1,
+        "headings": [],
+        "jsonLdCount": 0,
+        "schemaTypes": [],
+        "jsonLdSummary": "",
+        "internalLinkCount": 0,
+        "textExcerpt": "Mutuelle des indépendants Données de test fictives (Assurly). Une mutuelle pour indépendant coûte de 39 à 95 euros par mois chez Assurly selon la formule et l'âge de l'assuré. La formule Essentielle couvre l'hospitalisation et les soins courants. La formule Confort ajoute l'optique et le dentaire avec des remboursements plus élevés. Les frais de dossier sont inclus dans le prix affiché. Le devis en ligne prend cinq minutes et l'attestation arrive sous quarante-huit heures ouvrées après la signature électronique du contrat. Un conseiller répond par téléphone du lundi au vendredi pour les questions sur les garanties, les délais de carence et les exclusions prévues par les conditions générales du contrat.",
+        "bodyWordCount": 110,
+        "publishedDate": "",
+        "modifiedDate": "",
+        "author": "",
+        "aiMetaTags": [],
+        "hasNoindex": false,
+        "canonical": "",
+        "hasOg": false,
+        "imgCount": 0,
+        "imgsWithAlt": 0,
+        "headingLevels": [
+          1
+        ]
+      }
+    }
+  ],
+  "pageAudits": [
+    {
+      "url": "http://site-de-test/",
+      "score": 42,
+      "maxScore": 112,
+      "summary": "High risk for AI interpretation. Prioritize technical and content structure fixes.",
+      "checks": [
+        {
+          "id": "title",
+          "label": "Clear page title",
+          "passed": true,
+          "points": 10,
+          "details": "Found title (18 chars)."
+        },
+        {
+          "id": "meta-description",
+          "label": "Meta description",
+          "passed": false,
+          "points": 10,
+          "details": "No meta description found."
+        },
+        {
+          "id": "canonical",
+          "label": "Canonical URL",
+          "passed": false,
+          "points": 8,
+          "details": "No canonical tag found."
+        },
+        {
+          "id": "h1",
+          "label": "Single H1 heading",
+          "passed": true,
+          "points": 8,
+          "details": "Found 1 h1 tag(s)."
+        },
+        {
+          "id": "schema",
+          "label": "Structured data present",
+          "passed": false,
+          "points": 8,
+          "details": "No JSON-LD structured data found."
+        },
+        {
+          "id": "schema-types",
+          "label": "Schema types identified",
+          "passed": false,
+          "points": 8,
+          "details": "No recognized @type found in JSON-LD."
+        },
+        {
+          "id": "og",
+          "label": "Open Graph basics",
+          "passed": false,
+          "points": 8,
+          "details": "Missing og:title and/or og:description."
+        },
+        {
+          "id": "internal-links",
+          "label": "Internal linking",
+          "passed": false,
+          "points": 10,
+          "details": "Found 0 internal links."
+        },
+        {
+          "id": "image-alt",
+          "label": "Image alt coverage",
+          "passed": true,
+          "points": 8,
+          "details": "No images on page."
+        },
+        {
+          "id": "text-depth",
+          "label": "Readable content depth",
+          "passed": false,
+          "points": 12,
+          "details": "Estimated 110 words in body text."
+        },
+        {
+          "id": "indexability",
+          "label": "Indexable for discovery",
+          "passed": true,
+          "points": 10,
+          "details": "No noindex directive found."
+        },
+        {
+          "id": "ai-meta-tags",
+          "label": "AI-accessible meta tags",
+          "passed": true,
+          "points": 6,
+          "details": "No restrictive AI meta tags."
+        },
+        {
+          "id": "heading-hierarchy",
+          "label": "Content structure",
+          "passed": false,
+          "points": 6,
+          "details": "Only one heading level used — content lacks topic segmentation for AI chunking."
+        }
+      ],
+      "aiView": {
+        "title": "Mutuelle | Assurly",
+        "metaDescription": "",
+        "h1": [
+          "Mutuelle des indépendants"
+        ],
+        "h1Count": 1,
+        "headings": [],
+        "jsonLdCount": 0,
+        "schemaTypes": [],
+        "jsonLdSummary": "",
+        "internalLinkCount": 0,
+        "textExcerpt": "Mutuelle des indépendants Données de test fictives (Assurly). Une mutuelle pour indépendant coûte de 39 à 95 euros par mois chez Assurly selon la formule et l'âge de l'assuré. La formule Essentielle couvre l'hospitalisation et les soins courants. La formule Confort ajoute l'optique et le dentaire avec des remboursements plus élevés. Les frais de dossier sont inclus dans le prix affiché. Le devis en ligne prend cinq minutes et l'attestation arrive sous quarante-huit heures ouvrées après la signature électronique du contrat. Un conseiller répond par téléphone du lundi au vendredi pour les questions sur les garanties, les délais de carence et les exclusions prévues par les conditions générales du contrat.",
+        "bodyWordCount": 110,
+        "publishedDate": "",
+        "modifiedDate": "",
+        "author": "",
+        "aiMetaTags": [],
+        "hasNoindex": false,
+        "canonical": "",
+        "hasOg": false,
+        "imgCount": 0,
+        "imgsWithAlt": 0,
+        "headingLevels": [
+          1
+        ]
+      },
+      "pageType": "home"
+    }
+  ]
+}
+
+--- stderr ---

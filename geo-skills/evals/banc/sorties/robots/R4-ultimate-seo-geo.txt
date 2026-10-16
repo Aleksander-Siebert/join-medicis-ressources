@@ -1,0 +1,65 @@
+{
+  "url": "http://site-de-test/robots.txt",
+  "status": 404,
+  "user_agents": {},
+  "sitemaps": [],
+  "crawl_delays": {},
+  "ai_crawler_status": {
+    "OAI-SearchBot": "allowed (no robots.txt)",
+    "Claude-SearchBot": "allowed (no robots.txt)",
+    "PerplexityBot": "allowed (no robots.txt)",
+    "meta-webindexer": "allowed (no robots.txt)",
+    "DuckAssistBot": "allowed (no robots.txt)",
+    "Amzn-SearchBot": "allowed (no robots.txt)",
+    "ChatGPT-User": "allowed (no robots.txt)",
+    "Claude-User": "allowed (no robots.txt)",
+    "Perplexity-User": "allowed (no robots.txt)",
+    "meta-externalfetcher": "allowed (no robots.txt)",
+    "Amzn-User": "allowed (no robots.txt)",
+    "MistralAI-User": "allowed (no robots.txt)",
+    "GPTBot": "allowed (no robots.txt)",
+    "ClaudeBot": "allowed (no robots.txt)",
+    "Google-Extended": "allowed (no robots.txt)",
+    "Applebot-Extended": "allowed (no robots.txt)",
+    "meta-externalagent": "allowed (no robots.txt)",
+    "Amazonbot": "allowed (no robots.txt)",
+    "MistralAI-Training": "allowed (no robots.txt)",
+    "Bytespider": "allowed (no robots.txt)",
+    "CCBot": "allowed (no robots.txt)",
+    "cohere-ai": "allowed (no robots.txt)"
+  },
+  "ai_crawler_roles": {
+    "OAI-SearchBot": "search",
+    "Claude-SearchBot": "search",
+    "PerplexityBot": "search",
+    "meta-webindexer": "search",
+    "DuckAssistBot": "search",
+    "Amzn-SearchBot": "search",
+    "ChatGPT-User": "user",
+    "Claude-User": "user",
+    "Perplexity-User": "user",
+    "meta-externalfetcher": "user",
+    "Amzn-User": "user",
+    "MistralAI-User": "user",
+    "GPTBot": "training",
+    "ClaudeBot": "training",
+    "Google-Extended": "training",
+    "Applebot-Extended": "training",
+    "meta-externalagent": "training",
+    "Amazonbot": "training",
+    "MistralAI-Training": "training",
+    "Bytespider": "training",
+    "CCBot": "training",
+    "cohere-ai": "training"
+  },
+  "search_engine_status": {
+    "Googlebot": "allowed (no robots.txt)",
+    "Bingbot": "allowed (no robots.txt)"
+  },
+  "issues": [
+    "\u26a0\ufe0f No robots.txt found \u2014 every crawler is allowed; add one to declare your sitemap"
+  ],
+  "error": null
+}
+
+--- stderr ---

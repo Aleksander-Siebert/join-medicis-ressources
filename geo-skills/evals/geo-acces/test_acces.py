@@ -134,6 +134,17 @@ class Propositions(unittest.TestCase):
         self.assertEqual(code, 2)
 
 
+class Requete(unittest.TestCase):
+    """Bug trouvé par le banc de comparaison (cas R6) : la requête était retirée du chemin."""
+
+    def test_joker_de_fin_et_requete(self):
+        robots = "User-agent: *\nDisallow: /*.pdf$\n"
+        ok = {r["jeton"]: r["autorise"] for r in jouer(robots, "/guide.pdf?v=2")["robots"]}
+        ko = {r["jeton"]: r["autorise"] for r in jouer(robots, "/guide.pdf")["robots"]}
+        self.assertTrue(ok["OAI-SearchBot"])
+        self.assertFalse(ko["OAI-SearchBot"])
+
+
 class Sonde(unittest.TestCase):
     """Bug trouvé sur un vrai site : une erreur réseau passagère lue comme un refus du pare-feu."""
 

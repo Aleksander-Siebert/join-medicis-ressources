@@ -1,0 +1,49 @@
+{
+  "noms": {
+    "marque": "Assurly",
+    "lignes": [
+      {
+        "source": "title",
+        "brut": "Mutuelle des indépendants – Assurly",
+        "segments": [
+          "Mutuelle des indépendants",
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "og:site_name",
+        "brut": "Assurly",
+        "segments": [
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "H1",
+        "brut": "Écrire un bon prompt",
+        "segments": [
+          "Écrire un bon prompt"
+        ],
+        "etat": "absente",
+        "lu": "Écrire un bon prompt"
+      }
+    ],
+    "variantes": []
+  },
+  "organisation": {
+    "orgs": 0,
+    "types": [],
+    "manque": [],
+    "profils": [],
+    "alertes": [
+      "aucun bloc Organization (ni sous-type) : l'entité n'est pas décrite"
+    ]
+  },
+  "visible": [],
+  "wikidata": null
+}
+
+--- stderr ---

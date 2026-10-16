@@ -1,0 +1,19 @@
+{
+  "registre": [
+    {
+      "moteur": "ChatGPT",
+      "question": "P1",
+      "verdict": "devise",
+      "gravite": "critique",
+      "fait": "formule essentielle|essentielle|essential plan|essential",
+      "reference": "39 (LIVE, grille tarifaire, sept. 2026)",
+      "phrase": "Chez Assurly, la formule Essentielle coûte 42 $ par mois.",
+      "lecture": "nommée"
+    }
+  ],
+  "compte": {
+    "ChatGPT · devise": 1
+  },
+  "reponses": 1,
+  "faits": 7
+}

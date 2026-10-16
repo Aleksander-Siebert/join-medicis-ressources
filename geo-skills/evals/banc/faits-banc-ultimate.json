@@ -1,0 +1,8 @@
+{"brand": "Assurly", "aliases": [], "others": ["Alan", "Assurly Pro"],
+ "facts": [
+  {"field": "founding year", "type": "year", "value": 2019, "source": "mentions légales"},
+  {"field": "pricing", "type": "money", "value": [39], "source": "grille tarifaire"},
+  {"field": "free plan", "type": "claim", "value": false, "true_phrases": ["free plan", "formule gratuite"], "source": "grille tarifaire"}],
+ "false_claims": [
+  {"phrase": "covers pets", "source": "conditions"}, {"phrase": "assure aussi les animaux", "source": "conditions"},
+  {"phrase": "first month free", "source": "offre terminée"}, {"phrase": "premier mois offert", "source": "offre terminée"}]}

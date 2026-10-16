@@ -1,0 +1,14 @@
+{
+  "source": "/tmp/tmpgrux3n2t.html",
+  "hidden_instructions": [],
+  "invisible_unicode": [],
+  "score": 100,
+  "issues": [],
+  "limits": [
+    "Hidden means inline styles, the hidden attribute, noscript and template, and common hiding or screen-reader classes. Text hidden by external stylesheets or scripts is not seen; check the rendered page in DevTools.",
+    "Instruction patterns are English and phrase-based. Paraphrased or other-language instructions are missed, so no findings is not proof of a clean page."
+  ],
+  "error": null
+}
+
+--- stderr ---

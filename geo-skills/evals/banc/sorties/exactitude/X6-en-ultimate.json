@@ -1,0 +1,164 @@
+{
+  "domain": "assurly.example",
+  "runs_scored": 1,
+  "unfilled_rows": 0,
+  "skipped_rows": [],
+  "engines": {
+    "chatgpt": {
+      "runs": 1,
+      "cited_runs": 0,
+      "citation_rate": 0.0,
+      "ci95": [
+        0.0,
+        0.793
+      ],
+      "verdict": "too few runs",
+      "mention_rate": 1.0
+    }
+  },
+  "share_of_voice": {
+    "chatgpt": null
+  },
+  "top_cited_domains": {
+    "chatgpt": []
+  },
+  "prompts": [
+    {
+      "engine": "chatgpt",
+      "prompt": "Which health insurance for a freelancer?",
+      "runs": 1,
+      "cited_runs": 0,
+      "citation_rate": 0.0,
+      "ci95": [
+        0.0,
+        0.793
+      ],
+      "verdict": "too few runs",
+      "mention_rate": 1.0
+    }
+  ],
+  "issues": [
+    "ℹ️ 1 prompt/engine pair(s) have fewer than 5 runs and get no verdict"
+  ],
+  "limits": [
+    "Every run must be a fresh session (logged out or history off), with location and search mode noted. Personalised answers are not comparable.",
+    "Rates describe the prompts sampled, not every query. Write prompts the way users ask, across intents, and keep the set fixed between measurements.",
+    "The 95% interval is the margin of error of this sample. Engines or months whose intervals overlap show no demonstrated difference."
+  ],
+  "error": null,
+  "brand_facts": {
+    "brand": "Assurly",
+    "answers_recorded": 1,
+    "answers_naming_brand": 1,
+    "facts": [
+      {
+        "field": "founding year",
+        "type": "year",
+        "official": 2019,
+        "source": "mentions légales",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "pricing",
+        "type": "money",
+        "official": [
+          39
+        ],
+        "source": "grille tarifaire",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "free plan",
+        "type": "claim",
+        "official": false,
+        "source": "grille tarifaire",
+        "stated_in": 1,
+        "correct": 1,
+        "wrong": 0,
+        "wrong_rate": 0.0,
+        "wrong_ci95": [
+          0.0,
+          0.7934506882081973
+        ],
+        "by_engine": {
+          "chatgpt": {
+            "stated": 1,
+            "wrong": 0
+          }
+        },
+        "wrong_examples": []
+      },
+      {
+        "field": "false claim: covers pets",
+        "type": "claim",
+        "official": false,
+        "source": "conditions",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "false claim: assure aussi les animaux",
+        "type": "claim",
+        "official": false,
+        "source": "conditions",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "false claim: first month free",
+        "type": "claim",
+        "official": false,
+        "source": "offre terminée",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      },
+      {
+        "field": "false claim: premier mois offert",
+        "type": "claim",
+        "official": false,
+        "source": "offre terminée",
+        "stated_in": 0,
+        "correct": 0,
+        "wrong": 0,
+        "wrong_rate": null,
+        "wrong_ci95": null,
+        "by_engine": {},
+        "wrong_examples": []
+      }
+    ],
+    "issues": [],
+    "limits": [
+      "Only sentences that name the brand are read; a fact stated through a pronoun counts as not stated.",
+      "A price differs from the official list when the answer quotes an old or regional plan; money findings are hypotheses until read.",
+      "A fact with context terms is judged only where the sentence or the prompt uses one; a segment the answer never names is not checked.",
+      "Answers without an answer column are skipped: paste the whole answer text to have it checked."
+    ]
+  }
+}

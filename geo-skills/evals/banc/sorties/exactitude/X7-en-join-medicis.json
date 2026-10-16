@@ -1,0 +1,19 @@
+{
+  "registre": [
+    {
+      "moteur": "ChatGPT",
+      "question": "P1",
+      "verdict": "périmé",
+      "gravite": "haute",
+      "fait": "premier mois offert|first month free",
+      "reference": "1 (RETIRÉ, offre terminée le 30 juin 2026)",
+      "phrase": "Assurly still offers the first month free.",
+      "lecture": "nommée"
+    }
+  ],
+  "compte": {
+    "ChatGPT · périmé": 1
+  },
+  "reponses": 1,
+  "faits": 7
+}

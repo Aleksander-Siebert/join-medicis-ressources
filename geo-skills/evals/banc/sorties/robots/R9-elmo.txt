@@ -1,0 +1,138 @@
+[
+  {
+    "url": "http://site-de-test/",
+    "browser_status": 200,
+    "browser_error": null,
+    "title": "Mutuelle | Assurly",
+    "canonical": null,
+    "visible_words_raw_html": 110,
+    "script_tags": 0,
+    "likely_client_rendered": false,
+    "noindex": false,
+    "nosnippet": false,
+    "raw": [],
+    "robots_txt": {
+      "status": null,
+      "note": "unreachable (RemoteDisconnected: Remote end closed connection without response)"
+    },
+    "crawlers": [
+      {
+        "crawler": "OAI-SearchBot",
+        "purpose": "ChatGPT search",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "ChatGPT-User",
+        "purpose": "ChatGPT live fetch",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "GPTBot",
+        "purpose": "OpenAI training",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Claude-SearchBot",
+        "purpose": "Claude search",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Claude-User",
+        "purpose": "Claude live fetch",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "ClaudeBot",
+        "purpose": "Anthropic training",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "PerplexityBot",
+        "purpose": "Perplexity",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Perplexity-User",
+        "purpose": "Perplexity live fetch",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Googlebot",
+        "purpose": "Google Search + AI Overviews/AI Mode",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Google-Extended",
+        "purpose": "Gemini training + Gemini app grounding",
+        "robots": null
+      },
+      {
+        "crawler": "Bingbot",
+        "purpose": "Bing + Copilot",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Applebot",
+        "purpose": "Siri/Spotlight",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Applebot-Extended",
+        "purpose": "Apple training",
+        "robots": null
+      },
+      {
+        "crawler": "Meta-ExternalAgent",
+        "purpose": "Meta AI",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Amazonbot",
+        "purpose": "Amazon AI",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "DuckAssistBot",
+        "purpose": "DuckDuckGo AI answers",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "CCBot",
+        "purpose": "Common Crawl (training sets)",
+        "robots": null,
+        "status": 200,
+        "firewall_suspect": false
+      }
+    ]
+  }
+]
+
+--- stderr ---

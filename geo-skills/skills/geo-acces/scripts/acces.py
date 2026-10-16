@@ -89,7 +89,12 @@ def lire_robots(base: str | None, fichier: str | None) -> tuple[str | None, int 
 # ── analyse ──────────────────────────────────────────────────────────────────
 
 def analyser(robots_txt, statut_robots, erreur_robots, html, entetes, url_page, statut_page=200, sondes=None):
-    chemin = urlsplit(url_page).path or "/" if url_page else "/"
+    # le chemin avec sa requête : « Disallow: /*.pdf$ » bloque /guide.pdf mais pas /guide.pdf?v=2 (RFC 9309, Google)
+    if url_page:
+        u = urlsplit(url_page)
+        chemin = (u.path or "/") + (f"?{u.query}" if u.query else "")
+    else:
+        chemin = "/"
     jetons = [(r["jeton"], r["editeur"], r["role"]) for r in ROBOTS]
     rr = robots_rfc.analyser(robots_txt, [chemin], jetons, statut_robots)
     acces = {b["robot"]: b["acces"][chemin] for b in rr["robots"]}

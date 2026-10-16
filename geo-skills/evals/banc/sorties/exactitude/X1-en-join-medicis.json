@@ -1,0 +1,19 @@
+{
+  "registre": [
+    {
+      "moteur": "ChatGPT",
+      "question": "P1",
+      "verdict": "différent",
+      "gravite": "critique",
+      "fait": "formule essentielle|essentielle|essential plan|essential",
+      "reference": "39 (LIVE, grille tarifaire, sept. 2026)",
+      "phrase": "At Assurly, the Essential plan costs €45 per month.",
+      "lecture": "nommée"
+    }
+  ],
+  "compte": {
+    "ChatGPT · différent": 1
+  },
+  "reponses": 1,
+  "faits": 7
+}

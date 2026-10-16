@@ -1,0 +1,77 @@
+{
+  "noms": {
+    "marque": "Assurly",
+    "lignes": [
+      {
+        "source": "title",
+        "brut": "Mutuelle des indépendants – Assurly",
+        "segments": [
+          "Mutuelle des indépendants",
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "og:site_name",
+        "brut": "Assurly",
+        "segments": [
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "H1",
+        "brut": "Assurly",
+        "segments": [
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "JSON-LD Organization.name",
+        "brut": "Assurly",
+        "segments": [
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      }
+    ],
+    "variantes": []
+  },
+  "organisation": {
+    "orgs": 1,
+    "types": [
+      "Organization"
+    ],
+    "manque": [
+      "@id",
+      "logo",
+      "sameAs"
+    ],
+    "profils": [],
+    "alertes": []
+  },
+  "visible": [
+    {
+      "type": "Organization",
+      "champ": "aggregateRating.ratingValue",
+      "libelle": "note",
+      "valeur": "4.8",
+      "visible": false
+    },
+    {
+      "type": "Organization",
+      "champ": "aggregateRating.reviewCount",
+      "libelle": "nombre d'avis",
+      "valeur": "1200",
+      "visible": false
+    }
+  ],
+  "wikidata": null
+}
+
+--- stderr ---

@@ -61,7 +61,9 @@ UNITES = [
 ]
 MONNAIES = {"€", "$", "£"}
 GRAVES = re.compile(r"prix|tarif|cout|garantie|delai|retractation|remboursement|condition|plafond|franchise|carence|frais")
-REPRISE = re.compile(r"^(il|elle|ils|elles|son|sa|ses|leur|leurs|ce site|la plateforme|l'entreprise|la marque|cette offre)\b")
+# reprise de la marque en tête de phrase ; formes anglaises comprises (un moteur répond parfois en anglais)
+REPRISE = re.compile(r"^(il|elle|ils|elles|son|sa|ses|leur|leurs|ce site|la plateforme|l'entreprise|la marque|cette offre"
+                     r"|it|its|they|their|the company|the brand|the platform)\b")
 
 
 def norm(t: str) -> str:
@@ -200,7 +202,8 @@ def phrases_marque(texte, motifs, question=""):
 
 
 CONTRASTE = re.compile(r"^(?:contrairement a|a la difference de|compare a|comparee? aux?|par rapport a|face a|alors que|tandis que)\b")
-NEGATION = re.compile(r"(?:\bne\b|\bn')[^,.;]{0,25}$|\b(?:pas|jamais|aucune?|plus|sans) (?:de |d')?$")
+NEGATION = re.compile(r"(?:\bne\b|\bn')[^,.;]{0,25}$|\b(?:pas|jamais|aucune?|plus|sans) (?:de |d')?$"
+                      r"|\b(?:no|not|never|without|doesn't|does not|don't|do not|isn't|is not|lacks?)\b[^,.;]{0,25}$")
 
 
 def retirer_autres(phrase_n: str, motifs, concurrents) -> str:

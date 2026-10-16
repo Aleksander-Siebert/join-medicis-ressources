@@ -1,0 +1,19 @@
+{
+  "registre": [
+    {
+      "moteur": "ChatGPT",
+      "question": "P1",
+      "verdict": "faux",
+      "gravite": "haute",
+      "fait": "covers pets",
+      "reference": "covers pets (FAUX, n'assure pas les animaux)",
+      "phrase": "It also covers pets.",
+      "lecture": "reprise"
+    }
+  ],
+  "compte": {
+    "ChatGPT · faux": 1
+  },
+  "reponses": 1,
+  "faits": 7
+}

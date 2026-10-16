@@ -136,6 +136,23 @@ class Negation(unittest.TestCase):
         self.assertEqual(verdicts("Assurly propose une formule gratuite.", faits=self.faits), ["faux"])
 
 
+class Anglais(unittest.TestCase):
+    """Défaites du premier passage du banc (cas X6 et X8 en anglais)."""
+
+    def setUp(self):
+        with tempfile.NamedTemporaryFile("w", suffix=".csv", delete=False, encoding="utf-8") as f:
+            f.write("id;mots;valeur;unite;statut;source;gravite\nF1;free plan;free plan;;FAUX;grille;haute\n"
+                    "F2;covers pets;covers pets;;FAUX;conditions;haute\n")
+        self.faits = f.name
+
+    def test_negation_anglaise(self):
+        self.assertEqual(verdicts("Assurly does not have a free plan.", faits=self.faits), ["exact"])
+
+    def test_pronom_anglais(self):
+        self.assertIn("faux", verdicts("Assurly is an online broker. It also covers pets.",
+                                       question="Which insurer?", faits=self.faits))
+
+
 class Contexte(unittest.TestCase):
     def test_lit_le_tableau_du_site_context(self):
         faits = ex.lire_contexte(str(CONTEXTE))

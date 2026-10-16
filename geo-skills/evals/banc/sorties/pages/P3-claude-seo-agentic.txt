@@ -1,0 +1,251 @@
+{
+  "url": "http://site-de-test/",
+  "site_root": "http://site-de-test",
+  "checked_at": "2026-10-16T19:34:26+00:00",
+  "facts_checked_on": "2026-09-23",
+  "checks": [
+    {
+      "id": "page-reachable",
+      "title": "Page reachable for a plain HTTP client",
+      "priority": "P0",
+      "status": "fail",
+      "standard": "HTTP",
+      "evidence": {
+        "status": null,
+        "error": "blocked by url_safety: Blocked hostname: 127.0.0.1"
+      },
+      "fix": "Agents and fetchers that do not run a browser cannot read it."
+    },
+    {
+      "id": "robots-reachable",
+      "title": "robots.txt reachable",
+      "priority": "P0",
+      "status": "warn",
+      "standard": "RFC 9309",
+      "evidence": {
+        "error": "blocked by url_safety: Blocked hostname: 127.0.0.1"
+      },
+      "fix": "Serve /robots.txt so agents can read your policy."
+    },
+    {
+      "id": "llms-txt",
+      "title": "llms.txt follows the Lighthouse rules",
+      "priority": "P1",
+      "status": "fail",
+      "standard": "community spec (llmstxt.org); Lighthouse checks it, Google Search ignores it",
+      "evidence": {
+        "status": null,
+        "content_type": "",
+        "bytes": 0,
+        "llms_full_status": null,
+        "lighthouse": "fail",
+        "errors": [
+          "fetch failed"
+        ],
+        "notes": []
+      },
+      "fix": "Fix: fetch failed"
+    },
+    {
+      "id": "markdown-delivery",
+      "title": "Markdown version of the page",
+      "priority": "P1",
+      "status": "info",
+      "standard": "HTTP content negotiation (RFC 9110) + community practice; no consumer agent is confirmed to request it (checked 2026-09-23)",
+      "evidence": {
+        "negotiation": {
+          "status": null,
+          "content_type": "",
+          "vary_accept": false,
+          "x_markdown_tokens": null,
+          "content_signal_header": null
+        },
+        "alternates": [],
+        "md_sibling": {
+          "url": "http://site-de-test/index.md",
+          "status": null,
+          "content_type": "",
+          "ok": false
+        }
+      },
+      "fix": "Optional. Offer a content-equivalent Markdown version via 'Accept: text/markdown' (with 'Vary: Accept'), a rel=\"alternate\" type=\"text/markdown\" link, or a .md URL."
+    },
+    {
+      "id": "http-404",
+      "title": "Unknown URLs return a real 404",
+      "priority": "P1",
+      "status": "info",
+      "standard": "HTTP semantics (RFC 9110); Google soft-404 guidance",
+      "evidence": {
+        "probe_url": "http://site-de-test/claude-seo-404-probe-6864095e",
+        "status": null,
+        "content_type": "",
+        "catch_all_200": false
+      },
+      "fix": null
+    },
+    {
+      "id": "well-known:api-catalog",
+      "title": "API Catalog",
+      "priority": "P2",
+      "status": "na",
+      "standard": "RFC 9727",
+      "evidence": {
+        "status": null,
+        "content_type": ""
+      },
+      "fix": "Only needed if you operate the matching service (API Catalog)."
+    },
+    {
+      "id": "well-known:oauth-protected-resource",
+      "title": "OAuth Protected Resource Metadata",
+      "priority": "P2",
+      "status": "na",
+      "standard": "RFC 9728",
+      "evidence": {
+        "status": null,
+        "content_type": ""
+      },
+      "fix": "Only needed if you operate the matching service (OAuth Protected Resource Metadata)."
+    },
+    {
+      "id": "well-known:oauth-authorization-server",
+      "title": "OAuth Authorization Server Metadata",
+      "priority": "P2",
+      "status": "na",
+      "standard": "RFC 8414",
+      "evidence": {
+        "status": null,
+        "content_type": ""
+      },
+      "fix": "Only needed if you operate the matching service (OAuth Authorization Server Metadata)."
+    },
+    {
+      "id": "ard-catalog",
+      "title": "ai-catalog.json (Agentic Resource Discovery)",
+      "priority": "P3",
+      "status": "na",
+      "standard": "Agentic Resource Discovery (ARD) spec 1.0; checked by Lighthouse 13.5 ard-schema (checked 2026-09-23)",
+      "evidence": {
+        "catalog_url": "http://site-de-test/.well-known/ai-catalog.json",
+        "signalled": false,
+        "status": null,
+        "content_type": ""
+      },
+      "fix": "Only publish one if you have agent resources to list (MCP server, A2A agent, skills). Lighthouse treats its absence as not applicable."
+    },
+    {
+      "id": "well-known:agent-card.json",
+      "title": "A2A agent card",
+      "priority": "P3",
+      "status": "na",
+      "standard": "A2A protocol",
+      "evidence": {
+        "status": null,
+        "content_type": ""
+      },
+      "fix": "Only needed if you operate the matching service (A2A agent card)."
+    },
+    {
+      "id": "well-known:ucp",
+      "title": "UCP commerce profile",
+      "priority": "P3",
+      "status": "na",
+      "standard": "UCP (Google + Shopify open spec); depth in seo-ecommerce ucp_check.py",
+      "evidence": {
+        "status": null,
+        "content_type": ""
+      },
+      "fix": "Only needed if you operate the matching service (UCP commerce profile)."
+    }
+  ],
+  "data": {
+    "page": {
+      "status": null,
+      "error": "blocked by url_safety: Blocked hostname: 127.0.0.1"
+    },
+    "robots": {
+      "status": null,
+      "error": "blocked by url_safety: Blocked hostname: 127.0.0.1"
+    },
+    "llms": {
+      "status": null,
+      "content_type": "",
+      "bytes": 0,
+      "llms_full_status": null,
+      "lighthouse": "fail",
+      "errors": [
+        "fetch failed"
+      ],
+      "notes": []
+    },
+    "markdown": {
+      "negotiation": {
+        "status": null,
+        "content_type": "",
+        "vary_accept": false,
+        "x_markdown_tokens": null,
+        "content_signal_header": null
+      },
+      "alternates": [],
+      "md_sibling": {
+        "url": "http://site-de-test/index.md",
+        "status": null,
+        "content_type": "",
+        "ok": false
+      }
+    },
+    "ard": {
+      "catalog_url": "http://site-de-test/.well-known/ai-catalog.json",
+      "signalled": false,
+      "status": null,
+      "content_type": ""
+    },
+    "well_known": {
+      "/.well-known/api-catalog": {
+        "status": null,
+        "content_type": ""
+      },
+      "/.well-known/oauth-protected-resource": {
+        "status": null,
+        "content_type": ""
+      },
+      "/.well-known/oauth-authorization-server": {
+        "status": null,
+        "content_type": ""
+      },
+      "/.well-known/agent-card.json": {
+        "status": null,
+        "content_type": ""
+      },
+      "/.well-known/ucp": {
+        "status": null,
+        "content_type": ""
+      }
+    },
+    "not_found": {
+      "probe_url": "http://site-de-test/claude-seo-404-probe-6864095e",
+      "status": null,
+      "content_type": "",
+      "catch_all_200": false
+    }
+  },
+  "summary": {
+    "P0": {
+      "fail": 1,
+      "warn": 1
+    },
+    "P1": {
+      "fail": 1,
+      "info": 2
+    },
+    "P2": {
+      "na": 3
+    },
+    "P3": {
+      "na": 3
+    }
+  }
+}
+
+--- stderr ---

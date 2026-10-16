@@ -1,0 +1,4 @@
+{"error": {"kind": "http_404", "message": "could not fetch http://site-de-test/blog/article (http_404): every page asked for answered with an HTTP error (HTTP 404); see https://github.com/jianruntech/geo-score/blob/v1.8.3/guide/troubleshooting.md#http_nnn-the-pages-answered-with-an-http-error", "target": "http://site-de-test/blog/article"}, "tool": "geo-score-cli/1.8.3"}
+
+--- stderr ---
+could not fetch http://site-de-test/blog/article (http_404): every page asked for answered with an HTTP error (HTTP 404); see https://github.com/jianruntech/geo-score/blob/v1.8.3/guide/troubleshooting.md#http_nnn-the-pages-answered-with-an-http-error

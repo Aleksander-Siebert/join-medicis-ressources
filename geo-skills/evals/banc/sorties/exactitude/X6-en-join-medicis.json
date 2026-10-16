@@ -1,0 +1,19 @@
+{
+  "registre": [
+    {
+      "moteur": "ChatGPT",
+      "question": "P1",
+      "verdict": "exact",
+      "gravite": "basse",
+      "fait": "free plan",
+      "reference": "free plan (FAUX, pas de formule gratuite)",
+      "phrase": "Assurly does not have a free plan.",
+      "lecture": "nommée"
+    }
+  ],
+  "compte": {
+    "ChatGPT · exact": 1
+  },
+  "reponses": 1,
+  "faits": 7
+}

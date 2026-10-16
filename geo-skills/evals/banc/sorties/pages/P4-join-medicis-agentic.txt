@@ -1,0 +1,91 @@
+{
+  "url": "https://exemple.fr/",
+  "passes": 6,
+  "total": 7,
+  "controles": [
+    {
+      "groupe": "BLOQUANT",
+      "controle": "Contenu lisible sans JavaScript",
+      "statut": "À CORRIGER",
+      "valeur": "118 mots dans le HTML",
+      "conseil": "Les agents qui n'exécutent pas JavaScript ne voient rien : rendu serveur ou statique pour le contenu principal."
+    },
+    {
+      "groupe": "ACCÈS",
+      "controle": "Éléments cliquables sémantiques",
+      "statut": "OK",
+      "valeur": "0 non sémantique(s)",
+      "conseil": ""
+    },
+    {
+      "groupe": "ACCÈS",
+      "controle": "Boutons et liens nommés",
+      "statut": "OK",
+      "valeur": "0 sans nom",
+      "conseil": ""
+    },
+    {
+      "groupe": "ACCÈS",
+      "controle": "Champs de formulaire avec label",
+      "statut": "OK",
+      "valeur": "0 sans label",
+      "conseil": ""
+    },
+    {
+      "groupe": "ACCÈS",
+      "controle": "Pas d'interactif caché",
+      "statut": "OK",
+      "valeur": "0 sous aria-hidden",
+      "conseil": ""
+    },
+    {
+      "groupe": "STABILITÉ",
+      "controle": "Images avec dimensions",
+      "statut": "OK",
+      "valeur": "0 sans width/height",
+      "conseil": ""
+    },
+    {
+      "groupe": "CONFIANCE",
+      "controle": "Aucune consigne cachée aux IA",
+      "statut": "OK",
+      "valeur": "0 trouvée(s)",
+      "conseil": ""
+    },
+    {
+      "groupe": "INFO",
+      "controle": "Version Markdown",
+      "statut": "INFO",
+      "valeur": "balise <link> : non · en-tête Link : non",
+      "conseil": "Facultatif ; aucune source primaire ne montre un agent grand public qui la demande."
+    },
+    {
+      "groupe": "INFO",
+      "controle": "Outils WebMCP",
+      "statut": "INFO",
+      "valeur": "0 formulaire(s) déclaré(s) sur 0 · JavaScript : non",
+      "conseil": "Standard en essai : toolname et tooldescription sur un <form>. Absence normale."
+    }
+  ],
+  "details": {
+    "mots": 118,
+    "cliquables_non_semantiques": [],
+    "actions_sans_nom": [],
+    "champs_sans_label": [],
+    "interactifs_caches": [],
+    "images_sans_dimensions": [],
+    "formulaires": 0,
+    "formulaires_webmcp": 0,
+    "webmcp_js": false
+  },
+  "confiance": {
+    "consignes": [],
+    "invisibles": 0
+  },
+  "markdown": {
+    "balise": false,
+    "entete_link": false
+  }
+}
+
+--- stderr ---
