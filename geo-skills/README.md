@@ -91,6 +91,11 @@ mieux pour le lecteur.
 <td width="150"><code>citability.py</code></td>
 </tr>
 <tr>
+<td width="64" align="center"><img src="docs/media/icones/geo-entite.svg" width="44" alt=""></td>
+<td><b><code>/geo-entite</code></b><br>Un seul nom partout (title, og, H1, JSON-LD, ©), un bloc Organization propre, sameAs vérifiés, valeurs balisées visibles, candidats Wikidata, bloc à coller.</td>
+<td width="150"><code>entite.py</code></td>
+</tr>
+<tr>
 <td width="64" align="center"><img src="docs/media/icones/geo-schema.svg" width="44" alt=""></td>
 <td><b><code>/geo-schema</code></b><br>Ce qui manque en JSON-LD et le bloc à coller, rempli seulement avec des informations vraies.</td>
 <td width="150"></td>

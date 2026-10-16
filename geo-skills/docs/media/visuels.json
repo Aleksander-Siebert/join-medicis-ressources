@@ -55,6 +55,11 @@
       "famille": "Améliorer"
     },
     {
+      "nom": "geo-entite",
+      "glyphe": "entreprise",
+      "famille": "Améliorer"
+    },
+    {
       "nom": "geo-schema",
       "glyphe": "code",
       "famille": "Améliorer"
