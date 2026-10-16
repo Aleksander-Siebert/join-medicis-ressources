@@ -31,6 +31,7 @@ de fichier).
 | MistralAI-User | Mistral | action d'un utilisateur dans Vibe | non détaillé | idem | 16 oct. 2026 |
 | MistralAI-Training | Mistral | entraînement | excluable | idem | 16 oct. 2026 |
 | Googlebot | Google | Google Search, donc les Aperçus IA et le Mode IA | respecté | Search Central | 16 oct. 2026 |
+| Google-Agent | Google | agents hébergés par Google qui naviguent et agissent à la demande d'un utilisateur ; Web Bot Auth en essai (`https://agent.bot.goog`) | « ignorent en général » (robots déclenchés par un utilisateur) | « Google user-triggered fetchers », maj. 19 août 2026 | 16 oct. 2026 |
 | Google-Extended | Google | **jeton sans robot propre** : entraînement des futurs Gemini et ancrage dans les applis Gemini et Vertex AI ; **sans effet sur l'inclusion dans Search ni le classement** | respecté | « Google common crawlers », maj. 15 oct. 2026 | 16 oct. 2026 |
 | Applebot | Apple | recherche Spotlight, Siri, Safari ; aussi entraînement et contexte de réponses générées ; `nosnippet` refuse l'usage dans les réponses | respecté | support.apple.com/119829 (4 sept. 2026) | 16 oct. 2026 |
 | Applebot-Extended | Apple | **ne crawle pas** : refuse l'usage pour entraîner les modèles d'Apple ; sans effet sur la recherche | respecté | idem | 16 oct. 2026 |

@@ -102,7 +102,7 @@ mieux pour le lecteur.
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/geo-agentic.svg" width="44" alt=""></td>
-<td><b><code>/geo-agentic</code></b><br>Prépare les pages aux agents d'IA qui naviguent et remplissent des formulaires : boutons nommés, labels, page stable, WebMCP.</td>
+<td><b><code>/geo-agentic</code></b><br>Prépare les pages aux agents d'IA qui naviguent et remplissent des formulaires (boutons nommés, labels, page stable), et repère les consignes cachées aux IA.</td>
 <td width="150"><code>agentic.py</code></td>
 </tr>
 </table>
