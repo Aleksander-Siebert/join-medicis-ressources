@@ -56,8 +56,8 @@ mieux pour le lecteur.
 <td width="150"><code>geo_audit.py</code></td>
 </tr>
 <tr>
-<td width="64" align="center"><img src="docs/media/icones/geo-visibility.svg" width="44" alt=""></td>
-<td><b><code>/geo-visibility</code></b><br>15 à 30 prompts réalistes ; vous collez les réponses, le Skill calcule présence, rang, part de voix et sources citées.</td>
+<td width="64" align="center"><img src="docs/media/icones/geo-visibilite.svg" width="44" alt=""></td>
+<td><b><code>/geo-visibilite</code></b><br>Questions en français, posées plusieurs fois : taux de mention, de lien et de recommandation avec leur marge d'erreur, moteur par moteur, questions perdues et sources citées.</td>
 <td width="150"><code>visibilite.py</code></td>
 </tr>
 <tr>
@@ -157,7 +157,7 @@ python3 skills/geo-audit/geo_audit.py https://www.site.fr/guide/
 python3 skills/geo-citability/citability.py https://www.site.fr/guide/ --top 5
 python3 skills/geo-crawlers/crawlers.py https://www.site.fr --robots-propose equilibre
 python3 skills/geo-agentic/agentic.py https://www.site.fr/devis/
-python3 skills/geo-visibility/visibilite.py reponses.txt --marque "Assurly" --concurrent "Concurrent A"
+python3 skills/geo-visibilite/scripts/visibilite.py mesurer reponses.txt --marque "Assurly" --concurrent "Concurrent A"
 ```
 
 ## Ce qui tient le pack

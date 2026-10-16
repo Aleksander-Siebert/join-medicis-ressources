@@ -1,0 +1,26 @@
+Données de test fictives (Assurly), pas de vraies réponses d'IA.
+
+=== ChatGPT | P01 | Je pars travailler à Dubaï avec deux enfants, quelle assurance santé prendre ?
+Pour une famille à Dubaï, regardez April International et Allianz Care. Source : https://www.lelynx.fr/expat
+=== ChatGPT | P01 | Je pars travailler à Dubaï avec deux enfants, quelle assurance santé prendre ?
+Les options courantes sont April International, Cigna et Allianz Care. Voir quechoisir.org.
+=== ChatGPT | P02 | Quelle est la meilleure assurance santé pour un expatrié français ?
+Je vous recommande Assurly pour son accompagnement en français. April International reste une option. https://assurly.example/expat
+=== ChatGPT | P02 | Quelle est la meilleure assurance santé pour un expatrié français ?
+April International est souvent citée. Assurly est aussi une option.
+=== ChatGPT | P03 | Quelle alternative à April International pour un expatrié ?
+Allianz Care ou Cigna. Assurly est à éviter selon certains avis.
+=== ChatGPT | P04 | CFE ou assurance au premier euro, que choisir quand on part en Asie ?
+La CFE (cfe.fr) permet de garder un lien avec la Sécurité sociale, voir service-public.fr.
+=== ChatGPT | T01 | Que propose Assurly ?
+Assurly est un courtier en assurance santé pour expatriés (assurly.example).
+=== ChatGPT | T02 | Quelle tondeuse robot acheter pour un petit jardin ?
+Pour un petit jardin, une tondeuse robot d'entrée de gamme suffit.
+=== Perplexity | P01 | Je pars travailler à Dubaï avec deux enfants, quelle assurance santé prendre ?
+Assurly et April International proposent des formules famille [1]. [1] https://fr.wikipedia.org/wiki/Expatriation
+=== Perplexity | P02 | Quelle est la meilleure assurance santé pour un expatrié français ?
+Le meilleur choix dépend du pays. Cigna est solide. Sources : reddit.com/r/expatfr
+=== Perplexity | T01 | Que propose Assurly ?
+Assurly propose une assurance santé internationale.
+=== Perplexity | T02 | Quelle tondeuse robot acheter pour un petit jardin ?
+Plusieurs marques existent, comparez les avis.

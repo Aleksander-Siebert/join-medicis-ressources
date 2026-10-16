@@ -3,10 +3,10 @@
   "captures": [
     {
       "id": "visibilite",
-      "titre": "geo-visibility · visibilite.py",
+      "titre": "geo-visibilite · visibilite.py",
       "dossier": ".",
-      "commande": "python3 skills/geo-visibility/visibilite.py evals/scripts/reponses.txt --marque Assurly",
-      "affiche": "python3 visibilite.py reponses.txt --marque Assurly"
+      "commande": "python3 skills/geo-visibilite/scripts/visibilite.py mesurer evals/geo-visibilite/reponses-septembre.txt --marque Assurly --domaine assurly.example --concurrent \"April International\" --concurrent \"Allianz Care\" --concurrent Cigna",
+      "affiche": "python3 scripts/visibilite.py mesurer reponses.txt --marque Assurly --domaine assurly.example --concurrent \"April International\" …"
     },
     {
       "id": "citabilite",

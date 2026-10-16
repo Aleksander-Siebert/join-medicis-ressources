@@ -5,12 +5,11 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SK = os.path.join(HERE, "..", "..", "skills")
-for d in ("geo-citability", "geo-crawlers", "geo-visibility", "geo-agentic"):
+for d in ("geo-citability", "geo-crawlers", "geo-agentic"):
     sys.path.insert(0, os.path.join(SK, d))
 
 import citability  # noqa: E402
 import crawlers  # noqa: E402
-import visibilite  # noqa: E402
 import agentic  # noqa: E402
 
 
@@ -53,14 +52,7 @@ def test_llms_txt():
     assert len(ko["problemes"]) == 4
 
 
-def test_part_de_voix():
-    items = visibilite.parse(f("reponses.txt"))
-    assert len(items) == 3
-    r = visibilite.analyse(items, "Assurly", ["assurly.example"], ["April International", "Allianz Care"])
-    t = r["TOTAL"]
-    assert t["presence"] == 67 and r["Perplexity"]["presence"] == 100 and r["ChatGPT"]["rang_moyen"] == 3.0
-    assert "service-public.fr" in t["domaines"] and "cfe.fr" in t["domaines"]
-    assert t["marques"]["Assurly"] >= 3
+# La part de voix (geo-visibilite v2) est testée dans evals/geo-visibilite/test_visibilite.py.
 
 
 def test_nosnippet_exclut_des_ai_overviews():

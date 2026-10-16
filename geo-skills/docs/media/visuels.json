@@ -8,7 +8,7 @@
   "familles": {"Mesurer": "#A9792B", "Améliorer": "#1E4E8C", "Rayonner": "#6B3F7E"},
   "icones": [
     {"nom": "geo-audit", "glyphe": "jauge", "famille": "Mesurer"},
-    {"nom": "geo-visibility", "glyphe": "cible", "famille": "Mesurer"},
+    {"nom": "geo-visibilite", "glyphe": "cible", "famille": "Mesurer"},
     {"nom": "geo-crawlers", "glyphe": "robot", "famille": "Mesurer"},
     {"nom": "geo-citability", "glyphe": "citation", "famille": "Améliorer"},
     {"nom": "geo-schema", "glyphe": "code", "famille": "Améliorer"},

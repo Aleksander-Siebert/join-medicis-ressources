@@ -103,12 +103,12 @@ Tendances observées par les praticiens **[estimation de praticien]** :
 | Claude | recherche web + Claude-SearchBot |
 | Mistral (Le Chat) | recherche web, sources francophones |
 
-Ces tendances changent vite : vérifier avec `/geo-visibility` (sources
+Ces tendances changent vite : vérifier avec `/geo-visibilite` (sources
 citées) plutôt que les supposer.
 
 ## Méthode
 
-1. Lancer `/geo-audit` sur 3 à 5 pages clés et `/geo-visibility` sur 15
+1. Lancer `/geo-audit` sur 3 à 5 pages clés et `/geo-visibilite` sur 15
    prompts.
 2. Lire les écarts : technique (bloquant, à corriger d'abord), citabilité
    (pages), marque (hors site).

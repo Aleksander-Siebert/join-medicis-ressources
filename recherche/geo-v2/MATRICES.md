@@ -279,3 +279,21 @@ Socle commun (`geo-skills/commun/`) :
   À corriger sur le site.
 - geo-score liste des fiches LinkedIn du sitemap non liées depuis le HTML
   serveur des pages qu'il a lues : à regarder avec `/seo-maillage`.
+
+## 8. Décisions de l'utilisateur (16 octobre 2026)
+
+1. Les 8 Skills et leurs noms : **validés**.
+2. Note de préparation sur 100 et taux de visibilité à part : **validé**
+   (« je te fais confiance »).
+3. Tavily : **option désactivée par défaut**, sur ma recommandation. Le
+   mode normal reste les réponses collées. Tavily seulement à la demande,
+   chaque résultat étiqueté « approximation, moteur Tavily », jamais
+   mélangé aux réponses collées, avec l'avertissement que la requête part
+   chez un tiers.
+4. `/geo-exactitude` en Skill séparé : **validé**.
+5. Éval à l'aveugle sur **un site e-commerce de produits reconditionnés
+   fourni par l'utilisateur** ; les questions sont générées par Claude.
+   Dans le dépôt, le site reste anonymisé, comme pour l'éval SEO.
+
+Skill modèle : `/geo-visibilite` (le cœur de la mesure, le plus gros
+écart avec la v1). L'utilisateur le relit avant les 7 autres.

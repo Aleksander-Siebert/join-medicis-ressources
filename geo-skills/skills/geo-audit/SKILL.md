@@ -24,7 +24,7 @@ absente des réponses d'IA, et l'inverse.
 | E-E-A-T | 20% | évaluée : auteur, sources, expérience, fraîcheur | ce Skill |
 | Technique | 15% | mesurée : robots d'IA, indexation et extrait autorisés, contenu lisible sans JavaScript | `/geo-crawlers` |
 | Données structurées | 10% | mesurée : types JSON-LD utiles (pas requis pour l'IA de Google, utiles au SEO) | `/geo-schema` |
-| Plateformes | 10% | évaluée : présence réelle dans les réponses | `/geo-visibility` |
+| Plateformes | 10% | évaluée : présence réelle dans les réponses | `/geo-visibilite` |
 
 Pondération reprise de geo-seo-claude (MIT). C'est une grille de travail,
 pas une mesure officielle : aucun moteur ne publie de poids. Pour Google, le
@@ -54,7 +54,7 @@ robots.txt et du code source, avec les grilles des Skills cités.
   légales claires (10).
 - **Marque (0-100)** : résultat de `/geo-mentions` (présence sur Wikipédia ou
   Wikidata, presse, comparateurs, forums, avis, YouTube, LinkedIn).
-- **Plateformes (0-100)** : taux de présence de `/geo-visibility`. Sans test,
+- **Plateformes (0-100)** : taux de présence de `/geo-visibilite`. Sans test,
   laisse « à évaluer ».
 
 N'invente jamais une note : une catégorie non évaluée reste « à évaluer » et

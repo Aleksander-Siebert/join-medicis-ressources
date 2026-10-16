@@ -18,7 +18,7 @@ on les mesure, on ne les devine pas.
 
 ## 1. Trouver les sources qui comptent
 
-- **Les mesurer** : les « sources citées » de `/geo-visibility` disent quels
+- **Les mesurer** : les « sources citées » de `/geo-visibilite` disent quels
   domaines les IA utilisent sur le sujet. C'est la liste de départ.
 - **Compléter par la recherche web** : « meilleur {{catégorie}} », « avis
   {{marque}} », « {{concurrent}} vs », « {{catégorie}} forum » ; noter les

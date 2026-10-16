@@ -21,9 +21,9 @@ ffmpeg -i prise.mp4 -vf "fps=12,scale=760:-1:flags=lanczos,split[a][b];[a]palett
 
 **Des réponses d'IA collées deviennent un tableau.**
 
-1. `/geo-visibility` : montrer la liste de prompts proposée.
+1. `/geo-visibilite` : montrer le portefeuille de questions proposé.
 2. Coller les réponses (préparées à l'avance, exemple fictif).
-3. Finir sur le tableau présence, rang, part de voix et sources citées.
+3. Finir sur le tableau des taux avec leur marge d'erreur, les questions perdues et les sources citées.
 
 Remplace : `docs/media/capture-visibilite.svg` en tête de README.
 

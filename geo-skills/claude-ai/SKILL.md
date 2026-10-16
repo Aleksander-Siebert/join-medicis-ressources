@@ -23,7 +23,7 @@ d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 | `geo-audit` | audit GEO d'une page ou d'un site, score sur 100 |
 | `geo-citability` | rendre des passages citables, réécrire les sections faibles |
 | `geo-crawlers` | robots d'IA, robots.txt, llms.txt, bloquer ou autoriser |
-| `geo-visibility` | la marque est-elle citée par les IA ? part de voix |
+| `geo-visibilite` | la marque est-elle nommée, liée, recommandée par les IA ? taux avec marge d'erreur, part de voix |
 | `geo-schema` | données structurées JSON-LD, entité de marque |
 | `geo-mentions` | présence de la marque sur les sources que lisent les IA |
 | `geo-agentic` | agents d'IA qui naviguent et remplissent des formulaires, WebMCP |

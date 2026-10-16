@@ -5,11 +5,11 @@ geo_audit.py - score GEO d'une page, mesuré là où c'est mesurable.
 Six catégories, pondération reprise de geo-seo-claude (MIT) :
 
   Citabilité        25%  mesurée (citability.py)
-  Marque / mentions 20%  à évaluer par le Skill (geo-mentions, geo-visibility)
+  Marque / mentions 20%  à évaluer par le Skill (geo-mentions, geo-visibilite)
   E-E-A-T           20%  à évaluer par le Skill (auteur, sources, expérience)
   Technique         15%  mesurée (robots d'IA, indexation et extrait, contenu sans JS)
   Données structurées 10% mesurée (types JSON-LD présents)
-  Plateformes       10%  à évaluer par le Skill (geo-visibility)
+  Plateformes       10%  à évaluer par le Skill (geo-visibilite)
 
 Le script calcule les trois catégories mesurables et un score partiel ; les
 trois autres se passent en option quand le Skill les a évaluées :
