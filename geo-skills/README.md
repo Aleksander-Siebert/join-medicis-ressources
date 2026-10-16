@@ -188,10 +188,19 @@ python3 evals/scripts/test_geo.py
 
 ## Versions
 
-| Version | Date | Ce qui change |
-|---|---|---|
-| **1.1.0** | 2 oct. 2026 | Corrections d'après le guide de Google sur l'IA générative, `/geo-agentic`. |
-| 1.0.0 | 2 oct. 2026 | 7 Skills AEO / GEO en français, scripts et tests. |
+Chaque version garde ce qui marche et ajoute ce que l'usage a demandé. La
+version 2.0 est en développement.
+
+- **1.1.0** · 2 octobre 2026 · Alignement sur le guide de Google consacré à
+  l'IA générative, et un Skill de plus : `/geo-agentic`, pour des sites que
+  les agents d'IA savent lire et utiliser.
+- 1.0.0 · 2 octobre 2026 · Première version : 7 Skills AEO / GEO en
+  français.
+  - Un audit sur 100 dont le score reste partiel tant que tout n'est pas
+    évalué, et la citabilité notée section par section.
+  - Robots d'IA et llms.txt, et un test de visibilité à partir de réponses
+    réelles collées.
+  - Données structurées, mentions de marque et plan sur 90 jours.
 
 ## Crédits et licence
 
