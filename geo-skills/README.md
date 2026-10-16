@@ -52,8 +52,8 @@ mieux pour le lecteur.
 <table>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/geo-audit.svg" width="44" alt=""></td>
-<td><b><code>/geo-audit</code></b><br>Score GEO sur 100 en six catégories. Chaque note dit si elle est mesurée ou évaluée.</td>
-<td width="150"><code>geo_audit.py</code></td>
+<td><b><code>/geo-audit</code></b><br>Diagnostic couche par couche (accès, page, contenu, entité, agents) : 24 contrôles avec preuve et source, couche à traiter d'abord, visibilité à part.</td>
+<td width="150"><code>audit.py</code></td>
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/geo-visibilite.svg" width="44" alt=""></td>

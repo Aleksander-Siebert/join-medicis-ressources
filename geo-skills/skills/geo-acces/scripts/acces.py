@@ -163,8 +163,11 @@ def sonder(url: str) -> dict:
             continue
         ua = f"Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; {r['jeton']}/1.0)"
         x = pg.lire(url, ua=ua)
-        refuse = bool(ref["statut"] and ref["statut"] < 400 and (x["statut"] is None or x["statut"] >= 400))
-        out[r["jeton"]] = {"statut": x["statut"], "erreur": x["erreur"], "refuse": refuse}
+        if x["statut"] is None:  # erreur réseau : un second essai, puis « non lu », jamais « refusé »
+            x = pg.lire(url, ua=ua)
+        refuse = bool(ref["statut"] and ref["statut"] < 400 and x["statut"] is not None and x["statut"] >= 400)
+        out[r["jeton"]] = {"statut": x["statut"], "erreur": x["erreur"], "refuse": refuse,
+                           "non_lu": x["statut"] is None}
     return out
 
 

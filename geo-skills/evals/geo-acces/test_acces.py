@@ -134,5 +134,35 @@ class Propositions(unittest.TestCase):
         self.assertEqual(code, 2)
 
 
+class Sonde(unittest.TestCase):
+    """Bug trouvé sur un vrai site : une erreur réseau passagère lue comme un refus du pare-feu."""
+
+    def jouer(self, reponses):
+        ancien = acces.pg.lire
+        appels = iter(reponses)
+        acces.pg.lire = lambda url, **k: next(appels)
+        try:
+            return acces.sonder("https://assurly.example/")
+        finally:
+            acces.pg.lire = ancien
+
+    def test_erreur_reseau_n_est_pas_un_refus(self):
+        ok = {"statut": 200, "erreur": None}
+        ko = {"statut": None, "erreur": "URLError"}
+        r = self.jouer([ok] + [ko] * 40)
+        self.assertTrue(all(not v["refuse"] for k, v in r.items() if k != "_navigateur"))
+        self.assertTrue(all(v["non_lu"] for k, v in r.items() if k != "_navigateur"))
+
+    def test_403_est_un_refus(self):
+        r = self.jouer([{"statut": 200, "erreur": None}] + [{"statut": 403, "erreur": None}] * 40)
+        self.assertTrue(r["OAI-SearchBot"]["refuse"])
+
+    def test_second_essai(self):
+        r = self.jouer([{"statut": 200, "erreur": None}, {"statut": None, "erreur": "x"}]
+                       + [{"statut": 200, "erreur": None}] * 40)
+        first = next(k for k in r if k != "_navigateur")
+        self.assertEqual(r[first]["statut"], 200)
+
+
 if __name__ == "__main__":
     unittest.main()
