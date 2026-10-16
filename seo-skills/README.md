@@ -277,11 +277,38 @@ corrections : [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
 ## Versions
 
-| Version | Date | Ce qui change |
-|---|---|---|
-| **2.0.0** | 16 oct. 2026 | Les 14 Skills réécrits sur un socle commun (règles, preuves datées, garde-fou, mesures en pixels, affirmations). `/seo-drift` entre dans `/seo-audit`, `/seo-programmatic` devient une option de `/seo-plan`. Nouveaux scripts : `pipeline.py`, `robots.py`, `positions.py`, `nap.py`, `video.py`, `priorite.py`. |
-| 1.1.0 | 2 oct. 2026 | Corrections d'après les guides Google, `/seo-drift`, `/seo-plan`. |
-| 1.0.0 | 2 oct. 2026 | 14 Skills en français, 4 scripts, tests. |
+Chaque version garde ce qui marche et ajoute ce que l'usage a demandé.
+
+- **2.0.0** · 16 octobre 2026 · Les 14 Skills passent sur un socle commun :
+  règles du pack, preuves datées, garde-fou, title et description mesurés en
+  pixels, contrôle des affirmations et de leurs sources.
+  - `/seo-article` mène l'article en étapes validées et rejouables, puis un
+    portail qualité contrôle le texte (`pipeline.py`). En YMYL, une
+    affirmation sans source y est toujours bloquante.
+  - `/seo-audit` lit robots.txt robot par robot (RFC 9309) et accueille la
+    photo avant / après d'une mise en ligne (ex-`/seo-drift`).
+  - `/seo-plan` classe les idées par script et accueille l'option pages en
+    série (ex-`/seo-programmatic`), ainsi que des options 2026 au choix.
+  - `/seo-refresh` part de Search Console : trois paniers de pages, un CTR
+    attendu calculé sur le site lui-même, puis un bilan à 21 jours.
+  - `/seo-local` compare nom, adresse et téléphone entre les sources ;
+    `/seo-social` contrôle les chapitres d'une vidéo YouTube.
+  - Six nouveaux scripts : `pipeline.py`, `robots.py`, `positions.py`,
+    `nap.py`, `video.py`, `priorite.py`. 243 tests.
+  - Une éval à l'aveugle contre trois textes réels est publiée
+    (`evals/RESULTATS.md`). Elle a déjà amélioré le pack : un texte de page
+    catégorie n'exige plus de H1, puisque le gabarit le porte
+    (`--h1-gabarit`).
+- 1.1.0 · 2 octobre 2026 · Alignement sur les guides de Google, et deux
+  Skills de plus : `/seo-drift` (photo avant / après une mise en ligne) et
+  `/seo-plan` (stratégie sur 12 mois).
+- 1.0.0 · 2 octobre 2026 · Première version : 14 Skills SEO en français, du
+  contexte du site à l'article publié.
+  - Un humaniseur au profil article et un maillage interne sans clé d'API
+    (`maillage.py`).
+  - Un contrôle on-page (`onpage.py`) et une veille des concurrents et de
+    Search Console (`veille.py`).
+  - Un modèle de contexte avec un exemple YMYL, et un ZIP pour claude.ai.
 
 ## Crédits et licence
 

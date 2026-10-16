@@ -165,9 +165,17 @@ Détail, sorties et verdict : [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
 ## Versions
 
-| Version | Date | Ce qui change |
-|---|---|---|
-| **0.1.0** | 15 oct. 2026 | Skill `/chatgpt-ads-skills`, script `valider_exporter.py`, exemple fictif complet. |
+Chaque version garde ce qui marche et ajoute ce que l'usage a demandé.
+
+- **0.1.0** · 15 octobre 2026 · Première version : le Skill
+  `/chatgpt-ads-skills` et son script `valider_exporter.py`.
+  - L'éligibilité de l'annonceur est vérifiée selon les règles publicitaires
+    d'OpenAI (v1.6).
+  - Une carte des intentions, des context hints écrits comme des situations
+    et des annonces dont chaque promesse a une source.
+  - Un modèle d'import XLSX propre au pack et un exemple fictif complet.
+  - Une éval à l'aveugle est publiée : premier sur 2 cas sur 3, et seul à
+    s'arrêter à raison sur un secteur non admis en France.
 
 ## Crédits et licence
 

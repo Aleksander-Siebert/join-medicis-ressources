@@ -286,11 +286,27 @@ commercial : personne ne peut vendre honnêtement de l'« indétectable ».
 
 ## Versions
 
-| Version | Date | Ce qui change |
-|---|---|---|
-| **2.1.0** | 14 oct. 2026 | Horaires de publication refaits d'après les études de 2026 (Sprout Social, Buffer) ; heure réelle notée dans `journal.md` ; créneau horaire testé par `/linkedin-audit`. |
-| 2.0.0 | 2 oct. 2026 | Refonte en 15 Skills : socle commun, preuves datées, humaniseur à 4 passes, audit statistique, page entreprise, évaluation à l'aveugle publiée. |
-| 1.0.0 | 1er oct. 2026 | 12 Skills en français, humaniseur et recherche d'offres. |
+Chaque version garde ce qui marche et ajoute ce que l'usage a demandé.
+
+- **2.1.0** · 14 octobre 2026 · Des horaires de publication plus précis,
+  après un usage réel :
+  - créneaux tirés des études de 2026 (Sprout Social, Buffer) ;
+  - heure réelle de publication notée dans `journal.md` ;
+  - créneau horaire testé par `/linkedin-audit`.
+- 2.0.0 · 2 octobre 2026 · Une refonte en 15 Skills sur un socle commun
+  (règles, preuves datées, garde-fou).
+  - L'humaniseur gagne 4 passes, 3 niveaux, une lecture paragraphe par
+    paragraphe et un contrôle de fidélité des faits.
+  - `/linkedin-interview`, `/linkedin-strategie` et `/linkedin-entreprise`
+    rejoignent le pack.
+  - `/linkedin-audit` passe à la statistique (médiane, motifs testés) ;
+    `/linkedin-plan` suit le calendrier français ; `/linkedin-carrousel`
+    produit le PDF.
+  - Une éval à l'aveugle est publiée : 8 tâches gagnées sur 10 face aux
+    meilleures références de chaque sujet.
+- 1.0.0 · 1er octobre 2026 · Première version : 12 Skills LinkedIn en
+  français, avec un humaniseur français et la recherche d'offres d'emploi
+  de la dernière heure. Commandes `/linkedin-*` et ZIP pour claude.ai.
 
 ## Crédits et licence
 

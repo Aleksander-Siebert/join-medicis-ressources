@@ -148,9 +148,17 @@ Skill modèle, et ses résultats seront publiés dans
 
 ## Versions
 
-| Version | Date | Ce qui change |
-|---|---|---|
-| **0.1.0** | 13 oct. 2026 | Socle commun et Skill modèle `/fondation-entreprise`. |
+Chaque version garde ce qui marche et ajoute ce que l'usage a demandé.
+
+- **0.1.0** · 13 octobre 2026 · Première version : le socle commun et le
+  Skill modèle `/fondation-entreprise`.
+  - Un contexte d'entreprise vérifiable : chaque fait est étiqueté, daté et
+    sourcé.
+  - Les mentions légales et les registres publics français (SIREN, SIRET,
+    TVA recoupés par script), avec les règles CNIL datées.
+  - Un export facultatif vers les packs SEO et LinkedIn.
+
+  Les autres Skills Fondation suivront sur ce modèle.
 
 ## Crédits et licence
 
