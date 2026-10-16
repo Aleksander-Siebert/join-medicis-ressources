@@ -183,7 +183,10 @@ SOURCÉES OU FOURNIES
 VERDICT : OK
 ```
 
-Humaniseur (profil article) : **72,4, OK**.
+Humaniseur (profil article, moteur v2 du 15 octobre 2026) : **67,6, À REVOIR**.
+Deux passages sont désignés (une liste à amorces en gras, une énumération en
+trois) ; leur correction, et le verdict LIVRABLE qui suit, sont dans
+l'exemple de `/seo-article`.
 
 Lecture :
 
@@ -203,7 +206,7 @@ Lecture :
 CONTRÔLES
 Rédaction       PRÊT (controle.py) · 763 mots (préférence 1 000-1 500, non rembourré) · 4 liens internes
 Affirmations    OK en mode YMYL · 2 faits fournis (site-context.md) · 4 trous assumés
-Humaniseur      72,4 OK (profil article)
+Humaniseur      67,6 À REVOIR (profil article) · 2 passages à réécrire
 Qualité Google  15/16 · reste : signature de Claire M. (courtière, ORIAS) sous le titre
 À COMPLÉTER
   {{à compléter : page service-public.fr sur la complémentaire santé des travailleurs indépendants}}

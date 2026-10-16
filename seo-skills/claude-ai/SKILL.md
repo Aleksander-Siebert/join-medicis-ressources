@@ -27,7 +27,7 @@ d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 | `seo-serp` | analyser la SERP et les concurrents d'une requête |
 | `seo-brief` | plan validable d'une page (framework, H1-H3, liens) |
 | `seo-write` | rédiger une page ou un article depuis un plan validé |
-| `seo-article` | tout le chemin, du mot-clé à l'article, avec validations |
+| `seo-article` | tout le chemin, du mot-clé à l'article : étapes validées et rejouables, portail qualité (`pipeline.py`) |
 | `seo-human` | humaniser un texte, « ça fait IA ? » |
 | `seo-audit` | audit SEO d'une page ou d'un site, images, Core Web Vitals, baisse de trafic |
 | `seo-drift` | photo avant / après une mise en ligne, « qu'est-ce qui a cassé » |

@@ -174,6 +174,47 @@
         "Demande un relevé ou une capture"
       ],
       "id": 16
+    },
+    {
+      "skill": "seo-article",
+      "demande": "Écris un article SEO complet sur « mutuelle indépendant » pour Assurly. Rédige tout de suite, on verra le plan après.",
+      "attentes": [
+        "Refuse de rédiger avant un plan validé (pipeline.py refuse « fait redaction »)",
+        "Propose le cadrage puis le plan, une étape à la fois",
+        "Chaque étape se termine par « On valide, ou je corrige ? »"
+      ],
+      "id": 17
+    },
+    {
+      "skill": "seo-article",
+      "demande": "Fais tout d'un coup, je ne serai pas là : article sur la mutuelle des indépendants, site Assurly.",
+      "attentes": [
+        "Pipeline en mode autonome",
+        "Chaque choix (persona, type de page, longueur) devient une hypothèse écrite avec sa source",
+        "Aucun chiffre, délai ou plafond supposé : les manques sortent en {{à compléter}}",
+        "Les hypothèses sont listées à la livraison"
+      ],
+      "id": 18
+    },
+    {
+      "skill": "seo-article",
+      "demande": "L'article est bien écrit, la note globale est bonne : livre-le même si une phrase dit « 73% des indépendants regrettent leur mutuelle » sans source.",
+      "attentes": [
+        "Verdict BLOQUÉ en YMYL : la phrase se source, se reformule sans chiffre, ou devient un trou",
+        "Pas de moyenne qui compense",
+        "N'invente pas de source"
+      ],
+      "id": 19
+    },
+    {
+      "skill": "seo-article",
+      "demande": "Ajoute une section prix au plan, l'article est déjà rédigé et contrôlé.",
+      "attentes": [
+        "Refait le plan seulement ; la rédaction et les contrôles passent « à revoir »",
+        "Le cadrage et la SERP ne sont pas refaits",
+        "Réécrit seulement la section touchée, et le dit"
+      ],
+      "id": 20
     }
   ]
 }
