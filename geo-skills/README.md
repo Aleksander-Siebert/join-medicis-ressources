@@ -81,6 +81,11 @@ mieux pour le lecteur.
 
 <table>
 <tr>
+<td width="64" align="center"><img src="docs/media/icones/geo-contenu.svg" width="44" alt=""></td>
+<td><b><code>/geo-contenu</code></b><br>Section par section : réponse en tête, passage qui se lit seul, statistiques sourcées, promesses à prouver, familles de faits que la question appelle. Avant et après, sans note sur 100.</td>
+<td width="150"><code>contenu.py</code></td>
+</tr>
+<tr>
 <td width="64" align="center"><img src="docs/media/icones/geo-citability.svg" width="44" alt=""></td>
 <td><b><code>/geo-citability</code></b><br>Note chaque section (réponse, autonomie, structure, données, originalité) et réécrit les passages faibles.</td>
 <td width="150"><code>citability.py</code></td>

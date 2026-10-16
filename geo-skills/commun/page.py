@@ -97,7 +97,11 @@ class _Analyseur(HTMLParser):
         if tag in ("a", "button", "input", "select", "textarea") or a.get("role") in ("button", "link"):
             self.interactifs.append((tag, a, cache or self._cache()))
         if tag in VIDES:
+            if tag == "br" and self._dans is not None:
+                self._tampon.append(" ")
             return
+        if self._dans is not None and tag in ("div", "p", "br"):
+            self._tampon.append(" ")
         self.pile.append((tag, cache))
         if tag == "title":
             self._dans, self._tampon = "title", []
@@ -124,8 +128,8 @@ class _Analyseur(HTMLParser):
                 break
 
     def handle_data(self, data):
-        if self._dans is not None:
-            self._tampon.append(data)
+        if self._dans is not None and not (isinstance(self._dans, tuple) and self._cache()):
+            self._tampon.append(data)  # titre Hn : sans le texte aria-hidden (lettres animées en double)
         if any(t in NON_VISIBLES for t, _ in self.pile):
             return
         if data.strip():
