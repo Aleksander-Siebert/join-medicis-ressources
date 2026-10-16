@@ -1,0 +1,4 @@
+# date ; libellé
+2026-09-20 ; refonte du menu du blog
+2026-10-08 ; mise à jour Google relevée sur le tableau de bord (exemple fictif)
+2026-11-02 ; hors période

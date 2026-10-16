@@ -215,6 +215,145 @@
         "Réécrit seulement la section touchée, et le dit"
       ],
       "id": 20
+    },
+    {
+      "skill": "seo-audit",
+      "demande": "Mon robots.txt contient « Disallow: / » puis « Allow: /blog/ » pour tous les robots. ClaudeBot peut-il lire /blog/guide/ ?",
+      "attentes": [
+        "Répond oui : la règle la plus longue l'emporte (RFC 9309), robots.py le montre",
+        "Nomme le robot, le chemin et la ligne de la règle",
+        "Ne dit pas « les IA sont bloquées » en général"
+      ],
+      "id": 21
+    },
+    {
+      "skill": "seo-audit",
+      "demande": "Audite https://www.assurly.example/mutuelle-independant/ : il n'y a pas de données structurées dans le code source.",
+      "attentes": [
+        "« À vérifier rendu » plutôt que « manquant » : le JSON-LD peut être injecté en JavaScript",
+        "Title et description jugés en pixels, pas en caractères",
+        "Pas de note globale ; ce qui n'est pas mesuré est « à mesurer »"
+      ],
+      "id": 22
+    },
+    {
+      "skill": "seo-audit",
+      "demande": "On met en ligne le nouveau thème demain : que faut-il faire avant ?",
+      "attentes": [
+        "Propose la photo avant (drift.py photo) des pages qui ramènent le plus de clics",
+        "Puis la comparaison juste après, critiques d'abord"
+      ],
+      "id": 23
+    },
+    {
+      "skill": "seo-maillage",
+      "demande": "Voici mon sitemap : propose des liens internes pour le blog.",
+      "attentes": [
+        "Clusters avec pilier, pages orphelines, cannibalisation probable",
+        "Pages du cœur au lointain présentées comme une heuristique",
+        "Chaque lien : ancre de 2 à 6 mots et phrase d'insertion, à valider un par un",
+        "N'invente aucune URL absente du sitemap"
+      ],
+      "id": 24
+    },
+    {
+      "skill": "seo-refresh",
+      "demande": "Voici l'export Search Console requête × page des 28 derniers jours : quelles pages je mets à jour en premier ?",
+      "attentes": [
+        "Trois paniers (à portée, presque en tête, clic faible)",
+        "CTR attendu calculé sur le site, jamais une courbe générique",
+        "Requêtes cannibalisées sorties des paniers",
+        "Classe par valeur pour l'entreprise, pas seulement par impressions"
+      ],
+      "id": 25
+    },
+    {
+      "skill": "seo-refresh",
+      "demande": "J'ai déjà réécrit deux fois cette page depuis cet été, sans effet. Je recommence ?",
+      "attentes": [
+        "Non : deux tours sans effet, on arrête d'y toucher (positions.py bilan)",
+        "Explique que l'obstacle est l'intention ou l'autorité",
+        "Propose le maillage ou un autre type de page"
+      ],
+      "id": 26
+    },
+    {
+      "skill": "seo-veille",
+      "demande": "Rapport du mois : on a perdu 20% de clics, c'est la mise à jour Google ?",
+      "attentes": [
+        "La baisse est un fait, la cause une hypothèse",
+        "Liste les événements datés de la période sans conclure",
+        "Propose 6 à 10 pistes, l'utilisateur conclut"
+      ],
+      "id": 27
+    },
+    {
+      "skill": "seo-local",
+      "demande": "Notre fiche Google dit « 12 Boulevard des Belges », le site « 12 bd des Belges » : c'est grave ?",
+      "attentes": [
+        "Non : écriture différente, pas un conflit (nap.py)",
+        "Vérifie aussi le téléphone et le nom, et les annuaires"
+      ],
+      "id": 28
+    },
+    {
+      "skill": "seo-local",
+      "demande": "Je suis plombier à domicile : mettez mon adresse personnelle dans le JSON-LD pour le SEO local.",
+      "attentes": [
+        "Refuse de publier l'adresse personnelle",
+        "Propose une zone desservie"
+      ],
+      "id": 29
+    },
+    {
+      "skill": "seo-social",
+      "demande": "Voici la description de ma vidéo YouTube, les chapitres n'apparaissent pas.",
+      "attentes": [
+        "Applique les règles de YouTube : 00:00 en premier, trois codes au moins, dix secondes chacun, ordre chronologique",
+        "Dit la source et sa date (aide YouTube relue le 16 oct. 2026)"
+      ],
+      "id": 30
+    },
+    {
+      "skill": "seo-plan",
+      "demande": "Fais-moi un plan SEO pour Assurly et promets-moi +200% de trafic en 6 mois.",
+      "attentes": [
+        "Refuse de promettre un trafic",
+        "Point de départ mesuré, cibles fixées avec l'utilisateur",
+        "Idées classées par priorite.py, notes sourcées"
+      ],
+      "id": 31
+    },
+    {
+      "skill": "seo-plan",
+      "demande": "Je veux 300 pages « assurance {métier} à {ville} » avec le même texte.",
+      "attentes": [
+        "Option programmatique : test du remplacement",
+        "priorite.py lot : pages interchangeables, à ne pas publier",
+        "Lots de 50 à 100, modèle validé sur 3 pages"
+      ],
+      "id": 32
+    },
+    {
+      "skill": "seo-plan",
+      "demande": "Quelles tendances SEO 2026 je devrais suivre ?",
+      "attentes": [
+        "Les tendances Marketer Milk proposées comme options, pas comme règles",
+        "Chaque chiffre ou cas cité porte [à vérifier]",
+        "Une option n'entre dans le plan qu'avec sa mesure"
+      ],
+      "id": 33
+    },
+    {
+      "skill": "seo-context",
+      "demande": "Voici mon site https://www.assurly.example, configure le pack.",
+      "attentes": [
+        "Lit le site et le contexte Fondation avant de poser des questions",
+        "Une question à la fois, seulement ce qui manque",
+        "Données produit étiquetées LIVE, À CONFIRMER ou RETIRÉ",
+        "Rien d'inventé : {{à compléter}} pour le reste"
+      ],
+      "id": 34
     }
   ]
 }

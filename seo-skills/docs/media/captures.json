@@ -41,7 +41,7 @@
       "id": "veille",
       "titre": "seo-veille · veille.py",
       "dossier": ".",
-      "commande": "python3 skills/seo-veille/veille.py rapport evals/scripts/gsc-actuel.csv evals/scripts/gsc-precedent.csv",
+      "commande": "python3 skills/seo-veille/scripts/veille.py rapport evals/scripts/gsc-actuel.csv evals/scripts/gsc-precedent.csv",
       "affiche": "python3 veille.py rapport octobre.csv septembre.csv"
     }
   ]

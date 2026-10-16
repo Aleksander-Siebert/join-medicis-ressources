@@ -417,3 +417,42 @@ Restent :
 - **Tests** : 185 au vert (38 pour `pipeline.py`, dont le portail sur les
   vrais scripts du pack et le Skill installé seul).
 
+## 11. Avancement (16 octobre 2026, fin du chantier)
+
+Les 14 Skills sont en v2. Ligne par ligne, ce qui est fait et ce qui est
+écarté ou reporté :
+
+- **`/seo-audit`** : `robots.py` (RFC 9309 : groupe propre au robot, règle
+  la plus longue, Allow à égalité, jokers ; `robotparser` de Python se
+  trompe sur « Disallow: / » puis « Allow: /blog/ »). `onpage.py` : title et
+  description en pixels, nombre de mots en information, JSON-LD absent du
+  HTML brut « à vérifier rendu ». `drift.py` absorbé (`references/drift.md`).
+  Reporté : corrélation avec un registre des mises à jour Google (pas de
+  registre revérifié ; les dates se relèvent sur le tableau de bord Google
+  Search Status au moment du besoin).
+- **`/seo-maillage`** : classes cœur → lointain (distance au centre, TF-IDF
+  local), ancres répétées au-delà de 40%, ordre de publication d'un cluster,
+  premier lien rayon → pilier dans le corps. Reporté : clusters par
+  requêtes Search Console partagées (fait par `/seo-keywords groupes`),
+  profondeur en clics (demande un crawl depuis l'accueil).
+- **`/seo-refresh`** : `positions.py` (trois paniers, CTR attendu calculé
+  sur le site, cannibalisation sortie, pics, journal et bilan à 21 jours,
+  arrêt après deux tours sans effet).
+- **`/seo-veille`** : événements datés de la période présentés comme
+  hypothèses ; option recherches de marque associées. Le rapport « IA
+  générative » de Search Console n'est pas intégré : [à vérifier].
+- **`/seo-local`** : `nap.py` (téléphones et adresses français normalisés,
+  abréviation ≠ conflit), fiches en double (localseoskills), vie privée,
+  observations datées et localisées.
+- **`/seo-social`** : `video.py`, chapitres selon l'aide YouTube relue le
+  16 oct. 2026 (00:00, trois codes, dix secondes, ordre). Propriétés
+  sociales dans Search Console : [à vérifier].
+- **`/seo-plan`** : `priorite.py` (idées 40/30/20/10, lot programmatique),
+  `/seo-programmatic` absorbé (`references/programmatique.md`), options
+  2026 de Marketer Milk (`references/options-2026.md`), chacune avec sa
+  mesure.
+- **`/seo-context`** : une question à la fois, contexte Fondation lu
+  d'abord, étiquettes LIVE / À CONFIRMER / RETIRÉ, réserve partagée.
+- **Tests** : 240 au vert. Reste : l'éval à l'aveugle contre 2 ou 3 articles
+  d'Aleksander.
+

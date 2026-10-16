@@ -2,8 +2,8 @@
   "note": "Icônes et bannière du README, produites par outils/visuels/visuels.py. Ne pas modifier les SVG à la main.",
   "pack": "SEO Skills",
   "surtitre": "Join Médicis · pack de Skills",
-  "accroche": ["Seize Skills SEO en français, du mot-clé à l'article publié.", "Aucun chiffre inventé : ce qui manque devient {{à compléter}}."],
-  "puces": ["16 Skills", "101 tests", "MIT", "v1.1"],
+  "accroche": ["Quatorze Skills SEO en français, du mot-clé à l'article publié.", "Aucun chiffre inventé : ce qui manque devient {{à compléter}}."],
+  "puces": ["14 Skills", "240 tests", "MIT", "v2.0"],
   "colonnes": 4,
   "familles": {"Stratégie": "#2D7259", "Écrire": "#B5552B", "Contrôler": "#1E4E8C", "Durer et étendre": "#6B3F7E"},
   "icones": [
@@ -16,11 +16,9 @@
     {"nom": "seo-article", "glyphe": "document", "famille": "Écrire"},
     {"nom": "seo-human", "glyphe": "visage", "famille": "Écrire"},
     {"nom": "seo-audit", "glyphe": "jauge", "famille": "Contrôler"},
-    {"nom": "seo-drift", "glyphe": "radar", "famille": "Contrôler"},
     {"nom": "seo-maillage", "glyphe": "lien", "famille": "Contrôler"},
     {"nom": "seo-veille", "glyphe": "barres", "famille": "Contrôler"},
     {"nom": "seo-refresh", "glyphe": "rafraichir", "famille": "Durer et étendre"},
-    {"nom": "seo-programmatic", "glyphe": "code", "famille": "Durer et étendre"},
     {"nom": "seo-local", "glyphe": "epingle", "famille": "Durer et étendre"},
     {"nom": "seo-social", "glyphe": "pellicule", "famille": "Durer et étendre"}
   ],

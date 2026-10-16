@@ -1,0 +1,5 @@
+metier,ville,garanties_specifiques,exemple_sinistre,tarif_indicatif
+plombier,Lyon,responsabilité décennale,dégât des eaux chez un client,
+plombier,Lyon,responsabilité décennale,dégât des eaux chez un client,
+électricien,Lyon,responsabilité décennale,court-circuit après intervention,{{à compléter}}
+coiffeur,Lyon,,,
