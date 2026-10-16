@@ -96,3 +96,22 @@ class Ligne(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TexteDeGabarit(unittest.TestCase):
+    """Leçon de l'éval à l'aveugle du 16 oct. 2026 : un texte de page catégorie n'a pas de H1."""
+
+    TEXTE = "## Les modèles\n\nDu texte sous la liste des produits, assez long pour être lu.\n\n## Questions fréquentes\n\nUne réponse.\n"
+
+    def constats(self, **kw):
+        return [c["constat"] for c in controle.controler(self.TEXTE, resume=False, **kw)["constats"]]
+
+    def test_sans_option_le_h1_manque(self):
+        self.assertTrue(any("0 H1" in c for c in self.constats()))
+
+    def test_h1_gabarit_aucun_h1_attendu(self):
+        self.assertFalse(any("H1" in c for c in self.constats(h1_gabarit=True)))
+
+    def test_h1_gabarit_un_h1_en_trop(self):
+        r = controle.controler("# Titre\n\n" + self.TEXTE, resume=False, h1_gabarit=True)
+        self.assertTrue(any("texte de gabarit" in c["constat"] for c in r["constats"]))

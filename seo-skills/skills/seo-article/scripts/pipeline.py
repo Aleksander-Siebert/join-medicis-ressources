@@ -253,6 +253,8 @@ def portes(article: Path, opts: argparse.Namespace, ymyl: bool) -> list[dict]:
             args += [opt, val]
     if opts.sans_resume:
         args.append("--sans-resume")
+    if getattr(opts, "h1_gabarit", False):
+        args.append("--h1-gabarit")
     res.append(porte_redaction(s, args))
 
     # 2. affirmations : chaque fait vérifiable a sa source (bloquant en YMYL)
@@ -529,6 +531,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--marque")
     p.add_argument("--domaine")
     p.add_argument("--sans-resume", action="store_true")
+    p.add_argument("--h1-gabarit", action="store_true", help="texte de gabarit : le H1 est déjà dans la page")
     p.add_argument("--contexte", help="site-context.md")
     p.add_argument("--reserve", help="reserve.md")
     p.add_argument("--niveau", choices=["forensique", "strict", "esthetique"], default="strict")

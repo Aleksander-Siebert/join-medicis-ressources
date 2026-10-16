@@ -116,7 +116,7 @@ def ligne_de(corps, idx):
 
 
 def controler(texte, affirmatif=False, remplacer=None, interdire=None, longueur=None, mot_cle="", marque="",
-              domaine="", pref_title=None, pref_desc=None, resume=True):
+              domaine="", pref_title=None, pref_desc=None, resume=True, h1_gabarit=False):
     corps, bloc_meta = separer_meta(texte)
     constats = []
 
@@ -126,7 +126,11 @@ def controler(texte, affirmatif=False, remplacer=None, interdire=None, longueur=
     b = blocs(corps)
     titres = [x for x in b if "titre" in x]
     h1 = [x for x in titres if re.match(r"^#\s", x["titre"])]
-    if len(h1) != 1:
+    if h1_gabarit:
+        # Texte placé dans une page dont le gabarit porte déjà le H1 (catégorie, fiche produit).
+        if h1:
+            c("haute", "structure", f"{len(h1)} H1 dans un texte de gabarit (le H1 est déjà dans la page)", h1[0]["ligne"])
+    elif len(h1) != 1:
         c("haute", "structure", f"{len(h1)} H1 (un seul attendu)", h1[1]["ligne"] if len(h1) > 1 else None)
 
     # résumé : une citation « > » avant le premier H2
@@ -289,6 +293,8 @@ def main():
     p.add_argument("--pref-title", default="55-60")
     p.add_argument("--pref-description", default="150-160")
     p.add_argument("--sans-resume", action="store_true", help="le site ne veut pas de résumé en tête")
+    p.add_argument("--h1-gabarit", action="store_true",
+                   help="texte inséré dans une page dont le gabarit porte déjà le H1 (catégorie, fiche produit) : aucun H1 attendu")
     p.add_argument("--json", action="store_true")
     a = p.parse_args()
     try:
@@ -297,7 +303,8 @@ def main():
         print(f"Erreur : {e}", file=sys.stderr)
         return 1
     r = controler(texte, a.affirmatif, a.remplacer, a.interdire, bornes(a.longueur, p), a.mot_cle, a.marque,
-                  a.domaine, bornes(a.pref_title, p), bornes(a.pref_description, p), not a.sans_resume)
+                  a.domaine, bornes(a.pref_title, p), bornes(a.pref_description, p), not a.sans_resume,
+                  h1_gabarit=a.h1_gabarit)
     print(json.dumps(r, ensure_ascii=False, indent=2) if a.json else afficher(r))
     return 0 if r["verdict"] == "PRÊT" else 2
 
