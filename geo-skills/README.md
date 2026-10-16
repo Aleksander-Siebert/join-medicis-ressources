@@ -61,6 +61,16 @@ mieux pour le lecteur.
 <td width="150"><code>visibilite.py</code></td>
 </tr>
 <tr>
+<td width="64" align="center"><img src="docs/media/icones/geo-acces.svg" width="44" alt=""></td>
+<td><b><code>/geo-acces</code></b><br>Chaque robot d'IA lu pour ce qu'il fait (recherche, visite, entraînement) selon la RFC 9309, extrait autorisé, bloc Cloudflare, Content-Signal, pare-feu.</td>
+<td width="150"><code>acces.py</code></td>
+</tr>
+<tr>
+<td width="64" align="center"><img src="docs/media/icones/geo-exactitude.svg" width="44" alt=""></td>
+<td><b><code>/geo-exactitude</code></b><br>Ce que les IA disent de la marque, phrase par phrase, comparé à ses vraies données : faux, périmé, mauvaise devise, gravité, source à corriger.</td>
+<td width="150"><code>exactitude.py</code></td>
+</tr>
+<tr>
 <td width="64" align="center"><img src="docs/media/icones/geo-crawlers.svg" width="44" alt=""></td>
 <td><b><code>/geo-crawlers</code></b><br>Robots d'IA autorisés ou bloqués, un par un, robots.txt selon votre stratégie, brouillon de llms.txt.</td>
 <td width="150"><code>crawlers.py</code></td>
