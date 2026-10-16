@@ -128,7 +128,9 @@ sessions par pack, c'est normal.
      jamais recopier ni prompts ni chiffres d'études de cas.
   3. **LinkedIn Ads, puis TikTok Ads** : Skills Join Médicis rédigés par
      rétro-ingénierie (claude-ads, MIT, ua-skills, aides officielles, MCP
-     officiel TikTok), à ajouter au pack Ads avec ChatGPT Ads.
+     officiel TikTok). ChatGPT Ads, LinkedIn Ads et TikTok Ads sont des
+     Skills **séparés**, chacun avec son dossier, sa fiche et son ZIP : pas
+     un pack commun.
   4. **Articles de blog « Guide : installer et utiliser un Skill sur X »**
      (Claude, ChatGPT, Gemini, Mistral) : étapes vérifiées aux pages d'aide
      officielles, captures du compte de l'utilisateur, date de vérification.
