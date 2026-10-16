@@ -141,7 +141,7 @@ Slug : /blog/mutuelle-independant/
 CONTRÔLES
 Rédaction       PRÊT (controle.py) · 763 mots · 4 liens internes · title 490 px · description 852 px
 Affirmations    OK en mode YMYL · 2 faits fournis (site-context.md) · 4 trous assumés
-Humaniseur      72,4 OK (profil article)
+Humaniseur      67,6 À REVOIR (profil article) · 2 passages à réécrire
 Qualité Google  15/16 · reste : signature de l'auteure à ajouter sous le titre
 À COMPLÉTER
   {{à compléter : page service-public.fr sur la complémentaire santé des travailleurs indépendants}}

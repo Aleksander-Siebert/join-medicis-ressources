@@ -9,7 +9,7 @@ Du mot-clé à l'article publiable, de l'audit au maillage interne. **Aucun chif
 
 <!-- github-seulement -->
 [![Version](https://img.shields.io/badge/version-1.1.0-0E3F2D)](#versions)
-[![Tests](https://img.shields.io/badge/tests-101%20au%20vert-2D7259)](#preuves)
+[![Tests](https://img.shields.io/badge/tests-185%20au%20vert-2D7259)](#preuves)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](LICENSE)
 [![Python](https://img.shields.io/badge/Python%203-sans%20d%C3%A9pendance-34495E?logo=python&logoColor=white)](#les-scripts)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white)](#claude-code)
@@ -63,13 +63,13 @@ votre IA, les Skills s'en servent.
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-keywords.svg" width="44" alt=""></td>
-<td><b><code>/seo-keywords</code></b><br>Mots-clés et intentions, regroupés en pages (une intention, une page), cannibalisation vérifiée.</td>
-<td width="150"></td>
+<td><b><code>/seo-keywords</code></b> <sup>v2</sup><br>Mots-clés et intentions, regroupés en pages (une intention, une page) par recouvrement de SERP, cannibalisation lue dans l'export Search Console.</td>
+<td width="150"><code>motscles.py</code></td>
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-serp.svg" width="44" alt=""></td>
-<td><b><code>/seo-serp</code></b><br>Lit la SERP à l'envers : type de page attendu, concurrents notés sur 40, manques, gain d'information.</td>
-<td width="150"></td>
+<td><b><code>/seo-serp</code></b> <sup>v2</sup><br>Lit la SERP : type de page qui gagne (consensus mesuré), difficulté lue dans les résultats, signaux « ne pas tenter », manques, gain d'information.</td>
+<td width="150"><code>serp.py</code></td>
 </tr>
 </table>
 
@@ -88,12 +88,12 @@ votre IA, les Skills s'en servent.
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-article.svg" width="44" alt=""></td>
-<td><b><code>/seo-article</code></b><br>Le chemin complet, du mot-clé à l'article, avec une validation à chaque étape.</td>
-<td width="150"></td>
+<td><b><code>/seo-article</code></b> <sup>v2</sup><br>Le chemin complet, du mot-clé à l'article, en étapes validées une à une et rejouables, puis un portail qualité qui bloque au lieu de faire une moyenne : une affirmation sans source en YMYL arrête la livraison. Mode autonome avec hypothèses écrites.</td>
+<td width="150"><code>pipeline.py</code></td>
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-human.svg" width="44" alt=""></td>
-<td><b><code>/seo-human</code></b><br>Retire les marques d'écriture IA d'un article sans casser son Markdown ni la typographie française.</td>
+<td><b><code>/seo-human</code></b> <sup>v2</sup><br>Retire les marques d'écriture IA d'un article sans casser son Markdown ni la typographie française.</td>
 <td width="150"><code>humanize.py</code> <code>detect.py</code></td>
 </tr>
 </table>
@@ -260,7 +260,7 @@ clé gratuite dans Google Cloud et passez-la avec `--cle` ou `PSI_API_KEY`.
 python3 evals/tout_tester.py
 ```
 
-**101 tests** : les scripts, le socle commun et l'intégrité du pack (frontmatter,
+**185 tests** : les scripts, le socle commun et l'intégrité du pack (frontmatter,
 fichiers cités, socle synchronisé, typographie). Les évaluations comparatives
 sont dans [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
@@ -268,7 +268,7 @@ sont dans [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
 | Version | Date | Ce qui change |
 |---|---|---|
-| 2.0 (en cours) | 12 oct. 2026 | Socle commun (règles, preuves datées, garde-fou, mesures en pixels, affirmations) ; `/seo-brief` et `/seo-write` réécrits. Les autres Skills suivent. |
+| 2.0 (en cours) | 16 oct. 2026 | Socle commun (règles, preuves datées, garde-fou, mesures en pixels, affirmations) ; `/seo-brief`, `/seo-write`, `/seo-human`, `/seo-keywords`, `/seo-serp` et `/seo-article` réécrits. Les autres Skills suivent. |
 | **1.1.0** | 2 oct. 2026 | Corrections d'après les guides Google, `/seo-drift`, `/seo-plan`. |
 | 1.0.0 | 2 oct. 2026 | 14 Skills en français, 4 scripts, tests. |
 

@@ -384,10 +384,36 @@ Skills modèles est appliqué aux Skills suivants :
 
 Restent :
 
-- les Skills `/seo-article`, `/seo-audit` (absorbe `/seo-drift`),
+- les Skills `/seo-audit` (absorbe `/seo-drift`),
   `/seo-maillage`, `/seo-refresh`, `/seo-veille`, `/seo-local`,
   `/seo-social`, `/seo-plan` (absorbe `/seo-programmatic`) et
   `/seo-context` ;
 - les tendances Marketer Milk en options dans `/seo-plan`, `/seo-write`,
   `/seo-refresh` et `/seo-veille` ;
 - l'éval à l'aveugle contre les articles d'Aleksander.
+
+## 10. Avancement (16 octobre 2026)
+
+- **`/seo-article`** : `pipeline.py`. Les quatre lignes de la matrice 7 sont
+  faites :
+  - chemin complet avec validations : 8 étapes, ordre imposé par le script
+    (pas de rédaction sans plan validé) ;
+  - étapes nommées, montrées, rejouables (Agent A) : `refaire` renvoie en
+    revue les étapes suivantes, jamais les précédentes ;
+  - boucle de qualité avec seuil (seomachine) : portail à trois portes
+    (`controle.py`, `affirmations.py`, `detect.py`), sans moyenne, 2 tours
+    puis relecture humaine ; une affirmation sans source en YMYL bloque
+    toujours ;
+  - exécution autonome (superseo 0.2.1) : hypothèses écrites et sourcées,
+    jamais un fait supposé.
+- **Écart constaté et corrigé** : l'exemple de `/seo-write` affichait une
+  note d'humaniseur de 72,4 calculée avant le portage du moteur v2 ; la
+  note réelle est 67,6, avec deux passages désignés. L'exemple de
+  `/seo-article` montre leur correction.
+- **Choix de conception** : une note globale d'humaniseur sous le seuil sans
+  paragraphe désigné est un avis, pas un blocage (sinon la boucle tourne à
+  vide). Le compteur de tours repart à 1 quand l'utilisateur fait refaire
+  une étape d'avant les contrôles, pas quand l'article est seulement corrigé.
+- **Tests** : 185 au vert (38 pour `pipeline.py`, dont le portail sur les
+  vrais scripts du pack et le Skill installé seul).
+
