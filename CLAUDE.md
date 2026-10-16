@@ -120,16 +120,55 @@ sessions par pack, c'est normal.
 
 ## Demandes en attente (à intégrer au prochain chantier de chaque pack)
 
-- **Pack SEO v2** : proposer les tendances SEO comme **options** au choix de
-  l'utilisateur (pas des règles), à partir de l'article de Marketer Milk
-  « SEO trends 2026 » (https://www.marketermilk.com/blog/seo-trends-2026) :
-  - E-E-A-T comme preuve sociale (podcasts, avis tiers, mentions) ;
-  - recherches de marque associées à un mot-clé (« {marque} + {mot-clé} ») ;
-  - titles personnels et émotionnels, seulement si le contenu tient la promesse ;
-  - vidéo YouTube intégrée aux meilleurs articles ;
-  - ne pas tout basculer sur l'IA ;
-  - refus des tactiques black hat pour les LLM ;
-  - contenu d'expérience vécue plutôt que volume.
+- **Ordre des chantiers** (16 octobre 2026) :
+  1. **GEO v2**, processus complet, avec validation avant d'écrire.
+  2. **Skill vidéo** (priorité 2, fort potentiel de buzz) : un « Taste Skill
+     de la vidéo » pour marketeurs, dans l'esprit de brag
+     (latent-spaces/brag, MIT) et de Taste Skill :
+     - bibliothèque de styles étudiés sur de vraies vidéos, décrits avec nos
+       mots et des paramètres mesurables (rythme, durée du texte, typo,
+       animation, palette, tempo), tirage de 3 styles ;
+     - usages marketing : annonce de fonctionnalité, vidéo de post LinkedIn,
+       variantes d'annonce, teaser d'événement, carrousel en vidéo,
+       sous-titres français ;
+     - formats par plateforme (LinkedIn, Reels, TikTok, Shorts), à vérifier
+       aux sources officielles ;
+     - inspecteur de la vidéo rendue (durée, résolution, images par seconde,
+       temps de lecture du texte, zones de sécurité, écrans noirs, volume) et
+       boucle de relecture sur des images extraites ;
+     - musique, polices et images à licence claire pour l'usage commercial
+       (la musique fournie par brag a une licence non vérifiée : ne pas la
+       redistribuer) ;
+     - mode « storyboard seul » pour les IA sans exécution de commandes.
 
-  C'est un avis de praticien : chaque chiffre ou cas cité porte [à vérifier].
-- **Ordre des chantiers** : LinkedIn v2 (en cours), puis SEO v2, puis GEO v2.
+     Sources à collecter : brag et brag-slim, Skills Hyperframes (Apache
+     2.0), méthode Taste Skill, Skills Remotion (pas de licence détectée :
+     inspiration seulement), corpus de vidéos choisi avec l'utilisateur.
+     Commencer par un prototype : 3 styles, l'inspecteur, 5 vidéos Assurly,
+     éval à l'aveugle contre brag-slim.
+  3. **ChatGPT Ads** : attendre les documents de l'utilisateur (modèle Excel
+     aux bonnes colonnes, consignes OpenAI à réécrire en .md, rédaction des
+     context hints). L'onboarding OpenAI est confidentiel : reformuler, ne
+     jamais recopier ni prompts ni chiffres d'études de cas.
+  4. **LinkedIn Ads, puis TikTok Ads** : Skills Join Médicis rédigés par
+     rétro-ingénierie (claude-ads, MIT, ua-skills, aides officielles, MCP
+     officiel TikTok). ChatGPT Ads, LinkedIn Ads et TikTok Ads sont des
+     Skills **séparés**, chacun avec son dossier, sa fiche et son ZIP : pas
+     un pack commun.
+  5. **Articles de blog « Guide : installer et utiliser un Skill sur X »**
+     (Claude, ChatGPT, Gemini, Mistral) : étapes vérifiées aux pages d'aide
+     officielles, captures du compte de l'utilisateur, date de vérification.
+- **Compatibilité multi-IA** (plus tard) :
+  - retirer de nos SKILL.md ce qui ne parle qu'à Claude ;
+  - un ZIP par IA ;
+  - tester chaque pack sur les quatre IA avant de changer sa pastille.
+
+  Une variante pour ChatGPT, Gemini ou Mistral d'un Skill externe est notre
+  adaptation, créditée, sous la licence de l'auteur.
+- **État des imports** (16 octobre 2026) :
+  - Gemini : Personnaliser → Compétences → Importer ; ZIP LinkedIn testé, il
+    fonctionne.
+  - ChatGPT : chatgpt.com/skills, en bêta.
+  - Mistral : chat.mistral.ai/skills ne reconnaît ni dossier ni ZIP, et les
+    .md doivent suivre un format propre à Mistral, à documenter. En
+    attendant, le site dit de coller le SKILL.md.
