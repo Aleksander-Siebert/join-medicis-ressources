@@ -1,15 +1,15 @@
 <div align="center">
 
-<img src="docs/media/banniere.svg" width="100%" alt="SEO Skills, par Join Médicis : seize Skills SEO en français, du mot-clé à l'article publié">
+<img src="docs/media/banniere.svg" width="100%" alt="SEO Skills, par Join Médicis : quatorze Skills SEO en français, du mot-clé à l'article publié">
 
 <br>
 
-**Seize Skills SEO en français pour Claude, ChatGPT, Gemini et Mistral.**<br>
+**Quatorze Skills SEO en français pour Claude, ChatGPT, Gemini et Mistral.**<br>
 Du mot-clé à l'article publiable, de l'audit au maillage interne. **Aucun chiffre inventé** : ce qui manque devient `{{à compléter}}`.
 
 <!-- github-seulement -->
-[![Version](https://img.shields.io/badge/version-1.1.0-0E3F2D)](#versions)
-[![Tests](https://img.shields.io/badge/tests-185%20au%20vert-2D7259)](#preuves)
+[![Version](https://img.shields.io/badge/version-2.0.0-0E3F2D)](#versions)
+[![Tests](https://img.shields.io/badge/tests-240%20au%20vert-2D7259)](#preuves)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](LICENSE)
 [![Python](https://img.shields.io/badge/Python%203-sans%20d%C3%A9pendance-34495E?logo=python&logoColor=white)](#les-scripts)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white)](#claude-code)
@@ -17,7 +17,7 @@ Du mot-clé à l'article publiable, de l'audit au maillage interne. **Aucun chif
 [![Autres IA](https://img.shields.io/badge/ChatGPT%20%C2%B7%20Gemini%20%C2%B7%20Mistral-compatibles-525049)](#chatgpt-gemini-mistral)
 [![Étoiles GitHub](https://img.shields.io/github/stars/Aleksander-Siebert/join-medicis-ressources?style=social)](https://github.com/Aleksander-Siebert/join-medicis-ressources)
 
-[**Installer**](#installer) · [Les seize Skills](#les-seize-skills) · [En images](#en-images) · [Fiche Join Médicis](https://joinmedicis.com/ressources/skills/seo-skills) · [Crédits](CREDITS.md)
+[**Installer**](#installer) · [Les quatorze Skills](#les-quatorze-skills) · [En images](#en-images) · [Fiche Join Médicis](https://joinmedicis.com/ressources/skills/seo-skills) · [Crédits](CREDITS.md)
 <!-- /github-seulement -->
 
 <!-- Emplacement du GIF de démonstration (voir docs/media/A-FILMER.md, prise 1).
@@ -46,19 +46,19 @@ title en pixels, affirmations sans source) et ne publie jamais rien. Pas
 besoin d'outil payant ; si Search Console, Semrush ou Ahrefs sont connectés à
 votre IA, les Skills s'en servent.
 
-## Les seize Skills
+## Les quatorze Skills
 
 ### Stratégie
 
 <table>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-plan.svg" width="44" alt=""></td>
-<td><b><code>/seo-plan</code></b><br>La stratégie sur 12 mois : piliers, feuille de route en 4 phases, indicateurs partant de vos vraies données.</td>
-<td width="150"></td>
+<td><b><code>/seo-plan</code></b> <sup>v2</sup><br>La stratégie sur 12 mois : piliers, feuille de route en 4 phases, idées classées par script, indicateurs partant de vos vraies données. Option pages en série contrôlées, options 2026 au choix.</td>
+<td width="150"><code>priorite.py</code></td>
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-context.svg" width="44" alt=""></td>
-<td><b><code>/seo-context</code></b><br>Remplit <code>site-context.md</code> : secteur, lecteurs, pages à pousser, ton, règles maison, données produit étiquetées. Tous les autres le lisent.</td>
+<td><b><code>/seo-context</code></b> <sup>v2</sup><br>Remplit <code>site-context.md</code> une question à la fois : secteur, lecteurs, pages à pousser, ton, règles maison, données produit étiquetées. Tous les autres le lisent.</td>
 <td width="150"></td>
 </tr>
 <tr>
@@ -103,22 +103,17 @@ votre IA, les Skills s'en servent.
 <table>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-audit.svg" width="44" alt=""></td>
-<td><b><code>/seo-audit</code></b><br>Audit d'une page ou d'un site par ordre de priorité : on-page, images, Core Web Vitals, bon type de page.</td>
-<td width="150"><code>onpage.py</code></td>
-</tr>
-<tr>
-<td width="64" align="center"><img src="docs/media/icones/seo-drift.svg" width="44" alt=""></td>
-<td><b><code>/seo-drift</code></b><br>Photo des éléments SEO avant une mise en ligne, comparaison après : <code>noindex</code> oublié, canonical cassé, H1 supprimé.</td>
-<td width="150"><code>drift.py</code></td>
+<td><b><code>/seo-audit</code></b> <sup>v2</sup><br>Audit par ordre de priorité : robots.txt robot par robot (RFC 9309), title en pixels, JSON-LD à vérifier rendu, type de page, et la photo avant / après d'une mise en ligne.</td>
+<td width="150"><code>onpage.py</code> <code>robots.py</code> <code>drift.py</code></td>
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-maillage.svg" width="44" alt=""></td>
-<td><b><code>/seo-maillage</code></b><br>Lit le sitemap, regroupe vos pages en clusters, repère les pages orphelines et la cannibalisation, puis propose les liens.</td>
+<td><b><code>/seo-maillage</code></b> <sup>v2</sup><br>Clusters depuis le sitemap, pages du cœur au lointain, orphelines, cannibalisation, ancres répétées, puis liens proposés un par un.</td>
 <td width="150"><code>maillage.py</code></td>
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-veille.svg" width="44" alt=""></td>
-<td><b><code>/seo-veille</code></b><br>Nouvelles pages des concurrents (sitemaps) et rapport mensuel Search Console : gagnants, perdants, pages tombées à zéro clic.</td>
+<td><b><code>/seo-veille</code></b> <sup>v2</sup><br>Nouvelles pages des concurrents et rapport mensuel Search Console, avec les événements de la période présentés comme des hypothèses.</td>
 <td width="150"><code>veille.py</code></td>
 </tr>
 </table>
@@ -128,27 +123,22 @@ votre IA, les Skills s'en servent.
 <table>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-refresh.svg" width="44" alt=""></td>
-<td><b><code>/seo-refresh</code></b><br>Met à jour un article publié : chiffres datés, manques face à la SERP, liens, modifications à accepter une par une.</td>
-<td width="150"></td>
-</tr>
-<tr>
-<td width="64" align="center"><img src="docs/media/icones/seo-programmatic.svg" width="44" alt=""></td>
-<td><b><code>/seo-programmatic</code></b><br>Pages à grande échelle (villes, comparatifs, glossaire) sans pages satellites.</td>
-<td width="150"></td>
+<td><b><code>/seo-refresh</code></b> <sup>v2</sup><br>Quelles pages mettre à jour d'abord (trois paniers Search Console, CTR comparé au site lui-même), le plus petit changement, puis le bilan à 21 jours.</td>
+<td width="150"><code>positions.py</code></td>
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-local.svg" width="44" alt=""></td>
-<td><b><code>/seo-local</code></b><br>Fiche Google, avis dans le respect du droit français, pages locales, annuaires français.</td>
-<td width="150"></td>
+<td><b><code>/seo-local</code></b> <sup>v2</sup><br>Fiche Google, fiches en double, avis dans le droit français, pages locales sans pages satellites, NAP comparé entre site, fiche et annuaires.</td>
+<td width="150"><code>nap.py</code></td>
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/seo-social.svg" width="44" alt=""></td>
-<td><b><code>/seo-social</code></b><br>SEO de YouTube, Pinterest, TikTok, LinkedIn et Google Discover.</td>
-<td width="150"></td>
+<td><b><code>/seo-social</code></b> <sup>v2</sup><br>SEO de YouTube, Pinterest, TikTok, LinkedIn et Discover ; chapitres et texte d'une vidéo contrôlés selon les règles de YouTube.</td>
+<td width="150"><code>video.py</code></td>
 </tr>
 </table>
 
-<sup>v2</sup> : Skills déjà réécrits sur le nouveau socle (règles communes, preuves datées, scripts de contrôle). Les autres suivent.
+<sup>v2</sup> : réécrits en octobre 2026 sur le socle commun (règles, preuves datées, scripts de contrôle).
 
 ## En images
 
@@ -215,10 +205,16 @@ partage le même `site-context.md`.
 Python 3, sans dépendance, sur votre machine :
 
 ```bash
-python3 skills/seo-maillage/maillage.py --sitemap https://www.site.fr/sitemap.xml --lire --max 300
-python3 skills/seo-audit/onpage.py https://www.site.fr/page/ --mot-cle "mot clé" --poids-images --cwv
-python3 skills/seo-drift/drift.py photo --sitemap https://www.site.fr/sitemap.xml --max 50
-python3 skills/seo-veille/veille.py rapport pages-octobre.csv pages-septembre.csv
+python3 skills/seo-maillage/scripts/maillage.py --sitemap https://www.site.fr/sitemap.xml --lire --max 300
+python3 skills/seo-audit/scripts/onpage.py https://www.site.fr/page/ --mot-cle "mot clé" --poids-images --cwv
+python3 skills/seo-audit/scripts/drift.py photo --sitemap https://www.site.fr/sitemap.xml --max 50
+python3 skills/seo-veille/scripts/veille.py rapport pages-octobre.csv pages-septembre.csv
+python3 skills/seo-audit/scripts/robots.py https://www.site.fr --chemin /blog/
+python3 skills/seo-refresh/scripts/positions.py paniers gsc-requetes-pages.csv
+python3 skills/seo-local/scripts/nap.py --source site=page.html --source fiche=fiche.txt
+python3 skills/seo-social/scripts/video.py --description description.txt --duree 12:40
+python3 skills/seo-plan/scripts/priorite.py idees idees.csv
+python3 skills/seo-article/scripts/pipeline.py etat --dossier articles/mon-article/
 python3 skills/seo-brief/scripts/couverture.py couvrir plan.md requetes.txt
 python3 skills/seo-write/scripts/controle.py article.md --affirmatif
 python3 commun/affirmations.py article.md --ymyl
@@ -260,7 +256,7 @@ clé gratuite dans Google Cloud et passez-la avec `--cle` ou `PSI_API_KEY`.
 python3 evals/tout_tester.py
 ```
 
-**185 tests** : les scripts, le socle commun et l'intégrité du pack (frontmatter,
+**240 tests** : les scripts, le socle commun et l'intégrité du pack (frontmatter,
 fichiers cités, socle synchronisé, typographie). Les évaluations comparatives
 sont dans [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
@@ -268,8 +264,8 @@ sont dans [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
 | Version | Date | Ce qui change |
 |---|---|---|
-| 2.0 (en cours) | 16 oct. 2026 | Socle commun (règles, preuves datées, garde-fou, mesures en pixels, affirmations) ; `/seo-brief`, `/seo-write`, `/seo-human`, `/seo-keywords`, `/seo-serp` et `/seo-article` réécrits. Les autres Skills suivent. |
-| **1.1.0** | 2 oct. 2026 | Corrections d'après les guides Google, `/seo-drift`, `/seo-plan`. |
+| **2.0.0** | 16 oct. 2026 | Les 14 Skills réécrits sur un socle commun (règles, preuves datées, garde-fou, mesures en pixels, affirmations). `/seo-drift` entre dans `/seo-audit`, `/seo-programmatic` devient une option de `/seo-plan`. Nouveaux scripts : `pipeline.py`, `robots.py`, `positions.py`, `nap.py`, `video.py`, `priorite.py`. |
+| 1.1.0 | 2 oct. 2026 | Corrections d'après les guides Google, `/seo-drift`, `/seo-plan`. |
 | 1.0.0 | 2 oct. 2026 | 14 Skills en français, 4 scripts, tests. |
 
 ## Crédits et licence

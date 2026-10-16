@@ -13,7 +13,7 @@ description: >-
 
 # SEO Skills (Join Médicis)
 
-Ce Skill regroupe les 16 modules du pack SEO. Chaque module est un mode
+Ce Skill regroupe les 14 modules du pack SEO. Chaque module est un mode
 d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 (références, scripts) dans le même dossier.
 
@@ -21,7 +21,7 @@ d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 
 | Module | Quand l'utiliser |
 |---|---|
-| `seo-plan` | stratégie, feuille de route sur 12 mois, « par où commencer » |
+| `seo-plan` | stratégie, feuille de route sur 12 mois, « par où commencer », pages en série (programmatique) |
 | `seo-context` | premier usage, « voici mon site », remplir `site-context.md` |
 | `seo-keywords` | mots-clés, intentions, idées d'articles, cannibalisation |
 | `seo-serp` | analyser la SERP et les concurrents d'une requête |
@@ -29,12 +29,10 @@ d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 | `seo-write` | rédiger une page ou un article depuis un plan validé |
 | `seo-article` | tout le chemin, du mot-clé à l'article : étapes validées et rejouables, portail qualité (`pipeline.py`) |
 | `seo-human` | humaniser un texte, « ça fait IA ? » |
-| `seo-audit` | audit SEO d'une page ou d'un site, images, Core Web Vitals, baisse de trafic |
-| `seo-drift` | photo avant / après une mise en ligne, « qu'est-ce qui a cassé » |
+| `seo-audit` | audit SEO d'une page ou d'un site, robots.txt, baisse de trafic, photo avant / après une mise en ligne |
 | `seo-maillage` | sitemap, clusters, pages orphelines, liens internes |
-| `seo-refresh` | mettre à jour un article publié |
+| `seo-refresh` | quelles pages mettre à jour d'abord (Search Console), mettre à jour un article publié |
 | `seo-veille` | nouvelles pages des concurrents, rapport Search Console |
-| `seo-programmatic` | pages à grande échelle (villes, comparatifs, glossaire) |
 | `seo-local` | fiche Google, avis, pages locales, annuaires |
 | `seo-social` | SEO YouTube, Pinterest, TikTok, LinkedIn, Discover |
 
@@ -46,7 +44,7 @@ L'utilisateur peut taper le nom du module comme une commande (`/seo-brief …`).
    enchaîne les autres.
 2. **Lis en entier `modules/<nom>/<nom>.md`** avant de répondre, puis
    suis-le. Les fichiers qu'il cite (`references/…`, `humanize.py`,
-   `maillage.py`, `onpage.py`, `veille.py`, `drift.py`) sont dans son dossier.
+   `maillage.py`, `onpage.py`, `robots.py`, `veille.py`, `drift.py`, `positions.py`, `nap.py`, `video.py`, `priorite.py`, `pipeline.py`) sont dans son dossier.
 3. Quand un module renvoie à un autre (« passe par `/seo-human` »), lis le
    fichier de ce module et applique-le.
 4. Les modèles `site-context.md`, `exemple-site-context.md` et

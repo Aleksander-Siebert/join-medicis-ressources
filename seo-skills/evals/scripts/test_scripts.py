@@ -7,8 +7,8 @@ from contextlib import redirect_stdout
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SK = os.path.join(HERE, "..", "..", "skills")
-for d in ("seo-maillage", "seo-veille", "seo-audit", "seo-drift"):
-    sys.path.insert(0, os.path.join(SK, d))
+for d in ("seo-maillage", "seo-veille", "seo-audit"):
+    sys.path.insert(0, os.path.join(SK, d, "scripts"))
 
 import maillage  # noqa: E402
 import onpage  # noqa: E402

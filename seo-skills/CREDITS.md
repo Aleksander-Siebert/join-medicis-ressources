@@ -1,6 +1,6 @@
 # Notre méthodologie
 
-Les skills Join Médicis sont des créations 100% originales, conçues à la main.
+Les skills Join Médicis sont une production 100% Join Médicis, conçue à la main.
 
 Nous sommes partis d'un constat simple, la majorité des prompts et agents disponibles aujourd'hui sont pensés pour le marché américain, restent trop généralistes et se cassent souvent les dents sur des secteurs exigeants (notamment les thématiques YMYL - Your Money or Your Life).
 

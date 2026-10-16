@@ -30,7 +30,7 @@ Retrouve des skills autour de LinkedIn, du SEO/GEO et prochainement : Paids, UX/
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-seo.svg" width="52" alt=""></td>
-<td><b><a href="seo-skills/">SEO Skills</a></b> · 16 Skills · v1.1, v2 en cours<br>Du mot-clé à l'article publié : plan validé avant la rédaction, couverture des requêtes mesurée, affirmations sans source bloquées, audit, maillage interne, veille Search Console, SEO local.<br><sub><a href="https://joinmedicis.com/ressources/skills/seo-skills">Fiche Join Médicis</a> · <a href="seo-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
+<td><b><a href="seo-skills/">SEO Skills</a></b> · 14 Skills · v2.0<br>Du mot-clé à l'article publié : plan validé avant la rédaction, couverture des requêtes mesurée, article en étapes avec portail qualité, affirmations sans source bloquées, audit (robots.txt, photo avant / après), maillage interne, mises à jour pilotées par Search Console, veille, SEO local et social.<br><sub><a href="https://joinmedicis.com/ressources/skills/seo-skills">Fiche Join Médicis</a> · <a href="seo-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-geo.svg" width="52" alt=""></td>
