@@ -1,0 +1,86 @@
+{
+  "url": "http://site-de-test/robots.txt",
+  "status": 200,
+  "user_agents": {
+    "perplexitybot": {
+      "allow": [],
+      "disallow": [
+        "/"
+      ]
+    },
+    "claude-searchbot": {
+      "allow": [],
+      "disallow": [
+        "/"
+      ]
+    },
+    "*": {
+      "allow": [
+        "/"
+      ],
+      "disallow": []
+    }
+  },
+  "sitemaps": [],
+  "crawl_delays": {},
+  "ai_crawler_status": {
+    "OAI-SearchBot": "not managed (inherits * rules)",
+    "Claude-SearchBot": "fully blocked",
+    "PerplexityBot": "fully blocked",
+    "meta-webindexer": "not managed (inherits * rules)",
+    "DuckAssistBot": "not managed (inherits * rules)",
+    "Amzn-SearchBot": "not managed (inherits * rules)",
+    "ChatGPT-User": "not managed (inherits * rules)",
+    "Claude-User": "not managed (inherits * rules)",
+    "Perplexity-User": "not managed (inherits * rules)",
+    "meta-externalfetcher": "not managed (inherits * rules)",
+    "Amzn-User": "not managed (inherits * rules)",
+    "MistralAI-User": "not managed (inherits * rules)",
+    "GPTBot": "not managed (inherits * rules)",
+    "ClaudeBot": "not managed (inherits * rules)",
+    "Google-Extended": "not managed (inherits * rules)",
+    "Applebot-Extended": "not managed (inherits * rules)",
+    "meta-externalagent": "not managed (inherits * rules)",
+    "Amazonbot": "not managed (inherits * rules)",
+    "MistralAI-Training": "not managed (inherits * rules)",
+    "Bytespider": "not managed (inherits * rules)",
+    "CCBot": "not managed (inherits * rules)",
+    "cohere-ai": "not managed (inherits * rules)"
+  },
+  "ai_crawler_roles": {
+    "OAI-SearchBot": "search",
+    "Claude-SearchBot": "search",
+    "PerplexityBot": "search",
+    "meta-webindexer": "search",
+    "DuckAssistBot": "search",
+    "Amzn-SearchBot": "search",
+    "ChatGPT-User": "user",
+    "Claude-User": "user",
+    "Perplexity-User": "user",
+    "meta-externalfetcher": "user",
+    "Amzn-User": "user",
+    "MistralAI-User": "user",
+    "GPTBot": "training",
+    "ClaudeBot": "training",
+    "Google-Extended": "training",
+    "Applebot-Extended": "training",
+    "meta-externalagent": "training",
+    "Amazonbot": "training",
+    "MistralAI-Training": "training",
+    "Bytespider": "training",
+    "CCBot": "training",
+    "cohere-ai": "training"
+  },
+  "search_engine_status": {
+    "Googlebot": "not managed (inherits * rules)",
+    "Bingbot": "not managed (inherits * rules)"
+  },
+  "issues": [
+    "\u2139\ufe0f 20 AI crawlers have no rule of their own (allowed unless * blocks them): OAI-SearchBot, meta-webindexer, DuckAssistBot, Amzn-SearchBot, ChatGPT-User",
+    "\u26a0\ufe0f AI search crawlers blocked: Claude-SearchBot, PerplexityBot \u2014 these build the indexes AI search answers cite, so the site cannot be cited from them",
+    "\u26a0\ufe0f No Sitemap directive found in robots.txt"
+  ],
+  "error": null
+}
+
+--- stderr ---

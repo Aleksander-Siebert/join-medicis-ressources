@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="875" height="988" viewBox="0 0 875 988" role="img" aria-label="geo-acces · acces.py">
+<title>geo-acces · acces.py</title>
+<rect width="875" height="988" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h851a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="438" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">geo-acces · acces.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/acces.py https://assurly.example/blog/expat/ --robots robots.txt --html page.html</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">ACCÈS DES IA · https://assurly.example/blog/expat/ · robots.txt lu · table des robots du 2026-10-16</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">CE QUE ÇA VEUT DIRE</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">  citable dans la recherche de ChatGPT             OUI        OAI-SearchBot autorisé</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">  citable dans la recherche de Claude              OUI        Claude-SearchBot autorisé</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  présent dans les résultats de Perplexity         OUI        PerplexityBot autorisé</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">  présent dans la recherche de Vibe (Mistral)      OUI        MistralAI-Index autorisé</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">  éligible aux Aperçus IA et au Mode IA de Google  NON        Googlebot autorisé ; extrait interdit</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">    (nosnippet ou max-snippet:0)</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">  présent dans Copilot                             OUI        Bingbot autorisé</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">PAGE · statut 200 · 8 mots dans le HTML serveur · canonical https://assurly.example/blog/expat/</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">  CRITIQUE  nosnippet : meta robots (plus d'extrait, donc plus d'Aperçus IA ni de Mode IA)</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">  <tspan fill="#D4B681">INFO</tspan>      1 élément(s) data-nosnippet exclus des extraits</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">  HAUTE     peu de texte dans le HTML serveur : le contenu dépend peut-être de JavaScript</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">ROBOT               ÉDITEUR       RÔLE          ACCÈS     RÈGLE                               SONDE</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">Googlebot           Google        moteur        autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">Bingbot             Microsoft     moteur        autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="458" xml:space="preserve" style="white-space:pre">OAI-SearchBot       OpenAI        recherche     autorisé  Allow: / (ligne 13)</text>
+<text x="20" y="478" xml:space="preserve" style="white-space:pre">ChatGPT-User        OpenAI        utilisateur   autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="498" xml:space="preserve" style="white-space:pre">GPTBot              OpenAI        entrainement  <tspan fill="#E58A7B">BLOQUÉ</tspan>    Disallow: / (ligne 3)</text>
+<text x="20" y="518" xml:space="preserve" style="white-space:pre">OAI-AdsBot          OpenAI        utilisateur   autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="538" xml:space="preserve" style="white-space:pre">Claude-SearchBot    Anthropic     recherche     autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="558" xml:space="preserve" style="white-space:pre">Claude-User         Anthropic     utilisateur   autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="578" xml:space="preserve" style="white-space:pre">ClaudeBot           Anthropic     entrainement  <tspan fill="#E58A7B">BLOQUÉ</tspan>    Disallow: / (ligne 5)</text>
+<text x="20" y="598" xml:space="preserve" style="white-space:pre">PerplexityBot       Perplexity    recherche     autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="618" xml:space="preserve" style="white-space:pre">Perplexity-User     Perplexity    utilisateur   autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="638" xml:space="preserve" style="white-space:pre">MistralAI-Index     Mistral       recherche     autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="658" xml:space="preserve" style="white-space:pre">MistralAI-User      Mistral       utilisateur   autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="678" xml:space="preserve" style="white-space:pre">MistralAI-Training  Mistral       entrainement  autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="698" xml:space="preserve" style="white-space:pre">Google-Agent        Google        utilisateur   autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="718" xml:space="preserve" style="white-space:pre">Google-Extended     Google        jeton         autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="738" xml:space="preserve" style="white-space:pre">Applebot            Apple         moteur        autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="758" xml:space="preserve" style="white-space:pre">Applebot-Extended   Apple         jeton         autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="778" xml:space="preserve" style="white-space:pre">CCBot               Common Crawl  entrainement  autorisé  Allow: /blog/ (ligne 10)</text>
+<text x="20" y="798" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="818" xml:space="preserve" style="white-space:pre">ENTRAÎNEMENT · refusé pour : GPTBot, ClaudeBot</text>
+<text x="20" y="838" xml:space="preserve" style="white-space:pre">CLOUDFLARE · bloc « Managed content » présent dans le robots.txt servi : il est ajouté par</text>
+<text x="20" y="858" xml:space="preserve" style="white-space:pre">  Cloudflare, pas par le fichier du site. Vérifier le réglage dans Cloudflare (Security, Bots).</text>
+<text x="20" y="878" xml:space="preserve" style="white-space:pre">CONTENT-SIGNAL (ligne 15) · search=yes, ai-train=no, ai-input=maybe, foo=yes · valeur « maybe »</text>
+<text x="20" y="898" xml:space="preserve" style="white-space:pre">  pour ai-input (yes ou no); clé inconnue « foo » · préférence d'usage, respect volontaire</text>
+<text x="20" y="918" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="938" xml:space="preserve" style="white-space:pre">À VÉRIFIER HORS DU SITE · réglage « Contrôle de l'IA générative » de Search Console (Paramètres) :</text>
+<text x="20" y="958" xml:space="preserve" style="white-space:pre">  un site exclu n'apparaît pas dans les Aperçus IA ni le Mode IA, quoi que dise robots.txt.</text>
+</g></svg>

@@ -1,0 +1,37 @@
+{
+  "url": "http://site-de-test/robots.txt",
+  "status": null,
+  "user_agents": {},
+  "sitemaps": [],
+  "crawl_delays": {},
+  "ai_crawler_status": {},
+  "ai_crawler_roles": {
+    "OAI-SearchBot": "search",
+    "Claude-SearchBot": "search",
+    "PerplexityBot": "search",
+    "meta-webindexer": "search",
+    "DuckAssistBot": "search",
+    "Amzn-SearchBot": "search",
+    "ChatGPT-User": "user",
+    "Claude-User": "user",
+    "Perplexity-User": "user",
+    "meta-externalfetcher": "user",
+    "Amzn-User": "user",
+    "MistralAI-User": "user",
+    "GPTBot": "training",
+    "ClaudeBot": "training",
+    "Google-Extended": "training",
+    "Applebot-Extended": "training",
+    "meta-externalagent": "training",
+    "Amazonbot": "training",
+    "MistralAI-Training": "training",
+    "Bytespider": "training",
+    "CCBot": "training",
+    "cohere-ai": "training"
+  },
+  "search_engine_status": {},
+  "issues": [],
+  "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+}
+
+--- stderr ---

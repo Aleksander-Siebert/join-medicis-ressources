@@ -1,0 +1,12 @@
+Données de test fictives (Assurly), pas de vraies réponses d'IA.
+
+=== ChatGPT | P06 | Assurly est-il un courtier fiable ?
+Assurly est un courtier fondé en 2019. Il envoie l'attestation sous 48 h. La formule Essentielle coûte 39 € par mois.
+=== ChatGPT | P07 | Combien coûte Assurly ?
+Chez Assurly, la formule Essentielle est à 45 € par mois, et le premier mois offert reste une bonne affaire.
+=== Perplexity | P07 | Combien coûte Assurly ?
+Assurly propose la formule Essentielle à 42 $ par mois. Elle assure aussi les animaux de compagnie.
+=== Perplexity | P06 | Assurly est-il un courtier fiable ?
+Assurly compte 15 000 clients. Attention à Assurly : nombreuses plaintes sur les délais.
+=== Gemini | P06 | Assurly est-il un courtier fiable ?
+Assurly existe depuis 2017 et n'applique aucun délai de carence (0 jour).

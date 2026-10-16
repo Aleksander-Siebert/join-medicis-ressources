@@ -1,0 +1,314 @@
+{
+  "moteurs": {
+    "ChatGPT": {
+      "n": 8,
+      "mentionnee": {
+        "k": 4,
+        "n": 8,
+        "taux": 0.5,
+        "ic": [
+          0.21521606221387757,
+          0.7847839377861224
+        ],
+        "marge": 0.28478393778612243
+      },
+      "citee": {
+        "k": 1,
+        "n": 8,
+        "taux": 0.125,
+        "ic": [
+          0.02241749145005667,
+          0.4708881822128535
+        ],
+        "marge": 0.22423534538139842
+      },
+      "recommandee": {
+        "k": 1,
+        "n": 8,
+        "taux": 0.125,
+        "ic": [
+          0.02241749145005667,
+          0.4708881822128535
+        ],
+        "marge": 0.22423534538139842
+      },
+      "deconseillee": {
+        "k": 1,
+        "n": 8,
+        "taux": 0.125,
+        "ic": [
+          0.02241749145005667,
+          0.4708881822128535
+        ],
+        "marge": 0.22423534538139842
+      },
+      "part_de_voix": {
+        "k": 4,
+        "n": 13,
+        "taux": 0.3076923076923077,
+        "ic": [
+          0.12680703655710515,
+          0.5763065681945096
+        ],
+        "marge": 0.22474976581870226
+      }
+    },
+    "TOTAL": {
+      "n": 12,
+      "mentionnee": {
+        "k": 6,
+        "n": 12,
+        "taux": 0.5,
+        "ic": [
+          0.2537815976337061,
+          0.7462184023662939
+        ],
+        "marge": 0.2462184023662939
+      },
+      "citee": {
+        "k": 1,
+        "n": 12,
+        "taux": 0.08333333333333333,
+        "ic": [
+          0.014865094404917095,
+          0.35387991114111694
+        ],
+        "marge": 0.1695074083680999
+      },
+      "recommandee": {
+        "k": 1,
+        "n": 12,
+        "taux": 0.08333333333333333,
+        "ic": [
+          0.014865094404917095,
+          0.35387991114111694
+        ],
+        "marge": 0.1695074083680999
+      },
+      "deconseillee": {
+        "k": 1,
+        "n": 12,
+        "taux": 0.08333333333333333,
+        "ic": [
+          0.014865094404917095,
+          0.35387991114111694
+        ],
+        "marge": 0.1695074083680999
+      },
+      "part_de_voix": {
+        "k": 6,
+        "n": 17,
+        "taux": 0.35294117647058826,
+        "ic": [
+          0.17309720397243744,
+          0.5869963651478132
+        ],
+        "marge": 0.20694958058768786
+      }
+    },
+    "Perplexity": {
+      "n": 4,
+      "mentionnee": {
+        "k": 2,
+        "n": 4,
+        "taux": 0.5,
+        "ic": [
+          0.15003898915214947,
+          0.8499610108478506
+        ],
+        "marge": 0.3499610108478506
+      },
+      "citee": {
+        "k": 0,
+        "n": 4,
+        "taux": 0.0,
+        "ic": [
+          0.0,
+          0.4898908364545973
+        ],
+        "marge": 0.24494541822729865
+      },
+      "recommandee": {
+        "k": 0,
+        "n": 4,
+        "taux": 0.0,
+        "ic": [
+          0.0,
+          0.4898908364545973
+        ],
+        "marge": 0.24494541822729865
+      },
+      "deconseillee": {
+        "k": 0,
+        "n": 4,
+        "taux": 0.0,
+        "ic": [
+          0.0,
+          0.4898908364545973
+        ],
+        "marge": 0.24494541822729865
+      },
+      "part_de_voix": {
+        "k": 2,
+        "n": 4,
+        "taux": 0.5,
+        "ic": [
+          0.15003898915214947,
+          0.8499610108478506
+        ],
+        "marge": 0.3499610108478506
+      }
+    }
+  },
+  "passages_min": {
+    "ChatGPT": 1,
+    "Perplexity": 1
+  },
+  "intentions": {
+    "coeur · alternative": {
+      "n": 1,
+      "mentionnee": {
+        "k": 1,
+        "n": 1,
+        "taux": 1.0,
+        "ic": [
+          0.20654931437723745,
+          1.0
+        ],
+        "marge": 0.3967253428113813
+      }
+    },
+    "coeur · comparaison": {
+      "n": 3,
+      "mentionnee": {
+        "k": 2,
+        "n": 3,
+        "taux": 0.6666666666666666,
+        "ic": [
+          0.2076596008020477,
+          0.9385080552796037
+        ],
+        "marge": 0.365424227238778
+      }
+    },
+    "coeur · decouverte": {
+      "n": 3,
+      "mentionnee": {
+        "k": 1,
+        "n": 3,
+        "taux": 0.3333333333333333,
+        "ic": [
+          0.06149194472039621,
+          0.7923403991979522
+        ],
+        "marge": 0.365424227238778
+      }
+    },
+    "coeur · usage": {
+      "n": 1,
+      "mentionnee": {
+        "k": 0,
+        "n": 1,
+        "taux": 0.0,
+        "ic": [
+          0.0,
+          0.7934506856227626
+        ],
+        "marge": 0.3967253428113813
+      }
+    },
+    "temoin · hors-sujet": {
+      "n": 2,
+      "mentionnee": {
+        "k": 0,
+        "n": 2,
+        "taux": 0.0,
+        "ic": [
+          0.0,
+          0.6576197724933469
+        ],
+        "marge": 0.32880988624667346
+      }
+    },
+    "temoin · marque": {
+      "n": 2,
+      "mentionnee": {
+        "k": 2,
+        "n": 2,
+        "taux": 1.0,
+        "ic": [
+          0.34238022750665303,
+          1.0
+        ],
+        "marge": 0.3288098862466735
+      }
+    }
+  },
+  "temoins": [
+    {
+      "id": "T01",
+      "prompt": "Que propose Assurly ?",
+      "attendu": "present",
+      "mentions": 2,
+      "n": 2,
+      "ok": true
+    },
+    {
+      "id": "T02",
+      "prompt": "Quelle tondeuse robot acheter pour un petit jardin ?",
+      "attendu": "absent",
+      "mentions": 0,
+      "n": 2,
+      "ok": true
+    }
+  ],
+  "perdues": [
+    {
+      "id": "P01",
+      "moteur": "ChatGPT",
+      "prompt": "Je pars travailler à Dubaï avec deux enfants, quelle assurance santé prendre ?",
+      "n": 2,
+      "concurrents": {
+        "Allianz Care": 2,
+        "April": 2,
+        "Cigna": 1
+      },
+      "sources": {
+        "lelynx.fr": 1,
+        "quechoisir.org": 1
+      }
+    },
+    {
+      "id": "P02",
+      "moteur": "Perplexity",
+      "prompt": "Quelle est la meilleure assurance santé pour un expatrié français ?",
+      "n": 1,
+      "concurrents": {
+        "Cigna": 1
+      },
+      "sources": {
+        "reddit.com": 1
+      }
+    }
+  ],
+  "sources": {
+    "lelynx.fr": 1,
+    "quechoisir.org": 1,
+    "assurly.example": 1,
+    "cfe.fr": 1,
+    "service-public.fr": 1,
+    "fr.wikipedia.org": 1,
+    "reddit.com": 1
+  },
+  "classes": {
+    "comparateur": 1,
+    "consommateurs": 1,
+    "propre site": 1,
+    "autre": 1,
+    "institution": 1,
+    "reference": 1,
+    "communaute": 1
+  },
+  "questions": 6,
+  "etiquette": "mesuré (réponses collées)"
+}

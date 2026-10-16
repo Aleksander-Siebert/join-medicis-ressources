@@ -1,0 +1,3 @@
+{"url": "http://site-de-test/robots.txt", "exists": true, "content": "User-agent: GPTBot\nDisallow: /\n\nUser-agent: *\nAllow: /\n", "ai_crawler_status": {"GPTBot": "BLOCKED", "OAI-SearchBot": "ALLOWED_BY_DEFAULT", "ChatGPT-User": "ALLOWED_BY_DEFAULT", "ClaudeBot": "ALLOWED_BY_DEFAULT", "anthropic-ai": "ALLOWED_BY_DEFAULT", "PerplexityBot": "ALLOWED_BY_DEFAULT", "CCBot": "ALLOWED_BY_DEFAULT", "Bytespider": "ALLOWED_BY_DEFAULT", "cohere-ai": "ALLOWED_BY_DEFAULT", "Google-Extended": "ALLOWED_BY_DEFAULT", "GoogleOther": "ALLOWED_BY_DEFAULT", "Applebot-Extended": "ALLOWED_BY_DEFAULT", "FacebookBot": "ALLOWED_BY_DEFAULT", "Amazonbot": "ALLOWED_BY_DEFAULT"}, "cloudflare_managed": false, "sitemaps": [], "errors": []}
+
+--- stderr ---

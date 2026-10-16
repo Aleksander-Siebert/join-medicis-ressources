@@ -1,0 +1,296 @@
+{
+  "verifie_le": "2026-10-16",
+  "url": "http://site-de-test/",
+  "robots_txt": "lu",
+  "chemin": "/",
+  "cloudflare": false,
+  "content_signal": [],
+  "robots": [
+    {
+      "jeton": "Googlebot",
+      "editeur": "Google",
+      "role": "moteur",
+      "produit": "Google Search, Aperçus IA, Mode IA",
+      "robots_txt": "respecté",
+      "source": "developers.google.com/search/docs/crawling-indexing/google-common-crawlers",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "Bingbot",
+      "editeur": "Microsoft",
+      "role": "moteur",
+      "produit": "Bing, Copilot",
+      "robots_txt": "respecté",
+      "source": "bing.com/webmasters",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "OAI-SearchBot",
+      "editeur": "OpenAI",
+      "role": "recherche",
+      "produit": "recherche de ChatGPT",
+      "robots_txt": "respecté",
+      "source": "developers.openai.com/api/docs/bots",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "ChatGPT-User",
+      "editeur": "OpenAI",
+      "role": "utilisateur",
+      "produit": "ChatGPT, visite demandée par l'utilisateur",
+      "robots_txt": "peut ne pas s'appliquer",
+      "source": "developers.openai.com/api/docs/bots",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "GPTBot",
+      "editeur": "OpenAI",
+      "role": "entrainement",
+      "produit": "entraînement des modèles OpenAI",
+      "robots_txt": "respecté",
+      "source": "developers.openai.com/api/docs/bots",
+      "autorise": false,
+      "regle": "Disallow: / (ligne 2)",
+      "groupe": "GPTBot",
+      "sonde": null
+    },
+    {
+      "jeton": "OAI-AdsBot",
+      "editeur": "OpenAI",
+      "role": "utilisateur",
+      "produit": "contrôle des pages de destination des annonces ChatGPT",
+      "robots_txt": "non précisé",
+      "source": "developers.openai.com/api/docs/bots",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "Claude-SearchBot",
+      "editeur": "Anthropic",
+      "role": "recherche",
+      "produit": "recherche de Claude",
+      "robots_txt": "respecté",
+      "source": "support.claude.com (article du 7 avr. 2026)",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "Claude-User",
+      "editeur": "Anthropic",
+      "role": "utilisateur",
+      "produit": "Claude, visite demandée par l'utilisateur",
+      "robots_txt": "respecté",
+      "source": "support.claude.com (article du 7 avr. 2026)",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "ClaudeBot",
+      "editeur": "Anthropic",
+      "role": "entrainement",
+      "produit": "entraînement des modèles Anthropic",
+      "robots_txt": "respecté",
+      "source": "support.claude.com (article du 7 avr. 2026)",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "PerplexityBot",
+      "editeur": "Perplexity",
+      "role": "recherche",
+      "produit": "résultats de Perplexity",
+      "robots_txt": "respecté",
+      "source": "docs.perplexity.ai/guides/bots",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "Perplexity-User",
+      "editeur": "Perplexity",
+      "role": "utilisateur",
+      "produit": "Perplexity, visite demandée par l'utilisateur",
+      "robots_txt": "ignore généralement",
+      "source": "docs.perplexity.ai/guides/bots",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "MistralAI-Index",
+      "editeur": "Mistral",
+      "role": "recherche",
+      "produit": "recherche de Vibe (ex-Le Chat)",
+      "robots_txt": "non précisé",
+      "source": "docs.mistral.ai/robots",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "MistralAI-User",
+      "editeur": "Mistral",
+      "role": "utilisateur",
+      "produit": "Vibe, action demandée par l'utilisateur",
+      "robots_txt": "non détaillé",
+      "source": "docs.mistral.ai/robots",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "MistralAI-Training",
+      "editeur": "Mistral",
+      "role": "entrainement",
+      "produit": "entraînement des modèles Mistral",
+      "robots_txt": "excluable",
+      "source": "docs.mistral.ai/robots",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "Google-Agent",
+      "editeur": "Google",
+      "role": "utilisateur",
+      "produit": "agents hébergés par Google qui naviguent et agissent à la demande d'un utilisateur",
+      "robots_txt": "ignoré en général (robot déclenché par un utilisateur)",
+      "source": "developers.google.com/crawling/docs/crawlers-fetchers/google-user-triggered-fetchers (maj. 19 août 2026)",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "Google-Extended",
+      "editeur": "Google",
+      "role": "jeton",
+      "produit": "entraînement des futurs Gemini et ancrage dans les applis Gemini et Vertex AI ; sans effet sur Google Search",
+      "robots_txt": "respecté",
+      "source": "developers.google.com, Google common crawlers (maj. 15 oct. 2026)",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "Applebot",
+      "editeur": "Apple",
+      "role": "moteur",
+      "produit": "Spotlight, Siri, Safari ; aussi entraînement et contexte de réponses générées",
+      "robots_txt": "respecté",
+      "source": "support.apple.com/119829 (4 sept. 2026)",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "Applebot-Extended",
+      "editeur": "Apple",
+      "role": "jeton",
+      "produit": "refus de l'entraînement des modèles Apple ; sans effet sur la recherche",
+      "robots_txt": "respecté",
+      "source": "support.apple.com/119829 (4 sept. 2026)",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    },
+    {
+      "jeton": "CCBot",
+      "editeur": "Common Crawl",
+      "role": "entrainement",
+      "produit": "jeux de données d'entraînement utilisés par de nombreux modèles",
+      "robots_txt": "respecté",
+      "source": "commoncrawl.org/faq",
+      "autorise": true,
+      "regle": "Allow: / (ligne 5)",
+      "groupe": "*",
+      "sonde": null
+    }
+  ],
+  "affirmations": [
+    {
+      "affirmation": "citable dans la recherche de ChatGPT",
+      "verdict": "oui",
+      "detail": "OAI-SearchBot autorisé",
+      "pas": "GPTBot"
+    },
+    {
+      "affirmation": "citable dans la recherche de Claude",
+      "verdict": "oui",
+      "detail": "Claude-SearchBot autorisé",
+      "pas": "ClaudeBot"
+    },
+    {
+      "affirmation": "présent dans les résultats de Perplexity",
+      "verdict": "oui",
+      "detail": "PerplexityBot autorisé",
+      "pas": "Perplexity-User"
+    },
+    {
+      "affirmation": "présent dans la recherche de Vibe (Mistral)",
+      "verdict": "oui",
+      "detail": "MistralAI-Index autorisé",
+      "pas": "MistralAI-Training"
+    },
+    {
+      "affirmation": "éligible aux Aperçus IA et au Mode IA de Google",
+      "verdict": "oui, si le site est inclus dans Search Console",
+      "detail": "Googlebot autorisé",
+      "pas": "Google-Extended"
+    },
+    {
+      "affirmation": "présent dans Copilot",
+      "verdict": "oui",
+      "detail": "Bingbot autorisé",
+      "pas": ""
+    }
+  ],
+  "entrainement": {
+    "GPTBot": false,
+    "ClaudeBot": true,
+    "MistralAI-Training": true,
+    "Google-Extended": true,
+    "Applebot-Extended": true,
+    "CCBot": true
+  },
+  "page": {
+    "statut": 200,
+    "noindex": [],
+    "nosnippet": [],
+    "max_snippet": null,
+    "data_nosnippet": 0,
+    "mots_html": 116,
+    "canonical": null,
+    "title": "Mutuelle | Assurly"
+  }
+}
+
+--- stderr ---

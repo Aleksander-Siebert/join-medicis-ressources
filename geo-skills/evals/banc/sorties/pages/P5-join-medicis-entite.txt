@@ -1,0 +1,64 @@
+{
+  "noms": {
+    "marque": "Assurly",
+    "lignes": [
+      {
+        "source": "title",
+        "brut": "Mutuelle des indépendants – Assurly",
+        "segments": [
+          "Mutuelle des indépendants",
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "og:site_name",
+        "brut": "Assurly",
+        "segments": [
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "H1",
+        "brut": "Assurly, la mutuelle des indépendants",
+        "segments": [
+          "Assurly, la mutuelle des indépendants"
+        ],
+        "etat": "marque",
+        "lu": "Assurly, la mutuelle des indépendants"
+      },
+      {
+        "source": "JSON-LD Organization.name",
+        "brut": "Assurly Courtage",
+        "segments": [
+          "Assurly Courtage"
+        ],
+        "etat": "variante",
+        "lu": "Assurly Courtage"
+      }
+    ],
+    "variantes": [
+      "Assurly Courtage"
+    ]
+  },
+  "organisation": {
+    "orgs": 1,
+    "types": [
+      "Organization"
+    ],
+    "manque": [
+      "@id",
+      "logo",
+      "sameAs"
+    ],
+    "profils": [],
+    "alertes": []
+  },
+  "visible": [],
+  "wikidata": null
+}
+
+--- stderr ---

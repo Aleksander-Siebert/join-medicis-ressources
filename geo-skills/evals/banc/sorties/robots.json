@@ -1,0 +1,339 @@
+{
+ "R1|Join Médicis": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R1|geo-optimizer": {
+  "OAI-SearchBot": "partiel",
+  "GPTBot": "partiel",
+  "PerplexityBot": "partiel",
+  "Claude-SearchBot": "partiel"
+ },
+ "R1|ultimate-seo-geo": {
+  "OAI-SearchBot": "bloqué",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R1|elmo": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "Claude-SearchBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R1|geo-score": {
+  "OAI-SearchBot": "autorisé",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R1|geo-seo-claude": {
+  "OAI-SearchBot": "bloqué",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "bloqué"
+ },
+ "R1|gtm-engineer-skills": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R2|Join Médicis": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R2|geo-optimizer": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R2|ultimate-seo-geo": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R2|elmo": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "Claude-SearchBot": "bloqué",
+  "PerplexityBot": "bloqué"
+ },
+ "R2|geo-score": {
+  "OAI-SearchBot": "autorisé",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R2|geo-seo-claude": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "bloqué"
+ },
+ "R2|gtm-engineer-skills": {},
+ "R3|Join Médicis": {
+  "OAI-SearchBot": "bloqué",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R3|geo-optimizer": {
+  "OAI-SearchBot": "autorisé (lu comme absent)",
+  "GPTBot": "autorisé (lu comme absent)",
+  "PerplexityBot": "autorisé (lu comme absent)",
+  "Claude-SearchBot": "autorisé (lu comme absent)"
+ },
+ "R3|ultimate-seo-geo": {},
+ "R3|elmo": {
+  "OAI-SearchBot": "bloqué",
+  "GPTBot": "bloqué",
+  "Claude-SearchBot": "bloqué",
+  "PerplexityBot": "bloqué"
+ },
+ "R3|geo-score": {
+  "OAI-SearchBot": "non lu",
+  "PerplexityBot": "non lu",
+  "Claude-SearchBot": "non lu"
+ },
+ "R3|geo-seo-claude": {
+  "OAI-SearchBot": "non lu",
+  "GPTBot": "non lu",
+  "PerplexityBot": "non lu"
+ },
+ "R3|gtm-engineer-skills": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R4|Join Médicis": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R4|geo-optimizer": {
+  "OAI-SearchBot": "autorisé (lu comme absent)",
+  "GPTBot": "autorisé (lu comme absent)",
+  "PerplexityBot": "autorisé (lu comme absent)",
+  "Claude-SearchBot": "autorisé (lu comme absent)"
+ },
+ "R4|ultimate-seo-geo": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R4|elmo": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "Claude-SearchBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R4|geo-score": {
+  "OAI-SearchBot": "autorisé (absent)",
+  "PerplexityBot": "autorisé (absent)",
+  "Claude-SearchBot": "autorisé (absent)"
+ },
+ "R4|geo-seo-claude": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R4|gtm-engineer-skills": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R5|Join Médicis": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R5|geo-optimizer": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R5|ultimate-seo-geo": {
+  "OAI-SearchBot": "renvoie à *",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "renvoie à *",
+  "Claude-SearchBot": "renvoie à *"
+ },
+ "R5|elmo": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "Claude-SearchBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R5|geo-score": {
+  "OAI-SearchBot": "autorisé",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R5|geo-seo-claude": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "autorisé"
+ },
+ "R5|gtm-engineer-skills": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "autorisé"
+ },
+ "R6|Join Médicis": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R6|geo-optimizer": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R6|ultimate-seo-geo": {
+  "OAI-SearchBot": "renvoie à *",
+  "GPTBot": "renvoie à *",
+  "PerplexityBot": "renvoie à *",
+  "Claude-SearchBot": "renvoie à *"
+ },
+ "R6|elmo": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "Claude-SearchBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R6|geo-score": {
+  "OAI-SearchBot": "autorisé",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R6|geo-seo-claude": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R6|gtm-engineer-skills": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R7|Join Médicis": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R7|geo-optimizer": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R7|ultimate-seo-geo": {
+  "OAI-SearchBot": "renvoie à *",
+  "GPTBot": "renvoie à *",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R7|elmo": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "Claude-SearchBot": "bloqué",
+  "PerplexityBot": "bloqué"
+ },
+ "R7|geo-score": {
+  "OAI-SearchBot": "autorisé",
+  "PerplexityBot": "bloqué",
+  "Claude-SearchBot": "bloqué"
+ },
+ "R7|geo-seo-claude": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R7|gtm-engineer-skills": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R8|Join Médicis": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R8|geo-optimizer": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R8|ultimate-seo-geo": {
+  "OAI-SearchBot": "renvoie à *",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "renvoie à *",
+  "Claude-SearchBot": "renvoie à *"
+ },
+ "R8|elmo": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "Claude-SearchBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ },
+ "R8|geo-score": {
+  "OAI-SearchBot": "autorisé",
+  "PerplexityBot": "autorisé",
+  "Claude-SearchBot": "autorisé"
+ },
+ "R8|geo-seo-claude": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "autorisé"
+ },
+ "R8|gtm-engineer-skills": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "bloqué",
+  "PerplexityBot": "autorisé"
+ },
+ "R9|Join Médicis": {
+  "OAI-SearchBot": "non lu",
+  "GPTBot": "non lu",
+  "PerplexityBot": "non lu",
+  "Claude-SearchBot": "non lu"
+ },
+ "R9|geo-optimizer": {
+  "OAI-SearchBot": "autorisé (lu comme absent)",
+  "GPTBot": "autorisé (lu comme absent)",
+  "PerplexityBot": "autorisé (lu comme absent)",
+  "Claude-SearchBot": "autorisé (lu comme absent)"
+ },
+ "R9|ultimate-seo-geo": {},
+ "R9|elmo": {
+  "OAI-SearchBot": "bloqué",
+  "GPTBot": "bloqué",
+  "Claude-SearchBot": "bloqué",
+  "PerplexityBot": "bloqué"
+ },
+ "R9|geo-score": {
+  "OAI-SearchBot": "non lu",
+  "PerplexityBot": "non lu",
+  "Claude-SearchBot": "non lu"
+ },
+ "R9|geo-seo-claude": {
+  "OAI-SearchBot": "non lu",
+  "GPTBot": "non lu",
+  "PerplexityBot": "non lu"
+ },
+ "R9|gtm-engineer-skills": {
+  "OAI-SearchBot": "autorisé",
+  "GPTBot": "autorisé",
+  "PerplexityBot": "autorisé"
+ }
+}

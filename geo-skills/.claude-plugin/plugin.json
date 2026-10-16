@@ -1,7 +1,7 @@
 {
   "name": "geo-skills",
-  "description": "Huit Skills AEO / GEO en français pour être cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et les AI Overviews, et utilisable par les agents d'IA : audit sur 100, citabilité des passages, robots d'IA, test de visibilité dans les réponses, données structurées, mentions de marque, préparation aux agents (WebMCP), plan d'optimisation aligné sur le guide de Google.",
-  "version": "1.1.0",
+  "description": "Huit Skills GEO / AEO en français pour être lu, compris et cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et Google : audit couche par couche, visibilité mesurée avec sa marge d'erreur, robots d'IA selon leur rôle, exactitude de ce que les IA disent de la marque, contenu, entité et JSON-LD, sites tiers qui font les listes, agents d'IA et consignes cachées.",
+  "version": "2.0.0",
   "author": {
     "name": "Aleksander Siebert",
     "url": "https://joinmedicis.com/auteurs/aleksander-siebert"
@@ -15,10 +15,10 @@
     "ai-search",
     "chatgpt",
     "perplexity",
-    "llms-txt",
-    "schema",
+    "robots-txt",
+    "json-ld",
     "français",
     "agents",
-    "webmcp"
+    "visibilité"
   ]
 }

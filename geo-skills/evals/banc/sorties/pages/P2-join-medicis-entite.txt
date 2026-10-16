@@ -1,0 +1,40 @@
+{
+  "noms": {
+    "marque": "Assurly",
+    "lignes": [
+      {
+        "source": "title",
+        "brut": "Devis mutuelle | Assurly",
+        "segments": [
+          "Devis mutuelle",
+          "Assurly"
+        ],
+        "etat": "marque",
+        "lu": "Assurly"
+      },
+      {
+        "source": "H1",
+        "brut": "Demande de devis",
+        "segments": [
+          "Demande de devis"
+        ],
+        "etat": "absente",
+        "lu": "Demande de devis"
+      }
+    ],
+    "variantes": []
+  },
+  "organisation": {
+    "orgs": 0,
+    "types": [],
+    "manque": [],
+    "profils": [],
+    "alertes": [
+      "aucun bloc Organization (ni sous-type) : l'entité n'est pas décrite"
+    ]
+  },
+  "visible": [],
+  "wikidata": null
+}
+
+--- stderr ---

@@ -2,18 +2,32 @@
   "note": "Captures des README, produites par outils/visuels/capture.py à partir des vraies sorties des scripts. Ne pas modifier les SVG à la main : relancer le script. « affiche » est la commande telle qu'on la tape depuis le dossier du Skill ; « commande » est celle que lance le générateur depuis le dossier du pack.",
   "captures": [
     {
-      "id": "visibilite",
-      "titre": "geo-visibility · visibilite.py",
+      "id": "audit",
+      "titre": "geo-audit · audit.py",
       "dossier": ".",
-      "commande": "python3 skills/geo-visibility/visibilite.py evals/scripts/reponses.txt --marque Assurly",
-      "affiche": "python3 visibilite.py reponses.txt --marque Assurly"
+      "commande": "python3 skills/geo-audit/scripts/audit.py evals/geo-contenu/page-assurly.html --url https://assurly.example/mutuelle-independant/ --robots evals/geo-acces/robots-piege.txt --marque Assurly",
+      "affiche": "python3 scripts/audit.py page.html --url https://assurly.example/mutuelle-independant/ --robots robots.txt --marque Assurly"
     },
     {
-      "id": "citabilite",
-      "titre": "geo-citability · citability.py",
+      "id": "visibilite",
+      "titre": "geo-visibilite · visibilite.py",
       "dossier": ".",
-      "commande": "python3 skills/geo-citability/citability.py evals/scripts/page.md --top 3",
-      "affiche": "python3 skills/geo-citability/citability.py evals/scripts/page.md --top 3"
+      "commande": "python3 skills/geo-visibilite/scripts/visibilite.py mesurer evals/geo-visibilite/reponses-septembre.txt --marque Assurly --domaine assurly.example --concurrent \"April International\" --concurrent \"Allianz Care\" --concurrent Cigna",
+      "affiche": "python3 scripts/visibilite.py mesurer reponses.txt --marque Assurly --domaine assurly.example --concurrent \"April International\" …"
+    },
+    {
+      "id": "exactitude",
+      "titre": "geo-exactitude · exactitude.py",
+      "dossier": ".",
+      "commande": "python3 skills/geo-exactitude/scripts/exactitude.py evals/geo-exactitude/reponses-assurly.txt --marque Assurly --faits evals/geo-exactitude/faits-assurly.csv",
+      "affiche": "python3 scripts/exactitude.py reponses.txt --marque Assurly --faits faits.csv"
+    },
+    {
+      "id": "acces",
+      "titre": "geo-acces · acces.py",
+      "dossier": ".",
+      "commande": "python3 skills/geo-acces/scripts/acces.py https://assurly.example/blog/expat/ --robots evals/geo-acces/robots-piege.txt --html evals/geo-acces/page-nosnippet.html",
+      "affiche": "python3 scripts/acces.py https://assurly.example/blog/expat/ --robots robots.txt --html page.html"
     }
   ]
 }

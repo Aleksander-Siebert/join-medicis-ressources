@@ -1,0 +1,138 @@
+[
+  {
+    "url": "http://site-de-test/guide.pdf?v=2",
+    "browser_status": 200,
+    "browser_error": null,
+    "title": "Mutuelle | Assurly",
+    "canonical": null,
+    "visible_words_raw_html": 110,
+    "script_tags": 0,
+    "likely_client_rendered": false,
+    "noindex": false,
+    "nosnippet": false,
+    "raw": [],
+    "robots_txt": {
+      "status": 200,
+      "note": "ok"
+    },
+    "crawlers": [
+      {
+        "crawler": "OAI-SearchBot",
+        "purpose": "ChatGPT search",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "ChatGPT-User",
+        "purpose": "ChatGPT live fetch",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "GPTBot",
+        "purpose": "OpenAI training",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Claude-SearchBot",
+        "purpose": "Claude search",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Claude-User",
+        "purpose": "Claude live fetch",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "ClaudeBot",
+        "purpose": "Anthropic training",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "PerplexityBot",
+        "purpose": "Perplexity",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Perplexity-User",
+        "purpose": "Perplexity live fetch",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Googlebot",
+        "purpose": "Google Search + AI Overviews/AI Mode",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Google-Extended",
+        "purpose": "Gemini training + Gemini app grounding",
+        "robots": true
+      },
+      {
+        "crawler": "Bingbot",
+        "purpose": "Bing + Copilot",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Applebot",
+        "purpose": "Siri/Spotlight",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Applebot-Extended",
+        "purpose": "Apple training",
+        "robots": true
+      },
+      {
+        "crawler": "Meta-ExternalAgent",
+        "purpose": "Meta AI",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "Amazonbot",
+        "purpose": "Amazon AI",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "DuckAssistBot",
+        "purpose": "DuckDuckGo AI answers",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      },
+      {
+        "crawler": "CCBot",
+        "purpose": "Common Crawl (training sets)",
+        "robots": true,
+        "status": 200,
+        "firewall_suspect": false
+      }
+    ]
+  }
+]
+
+--- stderr ---

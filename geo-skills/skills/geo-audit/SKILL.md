@@ -1,87 +1,155 @@
 ---
 name: geo-audit
 description: >-
-  Audit GEO / AEO d'une page ou d'un site : peut-on être lu, compris et cité
-  par ChatGPT, Perplexity, Gemini, Claude, Mistral et les AI Overviews de
-  Google ? Score sur 100 en six catégories (citabilité, marque, E-E-A-T,
-  technique, données structurées, plateformes), mesuré quand c'est mesurable,
-  et plan d'action classé. Utilise-le pour « audit GEO », « audit AEO »,
-  « suis-je visible dans les IA », « pourquoi ChatGPT ne me cite pas ».
+  Diagnostic GEO d'une page, couche par couche, dans l'ordre où un moteur de
+  réponse la rencontre : accès (robots.txt selon la RFC 9309, Googlebot et
+  robots de recherche des IA, indexable, extrait autorisé, pare-feu), page
+  (texte sans JavaScript, canonical, H1, date), contenu (réponse en tête,
+  statistiques sourcées, promesses, première main), entité (nom, JSON-LD,
+  sameAs) et agents (noms, labels, consignes cachées aux IA). Note de
+  préparation sur 100 détaillée contrôle par contrôle, avec preuve et page
+  Google, sans les contrôles non mesurés ; visibilité réelle à part, jamais
+  additionnée ; couche à traiter d'abord ; journal avant et après. Utilise-le
+  pour « audit GEO », « audit AEO », « suis-je prêt pour les IA », « par où
+  commencer ». Pas pour mesurer la présence dans les réponses
+  (/geo-visibilite) ni réécrire (/geo-contenu).
 ---
 
 # geo-audit
 
-Le SEO fait apparaître une page dans une liste de liens. Le GEO (ou AEO) la
-fait **citer** dans une réponse générée. Une page peut être 1re sur Google et
-absente des réponses d'IA, et l'inverse.
+Un moteur de réponse rencontre une page dans un ordre fixe : il doit pouvoir
+la **lire**, puis la **comprendre**, puis savoir **qui parle**. Un échec à
+une couche ne se rattrape pas à une autre : réécrire une page que Googlebot
+ne peut pas lire ne sert à rien. Ce Skill fait le diagnostic dans cet ordre
+et dit par quelle couche commencer.
 
-## Les six catégories
+Google le dit d'abord : les Aperçus IA et le Mode IA reposent sur la
+recherche classique, sans optimisation spéciale. La plupart des contrôles
+ci-dessous sont donc du bon SEO, appliqué aux moteurs de réponse.
 
-| Catégorie | Poids | Comment on la note | Skill |
-|---|---|---|---|
-| Citabilité | 25% | mesurée : passages qui répondent, se comprennent seuls, chiffrés | `/geo-citability` |
-| Marque et mentions | 20% | évaluée : présence sur les sources que les IA citent | `/geo-mentions` |
-| E-E-A-T | 20% | évaluée : auteur, sources, expérience, fraîcheur | ce Skill |
-| Technique | 15% | mesurée : robots d'IA, indexation et extrait autorisés, contenu lisible sans JavaScript | `/geo-crawlers` |
-| Données structurées | 10% | mesurée : types JSON-LD utiles (pas requis pour l'IA de Google, utiles au SEO) | `/geo-schema` |
-| Plateformes | 10% | évaluée : présence réelle dans les réponses | `/geo-visibility` |
+**À lire avant de commencer :** `commun/regles.md` et `commun/preuves.md`.
 
-Pondération reprise de geo-seo-claude (MIT). C'est une grille de travail,
-pas une mesure officielle : aucun moteur ne publie de poids. Pour Google, le
-guide officiel (https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) résume la règle : l'IA générative de Google
-s'appuie sur les mêmes systèmes que la recherche classique, donc un bon SEO
-d'abord. llms.txt ne compte pas dans le score.
-
-## Avec exécution de code
+## 1. Lancer l'audit
 
 ```bash
-python3 geo_audit.py https://www.site.fr/guide/
-python3 geo_audit.py https://www.site.fr/guide/ --marque 40 --eeat 65 --plateformes 30
+python3 scripts/audit.py https://www.site.fr/page/ --marque "Assurly"
+python3 scripts/audit.py https://www.site.fr/page/ --marque "Assurly" --question "Combien coûte une mutuelle pour indépendant ?" --sonder --mesure mesure.json
+python3 scripts/audit.py page.html --url https://www.site.fr/page/ --robots robots.txt --marque "Assurly"
 ```
 
-Le script mesure citabilité, technique et données structurées, et affiche un
-**score partiel** tant que les trois autres ne sont pas évaluées. Il a besoin
-des scripts de `geo-citability` et `geo-crawlers` (pack complet).
+- `--question` : la question visée (familles de faits, sans points).
+- `--sonder` : appelle la page avec le user-agent des robots (pare-feu).
+- `--mesure` : la sortie JSON de `/geo-visibilite`, affichée à part.
+- `--journal journal-geo.csv` : ajoute la note et les contrôles manqués,
+  pour comparer avant et après (seul fichier écrit, et seulement sur
+  demande).
 
-Sans exécution de code : fais les contrôles à la lecture de la page, du
-robots.txt et du code source, avec les grilles des Skills cités.
+Le script appelle ceux de `/geo-acces`, `/geo-contenu`, `/geo-entite` et
+`/geo-agentic` : il faut le pack complet. Un Skill absent rend ses
+contrôles « non mesurés », hors calcul.
 
-## Évaluer les trois catégories qualitatives
+Sans exécution de code : suivre les couches à la main avec les SKILL.md de
+ces Skills, et écrire « lecture manuelle » en tête.
 
-- **E-E-A-T (0-100)** : auteur nommé avec une biographie pertinente (25) ;
-  sources précises et datées (25) ; expérience de première main visible (25) ;
-  date de mise à jour et contenu à jour (15) ; page « à propos » et mentions
-  légales claires (10).
-- **Marque (0-100)** : résultat de `/geo-mentions` (présence sur Wikipédia ou
-  Wikidata, presse, comparateurs, forums, avis, YouTube, LinkedIn).
-- **Plateformes (0-100)** : taux de présence de `/geo-visibility`. Sans test,
-  laisse « à évaluer ».
+## 2. La note de préparation
 
-N'invente jamais une note : une catégorie non évaluée reste « à évaluer » et
-le score reste « partiel ».
+Vingt-quatre contrôles, cent points au total, chacun avec ses points, sa
+preuve (ce que le script a lu) et sa source (page Google ou table datée du
+pack). Détail et justification : `references/diagnostic.md`.
 
-## Sortie
+| Couche | Points | Contrôles |
+|---|---|---|
+| Accès | 35 | robots.txt lisible ; Googlebot ; noindex ; extrait autorisé ; OAI-SearchBot, Bingbot, PerplexityBot, Claude-SearchBot ; pare-feu |
+| Page | 15 | texte dans le HTML serveur ; canonical ; un H1 ; date |
+| Contenu | 20 | réponse en tête ; statistiques sourcées ; promesses ; première main |
+| Entité | 15 | nom cohérent ; Organization ; sameAs ; note et prix balisés visibles |
+| Agents | 15 | noms et labels ; rien de caché ; aucune consigne cachée aux IA |
+
+Règles :
+
+- **Non mesuré = hors calcul**, avec sa raison (robots.txt non lu, pas de
+  `--sonder`, ni note ni prix balisés). La note porte sur les points
+  mesurés : « 77/100 sur 97 points mesurés ».
+- **À vérifier = hors calcul** aussi : un refus du pare-feu au faux
+  user-agent d'un robot doit être confirmé (le vrai robot, vérifié par son
+  adresse IP, peut passer).
+- **La note ne prédit rien.** Elle dit si la page est prête à être lue et
+  citée. Aucun outil ne voit les signaux des moteurs ; une note ne se
+  compare qu'à elle-même, sur la même page, avant et après.
+- **La visibilité reste à part** : taux de `/geo-visibilite`, moteur par
+  moteur, avec leur marge. Jamais additionnée à la note.
+
+## 3. La couche à traiter d'abord
+
+La première couche, dans l'ordre accès, page, contenu, entité, agents, qui
+a un contrôle critique manqué (Googlebot, noindex, extrait, texte serveur,
+consigne cachée) ou un contrôle de 4 points ou plus. Les recommandations
+partent de là. Les couches suivantes sont listées, pas traitées en premier.
+
+## 4. Ce que le script ne voit pas
+
+À dire à chaque audit :
+
+- le réglage « Contrôle de l'IA générative dans la Recherche » de Search
+  Console : un site exclu n'apparaît ni dans les Aperçus IA ni dans le Mode
+  IA ;
+- l'indexation réelle (rapport « Pages », inspection de l'URL) ;
+- ce que les IA disent de la marque (`/geo-exactitude`) et les sites tiers
+  qui font les listes (`/geo-mentions`) ;
+- la qualité de fond : une page peut passer tous les contrôles et rester
+  générique. La grille de jugement de `references/diagnostic.md` (§4)
+  s'applique à la lecture, notée à part.
+
+## 5. La sortie (format fixe)
 
 ```
-AUDIT GEO · /blog/cfe-ou-premier-euro/ · 58/100 (score complet)
+AUDIT GEO · https://assurly.example/mutuelle-independant/ · 2026-10-16
+PRÉPARATION · 65/100 sur les contrôles mesurés (57/88 points ; 12 points non mesurés ou à vérifier, hors calcul)
+  Dit si la page est prête à être lue et citée, pas si elle le sera.
+  Couche à traiter d'abord : ACCÈS (corriger une couche plus basse ne compense pas celle-ci).
 
-Citabilité 46 · Marque 30 · E-E-A-T 60 · Technique 95 · Schema 100 · Plateformes 20
-
-PRIORITÉS
-1. Citabilité : 3 sections ne répondent pas dès la première phrase → /geo-citability
-2. Marque : absente des 3 comparatifs cités par Perplexity sur le sujet → /geo-mentions
-3. Plateformes : citée dans 1 réponse sur 5 (ChatGPT, Perplexity) → refaire le test dans 30 jours
-DÉJÀ BON : robots d'IA autorisés, schema Article + Person
+ACCÈS · 17/31 points
+  ok     A1  robots.txt lisible                                       3 pt · lu
+  MANQUÉ A2  Googlebot autorisé par robots.txt                        5 pt · groupe * · Disallow: / (ligne 9)
+         → /geo-acces · source : https://developers.google.com/search/docs/crawling-indexing/robots/intro?hl=fr
+  …
+VISIBILITÉ (mesurée à part, jamais additionnée à la note)
+  ChatGPT                  mentionnée 50% (4/8, 22-78%) · recommandée 12% (1/8, 2-47%) · citée 12% (1/8, 2-47%)
+À VÉRIFIER HORS DU SITE
+  · réglage « Contrôle de l'IA générative dans la Recherche » de Search Console
 ```
 
-Puis propose de suivre l'évolution : même audit et même test de visibilité
-chaque mois.
+Exemple fictif (fichiers de `evals/`). Sous la sortie, en texte simple :
+3 actions au plus, dans la couche à traiter d'abord, chacune avec son Skill
+et son propriétaire. Après publication par l'utilisateur, relancer avec
+`--journal` et comparer.
+
+## Erreurs et cas limites
+
+| Situation | Que faire |
+|---|---|
+| Page en 403 pour le script | Le dire ; enregistrer le HTML depuis le navigateur et relancer avec `--url` et `--robots` ; `/geo-acces --sonder`. |
+| robots.txt non lu (réseau) | Contrôles d'accès « non mesurés », jamais « absent » ; demander le fichier. |
+| Site de plus de 500 pages | Auditer un gabarit par type (accueil, offre, article, catégorie), pas toutes les pages. |
+| Pack incomplet | Les contrôles du Skill absent sont « non mesurés » ; le dire. |
+| L'utilisateur veut une note « GEO » unique avec la visibilité | Refuser le mélange : préparation et visibilité ne se mesurent pas pareil ; donner les deux côte à côte. |
+| Note qui baisse après une correction | Lire les contrôles : un contrôle « non mesuré » devenu mesuré change le dénominateur ; comparer contrôle par contrôle. |
+
+## Ressources
+
+- `scripts/audit.py` · scripts de `/geo-acces`, `/geo-contenu`,
+  `/geo-entite`, `/geo-agentic` · `commun/page.py`
+- `references/diagnostic.md` : les 24 contrôles, leurs points et leurs
+  sources, la couche à traiter d'abord, le journal, la grille de jugement.
+
+## Skills liés
+
+Tous les Skills du pack ; `/seo-audit` (technique et indexation, pack SEO).
 
 ## Règles du pack
 
-- Lis `site-context.md` et `apprentissages.md` s'ils existent (fichier commun
-  aux packs SEO et GEO).
-- Zéro invention : pas de note, de citation ou de chiffre de visibilité sans
-  mesure ; « à évaluer » sinon.
-- Texte simple dans la conversation, sans créer de document.
-- Rien n'est modifié sur le site par le Skill.
+- Lecture seule : rien n'est modifié sur le site.
+- Zéro invention : un contrôle non mesuré n'a pas de note, une donnée
+  manquante devient `{{à compléter}}`.
+- Texte simple dans la conversation ; le journal n'est écrit que sur
+  demande.

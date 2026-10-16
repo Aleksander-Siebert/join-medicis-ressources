@@ -20,7 +20,7 @@ ignore les jokers : sur « Disallow: / » suivi de « Allow: /blog/ », il bloqu
     python3 robots.py robots.txt --json
 
 Chaque conclusion porte sur un robot et un chemin nommés. La liste des robots
-d'IA vient du pack GEO (geo-crawlers) : vérifiez la documentation de chaque
+d'IA vient du pack GEO (geo-acces) : vérifiez la documentation de chaque
 éditeur avant de modifier un robots.txt en production.
 """
 from __future__ import annotations

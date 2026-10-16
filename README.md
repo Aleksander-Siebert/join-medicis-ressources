@@ -34,7 +34,7 @@ Retrouve des skills autour de LinkedIn, du SEO/GEO et prochainement : Paids, UX/
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-geo.svg" width="52" alt=""></td>
-<td><b><a href="geo-skills/">GEO Skills</a></b> · 8 Skills · v1.1<br>Être cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et les AI Overviews : citabilité, robots d'IA, données structurées, visibilité mesurée sur de vraies réponses.<br><sub><a href="https://joinmedicis.com/ressources/skills/geo-skills">Fiche Join Médicis</a> · <a href="geo-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
+<td><b><a href="geo-skills/">GEO Skills</a></b> · 8 Skills · v2.0<br>Être lu, compris et cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et Google : audit couche par couche, visibilité avec sa marge d'erreur, robots d'IA, exactitude de ce que disent les IA, entité, sites tiers, agents.<br><sub><a href="https://joinmedicis.com/ressources/skills/geo-skills">Fiche Join Médicis</a> · <a href="geo-skills/evals/RESULTATS.md">Comparaison avec les Skills GEO publics</a></sub></td>
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-ads.svg" width="52" alt=""></td>

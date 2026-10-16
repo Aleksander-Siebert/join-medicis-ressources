@@ -12,7 +12,7 @@ comme des options ; l'utilisateur choisit.
 | Recherches de marque associées | provoquer des recherches « {marque} + {mot-clé} » (contenus d'utilisateurs, influence, relations presse) | ce plan, suivi dans `/seo-veille` | l'effet sur le classement n'est pas démontré [à vérifier] |
 | Titles personnels et émotionnels | « J'ai testé… », « Mon avis après 2 ans » | `/seo-brief`, `/seo-write`, `/seo-refresh` (panier « clic faible ») | **seulement si le contenu le prouve** (test réel, durée réelle) ; mesurer le CTR avant / après |
 | Vidéo YouTube dans les meilleurs articles | une vidéo par article phare, intégrée à l'article | `/seo-social`, `/seo-refresh` | le cas cité (une page passée en tête après l'intégration) est une anecdote [à vérifier] : tester sur une page, mesurer |
-| Ne pas tout basculer sur l'IA | Google reste la source principale de trafic ; les taux de conversion attribués aux assistants d'IA sont biaisés (visites de bas de tunnel) | ce plan, `/geo-optimize` | la part de marché citée par l'article est [à vérifier] |
+| Ne pas tout basculer sur l'IA | Google reste la source principale de trafic ; les taux de conversion attribués aux assistants d'IA sont biaisés (visites de bas de tunnel) | ce plan, `/geo-audit` | la part de marché citée par l'article est [à vérifier] |
 | Refus du black hat pour les LLM | pas de microsites générés par IA reliés au site principal | `commun/garde_fou.py` | refus motivé, règle anti-spam de Google citée |
 | Expérience vécue plutôt que volume | moins d'articles, chacun avec une preuve d'expérience (cas, photos, chiffres de l'entreprise) | `/seo-write` (réserve de preuves), `/seo-audit` | zéro invention : une expérience qui n'existe pas devient un `{{à compléter}}` |
 

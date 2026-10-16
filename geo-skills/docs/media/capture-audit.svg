@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="883" height="1628" viewBox="0 0 883 1628" role="img" aria-label="geo-audit · audit.py">
+<title>geo-audit · audit.py</title>
+<rect width="883" height="1628" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h859a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="442" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">geo-audit · audit.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/audit.py page.html --url https://assurly.example/mutuelle-independant/ --robots</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">  robots.txt --marque Assurly</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">AUDIT GEO · https://assurly.example/mutuelle-independant/ · 2026-10-16</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">PRÉPARATION · 67/100 sur les contrôles mesurés (62/93 points ; 7 points non mesurés ou à vérifier,</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">  hors calcul)</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">  Dit si la page est prête à être lue et citée, pas si elle le sera.</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  Couche à traiter d'abord : ACCÈS (corriger une couche plus basse ne compense pas celle-ci).</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">ACCÈS · 17/31 points</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">  ok     A1  robots.txt lisible                                       3 pt · lu</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">  MANQUÉ A2  Googlebot autorisé par robots.txt                        5 pt · groupe * · Disallow: /</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">    (ligne 9)</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">         → /geo-acces · source :</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">           https://developers.google.com/search/docs/crawling-indexing/robots/intro?hl=fr</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">  ok     A3  page indexable (pas de noindex)                          5 pt · aucun noindex</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">  ok     A4  extrait autorisé (condition des Aperçus IA)              5 pt · aucune restriction</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre">  ok     A5  OAI-SearchBot autorisé par robots.txt                    4 pt · groupe OAI-SearchBot ·</text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">    Allow: / (ligne 13)</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">  MANQUÉ A6  Bingbot autorisé par robots.txt                          3 pt · groupe * · Disallow: /</text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">    (ligne 9)</text>
+<text x="20" y="458" xml:space="preserve" style="white-space:pre">         → /geo-acces · source : commun/preuves.md §1 (table datée des robots)</text>
+<text x="20" y="478" xml:space="preserve" style="white-space:pre">  MANQUÉ A7  PerplexityBot autorisé par robots.txt                    3 pt · groupe * · Disallow: /</text>
+<text x="20" y="498" xml:space="preserve" style="white-space:pre">    (ligne 9)</text>
+<text x="20" y="518" xml:space="preserve" style="white-space:pre">         → /geo-acces · source : commun/preuves.md §1 (table datée des robots)</text>
+<text x="20" y="538" xml:space="preserve" style="white-space:pre">  MANQUÉ A8  Claude-SearchBot autorisé par robots.txt                 3 pt · groupe * · Disallow: /</text>
+<text x="20" y="558" xml:space="preserve" style="white-space:pre">    (ligne 9)</text>
+<text x="20" y="578" xml:space="preserve" style="white-space:pre">         → /geo-acces · source : commun/preuves.md §1 (table datée des robots)</text>
+<text x="20" y="598" xml:space="preserve" style="white-space:pre">  ·      A9  pas de refus au user-agent des robots (pare-feu)         4 pt · lancer avec --sonder</text>
+<text x="20" y="618" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="638" xml:space="preserve" style="white-space:pre">PAGE · 13/15 points</text>
+<text x="20" y="658" xml:space="preserve" style="white-space:pre">  ok     P1  texte dans le HTML serveur (150 mots ou plus)            8 pt · 226 mots</text>
+<text x="20" y="678" xml:space="preserve" style="white-space:pre">  ok     P2  canonical vers cette page                                3 pt · pas de canonical (la</text>
+<text x="20" y="698" xml:space="preserve" style="white-space:pre">    page elle-même)</text>
+<text x="20" y="718" xml:space="preserve" style="white-space:pre">  MANQUÉ P3  un seul H1                                               2 pt · 2 H1 dont un doublon</text>
+<text x="20" y="738" xml:space="preserve" style="white-space:pre">    exact (souvent un gabarit qui l'insère deux fois)</text>
+<text x="20" y="758" xml:space="preserve" style="white-space:pre">         → /geo-contenu · source :</text>
+<text x="20" y="778" xml:space="preserve" style="white-space:pre">           https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr</text>
+<text x="20" y="798" xml:space="preserve" style="white-space:pre">  ok     P4  date de publication ou de mise à jour                    2 pt · date trouvée</text>
+<text x="20" y="818" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="838" xml:space="preserve" style="white-space:pre">CONTENU · 12/20 points</text>
+<text x="20" y="858" xml:space="preserve" style="white-space:pre">  ok     C1  sections qui répondent en tête (60% ou plus)             8 pt · 4/5 sections</text>
+<text x="20" y="878" xml:space="preserve" style="white-space:pre">  MANQUÉ C2  statistiques sourcées                                    5 pt · 1/2 sections</text>
+<text x="20" y="898" xml:space="preserve" style="white-space:pre">         → /geo-contenu · source :</text>
+<text x="20" y="918" xml:space="preserve" style="white-space:pre">           https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr</text>
+<text x="20" y="938" xml:space="preserve" style="white-space:pre">  MANQUÉ C3  aucune promesse à prouver (« n°1 », « le moins cher »)   3 pt · 1 section(s)</text>
+<text x="20" y="958" xml:space="preserve" style="white-space:pre">    concernée(s)</text>
+<text x="20" y="978" xml:space="preserve" style="white-space:pre">         → /geo-contenu · source : règle du pack (commun/regles.md)</text>
+<text x="20" y="998" xml:space="preserve" style="white-space:pre">  ok     C4  élément de première main (cas, donnée maison, expérience) 4 pt · « Nous avons analysé</text>
+<text x="20" y="1018" xml:space="preserve" style="white-space:pre">    1 200 dossiers de nos clients en 2025 : la formule  »</text>
+<text x="20" y="1038" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="1058" xml:space="preserve" style="white-space:pre">ENTITÉ · 5/12 points</text>
+<text x="20" y="1078" xml:space="preserve" style="white-space:pre">  ok     E1  nom de la marque cohérent                                5 pt · « Assurly » partout</text>
+<text x="20" y="1098" xml:space="preserve" style="white-space:pre">  MANQUÉ E2  un bloc Organization (ou sous-type) par entité           4 pt · aucun bloc</text>
+<text x="20" y="1118" xml:space="preserve" style="white-space:pre">         → /geo-entite · source :</text>
+<text x="20" y="1138" xml:space="preserve" style="white-space:pre">           https://developers.google.com/search/docs/appearance/structured-data/sd-policies?hl=fr</text>
+<text x="20" y="1158" xml:space="preserve" style="white-space:pre">  MANQUÉ E3  sameAs vers les profils de l'organisation                3 pt · 0 profil(s)</text>
+<text x="20" y="1178" xml:space="preserve" style="white-space:pre">         → /geo-entite · source : règle du pack (commun/regles.md)</text>
+<text x="20" y="1198" xml:space="preserve" style="white-space:pre">  ·      E4  note et prix balisés visibles sur la page                3 pt · ni note ni prix balisés</text>
+<text x="20" y="1218" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="1238" xml:space="preserve" style="white-space:pre">AGENTS · 15/15 points</text>
+<text x="20" y="1258" xml:space="preserve" style="white-space:pre">  ok     G1  boutons, liens et champs nommés                          5 pt · 0 sans nom, 0 champ(s)</text>
+<text x="20" y="1278" xml:space="preserve" style="white-space:pre">    sans label</text>
+<text x="20" y="1298" xml:space="preserve" style="white-space:pre">  ok     G2  rien de cliquable caché ou non sémantique                3 pt · 0 élément(s)</text>
+<text x="20" y="1318" xml:space="preserve" style="white-space:pre">  ok     G3  aucune consigne cachée aux IA                            7 pt · 0 trouvée(s)</text>
+<text x="20" y="1338" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="1358" xml:space="preserve" style="white-space:pre">VISIBILITÉ (mesurée à part, jamais additionnée à la note)</text>
+<text x="20" y="1378" xml:space="preserve" style="white-space:pre">  non mesurée : /geo-visibilite</text>
+<text x="20" y="1398" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="1418" xml:space="preserve" style="white-space:pre">À VÉRIFIER HORS DU SITE</text>
+<text x="20" y="1438" xml:space="preserve" style="white-space:pre">  · réglage « Contrôle de l'IA générative dans la Recherche » de Search Console (inclure, exclure,</text>
+<text x="20" y="1458" xml:space="preserve" style="white-space:pre">    hériter)</text>
+<text x="20" y="1478" xml:space="preserve" style="white-space:pre">  · indexation réelle : rapport « Pages » et inspection de l'URL dans Search Console</text>
+<text x="20" y="1498" xml:space="preserve" style="white-space:pre">  · ce que les IA disent de la marque : /geo-exactitude</text>
+<text x="20" y="1518" xml:space="preserve" style="white-space:pre">  · sites tiers cités là où la marque perd : /geo-mentions</text>
+<text x="20" y="1538" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="1558" xml:space="preserve" style="white-space:pre">Ce que Google dit d'abord : les Aperçus IA et le Mode IA reposent sur la recherche classique ;</text>
+<text x="20" y="1578" xml:space="preserve" style="white-space:pre">aucune optimisation spéciale n'est requise</text>
+<text x="20" y="1598" xml:space="preserve" style="white-space:pre">  (https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=fr).</text>
+</g></svg>

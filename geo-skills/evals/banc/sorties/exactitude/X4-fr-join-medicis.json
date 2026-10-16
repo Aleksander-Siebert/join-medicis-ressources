@@ -1,0 +1,19 @@
+{
+  "registre": [
+    {
+      "moteur": "ChatGPT",
+      "question": "P1",
+      "verdict": "différent",
+      "gravite": "moyenne",
+      "fait": "fondé|fondée|créé|créée|depuis|founded",
+      "reference": "2019 (LIVE, mentions légales)",
+      "phrase": "Assurly a été fondée en 2017.",
+      "lecture": "nommée"
+    }
+  ],
+  "compte": {
+    "ChatGPT · différent": 1
+  },
+  "reponses": 1,
+  "faits": 7
+}

@@ -1,0 +1,3 @@
+{"url": "http://site-de-test/robots.txt", "exists": false, "content": "", "ai_crawler_status": {"GPTBot": "NO_ROBOTS_TXT", "OAI-SearchBot": "NO_ROBOTS_TXT", "ChatGPT-User": "NO_ROBOTS_TXT", "ClaudeBot": "NO_ROBOTS_TXT", "anthropic-ai": "NO_ROBOTS_TXT", "PerplexityBot": "NO_ROBOTS_TXT", "CCBot": "NO_ROBOTS_TXT", "Bytespider": "NO_ROBOTS_TXT", "cohere-ai": "NO_ROBOTS_TXT", "Google-Extended": "NO_ROBOTS_TXT", "GoogleOther": "NO_ROBOTS_TXT", "Applebot-Extended": "NO_ROBOTS_TXT", "FacebookBot": "NO_ROBOTS_TXT", "Amazonbot": "NO_ROBOTS_TXT"}, "cloudflare_managed": false, "sitemaps": [], "errors": ["No robots.txt found (404)"]}
+
+--- stderr ---

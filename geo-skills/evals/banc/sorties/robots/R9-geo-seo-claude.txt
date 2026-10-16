@@ -1,0 +1,3 @@
+{"url": "http://site-de-test/robots.txt", "exists": false, "content": "", "ai_crawler_status": {}, "cloudflare_managed": false, "sitemaps": [], "errors": ["Error fetching robots.txt: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"]}
+
+--- stderr ---

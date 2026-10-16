@@ -67,7 +67,7 @@ ramènent du trafic, piliers de contenu, ce qu'ils couvrent et pas vous
 ## 5. Socle technique
 
 Indexation propre, Core Web Vitals, données structurées par type de page
-(`/geo-schema` du pack GEO), robots d'IA (`/geo-crawlers`), photo de
+(`/geo-entite` du pack GEO), robots d'IA (`/geo-acces`), photo de
 référence `/seo-audit` (`drift.py photo`) avant toute refonte.
 
 ## 6. Feuille de route en 4 phases
@@ -76,7 +76,7 @@ référence `/seo-audit` (`drift.py photo`) avant toute refonte.
 |---|---|---|---|
 | 1. Fondations | semaines 1-4 | indexation, technique bloquante, pages clés, suivi | `/seo-audit` (photo avant / après comprise), `/seo-context` |
 | 2. Gains rapides | semaines 5-12 | mise à jour des pages en positions 5-20, maillage, premiers contenus des piliers | `/seo-refresh`, `/seo-maillage`, `/seo-article` |
-| 3. Expansion | mois 4-6 | piliers complets, SEO local ou programmatique si pertinent, GEO | `/seo-article`, `/seo-local`, option programmatique (§9), `/geo-optimize` |
+| 3. Expansion | mois 4-6 | piliers complets, SEO local ou programmatique si pertinent, GEO | `/seo-article`, `/seo-local`, option programmatique (§9), `/geo-audit` |
 | 4. Autorité | mois 7-12 | données propres, relations presse, mentions, réseaux sociaux | `/geo-mentions`, `/seo-social`, `/seo-veille` |
 
 Adapte les phases avec le modèle du secteur : `references/modeles.md`.
@@ -88,7 +88,7 @@ Adapte les phases avec le modèle du secteur : `references/modeles.md`.
 | Clics organiques / mois | mesuré | `{{à fixer}}` | | |
 | Requêtes dans le top 10 | mesuré | | | |
 | Conversions issues du SEO | mesuré | | | |
-| Présence dans les réponses d'IA (`/geo-visibility`) | mesuré | | | |
+| Présence dans les réponses d'IA (`/geo-visibilite`) | mesuré | | | |
 
 Le point de départ vient des données (Search Console, analytics, test de
 visibilité). Les cibles sont fixées **avec** l'utilisateur à partir de ce

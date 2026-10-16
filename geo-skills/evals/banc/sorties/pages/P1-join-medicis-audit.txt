@@ -1,0 +1,279 @@
+{
+  "url": "http://site-de-test/",
+  "date": "2026-10-16",
+  "controles": [
+    {
+      "couche": "ACCÈS",
+      "id": "A1",
+      "libelle": "robots.txt lisible",
+      "points": 3,
+      "etat": "ok",
+      "preuve": "lu",
+      "source": "https://developers.google.com/search/docs/crawling-indexing/robots/intro?hl=fr",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "ACCÈS",
+      "id": "A2",
+      "libelle": "Googlebot autorisé par robots.txt",
+      "points": 5,
+      "etat": "ok",
+      "preuve": "groupe * · Allow: / (ligne 2)",
+      "source": "https://developers.google.com/search/docs/crawling-indexing/robots/intro?hl=fr",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "ACCÈS",
+      "id": "A3",
+      "libelle": "page indexable (pas de noindex)",
+      "points": 5,
+      "etat": "ok",
+      "preuve": "aucun noindex",
+      "source": "https://developers.google.com/search/docs/crawling-indexing/block-indexing?hl=fr",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "ACCÈS",
+      "id": "A4",
+      "libelle": "extrait autorisé (condition des Aperçus IA)",
+      "points": 5,
+      "etat": "ok",
+      "preuve": "aucune restriction",
+      "source": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=fr",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "ACCÈS",
+      "id": "A5",
+      "libelle": "OAI-SearchBot autorisé par robots.txt",
+      "points": 4,
+      "etat": "ok",
+      "preuve": "groupe * · Allow: / (ligne 2)",
+      "source": "commun/preuves.md §1 (table datée des robots)",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "ACCÈS",
+      "id": "A6",
+      "libelle": "Bingbot autorisé par robots.txt",
+      "points": 3,
+      "etat": "ok",
+      "preuve": "groupe * · Allow: / (ligne 2)",
+      "source": "commun/preuves.md §1 (table datée des robots)",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "ACCÈS",
+      "id": "A7",
+      "libelle": "PerplexityBot autorisé par robots.txt",
+      "points": 3,
+      "etat": "ok",
+      "preuve": "groupe * · Allow: / (ligne 2)",
+      "source": "commun/preuves.md §1 (table datée des robots)",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "ACCÈS",
+      "id": "A8",
+      "libelle": "Claude-SearchBot autorisé par robots.txt",
+      "points": 3,
+      "etat": "ok",
+      "preuve": "groupe * · Allow: / (ligne 2)",
+      "source": "commun/preuves.md §1 (table datée des robots)",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "ACCÈS",
+      "id": "A9",
+      "libelle": "pas de refus au user-agent des robots (pare-feu)",
+      "points": 4,
+      "etat": "non mesuré",
+      "preuve": "lancer avec --sonder",
+      "source": "commun/preuves.md §1 (table datée des robots)",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "PAGE",
+      "id": "P1",
+      "libelle": "texte dans le HTML serveur (150 mots ou plus)",
+      "points": 8,
+      "etat": "manqué",
+      "preuve": "141 mots",
+      "source": "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics?hl=fr",
+      "skill": "/geo-contenu"
+    },
+    {
+      "couche": "PAGE",
+      "id": "P2",
+      "libelle": "canonical vers cette page",
+      "points": 3,
+      "etat": "ok",
+      "preuve": "pas de canonical (la page elle-même)",
+      "source": "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls?hl=fr",
+      "skill": "/geo-acces"
+    },
+    {
+      "couche": "PAGE",
+      "id": "P3",
+      "libelle": "un seul H1",
+      "points": 2,
+      "etat": "ok",
+      "preuve": "1 H1",
+      "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr",
+      "skill": "/geo-contenu"
+    },
+    {
+      "couche": "PAGE",
+      "id": "P4",
+      "libelle": "date de publication ou de mise à jour",
+      "points": 2,
+      "etat": "manqué",
+      "preuve": "aucune date de publication ou de mise à jour (visible ou JSON-LD)",
+      "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr",
+      "skill": "/geo-contenu"
+    },
+    {
+      "couche": "CONTENU",
+      "id": "C1",
+      "libelle": "sections qui répondent en tête (60% ou plus)",
+      "points": 8,
+      "etat": "manqué",
+      "preuve": "0/1 sections",
+      "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr",
+      "skill": "/geo-contenu"
+    },
+    {
+      "couche": "CONTENU",
+      "id": "C2",
+      "libelle": "statistiques sourcées",
+      "points": 5,
+      "etat": "non mesuré",
+      "preuve": "aucune statistique sur la page",
+      "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr",
+      "skill": "/geo-contenu"
+    },
+    {
+      "couche": "CONTENU",
+      "id": "C3",
+      "libelle": "aucune promesse à prouver (« n°1 », « le moins cher »)",
+      "points": 3,
+      "etat": "ok",
+      "preuve": "0 section(s) concernée(s)",
+      "source": "règle du pack (commun/regles.md)",
+      "skill": "/geo-contenu"
+    },
+    {
+      "couche": "CONTENU",
+      "id": "C4",
+      "libelle": "élément de première main (cas, donnée maison, expérience)",
+      "points": 4,
+      "etat": "manqué",
+      "preuve": "rien de propre au site",
+      "source": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=fr",
+      "skill": "/geo-contenu"
+    },
+    {
+      "couche": "ENTITÉ",
+      "id": "E1",
+      "libelle": "nom de la marque cohérent",
+      "points": 5,
+      "etat": "ok",
+      "preuve": "« Assurly » partout",
+      "source": "règle du pack (commun/regles.md)",
+      "skill": "/geo-entite"
+    },
+    {
+      "couche": "ENTITÉ",
+      "id": "E2",
+      "libelle": "un bloc Organization (ou sous-type) par entité",
+      "points": 4,
+      "etat": "manqué",
+      "preuve": "aucun bloc",
+      "source": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies?hl=fr",
+      "skill": "/geo-entite"
+    },
+    {
+      "couche": "ENTITÉ",
+      "id": "E3",
+      "libelle": "sameAs vers les profils de l'organisation",
+      "points": 3,
+      "etat": "manqué",
+      "preuve": "0 profil(s)",
+      "source": "règle du pack (commun/regles.md)",
+      "skill": "/geo-entite"
+    },
+    {
+      "couche": "ENTITÉ",
+      "id": "E4",
+      "libelle": "note et prix balisés visibles sur la page",
+      "points": 3,
+      "etat": "non mesuré",
+      "preuve": "ni note ni prix balisés",
+      "source": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies?hl=fr",
+      "skill": "/geo-entite"
+    },
+    {
+      "couche": "AGENTS",
+      "id": "G1",
+      "libelle": "boutons, liens et champs nommés",
+      "points": 5,
+      "etat": "ok",
+      "preuve": "0 sans nom, 0 champ(s) sans label",
+      "source": "https://web.dev/articles/ai-agent-site-ux",
+      "skill": "/geo-agentic"
+    },
+    {
+      "couche": "AGENTS",
+      "id": "G2",
+      "libelle": "rien de cliquable caché ou non sémantique",
+      "points": 3,
+      "etat": "ok",
+      "preuve": "0 élément(s)",
+      "source": "https://web.dev/articles/ai-agent-site-ux",
+      "skill": "/geo-agentic"
+    },
+    {
+      "couche": "AGENTS",
+      "id": "G3",
+      "libelle": "aucune consigne cachée aux IA",
+      "points": 7,
+      "etat": "ok",
+      "preuve": "0 trouvée(s)",
+      "source": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=fr",
+      "skill": "/geo-agentic"
+    }
+  ],
+  "note": {
+    "note": 67,
+    "obtenus": 59,
+    "possibles": 88,
+    "hors_calcul": 12,
+    "par_couche": {
+      "ACCÈS": [
+        31,
+        31
+      ],
+      "PAGE": [
+        5,
+        15
+      ],
+      "CONTENU": [
+        3,
+        15
+      ],
+      "ENTITÉ": [
+        5,
+        12
+      ],
+      "AGENTS": [
+        15,
+        15
+      ]
+    }
+  },
+  "premiere": "PAGE",
+  "familles": null,
+  "mesure": null
+}
+
+--- stderr ---

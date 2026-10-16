@@ -1,0 +1,3 @@
+{"url": "http://site-de-test/robots.txt", "exists": true, "content": "User-agent: *\nDisallow: /\nAllow: /blog/\n", "ai_crawler_status": {"GPTBot": "BLOCKED_BY_WILDCARD", "OAI-SearchBot": "BLOCKED_BY_WILDCARD", "ChatGPT-User": "BLOCKED_BY_WILDCARD", "ClaudeBot": "BLOCKED_BY_WILDCARD", "anthropic-ai": "BLOCKED_BY_WILDCARD", "PerplexityBot": "BLOCKED_BY_WILDCARD", "CCBot": "BLOCKED_BY_WILDCARD", "Bytespider": "BLOCKED_BY_WILDCARD", "cohere-ai": "BLOCKED_BY_WILDCARD", "Google-Extended": "BLOCKED_BY_WILDCARD", "GoogleOther": "BLOCKED_BY_WILDCARD", "Applebot-Extended": "BLOCKED_BY_WILDCARD", "FacebookBot": "BLOCKED_BY_WILDCARD", "Amazonbot": "BLOCKED_BY_WILDCARD"}, "cloudflare_managed": false, "sitemaps": [], "errors": []}
+
+--- stderr ---

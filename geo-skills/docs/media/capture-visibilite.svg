@@ -1,16 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="765" height="228" viewBox="0 0 765 228" role="img" aria-label="geo-visibility · visibilite.py">
-<title>geo-visibility · visibilite.py</title>
-<rect width="765" height="228" rx="12" fill="#141311" stroke="#2A2925"/>
-<path d="M0 12a12 12 0 0 1 12-12h741a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="875" height="688" viewBox="0 0 875 688" role="img" aria-label="geo-visibilite · visibilite.py">
+<title>geo-visibilite · visibilite.py</title>
+<rect width="875" height="688" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h851a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
 <circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
-<text x="382" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">geo-visibility · visibilite.py</text>
+<text x="438" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">geo-visibilite · visibilite.py</text>
 <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
-<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 visibilite.py reponses.txt --marque Assurly</text>
-<text x="20" y="78" xml:space="preserve" style="white-space:pre">PLATEFORME     PROMPTS  PRÉSENCE  RANG  PART DE VOIX</text>
-<text x="20" y="98" xml:space="preserve" style="white-space:pre">ChatGPT              2       50%   1,0          100%</text>
-<text x="20" y="118" xml:space="preserve" style="white-space:pre">Perplexity           1      100%   1,0          100%</text>
-<text x="20" y="138" xml:space="preserve" style="white-space:pre">TOTAL                3       67%   1,0          100%</text>
-<text x="20" y="158" xml:space="preserve" style="white-space:pre"></text>
-<text x="20" y="178" xml:space="preserve" style="white-space:pre">MARQUES CITÉES (mentions) : Assurly 4</text>
-<text x="20" y="198" xml:space="preserve" style="white-space:pre">SOURCES CITÉES (nombre de réponses) : service-public.fr 1, cfe.fr 1, assurly.example 1</text>
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/visibilite.py mesurer reponses.txt --marque Assurly --domaine assurly.example</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">  --concurrent "April International" …</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">VISIBILITÉ IA · Assurly · mesuré (réponses collées) · 12 réponses · 6 questions · 2 moteur(s)</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">Taux avec intervalle de confiance à 95% (k/n, bas-haut).</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">MOTEUR                  MENTIONNÉE                CITÉE (lien)              RECOMMANDÉE</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  DÉCONSEILLÉE  PART DE VOIX</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">ChatGPT                 50% (4/8, 22-78%)         13% (1/8, 2-47%)          13% (1/8, 2-47%)</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">  1/8           31% (4/13, 13-58%)</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">Perplexity              50% (2/4, 15-85%)         0% (0/4, 0-49%)           0% (0/4, 0-49%)</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">  0/4           50% (2/4, 15-85%)</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">TOTAL                   50% (6/12, 25-75%)        8% (1/12, 1-35%)          8% (1/12, 1-35%)</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">  1/12          35% (6/17, 17-59%)</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">Exploratoire : moins de 5 passages par question pour ChatGPT, Perplexity (repère : 5 pour explorer,</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">  10 pour confirmer, 15 pour affirmer).</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">QUESTIONS PERDUES (un concurrent cité, la marque jamais)</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">  P01   ChatGPT         Je pars travailler à Dubaï avec deux enfants, quelle assurance s</text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">        concurrents : Allianz Care 2, April International 2, Cigna 1 · sources : lelynx.fr,</text>
+<text x="20" y="458" xml:space="preserve" style="white-space:pre">          quechoisir.org</text>
+<text x="20" y="478" xml:space="preserve" style="white-space:pre">  P02   Perplexity      Quelle est la meilleure assurance santé pour un expatrié françai</text>
+<text x="20" y="498" xml:space="preserve" style="white-space:pre">        concurrents : Cigna 1 · sources : reddit.com</text>
+<text x="20" y="518" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="538" xml:space="preserve" style="white-space:pre">SOURCES CITÉES PAR CLASSE (nombre de citations)</text>
+<text x="20" y="558" xml:space="preserve" style="white-space:pre">  comparateur 1 · consommateurs 1 · propre site 1 · autre 1 · institution 1 · reference 1 ·</text>
+<text x="20" y="578" xml:space="preserve" style="white-space:pre">    communaute 1</text>
+<text x="20" y="598" xml:space="preserve" style="white-space:pre">  Domaines : lelynx.fr 1, quechoisir.org 1, assurly.example 1, cfe.fr 1, service-public.fr 1,</text>
+<text x="20" y="618" xml:space="preserve" style="white-space:pre">    fr.wikipedia.org 1, reddit.com 1</text>
+<text x="20" y="638" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="658" xml:space="preserve" style="white-space:pre">Non observable dans une réponse : les pages que le moteur a lues sans les citer (« récupéré »).</text>
 </g></svg>

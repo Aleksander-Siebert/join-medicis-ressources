@@ -23,7 +23,7 @@
     },
     {
       "name": "geo-skills",
-      "description": "Huit Skills AEO / GEO en français pour être cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et les AI Overviews, et prêt pour les agents d'IA.",
+      "description": "Huit Skills GEO / AEO en français pour être lu, compris et cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et Google : audit, visibilité mesurée avec sa marge, robots d'IA, exactitude, entité, sites tiers, agents.",
       "source": "./geo-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/geo-skills"

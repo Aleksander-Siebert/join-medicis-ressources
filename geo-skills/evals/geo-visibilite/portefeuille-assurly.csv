@@ -1,0 +1,10 @@
+id;cohorte;intention;prompt;attendu
+P01;coeur;decouverte;Je pars travailler à Dubaï avec deux enfants, quelle assurance santé prendre ?;
+P02;coeur;comparaison;Quelle est la meilleure assurance santé pour un expatrié français ?;
+P03;coeur;alternative;Quelle alternative à April International pour un expatrié ?;
+P04;coeur;usage;CFE ou assurance au premier euro, que choisir quand on part en Asie ?;
+P05;coeur;decouverte;Comment s'assurer quand on est freelance à l'étranger ?;
+P06;coeur;marque;Assurly est-il un courtier fiable pour les expatriés ?;
+P07;exploratoire;prix;Combien coûte une assurance santé expatrié pour une famille ?;
+T01;temoin;marque;Que propose Assurly ?;present
+T02;temoin;hors-sujet;Quelle tondeuse robot acheter pour un petit jardin ?;absent

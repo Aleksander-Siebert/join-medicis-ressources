@@ -1,0 +1,3 @@
+
+--- stderr ---
+Could not crawl any pages from http://site-de-test/.

@@ -1,0 +1,12 @@
+Données de test fictives (Assurly), pas de vraies réponses d'IA.
+
+=== ChatGPT | P01 | Je pars travailler à Dubaï avec deux enfants, quelle assurance santé prendre ?
+Assurly propose une formule famille, tout comme April International.
+=== ChatGPT | P01 | Je pars travailler à Dubaï avec deux enfants, quelle assurance santé prendre ?
+Je recommande Assurly pour les familles. https://assurly.example/famille
+=== ChatGPT | P02 | Quelle est la meilleure assurance santé pour un expatrié français ?
+Assurly est le meilleur choix pour un francophone.
+=== ChatGPT | P02 | Quelle est la meilleure assurance santé pour un expatrié français ?
+April International et Assurly sont les plus citées.
+=== ChatGPT | P05 | Comment s'assurer quand on est freelance à l'étranger ?
+Une assurance au premier euro est souvent nécessaire.
