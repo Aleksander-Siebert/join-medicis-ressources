@@ -57,7 +57,15 @@ Modèle et cas limites : `references/donnees.md`.
 ```bash
 python3 scripts/exactitude.py reponses.txt --marque "Assurly" --contexte site-context.md
 python3 scripts/exactitude.py reponses.txt --marque "Assurly" --alias "assurly.example" --faits faits.csv --json
+python3 scripts/exactitude.py reponses.txt --marque "Assurly" --faits faits.csv --concurrent "Alan" --concurrent "Assurly Pro"
 ```
+
+Donne les concurrents (`--concurrent`, répétable) : leurs faits ne sont
+plus lus comme ceux de la marque, qu'ils soient entre parenthèses
+(« Alan (fondée en 2016) »), après un contraste (« contrairement à Alan,
+qui… », « comparé aux 45 € d'Alan ») ou dans un nom qui contient celui de la
+marque (« Assurly Pro »). Une phrase fausse niée (« Assurly n'a pas de
+formule gratuite ») compte comme exacte.
 
 Le script lit les phrases qui nomment la marque, la phrase suivante si elle
 la reprend (« Elle propose… »), et **toute la réponse** quand la question
@@ -150,7 +158,7 @@ ligne à ligne.
 |---|---|
 | Pas de données de référence | Produire le tableau « Les données produit » avec l'utilisateur d'abord (`/seo-context` ou `templates/site-context.md`). Sans référence, tout sort « invérifiable ». |
 | Donnée de référence sans source | `À CONFIRMER` : jamais « faux » contre l'IA. |
-| Marque homonyme (nom commun, autre société) | Alias précis, et relire les phrases ; verdict « ambigu » si l'IA mélange les deux. |
+| Marque homonyme (nom commun, autre société) | Alias précis, homonymes en `--concurrent`, et relire les phrases ; verdict « ambigu » si l'IA mélange les deux. |
 | Réponse en anglais ou en dollars | Le verdict « devise » s'applique ; signaler aussi la langue. |
 | Domaine sensible (santé, finance, assurance, droit) | Prix, garanties, délais et conditions passent avant tout ; recommander une vérification par la personne responsable de la conformité. |
 | Plus de 50 réponses | Lancer le script, puis lire les verdicts graves et un échantillon des « exact ». |

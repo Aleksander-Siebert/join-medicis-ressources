@@ -224,5 +224,32 @@ class Aide(unittest.TestCase):
             self.assertEqual(p.returncode, 0)
 
 
+class Homonymes(unittest.TestCase):
+    """Cas tirés des CHANGELOG de ultimate-seo-geo (1.22.0) et geo-optimizer (#294)."""
+
+    def setUp(self):
+        self.lex = vis.charger_lexiques()
+
+    def lire(self, texte, marque, domaines=(), concurrents=None):
+        conc = {n: [vis.motif_nom(n)] for n in (concurrents or [])}
+        return vis.analyser_reponse(texte, [vis.motif_nom(marque)], list(domaines), conc, self.lex)
+
+    def test_concurrent_dont_le_nom_contient_la_marque(self):
+        r = self.lire("Bloom Party Co Bay Area a une note de 4,8.", "Party Co", concurrents=["Bloom Party Co"])
+        self.assertFalse(r["mentionnee"])
+        self.assertEqual(r["concurrents"], ["Bloom Party Co"])
+
+    def test_marque_et_concurrent_homonyme(self):
+        r = self.lire("Je recommande Party Co plutôt que Bloom Party Co.", "Party Co", concurrents=["Bloom Party Co"])
+        self.assertTrue(r["mentionnee"])
+
+    def test_domaine_homonyme_n_est_pas_la_marque(self):
+        self.assertFalse(self.lire("Essayez geoready.app.", "GeoReady", ["geoready.dev"])["mentionnee"])
+
+    def test_domaine_de_la_marque_compte(self):
+        r = self.lire("Essayez geoready.dev.", "GeoReady", ["geoready.dev"])
+        self.assertTrue(r["mentionnee"])
+
+
 if __name__ == "__main__":
     unittest.main()

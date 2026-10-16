@@ -199,21 +199,55 @@ def phrases_marque(texte, motifs, question=""):
     return out
 
 
+CONTRASTE = re.compile(r"^(?:contrairement a|a la difference de|compare a|comparee? aux?|par rapport a|face a|alors que|tandis que)\b")
+NEGATION = re.compile(r"(?:\bne\b|\bn')[^,.;]{0,25}$|\b(?:pas|jamais|aucune?|plus|sans) (?:de |d')?$")
+
+
+def retirer_autres(phrase_n: str, motifs, concurrents) -> str:
+    """Retire ce qui parle d'un autre : concurrent dont le nom contient la marque, parenthèse qui suit
+    un concurrent (« Mixpanel (fondée en 2009) »), proposition de contraste (« contrairement à X, qui… »)
+    et proposition qui nomme un concurrent sans la marque."""
+    t = phrase_n
+    for c in concurrents:
+        if any(m.search(c.pattern.replace("\\", "")) for m in motifs):
+            t = c.sub(" ", t)
+    for c in concurrents:
+        t = re.sub(c.pattern + r"\s*\([^)]*\)", " ", t)
+    morceaux = re.split(r"\s*[,;:]\s*", t)
+    garde, sauter = [], False
+    for m in morceaux:
+        marque = any(x.search(m) for x in motifs)
+        autre = any(c.search(m) for c in concurrents)
+        if sauter and re.match(r"^(?:qui|dont|lequel|laquelle)\b", m) and not marque:
+            continue
+        sauter = False
+        if CONTRASTE.match(m) and not marque:
+            sauter = True
+            continue
+        if autre and not marque:
+            continue
+        garde.append(m)
+    return ", ".join(garde)
+
+
 def egal(a: float, b: float) -> bool:
     """Égalité au centime près (39 = 39,00) ; jamais de tolérance relative (2017 ≠ 2019)."""
     return abs(a - b) <= 0.01
 
 
-def juger(phrase: str, faits: list[dict], lex_garde: list[str]) -> list[dict]:
-    pn = norm(phrase)
+def juger(phrase: str, faits: list[dict], lex_garde: list[str], motifs=(), concurrents=()) -> list[dict]:
+    pn = retirer_autres(norm(phrase), motifs, concurrents)
     qs = quantites(pn)
     res = []
     for f in faits:
         if not f["mots"] or not touche(f, pn):
             continue
         if f["statut"] == "FAUX":
-            if norm(f["valeur_txt"]) and norm(f["valeur_txt"]) in pn:
-                res.append({"verdict": "faux", "fait": f})
+            v = norm(f["valeur_txt"])
+            i = pn.find(v) if v else -1
+            if i >= 0:
+                nie = NEGATION.search(pn[:i])
+                res.append({"verdict": "exact" if nie else "faux", "fait": f})  # « n'a pas de formule gratuite »
             continue
         if f["statut"] == "RETIRÉ":
             res.append({"verdict": "périmé", "fait": f})  # l'offre ou la donnée n'existe plus, chiffre ou non
@@ -249,14 +283,17 @@ def juger(phrase: str, faits: list[dict], lex_garde: list[str]) -> list[dict]:
 GRAVITE = {"faux": 0, "devise": 0, "périmé": 1, "différent": 1, "cadrage négatif": 2, "à confirmer": 3, "invérifiable": 3, "exact": 4}
 
 
-def analyser(reponses, marque, alias, faits):
+def analyser(reponses, marque, alias, faits, concurrents=()):
     lex = json.loads((COMMUN / "lexiques_fr.json").read_text(encoding="utf-8"))
     garde = [norm(x) for x in lex["mise_en_garde"]]
     motifs = [re.compile(rf"(?<![\w]){re.escape(norm(n))}(?![\w])") for n in [marque] + alias]
+    conc = [re.compile(rf"(?<![\w]){re.escape(norm(n))}(?![\w])") for n in concurrents]
     registre = []
     for r in reponses:
         for ph, mode in phrases_marque(r["reponse"], motifs, r["prompt"]):
-            for j in juger(ph, faits, garde):
+            if mode == "nommée" and not any(m.search(retirer_autres(norm(ph), motifs, conc)) for m in motifs):
+                continue  # le nom lu était celui d'un concurrent homonyme
+            for j in juger(ph, faits, garde, motifs, conc):
                 f = j["fait"]
                 grav = f["gravite"] if f and j["verdict"] in ("faux", "devise", "périmé", "différent") else (
                     "moyenne" if j["verdict"] == "cadrage négatif" else "basse")
@@ -293,6 +330,8 @@ def main(argv=None) -> int:
     ap.add_argument("reponses", help="réponses collées (=== Moteur | id | question)")
     ap.add_argument("--marque", required=True)
     ap.add_argument("--alias", action="append", default=[])
+    ap.add_argument("--concurrent", action="append", default=[],
+                    help="nom d'un concurrent (répétable) : ses faits ne sont pas lus comme ceux de la marque")
     src = ap.add_mutually_exclusive_group(required=True)
     src.add_argument("--contexte", help="site-context.md (tableau « Les données produit »)")
     src.add_argument("--faits", help="faits.csv (id;mots;valeur;unite;statut;source;gravite)")
@@ -307,7 +346,7 @@ def main(argv=None) -> int:
     if not reponses:
         print("Aucune réponse lue : chaque réponse commence par « === Moteur | question ».", file=sys.stderr)
         return 1
-    r = analyser(reponses, a.marque, a.alias, faits)
+    r = analyser(reponses, a.marque, a.alias, faits, a.concurrent)
     print(json.dumps(r, ensure_ascii=False, indent=2) if a.json else afficher(r, a.marque))
     return 0
 

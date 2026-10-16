@@ -95,6 +95,47 @@ class Lecture(unittest.TestCase):
         self.assertEqual([x["verdict"] for x in r["registre"]], ["différent"])
 
 
+class Concurrents(unittest.TestCase):
+    """Cas tirés du CHANGELOG de ultimate-seo-geo : faits d'un concurrent lus comme ceux de la marque."""
+
+    def jouer(self, texte, concurrents=("Alan",), faits=None):
+        r = ex.analyser([{"moteur": "X", "id": "P1", "prompt": "Quel courtier ?", "reponse": texte}],
+                        "Assurly", [], faits or ex.lire_faits(str(FAITS)), list(concurrents))
+        return [x["verdict"] for x in r["registre"]]
+
+    def test_parenthese_du_concurrent(self):
+        self.assertEqual(self.jouer("Assurly, contrairement à Alan (fondée en 2016), est fondée en 2019."), ["exact"])
+
+    def test_proposition_de_contraste(self):
+        self.assertEqual(self.jouer("Contrairement à Alan, qui est fondée en 2016, Assurly propose la "
+                                    "formule Essentielle à 39 €."), ["exact"])
+
+    def test_prix_du_concurrent(self):
+        self.assertEqual(self.jouer("Assurly coûte 39 € pour la formule Essentielle, comparé aux 45 € de Alan."),
+                         ["exact"])
+
+    def test_concurrent_dont_le_nom_contient_la_marque(self):
+        self.assertEqual(self.jouer("Assurly Pro Max vend la formule Essentielle 45 €.",
+                                    concurrents=["Assurly Pro Max"]), [])
+
+    def test_sans_liste_de_concurrents_le_doute_reste(self):
+        self.assertEqual(self.jouer("Assurly Pro Max vend la formule Essentielle 45 €.", concurrents=[]),
+                         ["différent"])
+
+
+class Negation(unittest.TestCase):
+    def setUp(self):
+        with tempfile.NamedTemporaryFile("w", suffix=".csv", delete=False, encoding="utf-8") as f:
+            f.write("id;mots;valeur;unite;statut;source;gravite\nF1;gratuite;formule gratuite;;FAUX;grille 2026;haute\n")
+        self.faits = f.name
+
+    def test_phrase_fausse_niee_est_exacte(self):
+        self.assertEqual(verdicts("Assurly n'a pas de formule gratuite.", faits=self.faits), ["exact"])
+
+    def test_phrase_fausse_affirmee(self):
+        self.assertEqual(verdicts("Assurly propose une formule gratuite.", faits=self.faits), ["faux"])
+
+
 class Contexte(unittest.TestCase):
     def test_lit_le_tableau_du_site_context(self):
         faits = ex.lire_contexte(str(CONTEXTE))

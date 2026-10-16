@@ -16,6 +16,15 @@ Sources : marketingskills (Corey Haines), elmo, Profound (MIT), réécrit.
 la marque pour décrire la catégorie, puis recommande d'après ce que disent
 les autres.
 
+Homonymes, réglés par le script :
+
+- un concurrent dont le nom contient la marque (« Assurly Pro » pour
+  « Assurly ») compte pour le concurrent, s'il est déclaré en
+  `--concurrent` ;
+- un domaine homonyme (« assurly.app » quand la marque est sur
+  `assurly.example`) ne compte pas comme une mention : déclare les domaines
+  de la marque avec `--domaine`.
+
 ## 2. Ordre de lecture
 
 1. **Témoins.** Un témoin en dérive arrête la lecture : saisie, moteur ou

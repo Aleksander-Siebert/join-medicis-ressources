@@ -87,9 +87,20 @@ def norm(texte):
 
 
 def motif_nom(nom):
-    """Regex qui trouve un nom entier (pas « Fnac » dans « Fnacarde »)."""
+    """Regex qui trouve un nom entier (pas « Fnac » dans « Fnacarde »), et pas la racine d'un domaine
+    homonyme (« geoready » dans « geoready.app ») : un domaine de la marque se déclare avec --domaine."""
     n = re.escape(norm(nom))
-    return re.compile(rf"(?<![\w]){n}(?![\w])")
+    domaine = r"" if "." in nom else r"(?!\.[a-z0-9-]{2,})"
+    return re.compile(rf"(?<![\w.]){n}(?![\w]){domaine}")
+
+
+def sans_concurrents_homonymes(tn, conc_motifs, marque_motifs):
+    """Efface les noms de concurrents qui contiennent la marque (« Bloom Party Co » pour « Party Co »)."""
+    for ms in conc_motifs.values():
+        for m in ms:
+            if any(mm.search(m.pattern.replace("\\", "")) for mm in marque_motifs):
+                tn = m.sub(" ", tn)
+    return tn
 
 
 def phrases(texte):
@@ -232,13 +243,15 @@ def opposee(phrase_n, marque_motifs, lex):
 
 def analyser_reponse(texte, marque_motifs, domaines_marque, conc_motifs, lex):
     tn = norm(texte)
-    mentionnee = any(m.search(tn) for m in marque_motifs)
+    marque_motifs = marque_motifs + [motif_nom(d) for d in domaines_marque]
+    tn_m = sans_concurrents_homonymes(tn, conc_motifs, marque_motifs)
+    mentionnee = any(m.search(tn_m) for m in marque_motifs)
     doms = domaines(texte)
     citee = any(d == dm or d.endswith("." + dm) for d in doms for dm in domaines_marque)
     recommandee = deconseillee = False
     if mentionnee:
         for ph in phrases(texte):
-            pn = norm(ph)
+            pn = sans_concurrents_homonymes(norm(ph), conc_motifs, marque_motifs)
             if not any(m.search(pn) for m in marque_motifs):
                 continue
             if a_marqueur(pn, lex["mise_en_garde"], []):
