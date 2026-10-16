@@ -213,9 +213,10 @@ def trouver_script(outils: Path | None, skill: str, relatif: str) -> Path | None
         if p.exists():
             return p
     if relatif.startswith("commun/"):
-        p = SKILL / relatif
-        if p.exists():
-            return p
+        for base in (SKILL, SKILL.parent.parent):  # copie du Skill, ou commun/ à la racine du ZIP claude.ai
+            p = base / relatif
+            if p.exists():
+                return p
     return None
 
 

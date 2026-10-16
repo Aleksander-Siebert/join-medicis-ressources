@@ -17,7 +17,8 @@ description: >-
 
 Ce Skill regroupe les 8 modules du pack GEO. Chaque module est un mode
 d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
-(`references/`, `scripts/`, `commun/`) dans le même dossier.
+(`references/`, `scripts/`) dans le même dossier. Le socle commun cité
+comme `commun/…` est **une seule fois à la racine du pack**, dans `commun/`.
 
 ## Choisir le module
 
@@ -41,8 +42,8 @@ L'utilisateur peut taper le nom du module comme une commande
 1. Choisis le module.
 2. **Lis en entier `modules/<nom>/<nom>.md`** avant de répondre, puis
    suis-le. Les fichiers qu'il cite sont dans son dossier :
-   `modules/<nom>/scripts/…`, `modules/<nom>/references/…`,
-   `modules/<nom>/commun/…`.
+   `modules/<nom>/scripts/…`, `modules/<nom>/references/…` ; le socle
+   commun, dans `commun/` à la racine.
 3. `geo-audit` lance les scripts des autres modules depuis
    `modules/<autre>/scripts/` : garde le dossier `modules/` entier.
 4. Sans exécution de code, chaque module dit comment faire les contrôles à
