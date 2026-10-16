@@ -3,14 +3,14 @@
   "pack": "GEO Skills",
   "surtitre": "Join Médicis · pack de Skills",
   "accroche": [
-    "Huit Skills pour être cité par ChatGPT, Perplexity,",
-    "Gemini, Claude, Mistral et les AI Overviews."
+    "Huit Skills pour être lu, compris et cité par ChatGPT,",
+    "Perplexity, Gemini, Claude, Mistral et Google."
   ],
   "puces": [
     "8 Skills",
-    "5 scripts",
+    "8 scripts",
     "MIT",
-    "v1.1"
+    "v2.0"
   ],
   "colonnes": 4,
   "familles": {
@@ -40,28 +40,13 @@
       "famille": "Mesurer"
     },
     {
-      "nom": "geo-crawlers",
-      "glyphe": "robot",
-      "famille": "Mesurer"
-    },
-    {
       "nom": "geo-contenu",
-      "glyphe": "citation",
-      "famille": "Améliorer"
-    },
-    {
-      "nom": "geo-citability",
       "glyphe": "citation",
       "famille": "Améliorer"
     },
     {
       "nom": "geo-entite",
       "glyphe": "entreprise",
-      "famille": "Améliorer"
-    },
-    {
-      "nom": "geo-schema",
-      "glyphe": "code",
       "famille": "Améliorer"
     },
     {
@@ -72,11 +57,6 @@
     {
       "nom": "geo-mentions",
       "glyphe": "bulle",
-      "famille": "Rayonner"
-    },
-    {
-      "nom": "geo-optimize",
-      "glyphe": "boussole",
       "famille": "Rayonner"
     }
   ],

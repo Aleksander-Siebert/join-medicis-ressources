@@ -15,20 +15,28 @@ Le résultat ? Ce que ce pack vous apporte en exclusivité : une visibilité dan
 # Transparence & inspirations
 Bien que le code et les directives de chaque skill soient une création propre à Join Médicis, nous croyons en la culture open-source. Nos travaux de R&D s'appuient sur l'analyse et la compréhension d'excellents projets internationaux.
 
-Nous tenons à remercier et créditer les auteurs des projets suivants, qui ont nourri notre réflexion :
+Nous tenons à remercier et créditer les auteurs des projets suivants, qui ont nourri notre réflexion. La version 2.0 est née de l'étude, fichier par fichier, de douze dépôts (notes dans `recherche/geo-v2/`).
 
-- [geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude), Zubair Trabzada (MIT) : pondération de l'audit, rubrique de citabilité, liste des robots d'IA
-- [marketingskills](https://github.com/coreyhaines31/marketingskills), Corey Haines (MIT) : les trois piliers du Skill « AI SEO »
-- [claude-seo](https://github.com/AgriciDaniel/claude-seo), Daniel Agrici (MIT) : le module seo-agentic, et l'idée de confronter chaque conseil GEO aux sources de Google
-- Aggarwal et al., « GEO: Generative Engine Optimization », KDD 2024 (Princeton) : les méthodes de réécriture testées
-- Google Search Central : le guide sur l'optimisation pour l'IA générative (juillet 2026), les données structurées, l'arrêt des résultats enrichis FAQ (mai 2026)
-- web.dev, « Build agent-friendly websites », et la catégorie Agentic Browsing de Lighthouse (Chrome), pour `/geo-agentic`
-- schema.org, et la proposition llms.txt (llmstxt.org)
+- [geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude), Zubair Trabzada (MIT) : la rubrique de citabilité de la v1, devenue les contrôles de `/geo-contenu`
+- [claude-seo](https://github.com/AgriciDaniel/claude-seo), Daniel Agrici (MIT) : le module seo-agentic (matrice datée des agents, catégorie Lighthouse), Content-Signal, et l'idée de confronter chaque conseil GEO aux sources de Google
+- [marketingskills](https://github.com/coreyhaines31/marketingskills), Corey Haines (MIT) : l'échelle de visibilité, les verdicts d'exactitude, « cité mais pas recommandé »
+- [skills-marketing-library](https://github.com/retieedra-profound/skills-marketing-library), Profound (MIT) : le diagnostic par couches dans l'ordre où le moteur rencontre la page, les familles de faits, la plus petite intervention crédible
+- [geo-optimizer-skill](https://github.com/Auriti-Labs/geo-optimizer-skill), Juan Camilo Auriti (MIT) : la cohérence du nom de marque et ses cas réels (séparateurs, sous-types d'Organization, domaines homonymes), la détection des consignes cachées aux IA
+- [elmo](https://github.com/elmohq/elmo), Blue Whale Software (MIT) : « les sources citées sur les questions perdues sont le plan », la correction à la source
+- [ultimate-seo-geo](https://github.com/mykpono/ultimate-seo-geo), Myk Pono (MIT) : la vérification des faits de marque dans les réponses et les cas de son CHANGELOG (faits des concurrents, homonymes)
+- [gtm-engineer-skills](https://github.com/onvoyage-ai/gtm-engineer-skills), OnVoyage AI (MIT) : la séparation entre note mesurée par script et note de jugement
+- [geo-score](https://github.com/jianruntech/geo-score), Jianrun Tech (MIT) : un contrôle non mesuré sort du dénominateur
+- [aaron-marketing-skills](https://github.com/aaron-he-zhu/aaron-marketing-skills), aaron-he-zhu (Apache 2.0) : l'appel sans clé à Tavily ; idée reprise, code réécrit
+- Recherche : Aggarwal et al., « GEO », KDD 2024 ; Puerto et al., C-SEO Bench, NeurIPS 2025 ; O. Martinez, revue critique du GEO, 2026 ; méthode des passages répétés (arXiv 2609.04047)
+- Sources primaires : pages des robots d'OpenAI, Anthropic, Perplexity, Mistral, Google et Apple ; Google Search Central (guide sur l'IA générative, réglage de Search Console, données structurées) ; RFC 9309 ; Cloudflare (Content Signals) ; web.dev et Lighthouse ; Code de la consommation (Légifrance)
 
-Ce que le pack ajoute : le français et ses formulations de réponse, des
-scripts sans clé d'API, le test de visibilité à partir de réponses réelles
-collées, le score partiel qui n'invente pas les catégories non mesurées, et
-le cadre français sur les avis et les pratiques commerciales.
+Ce que le pack ajoute : le français et ses formulations (lexiques de
+recommandation, de mise en garde, de source), des taux de visibilité avec
+leur marge d'erreur et une comparaison de périodes qui ne confond pas bruit
+et tendance, la lecture de chaque robot selon son rôle, le registre
+d'exactitude sur les données de la marque, des scripts sans clé d'API
+testés sur des cas réels, et le cadre français sur les avis, l'influence et
+les pratiques commerciales.
 
 Les mentions de copyright exigées par la licence MIT sont reproduites dans
 [`LICENSE`](LICENSE).

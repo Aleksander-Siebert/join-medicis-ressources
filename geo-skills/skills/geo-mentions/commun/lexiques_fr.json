@@ -1,0 +1,29 @@
+{
+  "_lisez_moi": "Marqueurs français lus dans la phrase qui nomme la marque. Ce sont des indices pour classer une mention (recommandée, déconseillée, citée en passant), pas un jugement : le Skill relit les cas limites. Motifs en minuscules, sans accent obligatoire (la comparaison ignore les accents).",
+  "recommandation": [
+    "je recommande", "je vous recommande", "je te recommande", "recommande",
+    "je conseille", "je vous conseille", "je te conseille", "conseille",
+    "meilleur choix", "le meilleur", "la meilleure", "les meilleurs", "les meilleures",
+    "a privilegier", "privilegiez", "privilegie",
+    "ideal pour", "ideale pour", "le plus adapte", "la plus adaptee", "parfait pour", "parfaite pour",
+    "notre choix", "mon choix", "coup de coeur", "en tete", "se distingue", "se demarque",
+    "excellent choix", "bon choix", "valeur sure", "incontournable", "reference du marche",
+    "optez pour", "choisissez", "tournez-vous vers", "je miserais sur"
+  ],
+  "mise_en_garde": [
+    "a eviter", "evitez", "evite", "je deconseille", "je vous deconseille", "deconseille",
+    "mefiez-vous", "mefie-toi", "attention a", "prudence avec", "a fuir",
+    "pas recommande", "pas recommandee", "ne recommande pas", "ne conseille pas",
+    "mauvais choix", "decevant", "decevante", "nombreuses plaintes", "mauvaise reputation",
+    "avis negatifs", "litiges", "arnaque"
+  ],
+  "negation": [
+    "ne ", "n'", "pas ", "jamais", "aucun", "aucune", "plutot que", "au lieu de", "contrairement a"
+  ],
+  "opposition": [
+    "plutot que", "plutot qu'", "au lieu de", "au lieu d'", "contrairement a", "sauf", "a la place de", "mieux que", "plus fiable que", "moins cher que"
+  ],
+  "citation_source": [
+    "selon", "d'apres", "source", "sources", "comme l'indique", "rapporte", "cite"
+  ]
+}

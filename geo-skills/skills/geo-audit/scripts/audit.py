@@ -302,7 +302,7 @@ def afficher(r: dict) -> str:
             continue
         L += ["", f"{k} · {ok}/{tot} points" if tot else f"{k} · non mesuré"]
         for c in cs:
-            marque = {"ok": "ok     ", "manqué": "MANQUÉ ", "non mesuré": "—      ", "à vérifier": "?      "}[c["etat"]]
+            marque = {"ok": "ok     ", "manqué": "MANQUÉ ", "non mesuré": "·      ", "à vérifier": "?      "}[c["etat"]]
             L.append(f"  {marque}{c['id']:<4}{c['libelle']:<56}{c['points']:>2} pt · {c['preuve'][:90]}")
             if c["etat"] in ("manqué", "à vérifier"):
                 L.append(f"         → {c['skill']} · source : {c['source']}")

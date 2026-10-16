@@ -27,7 +27,7 @@ Scripts lancés quand c'était possible (résultats dans chaque note).
 
 | Outil | Résultat sur joinmedicis.com |
 |---|---|
-| geo-optimizer `geo audit` | 71/100 ; trouve un H1 doublé sur l'accueil |
+| geo-optimizer `geo audit` | 71/100 ; signale un H1 doublé sur l'accueil : **faux positif** (titre animé lu deux fois, texte pour lecteur d'écran et lettres `aria-hidden` ; vérifié le 16 oct. 2026, un seul `<h1>`) |
 | geo-score | 84/100 ; « pas de lexique français » pour 2 contrôles |
 | elmo `check_ai_access.py` | 17 robots, tous à 200 |
 | claude-seo `agentic_check.py` | échoue derrière le proxy (faux « injoignable ») |

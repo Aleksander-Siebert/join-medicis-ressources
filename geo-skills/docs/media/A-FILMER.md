@@ -1,8 +1,7 @@
 # À filmer : les GIF du README GEO
 
-Deux prises. Chacune a déjà sa place dans `README.md`, en commentaire HTML :
-quand le fichier existe, décommente la ligne et retire l'image qu'elle
-remplace. Les captures SVG restent : elles sont régénérées par
+Deux prises. Quand le fichier existe, il remplace dans `README.md` la
+capture indiquée. Les captures SVG restent : elles sont régénérées par
 `outils/visuels/capture.py`, pas les GIF.
 
 ## Réglages communs
@@ -19,18 +18,20 @@ ffmpeg -i prise.mp4 -vf "fps=12,scale=760:-1:flags=lanczos,split[a][b];[a]palett
 
 ## Prise 1 : `demo.gif` (en tête du README)
 
-**Des réponses d'IA collées deviennent un tableau.**
+**Des réponses d'IA collées deviennent des taux avec leur marge.**
 
 1. `/geo-visibilite` : montrer le portefeuille de questions proposé.
 2. Coller les réponses (préparées à l'avance, exemple fictif).
-3. Finir sur le tableau des taux avec leur marge d'erreur, les questions perdues et les sources citées.
+3. Finir sur les taux par moteur, les questions perdues et les sources citées.
 
-Remplace : `docs/media/capture-visibilite.svg` en tête de README.
+Remplace : `docs/media/capture-audit.svg` en tête de README.
 
-## Prise 2 : `demo-crawlers.gif` (section « En images »)
+## Prise 2 : `demo-acces.gif` (section « En images »)
 
-**Qui peut lire le site ?**
+**Qui peut lire le site, et pour en faire quoi ?**
 
-1. `/geo-crawlers` sur un site de démonstration.
-2. Montrer les robots autorisés ou bloqués, un par un, puis le robots.txt
-   proposé selon la stratégie choisie.
+1. `/geo-acces` sur un site de démonstration.
+2. Montrer « citable dans ChatGPT : OAI-SearchBot » à côté de « GPTBot :
+   entraînement », puis le robots.txt proposé selon la stratégie choisie.
+
+Remplace : `docs/media/capture-acces.svg`.

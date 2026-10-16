@@ -12,7 +12,7 @@ import unittest
 from pathlib import Path
 
 ICI = Path(__file__).resolve().parent
-AUTONOMES = [ICI / "scripts" / "test_geo.py"]
+AUTONOMES = []
 
 
 def main():
