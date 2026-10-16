@@ -9,7 +9,7 @@ Du mot-clé à l'article publiable, de l'audit au maillage interne. **Aucun chif
 
 <!-- github-seulement -->
 [![Version](https://img.shields.io/badge/version-2.0.0-0E3F2D)](#versions)
-[![Tests](https://img.shields.io/badge/tests-240%20au%20vert-2D7259)](#preuves)
+[![Tests](https://img.shields.io/badge/tests-243%20au%20vert-2D7259)](#preuves)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](LICENSE)
 [![Python](https://img.shields.io/badge/Python%203-sans%20d%C3%A9pendance-34495E?logo=python&logoColor=white)](#les-scripts)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white)](#claude-code)
@@ -256,9 +256,24 @@ clé gratuite dans Google Cloud et passez-la avec `--cle` ou `PSI_API_KEY`.
 python3 evals/tout_tester.py
 ```
 
-**240 tests** : les scripts, le socle commun et l'intégrité du pack (frontmatter,
-fichiers cités, socle synchronisé, typographie). Les évaluations comparatives
-sont dans [`evals/RESULTATS.md`](evals/RESULTATS.md).
+**243 tests** : les scripts, le socle commun et l'intégrité du pack (frontmatter,
+fichiers cités, socle synchronisé, typographie).
+
+**Éval à l'aveugle** (16 oct. 2026, trois textes réels qui ont bien marché
+dans Google, anonymisés ; un juge qui ne savait pas qui était qui) :
+
+| Cas | Pack SEO v2 | Claude sans Skill | Référence humaine |
+|---|---|---|---|
+| Guide de blog e-commerce | **49**/60 | 47 | 21 |
+| Page catégorie e-commerce | **49** | 48 | 26 |
+| Guide d'assureur (YMYL) | 49 | **50** | 27 |
+
+Le pack et Claude sans Skill se tiennent à un ou deux points : le pack ne
+rend pas Claude meilleur rédacteur, il le rend plus sûr (aucune affirmation
+inventée, structure et typographie contrôlées). Les références humaines ont
+bien marché dans Google, ce que le juge ne mesure pas ; le protocole les
+désavantage (texte de 2024 jugé en 2026, juge sans web). Détail, limites et
+corrections : [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
 ## Versions
 

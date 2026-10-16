@@ -177,6 +177,7 @@ ou inventé, pas ce qui est seulement différent.
 | Le plan prévoit une longueur que le sujet ne remplit pas | Livrer plus court et le dire ; ne pas rembourrer. |
 | L'utilisateur veut un article « indétectable » | On ne promet rien de tel (aucun outil ne le peut honnêtement) : on écrit un texte utile, vrai et dans sa voix. |
 | Demande de reprendre le texte d'un concurrent | Garde-fou : refus ; on en tire des sujets et des manques (`/seo-serp`). |
+| Texte placé sous une liste de produits (page catégorie, fiche produit) | Le gabarit porte déjà le H1 : `controle.py --h1-gabarit` (aucun H1 attendu dans le texte), souvent avec `--sans-resume`. |
 | Pas d'exécution de code | Mêmes contrôles à la lecture, liste par liste ; écrire « contrôles automatiques non lancés ». |
 
 ## Fin de tâche
