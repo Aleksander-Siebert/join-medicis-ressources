@@ -112,8 +112,8 @@ mieux pour le lecteur.
 <table>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/geo-mentions.svg" width="44" alt=""></td>
-<td><b><code>/geo-mentions</code></b><br>Où la marque est citée (presse, comparateurs, forums, avis, Wikipédia) face aux concurrents, et un plan propre.</td>
-<td width="150"></td>
+<td><b><code>/geo-mentions</code></b><br>Les sites tiers cités là où la marque perd, page par page : marque présente ou absente, concurrents nommés, action légitime par classe de site.</td>
+<td width="150"><code>sources.py</code></td>
 </tr>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/geo-optimize.svg" width="44" alt=""></td>
