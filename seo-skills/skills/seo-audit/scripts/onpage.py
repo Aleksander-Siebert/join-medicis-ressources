@@ -34,6 +34,8 @@ UA = "Mozilla/5.0 (compatible; JoinMedicis-onpage/1.0; +https://joinmedicis.com)
 
 # Title et description se mesurent en pixels (commun/meta.py), pas en caractères.
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "commun"))
+# ZIP claude.ai : commun/ est une seule fois à la racine du pack
+sys.path.insert(1, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "commun"))
 try:
     import meta as _meta  # noqa: E402
 except ImportError:  # Skill copié sans son commun/

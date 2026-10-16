@@ -44,7 +44,9 @@ L'utilisateur peut taper le nom du module comme une commande (`/seo-brief …`).
    enchaîne les autres.
 2. **Lis en entier `modules/<nom>/<nom>.md`** avant de répondre, puis
    suis-le. Les fichiers qu'il cite (`references/…`, `humanize.py`,
-   `maillage.py`, `onpage.py`, `robots.py`, `veille.py`, `drift.py`, `positions.py`, `nap.py`, `video.py`, `priorite.py`, `pipeline.py`) sont dans son dossier.
+   `maillage.py`, `onpage.py`, `robots.py`, `veille.py`, `drift.py`, `positions.py`, `nap.py`, `video.py`, `priorite.py`, `pipeline.py`) sont dans son dossier. Le socle commun cité comme
+   `commun/…` (`regles.md`, `preuves.md`, `garde_fou.py`, `meta.py`…) est
+   **une seule fois à la racine du pack**, dans `commun/`.
 3. Quand un module renvoie à un autre (« passe par `/seo-human` »), lis le
    fichier de ce module et applique-le.
 4. Les modèles `site-context.md`, `exemple-site-context.md` et
