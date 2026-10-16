@@ -122,16 +122,40 @@ sessions par pack, c'est normal.
 
 - **Ordre des chantiers** (16 octobre 2026) :
   1. **GEO v2**, processus complet, avec validation avant d'écrire.
-  2. **ChatGPT Ads** : attendre les documents de l'utilisateur (modèle Excel
+  2. **Skill vidéo** (priorité 2, fort potentiel de buzz) : un « Taste Skill
+     de la vidéo » pour marketeurs, dans l'esprit de brag
+     (latent-spaces/brag, MIT) et de Taste Skill :
+     - bibliothèque de styles étudiés sur de vraies vidéos, décrits avec nos
+       mots et des paramètres mesurables (rythme, durée du texte, typo,
+       animation, palette, tempo), tirage de 3 styles ;
+     - usages marketing : annonce de fonctionnalité, vidéo de post LinkedIn,
+       variantes d'annonce, teaser d'événement, carrousel en vidéo,
+       sous-titres français ;
+     - formats par plateforme (LinkedIn, Reels, TikTok, Shorts), à vérifier
+       aux sources officielles ;
+     - inspecteur de la vidéo rendue (durée, résolution, images par seconde,
+       temps de lecture du texte, zones de sécurité, écrans noirs, volume) et
+       boucle de relecture sur des images extraites ;
+     - musique, polices et images à licence claire pour l'usage commercial
+       (la musique fournie par brag a une licence non vérifiée : ne pas la
+       redistribuer) ;
+     - mode « storyboard seul » pour les IA sans exécution de commandes.
+
+     Sources à collecter : brag et brag-slim, Skills Hyperframes (Apache
+     2.0), méthode Taste Skill, Skills Remotion (pas de licence détectée :
+     inspiration seulement), corpus de vidéos choisi avec l'utilisateur.
+     Commencer par un prototype : 3 styles, l'inspecteur, 5 vidéos Assurly,
+     éval à l'aveugle contre brag-slim.
+  3. **ChatGPT Ads** : attendre les documents de l'utilisateur (modèle Excel
      aux bonnes colonnes, consignes OpenAI à réécrire en .md, rédaction des
      context hints). L'onboarding OpenAI est confidentiel : reformuler, ne
      jamais recopier ni prompts ni chiffres d'études de cas.
-  3. **LinkedIn Ads, puis TikTok Ads** : Skills Join Médicis rédigés par
+  4. **LinkedIn Ads, puis TikTok Ads** : Skills Join Médicis rédigés par
      rétro-ingénierie (claude-ads, MIT, ua-skills, aides officielles, MCP
      officiel TikTok). ChatGPT Ads, LinkedIn Ads et TikTok Ads sont des
      Skills **séparés**, chacun avec son dossier, sa fiche et son ZIP : pas
      un pack commun.
-  4. **Articles de blog « Guide : installer et utiliser un Skill sur X »**
+  5. **Articles de blog « Guide : installer et utiliser un Skill sur X »**
      (Claude, ChatGPT, Gemini, Mistral) : étapes vérifiées aux pages d'aide
      officielles, captures du compte de l'utilisateur, date de vérification.
 - **Compatibilité multi-IA** (plus tard) :
