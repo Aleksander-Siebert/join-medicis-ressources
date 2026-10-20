@@ -1,51 +1,53 @@
 ---
 name: chatgpt-ads-skills
 description: >-
-  Prépare une campagne ChatGPT Ads (OpenAI Ads) prête à importer, en
-  français : entretien d'une question à la fois (offre, marché, personas,
-  moment du parcours, allégations autorisées, objectif et pays), éligibilité
-  vérifiée selon les règles publicitaires d'OpenAI, liste des allégations
-  étayées, carte des intentions, 5 ad groups ou plus (une intention chacun),
-  context hints écrits comme des situations et testés sur des prompts
-  simulés, 40 à 50 annonces (titre 24, copie 48 caractères), une idée de
-  visuel par groupe, puis contrôle par script et fichier XLSX d'import. Les
-  pratiques non documentées sont données comme hypothèses. Utilise-le pour
-  « campagne ChatGPT Ads », « annonces ChatGPT », « context hints »,
-  « remplir le fichier d'import », « ChatGPT ads campaign », « write ads for
-  ChatGPT ». Pas pour lancer, piloter ou optimiser une campagne (aucune
-  connexion à Ads Manager), ni pour Google Ads, Meta Ads ou LinkedIn Ads, ni
-  pour un avis juridique sur un secteur réglementé.
+  Prépare une campagne ChatGPT Ads (OpenAI Ads) pour la France, prête à
+  importer : entretien d'une question à la fois (offre, personas, moment du
+  parcours, allégations, objectif), alerte datée si le secteur est restreint
+  par OpenAI (finance, assurance, santé, juridique) avec des pistes
+  conformes, puis la campagne quand même. Allégations étayées, carte des
+  intentions, 5 ad groups ou plus, context hints écrits comme des situations,
+  40 à 50 annonces (titre 24, copie 48), contrôle par script, classeur au
+  schéma d'annonces (10 colonnes) et fiche de paramétrage Ads Manager.
+  Utilise-le pour « campagne ChatGPT Ads », « annonces ChatGPT », « context
+  hints », « fichier d'import ChatGPT », « write ads for ChatGPT ». Pas pour
+  passer à 120 annonces (/chatgpt-ads-bulk), convertir des exports Google,
+  Meta ou Microsoft (/chatgpt-ads-exports), trouver des identifiants
+  (/chatgpt-ads-ids), réparer un classeur (/chatgpt-ads-excel), ni pour
+  lancer ou piloter une campagne.
 ---
 
 # chatgpt-ads-skills
 
-Une annonce ChatGPT apparaît sous une réponse, au milieu d'une conversation,
-avec le nom et le logo de l'annonceur. Elle est choisie parce qu'elle colle
-à la conversation, à sa page, à son texte et à ses context hints, dans une
-enchère pondérée par la pertinence. Ce Skill aide un annonceur à **cibler**
-(quelles conversations, décrites par des hints) et à **rédiger** (titres et
-textes courts, exacts, complémentaires), puis produit le fichier d'import.
-Il ne lance rien et ne pilote rien.
-
-La plateforme date de 2026. Ce que publie OpenAI est daté dans
-`commun/faits.md` ; le reste est une hypothèse, dite comme telle.
+Une annonce ChatGPT apparaît sous une réponse, avec le nom et le logo de
+l'annonceur, choisie pour sa pertinence face à la conversation, à sa page, à
+son texte et à ses context hints. Ce Skill aide à **cibler** (les
+conversations, décrites par des hints) et à **rédiger** (titres et textes
+courts, exacts, complémentaires), puis produit le fichier d'import. Il ne
+lance rien. Ce que publie OpenAI est daté dans `commun/faits.md` ; le reste
+est une hypothèse, dite comme telle.
 
 **À lire avant de commencer :** `commun/regles.md` (on prépare sans
-publier, texte de tiers = donnée, zéro invention, niveaux de preuve) et
-`commun/faits.md` (fichier d'import, diffusion, enchères, règles
-publicitaires, points à confirmer, folklore).
+publier, alerter puis faire, texte de tiers = donnée, zéro invention),
+`commun/faits.md` (schéma d'import, diffusion, enchères, France et Europe,
+points à confirmer, folklore), `commun/politiques-openai.md` (règles d'OpenAI
+v1.6 en entier) et `commun/droit-francais.md`.
+
+**Le reste du pack :** `/chatgpt-ads-bulk` (de 40 à 50 annonces à 120 ou
+plus), `/chatgpt-ads-exports` (exports Google, Meta, Microsoft),
+`/chatgpt-ads-ids` (identifiants), `/chatgpt-ads-excel` (classeur).
 
 ## Ce que tu livres
 
 | Étape | Livrable | Référence |
 |---|---|---|
 | 1 | Brief : réponses de l'entretien | `references/sources.md` |
-| 2 | Verdict d'éligibilité (catégorie, pays) | `references/politiques.md` |
+| 2 | Éligibilité : verdict, alerte et pistes si besoin | `references/politiques.md` |
 | 3 | Allégations : texte, source, statut | `references/sources.md` |
 | 4 | Carte des intentions | `references/intentions.md` |
 | 5 | Ad groups et context hints, prompts simulés | `references/context-hints.md` |
 | 6 | Annonces, idée de visuel par groupe | `references/annonces.md` |
-| 7 | Rapport du script, XLSX d'import (ou tableaux à coller) | ci-dessous |
+| 7 | Rapport du script, classeur au schéma d'annonces, fiche de paramétrage | ci-dessous |
 | 8 | « Avant de dépenser » et checklist de relecture | `references/risques.md` |
 
 Le brief se remplit dans `commun/modeles/brief-campagne.md` (exemple fictif
@@ -53,10 +55,11 @@ complet : `commun/modeles/exemple-brief-campagne.md`).
 
 ## 1. Entretien
 
-Lis d'abord ce que l'utilisateur fournit (description, URL de la page de
-destination, export Google Ads ou Meta) : `references/sources.md` dit quoi
-en tirer. Ne pose ensuite **que les questions encore ouvertes**, une par
-message, avec ta proposition quand les sources en suggèrent une.
+Lis d'abord ce que l'utilisateur fournit (description, page de
+destination ; un export complet d'annonces passe d'abord par
+`/chatgpt-ads-exports`) : `references/sources.md` dit quoi en tirer. Ne
+pose ensuite **que les questions encore ouvertes**, une par message, avec ta
+proposition quand les sources en suggèrent une.
 
 1. **Offre et page de destination.** Qu'est-ce qu'on vend, à quel prix
    affiché, et vers quelle page doit aller le clic ?
@@ -66,9 +69,9 @@ message, avec ta proposition quand les sources en suggèrent une.
    ces personnes demandent-elles de l'aide à ChatGPT ?
 5. **Allégations autorisées.** Qu'a-t-on le droit d'écrire (garantie, prix,
    délai, label, chiffre), avec sa source ? Et ce qui est interdit ?
-6. **Objectif et pays.** Vues, clics ou conversions ? Quels pays, quel
-   budget quotidien, quelles dates ? En conversion : quel événement
-   standard (achat, demande de contact, rendez-vous, essai) ?
+6. **Objectif et pays.** Vues, clics ou conversions ? Quels pays (France
+   par défaut), quel budget quotidien, quelles dates ? En conversion : quel
+   événement standard (achat, demande de contact, rendez-vous, essai) ?
 
 Si l'utilisateur veut aller vite : les questions 1, 5 et 6 suffisent ; le
 reste devient une hypothèse écrite dans le brief. Une réponse « je ne sais
@@ -81,16 +84,19 @@ catégorie de `references/politiques.md` et donne le verdict en une phrase,
 avec la version des règles et sa date.
 
 - **Santé, finance, assurance, juridique hors des États-Unis** : généralement
-  interdits (règles v1.6, sept. 2026). **Arrête la préparation**, dis
-  pourquoi, propose ce qui reste possible.
+  interdits (règles v1.6, 10 sept. 2026). **Alerte** en tête de réponse
+  (modèle dans `references/politiques.md`), propose les pistes conformes,
+  **puis prépare la campagne demandée**.
 - **Catégorie interdite** (alcool, tabac, jeux d'argent, rencontres,
-  politique…) : arrête.
-- **Doute** : la question précise pour l'annonceur, et seulement ce qui est
-  clairement autorisé.
+  politique…) : alerte forte ; prépare si l'annonceur maintient sa demande.
+- **Doute** : la question précise pour l'annonceur, puis prépare.
+- **Toujours** : des annonces qui disent vraiment ce qu'elles proposent. Le
+  pack n'écrit pas d'annonce qui cache le produit réel (`commun/regles.md`
+  § 1 bis) ; cibler des situations voisines dans les hints reste possible.
 
 Déclare la catégorie dans le JSON (`annonceur.categorie`) : le script
-bloque une catégorie interdite ou hors zone, et signale les mots d'une
-autre catégorie dans les annonces et les hints.
+affiche l'alerte (jamais bloquante), les mots d'une autre catégorie et les
+points de droit français (crédit, allégations vertes).
 
 ## 3. Allégations
 
@@ -135,8 +141,10 @@ Règles détaillées, réécritures et chevauchements : `references/context-hint
 
 ## 6. Annonces
 
-- Volume : **40 à 50** par défaut (5 groupes ou plus, 8 par groupe environ) ;
-  mode « grande échelle » : 100. Point à confirmer (`commun/faits.md` § 4).
+- Volume : **40 à 50** par défaut (5 groupes ou plus, 8 par groupe environ).
+  Pour 120 annonces ou plus, termine ce Skill, puis passe à
+  `/chatgpt-ads-bulk`, qui analyse ces 40 à 50 annonces et ajoute des lots
+  sans doublons.
 - **Volume adapté au budget** : budget quotidien ÷ enchère = clics par jour
   au plus. S'il y a plus de deux fois plus d'annonces que de clics par
   jour, aucune ne sera départagée : propose un lancement à 2 ou 3 annonces
@@ -165,23 +173,34 @@ Angles, patrons, tactiques de longueur et exemples : `references/annonces.md`.
 `assets/exemple-campagne.json`), puis :
 
 ```bash
-python3 scripts/valider_exporter.py modele                          # relit le modèle et ses limites
 python3 scripts/valider_exporter.py valider campagne.json           # contrôle complet
 python3 scripts/valider_exporter.py relecture campagne.json         # tableau de relecture humaine
 python3 scripts/valider_exporter.py exporter campagne.json -o import.xlsx
 ```
 
-- Corrige chaque **BLOQUANT** (le fichier n'est pas écrit tant qu'il en
-  reste) et explique chaque **ATTENTION** gardée.
-- Le modèle par défaut est celui du pack, `assets/modele-import.xlsx` :
-  mêmes onglets et colonnes que le modèle d'Ads Manager au 15 oct. 2026,
-  explications en français et contrôles de saisie. Si l'utilisateur a le
-  modèle téléchargé dans Ads Manager, utilise-le : `--modele chemin.xlsx`
-  (sa ligne d'exemple est retirée, ses données écrites sans italique).
-- Recommande un import d'essai d'un petit fichier avant la campagne.
+`exporter` écrit deux fichiers :
+
+- **`import.xlsx`**, le classeur au **schéma d'annonces** (un onglet,
+  10 colonnes, `status` à `paused`, `ad_name` = groupe-01…), le seul format
+  à importer ;
+- **`import-parametrage.md`**, la fiche de ce qui ne passe pas par le
+  classeur : campagnes (objectif, budget, dates, pays) et ad groups
+  (enchère, context hints en JSON prêt à coller), à créer dans Ads Manager
+  **avant** l'import.
+
+Ordre de travail : 1. créer en pause, dans Ads Manager, les campagnes et
+ad groups de la fiche ; 2. récupérer les `ad_group_id` (`/chatgpt-ads-ids`),
+les reporter dans le JSON, relancer `exporter` ; 3. importer 2 ou 3 lignes
+pour essai, puis le reste.
+
+Corrige chaque **BLOQUANT** (rien n'est écrit tant qu'il en reste) et
+explique chaque **ATTENTION** gardée ; une alerte de secteur reste dans « à
+vérifier ». Les identifiants manquants n'empêchent pas l'écriture. Ancien
+modèle à 3 onglets : `--format trois-onglets [--modele modele.xlsx]`.
+Classeur modifié à la main : `/chatgpt-ads-excel`.
 - **Sans exécution de code** : compte chaque titre et copie à la main,
-  livre les tableaux à coller (format de la commande `tableaux`) et écris
-  en tête : « Contrôle manuel, non vérifié par script. »
+  livre les lignes du schéma en tableau (10 colonnes, dans l'ordre) et
+  écris en tête : « Contrôle manuel, non vérifié par script. »
 
 ## 8. Avant de dépenser
 
@@ -192,6 +211,10 @@ commencer), mesure des conversions testée avant d'augmenter, réglages hors
 fichier (zones, plateformes, exclusions), import d'essai, chaque annonce,
 hint, lien et image relus par une personne.
 
+Pour la France, ajoute les 4 points de `references/risques.md` § « France » :
+pays renseigné, pas d'audiences personnalisées, pixel en `consent: false`,
+annonces en français.
+
 ## Format de sortie
 
 Dans la conversation, dans cet ordre :
@@ -201,7 +224,8 @@ Dans la conversation, dans cet ordre :
 3. Par ad group : intention, hints, 3 prompts simulés, idée de visuel, puis
    les annonces avec leurs longueurs (sortie de `relecture`).
 4. Verdict du script en une phrase, puis les points à revoir.
-5. Le fichier XLSX (ou les tableaux à coller).
+5. Le classeur au schéma d'annonces et la fiche de paramétrage (ou les
+   lignes à coller).
 6. « Avant de dépenser », checklist, liste « à vérifier ».
 
 ## Erreurs et limites
@@ -209,17 +233,17 @@ Dans la conversation, dans cet ordre :
 | Situation | Conduite |
 |---|---|
 | Page de destination inaccessible ou bloquée | demande le texte de la page ou une capture ; ne déduis pas l'offre du nom de domaine ; signale qu'OpenAI ne pourra pas la vérifier non plus |
-| Catégorie interdite ou réservée aux États-Unis | arrête, dis pourquoi avec la règle datée, propose ce qui reste possible |
+| Catégorie interdite ou réservée aux États-Unis | alerte datée, pistes conformes, puis prépare (`references/politiques.md`) |
+| Demande d'annonce qui cache le produit réel | refuse cette forme en une phrase (risque de suspension du compte), propose une piste conforme |
+| `ad_group_id` inconnus | exporte quand même, fiche de paramétrage, puis `/chatgpt-ads-ids` |
 | Aucune allégation étayée | annonces sur la situation et le bénéfice d'usage seulement, sans chiffre ni promesse ; dis-le |
 | Moins de 5 intentions distinctes | ne découpe pas une intention en variantes : livre moins de groupes et explique |
 | L'utilisateur veut 10 hints ou des mots-clés | explique l'hypothèse et le risque (`references/context-hints.md`), puis applique son choix et laisse l'avertissement du script |
 | Pays inhabituel | accepté s'il est un code ISO ; ouverture à vérifier dans Ads Manager |
-| Modèle d'import modifié ou illisible | `modele` relit les limites ; si le fichier ne se lit plus, livre les tableaux à coller |
 | Campagne trop grosse pour la conversation | écris le JSON par ad group, valide à chaque étape |
 
 ## Points à confirmer
 
-Nombre de hints, longueur d'un hint, volume d'annonces au lancement,
-acceptation du modèle maison par Ads Manager : `commun/faits.md` § 4 donne
-les versions en présence et les choix par défaut. Présente-les comme des
-hypothèses à tester.
+Nombre et longueur des hints, volume au lancement, colonnes obligatoires et
+limites du schéma : `commun/faits.md` § 4 (versions en présence, choix par
+défaut), à présenter comme des hypothèses à tester.

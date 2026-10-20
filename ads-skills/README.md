@@ -5,18 +5,18 @@
 <br>
 
 **Des campagnes ChatGPT Ads ciblées par intention, écrites juste, prêtes à importer.**<br>
-Carte des intentions, ad groups, context hints, annonces contrôlées par script et fichier XLSX au format du modèle d'OpenAI. **Rien n'est lancé à ta place, rien n'est inventé.**
+5 Skills spécialisés France : la campagne, la montée à 120 annonces sans doublons, la reprise d'exports Google, Meta et Microsoft Ads, les identifiants, le classeur d'import contrôlé par script. **Rien n'est lancé à ta place, rien n'est inventé.**
 
 <!-- github-seulement -->
-[![Version](https://img.shields.io/badge/version-0.1.0-0E3F2D)](#versions)
-[![Tests](https://img.shields.io/badge/tests-142%20au%20vert-2D7259)](#preuves)
+[![Version](https://img.shields.io/badge/version-0.2.0-0E3F2D)](#versions)
+[![Tests](https://img.shields.io/badge/tests-241%20au%20vert-2D7259)](#preuves)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](LICENSE)
 [![Python](https://img.shields.io/badge/Python%203-sans%20d%C3%A9pendance-34495E?logo=python&logoColor=white)](#le-script)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white)](#claude-code)
 [![claude.ai](https://img.shields.io/badge/claude.ai-ZIP%20importable-D97757)](#claudeai)
 [![Étoiles GitHub](https://img.shields.io/github/stars/Aleksander-Siebert/join-medicis-ressources?style=social)](https://github.com/Aleksander-Siebert/join-medicis-ressources)
 
-[**Installer**](#installer) · [Le Skill](#le-skill) · [En images](#en-images) · [Crédits](CREDITS.md)
+[**Installer**](#installer) · [Les Skills](#les-skills) · [En images](#en-images) · [Crédits](CREDITS.md)
 <!-- /github-seulement -->
 
 <!-- Emplacement du GIF de démonstration (voir docs/media/A-FILMER.md, prise 1).
@@ -28,9 +28,9 @@ Carte des intentions, ad groups, context hints, annonces contrôlées par script
 
 </div>
 
-> **Version 0.1.** Un Skill, `/chatgpt-ads-skills`. ChatGPT Ads existe depuis
-> le début de 2026 : le Skill dit ce qui est documenté, ce qui est une
-> hypothèse et ce qui reste à confirmer.
+> **Version 0.2.** Cinq Skills, spécialisés pour la France. ChatGPT Ads
+> existe depuis le début de 2026 : le pack dit ce qui est documenté, ce qui
+> est une hypothèse et ce qui reste à confirmer, avec la date.
 
 ---
 
@@ -39,37 +39,58 @@ Carte des intentions, ad groups, context hints, annonces contrôlées par script
 Une annonce ChatGPT s'affiche sous une réponse, parce qu'elle colle à la
 conversation. Pas de mot-clé à acheter : des **context hints** qui décrivent
 les situations où l'annonce a sa place. Les erreurs coûtent cher et se
-voient tard : des titres qui dépassent la limite du fichier d'import, des
-hints vagues qui attirent des conversations hors sujet, des promesses que la
-page ne tient pas, un fichier refusé à l'import.
+voient tard : des titres qui dépassent la limite, des hints vagues, des
+promesses que la page ne tient pas, un import refusé pour une colonne mal
+nommée ou un identifiant abîmé par Excel.
 
-**Ce pack prépare la campagne, il ne la pilote pas.** Il vérifie d'abord
-que l'annonceur peut faire de la publicité dans ses pays (santé, finance et
-juridique sont réservés aux États-Unis), puis part des intentions
-des clients, écrit des hints comme des situations, rédige des annonces dont
-chaque promesse a une source, puis contrôle tout ce qui se compte avant
-d'écrire le fichier d'import.
+**Ce pack prépare la campagne, il ne la pilote pas.** Il part des
+intentions des clients, écrit des hints comme des situations, rédige des
+annonces dont chaque promesse a une source, contrôle tout ce qui se compte
+et écrit le classeur d'import. Pour un secteur restreint par OpenAI
+(finance, assurance, santé, juridique), il **alerte** avec la règle datée,
+propose des pistes conformes, **puis fait le travail demandé**, avec des
+annonces qui disent vraiment ce qu'elles vendent.
 
-## Le Skill
+## Les Skills
 
 <table>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/chatgpt-ads-skills.svg" width="44" alt=""></td>
-<td><b><code>/chatgpt-ads-skills</code></b><br>Entretien d'une question à la fois (offre, marché, personas, moment du parcours, allégations autorisées, objectif et pays), liste des allégations étayées, carte des intentions, 5 ad groups ou plus avec 3 context hints chacun testés sur des prompts simulés, 40 à 50 annonces (100 en mode « grande échelle »), une idée de visuel par groupe, puis le fichier XLSX d'import et la checklist « Avant de dépenser ».</td>
+<td><b><code>/chatgpt-ads-skills</code></b><br>La campagne de départ : entretien d'une question à la fois, alerte et pistes si le secteur est restreint, allégations étayées, carte des intentions, 5 ad groups ou plus avec leurs context hints, 40 à 50 annonces (titre 24, copie 48), puis le classeur au schéma d'annonces et la fiche de paramétrage pour Ads Manager.</td>
 <td width="150"><code>valider_exporter.py</code></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/media/icones/chatgpt-ads-bulk.svg" width="44" alt=""></td>
+<td><b><code>/chatgpt-ads-bulk</code></b><br>De 40 à 50 annonces à 120 ou plus : analyse de leur construction (structures de titre, facettes d'intention, angles, mots répétés), lots de 50 au plus pour les groupes les moins garnis, chaque nouvelle annonce contrôlée contre toutes les autres, notes et listes Conserver, Corriger, Supprimer.</td>
+<td><code>analyser_lot.py</code></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/media/icones/chatgpt-ads-exports.svg" width="44" alt=""></td>
+<td><b><code>/chatgpt-ads-exports</code></b><br>Lit en entier un export Google Ads, Meta Ads ou Microsoft Ads (annonces, termes de recherche), sort la banque de titres et de textes face aux limites, les allégations à vérifier avec leur ligne source, les pages, les meilleures annonces, les termes devenus situations, puis amorce la campagne à réécrire.</td>
+<td><code>lire_exports.py</code></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/media/icones/chatgpt-ads-ids.svg" width="44" alt=""></td>
+<td><b><code>/chatgpt-ads-ids</code></b><br>Retrouve <code>ad_group_id</code>, <code>ad_id</code>, <code>image_file_id</code> et les événements de conversion : par l'API d'OpenAI en lecture seule (clé dans le terminal, jamais dans la conversation) ou depuis un export, puis les reporte dans le classeur en signalant les noms ambigus.</td>
+<td><code>ids.py</code></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/media/icones/chatgpt-ads-excel.svg" width="44" alt=""></td>
+<td><b><code>/chatgpt-ads-excel</code></b><br>Contrôle et répare le classeur avant l'import : onglets, en-têtes, ordre, fusions, formules, italique, identifiants devenus des nombres, statuts, longueurs, liens et images (en ligne : taille et format carré), doublons. Ne raccourcit jamais un texte.</td>
+<td><code>classeur_ads.py</code></td>
 </tr>
 </table>
 
 ## En images
 
-Sorties réelles du script, sur les fichiers d'exemple du pack, régénérées à
+Sorties réelles des scripts, sur les fichiers d'exemple du pack, régénérées à
 chaque version (`outils/visuels/capture.py`).
 
-<p align="center"><img src="docs/media/capture-pret.svg" width="820" alt="valider_exporter.py exporter : 40 annonces, 0 bloquant, fichier d'import écrit"><br>
-<sub><b>Export</b> · l'exemple fictif Vélora (5 ad groups, 40 annonces) passe le contrôle ; le fichier garde les en-têtes du modèle, sans la ligne d'exemple, en texte normal.</sub></p>
+<p align="center"><img src="docs/media/capture-pret.svg" width="820" alt="valider_exporter.py exporter : 40 annonces, 0 bloquant, classeur au schéma d'annonces et fiche de paramétrage écrits"><br>
+<sub><b>Export</b> · l'exemple fictif Vélora (5 ad groups, 40 annonces) passe le contrôle ; le classeur suit le schéma d'annonces, la fiche liste ce qu'il faut créer dans Ads Manager et les identifiants à récupérer.</sub></p>
 
-<p align="center"><img src="docs/media/capture-modele.svg" width="820" alt="valider_exporter.py modele : les 3 onglets, les colonnes et les limites lues dans le modèle"><br>
-<sub><b>Le modèle d'import du pack</b> · mêmes onglets et colonnes que celui d'Ads Manager, explications en français, contrôles de saisie ; les limites (titre 24, copie 48) sont lues dans le fichier, pas recopiées d'un guide.</sub></p>
+<p align="center"><img src="docs/media/capture-excel.svg" width="820" alt="classeur_ads.py verifier : un classeur abîmé, onglet en trop, en-tête renommé, identifiant enregistré comme nombre"><br>
+<sub><b>Contrôle du classeur</b> · un fichier abîmé comme on en voit souvent : onglet de notes en trop, « Title » au lieu de « title », italique, identifiant transformé en nombre, titre trop long.</sub></p>
 
 ## Installer
 
@@ -80,62 +101,58 @@ chaque version (`outils/visuels/capture.py`).
 /plugin install ads-skills@join-medicis
 ```
 
-Ou copie le Skill dans tes Skills personnels :
+Ou copie les Skills dans tes Skills personnels :
 
 ```bash
 git clone https://github.com/Aleksander-Siebert/join-medicis-ressources.git
-cp -r join-medicis-ressources/ads-skills/skills/chatgpt-ads-skills ~/.claude/skills/
+cp -r join-medicis-ressources/ads-skills/skills/* ~/.claude/skills/
 ```
 
 ### claude.ai
 
 Construis le ZIP avec `claude-ai/build.sh ads-skills.zip`, puis importe-le
-dans Personnaliser → Skills. Avec l'exécution de code activée, le Skill écrit
-le fichier XLSX ; sans elle, il livre les tableaux à coller et le dit.
+dans Personnaliser → Skills : un seul Skill qui aiguille vers les 5
+modules. Avec l'exécution de code activée, les scripts écrivent les
+fichiers ; sans elle, le Skill livre les tableaux à coller et le dit.
 
 ### ChatGPT, Gemini, Mistral
 
-Colle le contenu de `skills/chatgpt-ads-skills/SKILL.md` dans les
-instructions de ton Projet et ajoute ses dossiers `references/` et `commun/`
-à ses connaissances. Le contrôle par script demande un environnement qui
-exécute Python.
+Colle le contenu du `SKILL.md` voulu dans les instructions de ton Projet et
+ajoute ses dossiers `references/` et `commun/` à ses connaissances. Les
+contrôles par script demandent un environnement qui exécute Python.
 
-## Le script
+## Les scripts
 
-Python 3, sans dépendance, depuis le dossier du Skill :
+Python 3, sans dépendance, depuis le dossier de chaque Skill :
 
 ```bash
-python3 scripts/valider_exporter.py modele                       # relit le modèle d'import et ses limites
-python3 scripts/valider_exporter.py valider campagne.json        # contrôle complet
-python3 scripts/valider_exporter.py relecture campagne.json      # tableau de relecture humaine
-python3 scripts/valider_exporter.py exporter campagne.json -o import.xlsx
-python3 scripts/valider_exporter.py tableaux campagne.json       # repli : tableaux à coller
+python3 scripts/valider_exporter.py exporter campagne.json -o import.xlsx    # /chatgpt-ads-skills
+python3 scripts/analyser_lot.py analyser campagne.json --cible 120           # /chatgpt-ads-bulk
+python3 scripts/lire_exports.py analyser annonces.csv termes.csv -o analyse.json   # /chatgpt-ads-exports
+python3 scripts/ids.py lister -o ids.csv                                     # /chatgpt-ads-ids
+python3 scripts/classeur_ads.py verifier import.xlsx --en-ligne              # /chatgpt-ads-excel
 ```
 
-Ce qu'il contrôle : longueurs (lues dans le modèle), JSON des context hints,
-noms identiques et uniques d'un onglet à l'autre, champs obligatoires,
-doublons et reformulations minimes, URL et domaines, nombre d'annonces par
-groupe, hints vagues, de marque ou géographiques, chevauchements entre
-groupes, allégations absentes de la liste approuvée, éligibilité de la
-catégorie selon les pays (règles publicitaires d'OpenAI), imitation de
-ChatGPT, codes pays, dates, enchères. Codes de
-sortie : 0 prêt · 2 à revoir · 3 bloqué · 1 erreur d'usage. Le fichier n'est
-pas écrit tant qu'il reste un point bloquant.
+Le classeur d'import suit le **schéma d'annonces** : un onglet, 10
+colonnes (`ad_id`, `ad_group_id`, `adgroup_name`, `ad_name`, `status`,
+`title`, `copy`, `link`, `image_url`, `image_file_id`). Campagnes et ad
+groups se créent dans Ads Manager, à partir de la fiche de paramétrage.
+Codes de sortie communs : 0 prêt · 2 à revoir · 3 bloqué · 1 erreur d'usage.
 
 ## Ce qui tient le pack
 
 <table>
 <tr>
 <td width="56" valign="top"><img src="docs/media/icones/pilier-allegations.svg" width="44" alt=""></td>
-<td><b>Chaque promesse a une source.</b> Un tableau des allégations (approuvée, à vérifier, refusée) avant toute rédaction. Un chiffre, un prix, une garantie, un « gratuit » ou un superlatif absent de la liste bloque l'export.</td>
+<td><b>Chaque promesse a une source.</b> Un tableau des allégations (approuvée, à vérifier, refusée) avant toute rédaction ; une allégation vue dans un export reste à vérifier. Un chiffre, un prix, une garantie, un « gratuit » ou un superlatif absent de la liste bloque l'export.</td>
 </tr>
 <tr>
 <td width="56" valign="top"><img src="docs/media/icones/pilier-modele.svg" width="44" alt=""></td>
-<td><b>Le fichier d'import fait foi.</b> Limites, colonnes et champs obligatoires lus dans le modèle (celui du pack, ou celui d'Ads Manager avec <code>--modele</code>) ; export au format exact : 3 onglets, en-têtes et contrôles conservés, ligne d'exemple retirée, texte normal.</td>
+<td><b>Le classeur d'import fait foi.</b> Format du schéma d'annonces contrôlé cellule par cellule ; ce qui n'est pas documenté (colonnes obligatoires, limites propres à ce format) est dit, et se confirme par un import d'essai de 2 ou 3 lignes.</td>
 </tr>
 <tr>
 <td width="56" valign="top"><img src="docs/media/icones/pilier-hypotheses.svg" width="44" alt=""></td>
-<td><b>Des hypothèses dites comme telles.</b> Nombre de hints, longueur, volume d'annonces : les sources se contredisent. Chaque fait sur la plateforme porte son niveau de preuve et sa date (<a href="commun/faits.md"><code>commun/faits.md</code></a>), le reste est un choix par défaut à tester.</td>
+<td><b>Des règles datées, pour la France.</b> Règles d'OpenAI v1.6 en entier (<a href="commun/politiques-openai.md"><code>commun/politiques-openai.md</code></a>), droit français utile aux annonces (<a href="commun/droit-francais.md"><code>commun/droit-francais.md</code></a>), faits sur la plateforme avec leur niveau de preuve (<a href="commun/faits.md"><code>commun/faits.md</code></a>).</td>
 </tr>
 </table>
 
@@ -145,12 +162,12 @@ pas écrit tant qu'il reste un point bloquant.
 python3 evals/tout_tester.py
 ```
 
-**142 tests** : le script (lecture du modèle, chaque règle de contrôle,
-règles publicitaires, aller-retour de l'export, absence d'italique, modèle
-d'Ads Manager comme modèle du pack) et l'intégrité du pack.
+**241 tests** : chaque script (contrôles, exports, lectures de fichiers
+abîmés, API simulée en lecture seule, plan de lots, notes), l'intégrité du
+pack, et 28 cas d'éval décrits dans [`evals/evals.json`](evals/evals.json).
 
-**Éval à l'aveugle** (15 oct. 2026, 3 cas fictifs, un juge qui ne savait
-pas qui était qui) :
+**Éval à l'aveugle de la v0.1** (15 oct. 2026, 3 cas fictifs, un juge qui
+ne savait pas qui était qui) :
 
 | Cas | /chatgpt-ads-skills | chatgpt-ads-builder | Claude sans Skill |
 |---|---|---|---|
@@ -158,31 +175,36 @@ pas qui était qui) :
 | B2B, conversions | 44 | **46** | 42 |
 | Assurance santé en France | **51** | 29 | 41 |
 
-Sur le cas sensible, le Skill est le seul à citer la règle exacte et à
-s'arrêter. Sur le cas B2B, il perd : trop d'annonces pour le budget, des
-groupes qui se recouvrent. Ces défauts sont corrigés et testés depuis.
-Détail, sorties et verdict : [`evals/RESULTATS.md`](evals/RESULTATS.md).
+Depuis la v0.2, le cas « assurance santé en France » ne s'arrête plus : il
+alerte, propose des pistes conformes, puis prépare la campagne. L'éval de
+la v0.2 reste à faire sur des cas réels de l'utilisateur. Détail, sorties
+et verdict : [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
 ## Versions
 
 Chaque version garde ce qui marche et ajoute ce que l'usage a demandé.
 
+- **0.2.0** · 20 octobre 2026 · Cinq Skills, spécialisés France.
+  - Nouveaux : `/chatgpt-ads-bulk` (120 annonces ou plus sans doublons),
+    `/chatgpt-ads-exports` (exports Google, Meta, Microsoft Ads),
+    `/chatgpt-ads-ids` (identifiants), `/chatgpt-ads-excel` (classeur).
+  - Le classeur d'import suit le schéma d'annonces à 10 colonnes, avec une
+    fiche de paramétrage pour Ads Manager.
+  - Secteur restreint : alerte datée et pistes conformes, puis le travail
+    demandé.
+  - Règles d'OpenAI v1.6 en entier, droit français, faits France et Europe
+    (pas de publicité personnalisée dans l'EEE, consentement du pixel).
 - **0.1.0** · 15 octobre 2026 · Première version : le Skill
-  `/chatgpt-ads-skills` et son script `valider_exporter.py`.
-  - L'éligibilité de l'annonceur est vérifiée selon les règles publicitaires
-    d'OpenAI (v1.6).
-  - Une carte des intentions, des context hints écrits comme des situations
-    et des annonces dont chaque promesse a une source.
-  - Un modèle d'import XLSX propre au pack et un exemple fictif complet.
-  - Une éval à l'aveugle est publiée : premier sur 2 cas sur 3, et seul à
-    s'arrêter à raison sur un secteur non admis en France.
+  `/chatgpt-ads-skills` et son script `valider_exporter.py`, l'éligibilité
+  selon les règles d'OpenAI, la carte des intentions, un modèle d'import
+  propre au pack, une éval à l'aveugle publiée.
 
 ## Crédits et licence
 
 MIT. Les sources d'inspiration sont dans [CREDITS.md](CREDITS.md), les
-mentions de licence dans [LICENSE](LICENSE). Le modèle d'import
-`modele-import.xlsx` est écrit par le pack (`outils/construire_modele.py`) ;
-seuls ses noms d'onglets et de colonnes suivent le format d'OpenAI.
+mentions de licence dans [LICENSE](LICENSE). Les classeurs du pack sont
+écrits par ses scripts ; seuls les noms d'onglets et de colonnes suivent
+les formats d'OpenAI.
 
 <div align="center">
 <br>

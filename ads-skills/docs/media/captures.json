@@ -20,11 +20,11 @@
       "affiche": "python3 scripts/valider_exporter.py exporter assets/exemple-campagne.json -o /tmp/import.xlsx"
     },
     {
-      "id": "modele",
-      "titre": "chatgpt-ads-skills · valider_exporter.py",
+      "id": "excel",
+      "titre": "chatgpt-ads-excel · classeur_ads.py",
       "dossier": ".",
-      "commande": "python3 skills/chatgpt-ads-skills/scripts/valider_exporter.py modele",
-      "affiche": "python3 scripts/valider_exporter.py modele"
+      "commande": "python3 skills/chatgpt-ads-excel/scripts/classeur_ads.py verifier evals/chatgpt-ads-excel/fixtures/classeur-abime.xlsx",
+      "affiche": "python3 scripts/classeur_ads.py verifier classeur.xlsx"
     }
   ]
 }

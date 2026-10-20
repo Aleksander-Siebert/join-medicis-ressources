@@ -407,7 +407,7 @@ class Annonces(unittest.TestCase):
     def test_image_vide_bloque(self):
         camp = exemple()
         camp["ads"][0]["image_link"] = ""
-        self.assertIn("image_link vide", messages(camp, "BLOQUANT"))
+        self.assertIn("image vide (image_url ou image_file_id obligatoire)", messages(camp, "BLOQUANT"))
 
     def test_image_sans_extension_en_attention(self):
         camp = exemple()
@@ -456,7 +456,8 @@ class _Export:
     def setUpClass(cls):
         cls.dossier = tempfile.TemporaryDirectory()
         cls.sortie = Path(cls.dossier.name) / "import.xlsx"
-        cls.p = lancer("exporter", EXEMPLE, "-o", cls.sortie, "--modele", cls.MODELE_TEST, "--aujourdhui", "2026-10-15")
+        cls.p = lancer("exporter", EXEMPLE, "-o", cls.sortie, "--modele", cls.MODELE_TEST, "--aujourdhui", "2026-10-15",
+                       "--format", "trois-onglets")
         cls.z = zipfile.ZipFile(cls.sortie)
         cls.px = "x:" if "<x:worksheet" in cls.z.read("xl/worksheets/sheet1.xml").decode() else ""
 
@@ -575,15 +576,17 @@ class Politiques(unittest.TestCase):
         del camp["annonceur"]["categorie"]
         self.assertIn("catégorie de l'annonceur non déclarée", messages(camp, "INFO"))
 
-    def test_categorie_interdite_bloque(self):
+    def test_categorie_interdite_alerte_sans_bloquer(self):
         camp = exemple()
         camp["annonceur"]["categorie"] = "alcool"
-        self.assertIn("interdite par les règles publicitaires", messages(camp, "BLOQUANT"))
+        self.assertIn("ALERTE : catégorie « alcool » interdite par les règles publicitaires", messages(camp, "ATTENTION"))
+        self.assertNotIn("catégorie", messages(camp, "BLOQUANT"))
 
-    def test_categorie_reservee_aux_etats_unis_bloque_en_france(self):
+    def test_categorie_reservee_aux_etats_unis_alerte_en_france(self):
         camp = exemple()
         camp["annonceur"]["categorie"] = "assurance"
-        self.assertIn("hors des États-Unis, généralement interdite (FR)", messages(camp, "BLOQUANT"))
+        self.assertIn("généralement interdite hors des États-Unis (FR)", messages(camp, "ATTENTION"))
+        self.assertNotIn("catégorie", messages(camp, "BLOQUANT"))
 
     def test_categorie_reservee_aux_etats_unis_au_cas_par_cas(self):
         camp = exemple()
@@ -668,7 +671,7 @@ class Fautive(unittest.TestCase):
         camp = json.loads(self.FIX.read_text(encoding="utf-8"))
         b = messages(camp, "BLOQUANT")
         for attendu in ("le code ISO est GB", "« plantea-noël » absent de l'onglet campaigns", "title de 35 caractères",
-                        "allégation non étayée : « n°1 »", "« gratuite »", "image_link vide",
+                        "allégation non étayée : « n°1 »", "« gratuite »", "image vide",
                         "« offrir_plante » absent de l'onglet adgroups", "« 24 h »"):
             self.assertIn(attendu, b)
         self.assertNotIn("allégation « 1 »", b)
@@ -743,6 +746,99 @@ class Commandes(unittest.TestCase):
         p = lancer("valider", "nexistepas.json")
         self.assertNotEqual(p.returncode, 0)
         self.assertIn("introuvable", p.stdout + p.stderr)
+
+
+class ExportSchema(unittest.TestCase):
+    """Format de sortie v2 : le schéma d'annonces (un onglet, 10 colonnes) et la fiche de paramétrage."""
+
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0, str(SKILL / "commun"))
+        import classeur
+        cls.cl = classeur
+        cls.tmp = tempfile.TemporaryDirectory()
+        d = Path(cls.tmp.name)
+        camp = exemple()
+        camp["adgroups"][0]["ad_group_id"] = "adgrp_501"
+        cls.src = d / "c.json"
+        cls.src.write_text(json.dumps(camp, ensure_ascii=False), encoding="utf-8")
+        cls.sortie = d / "import.xlsx"
+        cls.p = lancer("exporter", cls.src, "-o", cls.sortie, "--aujourdhui", "2026-10-15")
+        _, cls.lignes = classeur.annonces(classeur.lire(cls.sortie))
+        cls.fiche = (d / "import-parametrage.md").read_text(encoding="utf-8")
+        cls.camp = camp
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def test_ecrit(self):
+        self.assertIn(self.p.returncode, (0, 2), self.p.stdout)
+        self.assertIn("Classeur écrit", self.p.stdout)
+
+    def test_format_schema(self):
+        cl = self.cl
+        r, classeur, _ = cl.verifier(self.sortie)
+        self.assertEqual([o["nom"] for o in classeur["onglets"]], [cl.ONGLET])
+        self.assertEqual(r.compte(cl.BLOQUANT), 0, r.texte())
+        self.assertEqual(len(self.lignes), len(self.camp["ads"]))
+
+    def test_identifiant_de_groupe_repris(self):
+        g = self.camp["adgroups"][0]["adgroup_name"]
+        self.assertTrue(all(x["ad_group_id"] == "adgrp_501" for x in self.lignes if x["adgroup_name"] == g))
+        self.assertIn("ad_group_id à compléter pour 4 groupe(s)", self.p.stdout)
+
+    def test_valeurs_par_defaut(self):
+        self.assertTrue(all(x["status"] == "paused" for x in self.lignes))
+        self.assertEqual(self.lignes[0]["ad_name"], self.lignes[0]["adgroup_name"] + "-01")
+        self.assertEqual(self.lignes[0]["image_url"], self.camp["ads"][0]["image_link"])
+
+    def test_fiche(self):
+        self.assertIn("# Paramétrage dans Ads Manager", self.fiche)
+        self.assertIn("| Pays | FR |", self.fiche)
+        hints = self.camp["adgroups"][0]["context_hints"]
+        self.assertIn(json.dumps(hints, ensure_ascii=False), self.fiche)
+        self.assertIn("adgrp_501", self.fiche)
+
+    def test_image_file_id_accepte(self):
+        camp = exemple()
+        for a in camp["ads"]:
+            a.pop("image_link")
+            a["image_file_id"] = "file_42"
+        self.assertNotIn("image", messages(camp, "BLOQUANT"))
+
+    def test_bloquant_de_format_refuse(self):
+        camp = exemple()
+        camp["ads"][0]["status"] = "en pause"
+        with tempfile.TemporaryDirectory() as d:
+            src, out = Path(d) / "c.json", Path(d) / "o.xlsx"
+            src.write_text(json.dumps(camp, ensure_ascii=False), encoding="utf-8")
+            p = lancer("exporter", src, "-o", out, "--aujourdhui", "2026-10-15")
+            self.assertEqual(p.returncode, 3)
+            self.assertFalse(out.exists())
+            self.assertIn("status « en pause »", p.stdout)
+
+
+class DroitFrancais(unittest.TestCase):
+    def test_allegation_verte(self):
+        camp = exemple()
+        camp["ads"][0]["copy"] = "Un vélo écologique pour la ville."
+        self.assertIn("allégation environnementale", messages(camp, "ATTENTION"))
+
+    def test_credit(self):
+        camp = exemple()
+        camp["ads"][0]["copy"] = "Payez en 3 fois avec notre crédit."
+        self.assertIn("L312-5", messages(camp, "ATTENTION"))
+
+    def test_credit_d_impot_ignore(self):
+        camp = exemple()
+        camp["ads"][0]["copy"] = "Éligible au crédit d'impôt."
+        self.assertNotIn("L312-5", messages(camp, "ATTENTION"))
+
+    def test_pays_vide(self):
+        camp = exemple()
+        camp["campaigns"][0]["target_countries"] = ""
+        self.assertIn("aucun pays ciblé", messages(camp, "ATTENTION"))
 
 
 if __name__ == "__main__":

@@ -77,14 +77,13 @@ def _():
         assert "—" not in d and "–" not in d, f"{s.name} : tiret dans la description"
 
 
-@test("SKILL.md : moins de 250 lignes, renvoie aux règles, aux faits et aux 6 références")
+@test("SKILL.md : moins de 250 lignes, renvoie aux règles, aux faits et à chacune de ses références")
 def _():
     for s in SKILLS:
         t = (s / "SKILL.md").read_text(encoding="utf-8")
         assert len(t.splitlines()) < 250, f"{s.name} : {len(t.splitlines())} lignes"
-        for f in ("commun/regles.md", "commun/faits.md", "references/sources.md", "references/intentions.md",
-                  "references/context-hints.md", "references/annonces.md", "references/risques.md",
-                  "references/politiques.md"):
+        refs = [f"references/{p.name}" for p in sorted((s / "references").glob("*.md"))]
+        for f in ["commun/regles.md", "commun/faits.md"] + refs:
             assert f in t, f"{s.name} : {f} non cité"
 
 
@@ -174,9 +173,11 @@ def _():
 
 @test("script sans dépendance hors bibliothèque standard")
 def _():
-    autorises = {"argparse", "datetime", "json", "re", "sys", "unicodedata", "urllib", "zipfile", "pathlib", "xml"}
-    for s in SKILLS:
-        for p in (s / "scripts").glob("*.py"):
+    locaux = {p.stem for p in (PACK / "commun").glob("*.py")}
+    autorises = set(sys.stdlib_module_names) | locaux
+    fichiers = list((PACK / "commun").glob("*.py")) + [p for s in SKILLS for p in (s / "scripts").glob("*.py")]
+    for p in fichiers:
+        if True:
             mods = re.findall(r"^(?:import|from) (\w+)", p.read_text(encoding="utf-8"), re.M)
             assert set(mods) <= autorises, f"{p.name} : {set(mods) - autorises}"
 
@@ -259,6 +260,21 @@ def _():
         assert ligne, f"catégorie {cat} absente de politiques.md"
         attendu = {"autorisee": "autorisée", "restreinte_us": "États-Unis seulement", "interdite": "interdite"}[statut]
         assert attendu in ligne, f"{cat} : « {attendu} » attendu dans politiques.md"
+
+
+@test("signaux : commun/signaux.py et valider_exporter.py disent la même chose")
+def _():
+    import importlib.util
+    def charger(nom, chemin):
+        spec = importlib.util.spec_from_file_location(nom, chemin)
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        return m
+    sg = charger("signaux_t", PACK / "commun" / "signaux.py")
+    ve = charger("ve_t", PACK / "skills" / "chatgpt-ads-skills" / "scripts" / "valider_exporter.py")
+    assert sg.SIGNAUX == ve.SIGNAUX, "SIGNAUX différents"
+    for nom in ("SUPERLATIFS", "NOMBRES", "VERT", "IMITATION"):
+        assert getattr(sg, nom).pattern == getattr(ve, nom).pattern, f"{nom} différent"
 
 
 @test("aiguilleur claude.ai : chaque Skill présent y figure, frontmatter valide")

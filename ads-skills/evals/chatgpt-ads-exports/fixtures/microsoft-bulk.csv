@@ -1,0 +1,5 @@
+Type,Status,Id,Parent Id,Campaign,Ad Group,Title Part 1,Title Part 2,Text,Final Url
+Format Version,,,,,,,,6.0,
+Campaign,Active,111,,Assurly Expat,,,,,
+Ad Group,Active,222,111,Assurly Expat,Expatriation,,,,
+Expanded Text Ad,Active,333,222,Assurly Expat,Expatriation,Assurance expatrié,Devis immédiat,Rapatriement et soins à l'étranger pour vous et vos proches.,https://www.assurly.example/expatriation
