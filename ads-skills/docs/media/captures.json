@@ -16,8 +16,8 @@
       "id": "pret",
       "titre": "chatgpt-ads-skills · valider_exporter.py",
       "dossier": ".",
-      "commande": "python3 skills/chatgpt-ads-skills/scripts/valider_exporter.py exporter skills/chatgpt-ads-skills/assets/exemple-campagne.json -o /tmp/import.xlsx --aujourdhui 2026-10-15",
-      "affiche": "python3 scripts/valider_exporter.py exporter assets/exemple-campagne.json -o /tmp/import.xlsx"
+      "commande": "python3 skills/chatgpt-ads-skills/scripts/valider_exporter.py exporter skills/chatgpt-ads-skills/assets/exemple-campagne.json -o /tmp/import.csv --aujourdhui 2026-10-15",
+      "affiche": "python3 scripts/valider_exporter.py exporter assets/exemple-campagne.json -o /tmp/import.csv"
     },
     {
       "id": "excel",

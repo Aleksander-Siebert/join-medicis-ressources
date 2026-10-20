@@ -2,14 +2,14 @@
 name: chatgpt-ads-excel
 description: >-
   Contrôle et répare le classeur d'annonces ChatGPT Ads (OpenAI Ads) avant
-  l'import dans Ads Manager, au format du schéma d'annonces : un onglet,
+  l'import dans Ads Manager, au format du schéma d'annonces en CSV :
   10 colonnes (ad_id, ad_group_id, adgroup_name, ad_name, status, title,
-  copy, link, image_url, image_file_id). Le script vérifie onglets,
-  en-têtes, ordre des colonnes, cellules fusionnées, formules, italique,
-  identifiants enregistrés comme nombres, espaces et caractères invisibles,
-  statuts, longueurs (titre 24, copie 48), liens, images (en ligne : taille
-  et format carré), doublons et cohérence groupe et identifiant. Il écrit
-  ensuite une copie propre, sans jamais raccourcir un texte. Utilise-le pour
+  copy, link, image_url, image_file_id). Le script vérifie séparateur et
+  encodage, en-têtes, ordre des colonnes, formules, italique,
+  identifiants enregistrés comme nombres, invisibles, statuts, longueurs
+  (titre 24, copie 48), liens, images (en ligne : taille et format carré),
+  doublons ; il liste les cases vides colonne par colonne. Il écrit ensuite
+  un CSV propre, sans ajouter d'identifiant ni raccourcir un texte. Utilise-le pour
   « vérifie mon fichier ChatGPT Ads », « l'import Ads Manager échoue »,
   « nettoie le classeur », « convertis en format d'import ». Pas pour
   rédiger des annonces (/chatgpt-ads-skills, /chatgpt-ads-bulk), ni pour
@@ -29,20 +29,30 @@ change jamais le sens d'une annonce.
 
 ## Le format attendu
 
-Un seul onglet, une ligne d'en-tête, une annonce par ligne :
+Un **CSV** (UTF-8 sans BOM, virgule), une ligne d'en-tête, une annonce par
+ligne. Un XLSX à un onglet se lit aussi, et se convertit avec `reparer`.
+
+Règles d'usage (retours du 20 oct. 2026) :
+
+- `status` = `active` par défaut : l'import lance directement les annonces
+  (après l'examen d'OpenAI) ;
+- `ad_group_id`, `ad_id`, `image_file_id` : **jamais ajoutés** s'ils ne sont
+  pas fournis, laissés vides ;
+- une case vide (`adgroup_name`, `title`, `copy`, `link`, `image_url`) est
+  listée avec ses lignes pour vérification ; le fichier s'écrit quand même.
 
 | Colonne | Contenu | Règle du pack |
 |---|---|---|
 | `ad_id` | identifiant d'une annonce existante | vide pour une nouvelle annonce ; rempli = modification **[à vérifier]** |
-| `ad_group_id` | identifiant de l'ad group existant | à récupérer avec /chatgpt-ads-ids |
+| `ad_group_id` | identifiant de l'ad group existant | vide s'il n'est pas fourni ; /chatgpt-ads-ids pour le retrouver |
 | `adgroup_name` | nom de l'ad group | le même pour un même `ad_group_id` |
 | `ad_name` | nom de l'annonce | 3 caractères au moins, unique dans le groupe |
-| `status` | `active` ou `paused` | `paused` par défaut, pour relire dans Ads Manager |
+| `status` | `active` ou `paused` | `active` par défaut |
 | `title` | titre | 24 caractères au plus (3 au moins) |
 | `copy` | texte | 48 caractères au plus |
 | `link` | page de destination | adresse https complète, UTM permis, 2 048 caractères au plus |
 | `image_url` | lien direct vers l'image | PNG, JPG (WebP selon l'API), carrée, 640 × 640 au moins |
-| `image_file_id` | identifiant d'une image déjà téléversée | une des deux colonnes d'image suffit |
+| `image_file_id` | identifiant d'une image déjà téléversée | seulement s'il est fourni ; sinon `image_url` |
 
 Détails, erreurs fréquentes et corrections dans Excel, Google Sheets et
 Numbers : `references/format.md`.
@@ -51,22 +61,24 @@ Numbers : `references/format.md`.
 
 1. **Contrôle.**
    ```bash
-   python3 scripts/classeur_ads.py verifier classeur.xlsx            # format et annonces
-   python3 scripts/classeur_ads.py verifier classeur.xlsx --en-ligne # + liens et images ouverts
+   python3 scripts/classeur_ads.py verifier import.csv            # format et annonces
+   python3 scripts/classeur_ads.py verifier import.csv --en-ligne # + liens et images ouverts
    ```
-   Un CSV se contrôle de la même façon. Sans exécution de code, applique à
+   Un XLSX se contrôle de la même façon. Sans exécution de code, applique à
    la main la liste de `references/format.md` et écris en tête « Contrôle
    manuel, non vérifié par script. »
-2. **Lecture du rapport.** Regroupe les points par cause (« 12 titres trop
+2. **Lecture du rapport.** Commence par les cases vides (colonne et
+   lignes) pour que l'utilisateur les vérifie. Regroupe les points par cause (« 12 titres trop
    longs », « identifiants abîmés par Excel »), pas ligne par ligne, et
    donne la correction pour chaque cause.
 3. **Réparation automatique** de ce qui ne change pas le sens :
    ```bash
-   python3 scripts/classeur_ads.py reparer classeur.xlsx -o classeur-propre.xlsx
+   python3 scripts/classeur_ads.py reparer import.xlsx -o import.csv
    ```
    Onglets en trop retirés, colonnes remises dans l'ordre, valeurs en
    texte, formules et italique retirés, espaces nettoyés, `status` vide →
-   `paused`, `ad_name` vide → `groupe-01`, doublons exacts retirés.
+   `active`, `ad_name` vide → `groupe-01` (numéro libre), doublons exacts
+   retirés, CSV sans BOM à virgules. Aucun identifiant ajouté.
 4. **Ce qui reste à une personne** : textes trop longs (propose une
    réécriture par ligne, avec sa longueur, sans changer l'allégation),
    identifiants manquants (/chatgpt-ads-ids), liens ou images en erreur,
@@ -75,9 +87,9 @@ Numbers : `references/format.md`.
    le reste. Ce qui n'est pas documenté (colonnes obligatoires, limites de
    ce format) se confirme ainsi.
 
-Autres commandes : `schema -o vierge.xlsx` (classeur vierge au format),
-`depuis-json campagne.json -o import.xlsx` (depuis le JSON des autres Skills
-du pack), `tableau classeur.xlsx` (lignes à coller en A1).
+Autres commandes : `schema -o vierge.csv` (fichier vierge au format),
+`depuis-json campagne.json -o import.csv` (depuis le JSON des autres Skills
+du pack), `tableau import.csv` (lignes à coller en A1).
 
 ## Limites : 24 et 48 par défaut
 

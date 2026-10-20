@@ -1,29 +1,31 @@
 #!/usr/bin/env python3
 """classeur_ads.py : contrôle et répare le classeur d'annonces ChatGPT Ads (Python 3, sans dépendance).
 
-Le format attendu est le schéma d'annonces (un onglet, 10 colonnes) :
+Le format attendu est le schéma d'annonces, en CSV (UTF-8, virgule) ; un XLSX à un onglet se lit aussi :
   ad_id | ad_group_id | adgroup_name | ad_name | status | title | copy | link | image_url | image_file_id
 
 Commandes :
 
-  schema [-o VIERGE.xlsx]
-      Affiche les colonnes et, avec -o, écrit un classeur vierge au format.
+  schema [-o VIERGE.csv]
+      Affiche les colonnes et, avec -o, écrit un fichier vierge au format (.csv, ou .xlsx).
 
   verifier FICHIER [--limites import|api] [--en-ligne] [--json]
-      FICHIER : .xlsx ou .csv. Contrôle la structure (onglets, en-têtes, ordre,
-      fusions), chaque cellule (formules, italique, nombres à la place de
+      FICHIER : .csv ou .xlsx. Contrôle la structure (séparateur, encodage, BOM ;
+      onglets, en-têtes, ordre, fusions), chaque cellule (formules, italique, nombres à la place de
       texte, espaces, retours à la ligne, invisibles) et chaque annonce
       (identifiants, groupe, nom, statut, longueurs, liens, image, doublons).
+      Les cases vides (adgroup_name, title, copy, link, image_url) sont listées
+      colonne par colonne avec leurs lignes, pour vérification.
       --en-ligne ouvre chaque lien et chaque image (taille, format carré).
 
-  reparer FICHIER -o SORTIE.xlsx [--limites import|api]
-      Réécrit un classeur propre : un seul onglet au nom du schéma, colonnes
-      dans l'ordre, valeurs en texte, sans formule ni italique, espaces et
-      invisibles retirés, status vide → paused, ad_name vide → groupe-NN,
-      doublons exacts retirés. Ne raccourcit jamais un titre ni une copie.
+  reparer FICHIER -o SORTIE.csv [--limites import|api]
+      Réécrit un fichier propre (CSV UTF-8 sans BOM, virgule ; .xlsx si demandé) :
+      colonnes dans l'ordre, valeurs en texte, espaces et invisibles retirés,
+      status vide → active, ad_name vide → groupe-NN, doublons exacts retirés.
+      N'ajoute jamais d'identifiant, ne raccourcit jamais un titre ni une copie.
       Puis contrôle le résultat.
 
-  depuis-json CAMPAGNE.json -o SORTIE.xlsx
+  depuis-json CAMPAGNE.json -o SORTIE.csv
       Écrit le classeur à partir du JSON d'une campagne du pack
       (/chatgpt-ads-skills, /chatgpt-ads-bulk, /chatgpt-ads-exports).
 
@@ -57,7 +59,7 @@ def lignes_depuis_json(camp):
             "ad_group_id": a.get("ad_group_id") or ids.get(g, ""),
             "adgroup_name": g,
             "ad_name": a.get("ad_name", ""),
-            "status": a.get("status", "paused"),
+            "status": a.get("status") or cl.STATUT_DEFAUT,
             "title": a.get("title", ""),
             "copy": a.get("copy", ""),
             "link": a.get("link", ""),
@@ -82,7 +84,7 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sp = p.add_subparsers(dest="cmd", required=True)
     s = sp.add_parser("schema")
-    s.add_argument("-o", "--sortie")
+    s.add_argument("-o", "--sortie", help="vierge.csv (ou .xlsx)")
     v = sp.add_parser("verifier")
     v.add_argument("fichier")
     v.add_argument("--limites", choices=("import", "api"), default="import")
@@ -103,8 +105,8 @@ def main(argv=None):
     if a.cmd == "schema":
         print(" | ".join(cl.COLONNES))
         if a.sortie:
-            cl.ecrire_xlsx(a.sortie, [])
-            print(f"Classeur vierge écrit : {a.sortie} (onglet « {cl.ONGLET} »)")
+            cl.ecrire(a.sortie, [])
+            print(f"Fichier vierge écrit : {a.sortie}")
         return 0
 
     if a.cmd in ("verifier", "reparer", "tableau") and not Path(a.fichier).exists():
@@ -127,7 +129,7 @@ def main(argv=None):
             afficher(avant, False, "Lecture impossible")
             return 3
         propres, journal = cl.reparer_lignes(lignes)
-        cl.ecrire_xlsx(a.sortie, propres)
+        cl.ecrire(a.sortie, propres)
         print(f"Avant : {avant.compte(cl.BLOQUANT)} bloquant(s), {avant.compte(cl.ATTENTION)} attention.")
         print(f"Corrections ({len(journal)}) :" if journal else "Aucune correction de cellule.")
         for j in journal:
@@ -145,7 +147,7 @@ def main(argv=None):
             afficher(r, False, "Contrôle avant écriture")
             print("Fichier non écrit : corriger les points bloquants.")
             return 3
-        cl.ecrire_xlsx(a.sortie, lignes)
+        cl.ecrire(a.sortie, lignes)
         afficher(r, False, f"Contrôle de {Path(a.sortie).name}")
         return r.code()
     return 1

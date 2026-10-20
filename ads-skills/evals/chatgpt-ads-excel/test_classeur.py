@@ -23,7 +23,7 @@ sys.path.insert(0, str(SKILL / "commun"))
 import classeur as cl  # noqa: E402
 
 BON = {"ad_id": "", "ad_group_id": "adgrp_101", "adgroup_name": "expat-preparer", "ad_name": "expat-preparer-01",
-       "status": "paused", "title": "Partir vivre à Lisbonne", "copy": "Les démarches d'installation, étape par étape.",
+       "status": "active", "title": "Partir vivre à Lisbonne", "copy": "Les démarches d'installation, étape par étape.",
        "link": "https://assurly.example/expatriation?utm_source=chatgpt", "image_url": "https://assurly.example/img/expat.png",
        "image_file_id": ""}
 
@@ -128,6 +128,7 @@ class TestStructure(Base):
     def test_aucune_annonce(self):
         r, _ = self.verif([])
         self.assertIn("aucune annonce", messages(r, cl.BLOQUANT))
+        self.assertIn("classeur XLSX : le format d'import retenu est le CSV", messages(r, cl.INFO))
 
 
 class TestCellules(Base):
@@ -184,13 +185,19 @@ class TestAnnonces(Base):
         r, _ = self.verif([BON, dict(BON, ad_group_id="adgrp_102", ad_name="x-02", title="Autre titre ici")])
         self.assertTrue(any("relié à deux identifiants" in m for m in messages(r, cl.BLOQUANT)))
 
-    def test_sans_groupe(self):
-        r, _ = self.verif([dict(BON, ad_group_id="", adgroup_name="")])
-        self.assertIn("ni ad_group_id ni adgroup_name", messages(r, cl.BLOQUANT))
+    def test_cases_vides_listees_sans_bloquer(self):
+        r, _ = self.verif([dict(BON, ad_group_id="", adgroup_name="", link="", image_url=""),
+                           dict(BON, ad_name="b-02", title="Autre titre ici", image_url="", image_file_id="file_3")])
+        self.assertEqual(r.compte(cl.BLOQUANT), 0, r.texte())
+        a = messages(r, cl.ATTENTION)
+        self.assertIn("adgroup_name vide sur 1 ligne(s) : 2", a)
+        self.assertIn("link vide sur 1 ligne(s) : 2", a)
+        self.assertIn("image_url vide sur 1 ligne(s) : 2", a)       # la ligne 3 a un image_file_id
 
     def test_sans_identifiant_de_groupe(self):
         r, _ = self.verif([dict(BON, ad_group_id="")])
-        self.assertTrue(any(m.startswith("ad_group_id vide sur 1") for m in messages(r, cl.ATTENTION)))
+        self.assertTrue(any(m.startswith("ad_group_id vide sur 1") for m in messages(r, cl.INFO)))
+        self.assertEqual(r.compte(cl.ATTENTION), 0, r.texte())
 
     def test_prefixe(self):
         r, _ = self.verif([dict(BON, ad_group_id="101", image_file_id="img9")])
@@ -203,8 +210,10 @@ class TestAnnonces(Base):
         self.assertTrue(any("status « en pause »" in m for m in messages(r, cl.BLOQUANT)))
         r, _ = self.verif([dict(BON, status="Paused")])
         self.assertTrue(any("majuscules" in m for m in messages(r, cl.ATTENTION)))
+        r, _ = self.verif([dict(BON, status="paused")])
+        self.assertTrue(any("status paused sur 1" in m for m in messages(r, cl.INFO)))
         r, _ = self.verif([dict(BON, status="active")])
-        self.assertTrue(any("status active" in m for m in messages(r, cl.INFO)))
+        self.assertFalse(any("status" in m for m in messages(r)))
 
     def test_liens(self):
         r, _ = self.verif([dict(BON, link="assurly.example/expat")])
@@ -214,7 +223,7 @@ class TestAnnonces(Base):
 
     def test_image(self):
         r, _ = self.verif([dict(BON, image_url="")])
-        self.assertIn("ni image_url ni image_file_id", messages(r, cl.BLOQUANT))
+        self.assertIn("image_url vide sur 1 ligne(s) : 2", messages(r, cl.ATTENTION))
         r, _ = self.verif([dict(BON, image_url="", image_file_id="file_9")])
         self.assertEqual(r.compte(cl.BLOQUANT), 0, r.texte())
         r, _ = self.verif([dict(BON, image_url="https://drive.example/partage?id=9")])
@@ -239,6 +248,35 @@ class TestAnnonces(Base):
         self.assertEqual(l[0]["link"], BON["link"])
 
 
+class TestCSV(Base):
+    def test_ecriture_csv(self):
+        f = self.d / "i.csv"
+        cl.ecrire(f, [dict(BON, copy="Démarches, budget et calendrier.")])
+        brut = f.read_bytes()
+        self.assertFalse(brut.startswith(b"\xef\xbb\xbf"))
+        self.assertTrue(brut.decode("utf-8").startswith(",".join(cl.COLONNES) + "\r\n"))
+        r, classeur, l = cl.verifier(f)
+        self.assertEqual(r.compte(cl.BLOQUANT) + r.compte(cl.ATTENTION), 0, r.texte())
+        self.assertEqual(l[0]["copy"], "Démarches, budget et calendrier.")
+
+    def test_csv_point_virgule_bom_signales(self):
+        f = self.d / "c.csv"
+        f.write_bytes(b"\xef\xbb\xbf" + (";".join(cl.COLONNES) + "\n" + ";".join(BON[c] for c in cl.COLONNES) + "\n").encode())
+        r, _, l = cl.verifier(f)
+        a = messages(r, cl.ATTENTION)
+        self.assertTrue(any("séparateur « ; »" in m for m in a))
+        self.assertTrue(any("BOM" in m for m in a))
+        self.assertEqual(l[0]["ad_id"], "")
+
+    def test_reparer_xlsx_vers_csv(self):
+        f, s = self.d / "c.xlsx", self.d / "c.csv"
+        classeur_brut(f, [dict(BON, status="")])
+        p = subprocess.run([sys.executable, str(SCRIPT), "reparer", str(f), "-o", str(s)], capture_output=True, text=True)
+        self.assertEqual(p.returncode, 0, p.stdout)
+        _, l = cl.annonces(cl.lire(s))
+        self.assertEqual((l[0]["status"], l[0]["image_file_id"], l[0]["ad_id"]), ("active", "", ""))
+
+
 class TestReparation(Base):
     def test_reparer_puis_relire(self):
         f, s = self.d / "sale.xlsx", self.d / "propre.xlsx"
@@ -246,7 +284,8 @@ class TestReparation(Base):
                   dict(BON, status="Paused")]
         classeur_brut(f, lignes, onglets_en_plus=["brouillon"], italique={(2, 6)}, nombres=set())
         p = subprocess.run([sys.executable, str(SCRIPT), "reparer", str(f), "-o", str(s)], capture_output=True, text=True)
-        self.assertIn("status vide → paused", p.stdout)
+        self.assertIn("status vide → active", p.stdout)
+        self.assertNotIn("déjà utilisé", p.stdout)
         self.assertIn("doublon exact retiré", p.stdout)
         r, cl_, l = cl.verifier(s)
         self.assertEqual(r.compte(cl.BLOQUANT), 0, r.texte())
@@ -296,7 +335,7 @@ class TestCommandes(Base):
         p = self.run_("schema", "-o", f)
         self.assertEqual(p.returncode, 0)
         r, _, _ = cl.verifier(f)
-        self.assertEqual(messages(r), ["aucune annonce"])
+        self.assertIn("aucune annonce", messages(r))
 
     def test_verifier_codes(self):
         f = self.d / "c.xlsx"
@@ -317,7 +356,8 @@ class TestCommandes(Base):
         p = self.run_("depuis-json", j, "-o", s)
         self.assertEqual(p.returncode, 0, p.stdout)
         _, l = cl.annonces(cl.lire(s))
-        self.assertEqual((l[0]["ad_group_id"], l[0]["status"], l[0]["image_url"]), ("adgrp_101", "paused", BON["image_url"]))
+        self.assertEqual((l[0]["ad_group_id"], l[0]["status"], l[0]["image_url"], l[0].get("image_file_id", "")),
+                         ("adgrp_101", "active", BON["image_url"], ""))
 
     def test_depuis_json_refuse_bloquant(self):
         j, s = self.d / "c.json", self.d / "s.xlsx"

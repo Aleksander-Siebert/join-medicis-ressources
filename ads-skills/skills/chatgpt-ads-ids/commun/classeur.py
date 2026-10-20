@@ -8,7 +8,15 @@ réparation sûre et écriture d'un classeur propre. Utilisé par
 modifier commun/ à la racine du pack, puis lancer outils/propager.py.
 
 Le format (fourni par l'utilisateur le 20 oct. 2026, compatible avec Ads
-Manager) : un seul onglet, une ligne d'en-tête, puis une annonce par ligne.
+Manager) : une ligne d'en-tête, puis une annonce par ligne. Le fichier à
+importer est un **CSV** (UTF-8 sans BOM, virgule) : retour d'usage du
+20 oct. 2026 ; un XLSX à un onglet se lit et s'écrit aussi.
+
+Règles d'usage (retours de l'utilisateur, 20 oct. 2026) :
+  - status : « active » par défaut, pour lancer directement par l'import ;
+  - ad_group_id, ad_id, image_file_id : jamais ajoutés s'ils ne sont pas fournis ;
+  - case vide (link, image_url, title…) : signalée colonne par colonne avec ses
+    lignes, pour vérification, sans empêcher l'écriture du fichier.
 
   ad_id | ad_group_id | adgroup_name | ad_name | status | title | copy | link | image_url | image_file_id
 
@@ -36,6 +44,9 @@ BLOQUANT, ATTENTION, INFO = "BLOQUANT", "ATTENTION", "INFO"
 LIMITES = {"import": {"title": 24, "copy": 48}, "api": {"title": 50, "copy": 100}}
 TITRE_MIN, NOM_MIN, NOM_MAX, URL_MAX = 3, 3, 1000, 2048
 STATUTS = ("active", "paused")
+STATUT_DEFAUT = "active"
+# Colonnes dont une case vide est à vérifier par l'utilisateur (les identifiants vides sont normaux).
+A_REMPLIR = ("adgroup_name", "title", "copy", "link", "image_url")
 MAX_ANNONCES_COMPTE = 5000   # annonces actives ou en pause par compte (docs, Bulk API, relu le 20 oct. 2026)
 
 # Préfixes des identifiants dans la documentation (exemples ad_123, adgrp_123, file_123) : un écart est
@@ -190,9 +201,12 @@ def lire_xlsx(chemin):
 def lire_csv(chemin):
     """Même structure que lire_xlsx, depuis un CSV (UTF-8, UTF-16 ; séparateur deviné)."""
     brut = Path(chemin).read_bytes()
+    bom = brut.startswith(b"\xef\xbb\xbf")
+    encodage = None
     for enc in ("utf-8-sig", "utf-16", "cp1252"):
         try:
             contenu = brut.decode(enc)
+            encodage = enc
             break
         except UnicodeDecodeError:
             continue
@@ -206,7 +220,8 @@ def lire_csv(chemin):
     for i, rang in enumerate(csv.reader(io.StringIO(contenu), dialecte), 1):
         lignes[i] = {j: {"valeur": v, "type": "texte" if v != "" else "vide", "formule": False, "italique": False}
                      for j, v in enumerate(rang, 1)}
-    return {"onglets": [{"nom": "csv", "masque": False, "lignes": lignes, "fusions": []}], "csv": True}
+    return {"onglets": [{"nom": "csv", "masque": False, "lignes": lignes, "fusions": []}], "csv": True,
+            "separateur": dialecte.delimiter, "bom": bom, "encodage": encodage}
 
 
 def lire(chemin):
@@ -290,7 +305,20 @@ def verifier_structure(classeur, r):
     if not o:
         r.ajoute(BLOQUANT, "classeur", "aucun onglet lisible")
         return None
-    if not classeur.get("csv"):
+    if classeur.get("csv"):
+        sep = classeur.get("separateur")
+        if sep and sep != ",":
+            r.ajoute(ATTENTION, "fichier", f"séparateur « {'tabulation' if sep == chr(9) else sep} » au lieu de la virgule",
+                     "« reparer » écrit un CSV à virgules [à vérifier : séparateurs acceptés par Ads Manager]")
+        if classeur.get("bom"):
+            r.ajoute(ATTENTION, "fichier", "CSV avec BOM (marque d'ordre des octets)",
+                     "peut coller un caractère invisible au premier en-tête : « reparer » écrit sans BOM")
+        if classeur.get("encodage") not in (None, "utf-8-sig"):
+            r.ajoute(ATTENTION, "fichier", f"encodage {classeur.get('encodage')} au lieu d'UTF-8",
+                     "accents à risque : « reparer » écrit en UTF-8")
+    else:
+        r.ajoute(INFO, "fichier", "classeur XLSX : le format d'import retenu est le CSV",
+                 "« reparer fichier.xlsx -o fichier.csv » le convertit")
         autres = [x["nom"] for x in classeur["onglets"] if x is not o]
         if autres:
             r.ajoute(BLOQUANT, "classeur", f"onglets en trop : {', '.join(autres)}",
@@ -336,7 +364,8 @@ def verifier_annonces(lignes, r, limites="import", en_ligne=None):
     if len(lignes) > MAX_ANNONCES_COMPTE:
         r.ajoute(ATTENTION, "classeur", f"{len(lignes)} annonces : au-delà de {MAX_ANNONCES_COMPTE} par compte (docs)")
     groupe_nom, nom_groupe, paires, lignes_vues, noms_par_groupe, ids = {}, {}, {}, {}, {}, {}
-    sans_statut, maj_statut, sans_id_groupe, sans_nom = [], [], [], []
+    sans_statut, maj_statut, sans_id_groupe, sans_nom, en_pause = [], [], [], [], []
+    vides = {c: [] for c in A_REMPLIR}
     for i, a in enumerate(lignes):
         ou = f"ligne {a['_ligne']}" if "_ligne" in a else f"annonce {i + 1}"
         cel = a.get("_cellules", {})
@@ -363,6 +392,9 @@ def verifier_annonces(lignes, r, limites="import", en_ligne=None):
             if INVISIBLES.search(x):
                 r.ajoute(ATTENTION, ou, f"{c} : caractère invisible", "« reparer » le retire")
         v = {c: x.strip() for c, x in v.items()}
+        for c in A_REMPLIR:
+            if not v[c]:
+                vides[c].append(str(a["_ligne"]) if "_ligne" in a else f"annonce {i + 1}")
         # identifiants
         for c, pref in PREFIXES.items():
             if v[c] and not v[c].startswith(pref):
@@ -375,12 +407,8 @@ def verifier_annonces(lignes, r, limites="import", en_ligne=None):
                 r.ajoute(BLOQUANT, ou, f"ad_id {v['ad_id']} déjà en {ids[v['ad_id']]}", "un identifiant d'annonce par ligne")
             ids[v["ad_id"]] = ou
         # groupe
-        if not v["ad_group_id"] and not v["adgroup_name"]:
-            r.ajoute(BLOQUANT, ou, "ni ad_group_id ni adgroup_name", "relier l'annonce à un ad group existant")
-        elif not v["ad_group_id"]:
+        if not v["ad_group_id"]:
             sans_id_groupe.append(ou)
-        elif not v["adgroup_name"]:
-            r.ajoute(INFO, ou, "adgroup_name vide", "le remplir aide la relecture")
         if v["ad_group_id"] and v["adgroup_name"]:
             avant = groupe_nom.setdefault(v["ad_group_id"], v["adgroup_name"])
             if avant != v["adgroup_name"]:
@@ -408,14 +436,13 @@ def verifier_annonces(lignes, r, limites="import", en_ligne=None):
                 maj_statut.append(ou)
             else:
                 r.ajoute(BLOQUANT, ou, f"status « {v['status']} » : active ou paused")
-        elif v["status"] == "active":
-            r.ajoute(INFO, ou, "status active : l'annonce peut diffuser dès son approbation",
-                     "paused conseillé pour relire dans Ads Manager avant de lancer")
+        elif v["status"] == "paused":
+            en_pause.append(ou)
         # textes
         for c, mini in (("title", TITRE_MIN), ("copy", 1)):
             n = longueur(v[c])
             if not v[c]:
-                r.ajoute(BLOQUANT, ou, f"{c} vide")
+                pass                     # case vide : signalée plus bas, colonne par colonne
             elif n > lim[c]:
                 r.ajoute(BLOQUANT, ou, f"{c} : {n} caractères pour {lim[c]} au plus", f"« {v[c]} »")
             elif n < mini:
@@ -433,15 +460,13 @@ def verifier_annonces(lignes, r, limites="import", en_ligne=None):
             paires.setdefault(cle, ou)
         # liens
         if not v["link"]:
-            r.ajoute(BLOQUANT, ou, "link vide")
+            pass
         elif not _url_ok(v["link"]):
             r.ajoute(BLOQUANT, ou, f"link « {v['link']} » : adresse http(s) complète attendue")
         elif len(v["link"]) > URL_MAX:
             r.ajoute(BLOQUANT, ou, f"link de {len(v['link'])} caractères : {URL_MAX} au plus")
         elif v["link"].startswith("http://"):
             r.ajoute(ATTENTION, ou, "link en http", "préférer https")
-        if not v["image_url"] and not v["image_file_id"]:
-            r.ajoute(BLOQUANT, ou, "ni image_url ni image_file_id", "une image par annonce")
         if v["image_url"]:
             if not _url_ok(v["image_url"]):
                 r.ajoute(BLOQUANT, ou, f"image_url « {v['image_url']} » : adresse http(s) complète attendue")
@@ -451,16 +476,27 @@ def verifier_annonces(lignes, r, limites="import", en_ligne=None):
         lignes_vues.setdefault(tuple(v[c] for c in COLONNES), ou)
     def liste(x):
         return ", ".join(x[:3]) + (" …" if len(x) > 3 else "")
+    for c, lst in vides.items():
+        if c == "image_url":
+            lst = [x for x in lst if not any(texte(a.get("image_file_id", "")).strip() for a in lignes
+                                             if str(a.get("_ligne", "")) == x)]
+        if lst:
+            r.ajoute(ATTENTION, "cases vides", f"{c} vide sur {len(lst)} ligne(s) : "
+                     + ", ".join(lst[:15]) + (" …" if len(lst) > 15 else ""),
+                     "à vérifier et compléter avant l'import" + (" (ou image_file_id si l'image est déjà téléversée)"
+                                                                 if c == "image_url" else ""))
     if sans_id_groupe:
-        r.ajoute(ATTENTION, liste(sans_id_groupe), f"ad_group_id vide sur {len(sans_id_groupe)} ligne(s)",
-                 "l'annonce doit rejoindre un ad group existant : récupérer son identifiant (/chatgpt-ads-ids) "
-                 "[à vérifier : obligatoire ou non]")
+        r.ajoute(INFO, liste(sans_id_groupe), f"ad_group_id vide sur {len(sans_id_groupe)} ligne(s)",
+                 "laissé vide : jamais ajouté sans identifiant fourni (/chatgpt-ads-ids pour le retrouver)")
     if sans_nom:
         r.ajoute(ATTENTION, liste(sans_nom), f"ad_name vide sur {len(sans_nom)} ligne(s)",
                  "« reparer » le remplit (nom du groupe + numéro) [à vérifier : obligatoire ou non]")
     if sans_statut:
         r.ajoute(ATTENTION, ", ".join(sans_statut[:3]) + (" …" if len(sans_statut) > 3 else ""),
-                 f"status vide sur {len(sans_statut)} ligne(s)", "« reparer » écrit paused")
+                 f"status vide sur {len(sans_statut)} ligne(s)", "« reparer » écrit active")
+    if en_pause:
+        r.ajoute(INFO, liste(en_pause), f"status paused sur {len(en_pause)} ligne(s)",
+                 "ces annonces ne diffuseront pas après l'import ; active pour lancer directement")
     if maj_statut:
         r.ajoute(ATTENTION, ", ".join(maj_statut[:3]) + (" …" if len(maj_statut) > 3 else ""),
                  f"status avec majuscules sur {len(maj_statut)} ligne(s)", "minuscules attendues : « reparer » corrige")
@@ -576,6 +612,8 @@ def reparer_lignes(lignes):
     Ne raccourcit jamais un titre ni une copie : un dépassement reste à corriger par une personne.
     """
     sortie, vus, journal, compteurs = [], set(), [], {}
+    pris = {(texte(a.get("adgroup_name") or a.get("ad_group_id") or "annonce").strip(), texte(a.get("ad_name", "")).strip())
+            for a in lignes}
     for a in lignes:
         ou = f"ligne {a['_ligne']}" if "_ligne" in a else "annonce"
         v = {}
@@ -591,12 +629,16 @@ def reparer_lignes(lignes):
             v["status"] = v["status"].lower()
             journal.append(f"{ou} : status mis en minuscules")
         if not v["status"]:
-            v["status"] = "paused"
-            journal.append(f"{ou} : status vide → paused")
+            v["status"] = STATUT_DEFAUT
+            journal.append(f"{ou} : status vide → {STATUT_DEFAUT}")
         groupe = v["adgroup_name"] or v["ad_group_id"] or "annonce"
-        compteurs[groupe] = compteurs.get(groupe, 0) + 1
         if not v["ad_name"]:
-            v["ad_name"] = f"{groupe}-{compteurs[groupe]:02d}"
+            n = compteurs.get(groupe, 0) + 1
+            while (groupe, f"{groupe}-{n:02d}") in pris:
+                n += 1
+            compteurs[groupe] = n
+            v["ad_name"] = f"{groupe}-{n:02d}"
+            pris.add((groupe, v["ad_name"]))
             journal.append(f"{ou} : ad_name vide → {v['ad_name']}")
         cle = tuple(v[c] for c in COLONNES)
         if cle in vus:
@@ -686,6 +728,35 @@ def ecrire_xlsx(chemin, lignes, onglet=ONGLET):
         z.writestr("xl/worksheets/sheet1.xml", feuille)
         z.writestr("xl/styles.xml", styles)
         z.writestr("xl/sharedStrings.xml", sst)
+
+
+def ecrire_csv(chemin, lignes):
+    """CSV d'import : UTF-8 sans BOM, virgule, guillemets si besoin, en-têtes du schéma."""
+    with open(chemin, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f, delimiter=",", quoting=csv.QUOTE_MINIMAL, lineterminator="\r\n")
+        w.writerow(COLONNES)
+        for a in lignes:
+            w.writerow([texte(a.get(c, "")) for c in COLONNES])
+
+
+def ecrire(chemin, lignes):
+    """CSV par défaut ; XLSX si le nom finit par .xlsx."""
+    if str(chemin).lower().endswith(".xlsx"):
+        ecrire_xlsx(chemin, lignes)
+    else:
+        ecrire_csv(chemin, lignes)
+
+
+def resume_vides(lignes):
+    """{colonne: [numéros de ligne du fichier]} des cases vides à vérifier (ligne 2 = première annonce)."""
+    res = {}
+    for n, a in enumerate(lignes, 2):
+        for c in A_REMPLIR:
+            if not texte(a.get(c, "")).strip():
+                if c == "image_url" and texte(a.get("image_file_id", "")).strip():
+                    continue
+                res.setdefault(c, []).append(n)
+    return res
 
 
 def tableau_a_coller(lignes):

@@ -22,7 +22,7 @@ Commandes :
                                  voie B : identifiants repérés dans un CSV ou un XLSX
   fusionner CIBLE --ids ids.csv -o SORTIE [--ad-id]
                                  reporte les ad_group_id (et, avec --ad-id, les ad_id)
-                                 dans un classeur au schéma d'annonces ou un JSON de campagne,
+                                 dans un fichier au schéma d'annonces (CSV ou XLSX) ou un JSON de campagne,
                                  par nom de groupe (et d'annonce) ; signale les noms ambigus
   utm                            modèle de paramètres de suivi avec les macros documentées
   televerser SOURCE --confirmer  ÉCRITURE : téléverse une image (URL ou fichier) et rend son
@@ -340,7 +340,7 @@ def main(argv=None, transport=None):
         else:
             _, lignes = cl.annonces(cl.lire(a.cible))
             journal, n = fusionner(lignes, ids, a.ad_id)
-            cl.ecrire_xlsx(a.sortie, [{c: x.get(c, "") for c in cl.COLONNES} for x in lignes])
+            cl.ecrire(a.sortie, [{c: x.get(c, "") for c in cl.COLONNES} for x in lignes])
         print("\n".join(journal) or "Rien à reporter.")
         print(f"\nÉcrit : {a.sortie} · {n} point(s) à revoir")
         return 2 if n else 0

@@ -9,7 +9,7 @@
 
 <!-- github-seulement -->
 [![Version](https://img.shields.io/badge/version-0.2.0-0E3F2D)](#versions)
-[![Tests](https://img.shields.io/badge/tests-241%20au%20vert-2D7259)](#preuves)
+[![Tests](https://img.shields.io/badge/tests-245%20au%20vert-2D7259)](#preuves)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](LICENSE)
 [![Python](https://img.shields.io/badge/Python%203-sans%20d%C3%A9pendance-34495E?logo=python&logoColor=white)](#le-script)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white)](#claude-code)
@@ -126,16 +126,18 @@ contrôles par script demandent un environnement qui exécute Python.
 Python 3, sans dépendance, depuis le dossier de chaque Skill :
 
 ```bash
-python3 scripts/valider_exporter.py exporter campagne.json -o import.xlsx    # /chatgpt-ads-skills
+python3 scripts/valider_exporter.py exporter campagne.json -o import.csv     # /chatgpt-ads-skills
 python3 scripts/analyser_lot.py analyser campagne.json --cible 120           # /chatgpt-ads-bulk
 python3 scripts/lire_exports.py analyser annonces.csv termes.csv -o analyse.json   # /chatgpt-ads-exports
 python3 scripts/ids.py lister -o ids.csv                                     # /chatgpt-ads-ids
-python3 scripts/classeur_ads.py verifier import.xlsx --en-ligne              # /chatgpt-ads-excel
+python3 scripts/classeur_ads.py verifier import.csv --en-ligne               # /chatgpt-ads-excel
 ```
 
-Le classeur d'import suit le **schéma d'annonces** : un onglet, 10
-colonnes (`ad_id`, `ad_group_id`, `adgroup_name`, `ad_name`, `status`,
-`title`, `copy`, `link`, `image_url`, `image_file_id`). Campagnes et ad
+Le fichier d'import est un **CSV** au **schéma d'annonces** : 10 colonnes
+(`ad_id`, `ad_group_id`, `adgroup_name`, `ad_name`, `status`, `title`,
+`copy`, `link`, `image_url`, `image_file_id`), `status` à `active`, aucun
+identifiant ajouté s'il n'est pas fourni, cases vides listées pour
+vérification. Campagnes et ad
 groups se créent dans Ads Manager, à partir de la fiche de paramétrage.
 Codes de sortie communs : 0 prêt · 2 à revoir · 3 bloqué · 1 erreur d'usage.
 
@@ -162,7 +164,7 @@ Codes de sortie communs : 0 prêt · 2 à revoir · 3 bloqué · 1 erreur d'usag
 python3 evals/tout_tester.py
 ```
 
-**241 tests** : chaque script (contrôles, exports, lectures de fichiers
+**245 tests** : chaque script (contrôles, exports, lectures de fichiers
 abîmés, API simulée en lecture seule, plan de lots, notes), l'intégrité du
 pack, et 28 cas d'éval décrits dans [`evals/evals.json`](evals/evals.json).
 

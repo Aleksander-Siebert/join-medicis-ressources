@@ -94,10 +94,16 @@ qu'on ne sait pas.
 
 - Par défaut : texte simple dans la conversation, tableaux Markdown pour les
   cartes et les plans, et le fichier d'import quand il est demandé.
-- Le fichier d'import suit **le schéma d'annonces** (`commun/classeur.py` :
-  un onglet, 10 colonnes, `ad_id` à `image_file_id`). Les notes, sources et
-  scores vont dans la conversation ou un fichier à part, jamais dans le
-  classeur.
+- Le fichier d'import est un **CSV** au **schéma d'annonces**
+  (`commun/classeur.py` : 10 colonnes, `ad_id` à `image_file_id`). Les
+  notes, sources et scores vont dans la conversation ou un fichier à part,
+  jamais dans le fichier d'import.
+- `status` : `active` par défaut, pour que l'import lance les annonces.
+- `ad_group_id`, `ad_id`, `image_file_id` : **jamais ajoutés** s'ils ne sont
+  pas fournis par l'utilisateur ou lus à la source (/chatgpt-ads-ids) ; pas
+  de valeur d'exemple ni d'identifiant deviné.
+- Toute case vide (lien, image, titre, texte, groupe) est **signalée** à
+  l'utilisateur, colonne par colonne avec ses lignes, pour qu'il la vérifie.
 - La sortie d'un script est une matière, pas la réponse : traduis-la en
   phrases courtes, garde ses verdicts et ses chiffres tels quels.
 - Termine par la liste « à vérifier » si elle n'est pas vide.

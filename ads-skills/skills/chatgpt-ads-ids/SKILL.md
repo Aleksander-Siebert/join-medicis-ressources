@@ -64,7 +64,7 @@ réel peut différer, le script le signale sans bloquer.
    ```
 4. **Reporter les identifiants** dans le classeur ou le JSON de campagne :
    ```bash
-   python3 scripts/ids.py fusionner import.xlsx --ids ids.csv -o import-ids.xlsx
+   python3 scripts/ids.py fusionner import.csv --ids ids.csv -o import-ids.csv
    python3 scripts/ids.py fusionner campagne.json --ids ids.csv -o campagne-ids.json
    ```
    La correspondance se fait par nom d'ad group (sans casse ni accents). Un

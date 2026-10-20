@@ -175,20 +175,19 @@ Angles, patrons, tactiques de longueur et exemples : `references/annonces.md`.
 ```bash
 python3 scripts/valider_exporter.py valider campagne.json           # contrôle complet
 python3 scripts/valider_exporter.py relecture campagne.json         # tableau de relecture humaine
-python3 scripts/valider_exporter.py exporter campagne.json -o import.xlsx
+python3 scripts/valider_exporter.py exporter campagne.json -o import.csv
 ```
 
 `exporter` écrit deux fichiers :
 
-- **`import.xlsx`**, le classeur au **schéma d'annonces** (un onglet,
-  10 colonnes, `status` à `paused`, `ad_name` = groupe-01…), le seul format
-  à importer ;
-- **`import-parametrage.md`**, la fiche de ce qui ne passe pas par le
-  classeur : campagnes (objectif, budget, dates, pays) et ad groups
-  (enchère, context hints en JSON prêt à coller), à créer dans Ads Manager
-  **avant** l'import.
+- **`import.csv`**, le fichier au **schéma d'annonces** (10 colonnes,
+  `status` à `active`, `ad_name` = groupe-01…) ; un identifiant non fourni
+  (`ad_group_id`, `ad_id`, `image_file_id`) reste vide, jamais deviné ; les
+  cases vides sont listées pour vérification ;
+- **`import-parametrage.md`** : campagnes et ad groups (enchère, context
+  hints en JSON prêt à coller) à créer dans Ads Manager **avant** l'import.
 
-Ordre de travail : 1. créer en pause, dans Ads Manager, les campagnes et
+Ordre de travail : 1. créer dans Ads Manager les campagnes et
 ad groups de la fiche ; 2. récupérer les `ad_group_id` (`/chatgpt-ads-ids`),
 les reporter dans le JSON, relancer `exporter` ; 3. importer 2 ou 3 lignes
 pour essai, puis le reste.

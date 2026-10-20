@@ -22,7 +22,7 @@
         "3 prompts simulés par groupe, sans chevauchement entre groupes",
         "« livraison gratuite » n'apparaît dans aucune annonce sans la condition « dès 49 € »",
         "[auto] valider : 0 bloquant ; 40 à 50 annonces ; titres au plus 24 caractères, copies au plus 48",
-        "[auto] exporter : classeur au schéma d'annonces (un onglet, 10 colonnes, status paused) et fiche de paramétrage avec les hints en JSON",
+        "[auto] exporter : fichier CSV au schéma d'annonces (10 colonnes, status active, aucun identifiant ajouté) et fiche de paramétrage avec les hints en JSON",
         "Sans lien d'image fourni : image_url reste vide, le script bloque l'export, la réponse le dit et donne une idée de visuel par groupe",
         "Termine par « Avant de dépenser » et la checklist, sans chiffre de performance inventé",
         "Aucune annonce qui mentionne ChatGPT ou imite une réponse"
@@ -136,7 +136,7 @@
       "attentes": [
         "[auto] verifier : repère l'onglet en trop, l'en-tête « Title » au lieu de « title », l'italique, l'identifiant enregistré comme nombre, le status « Active »",
         "Regroupe les points par cause, pas ligne par ligne",
-        "[auto] reparer : un seul onglet, en-têtes exacts, status paused ou active en minuscules, valeurs en texte",
+        "[auto] reparer -o import.csv : CSV UTF-8 à virgules, en-têtes exacts, status en minuscules (vide → active), valeurs en texte, aucun identifiant ajouté",
         "Ne raccourcit aucun titre : propose une réécriture par ligne trop longue, avec sa longueur",
         "Recommande un import d'essai de 2 ou 3 lignes"
       ]

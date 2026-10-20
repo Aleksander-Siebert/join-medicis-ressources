@@ -156,7 +156,7 @@ class Longueurs(unittest.TestCase):
     def test_titre_vide_bloque(self):
         camp = exemple()
         camp["ads"][0]["title"] = " "
-        self.assertIn("title vide", messages(camp, "BLOQUANT"))
+        self.assertIn("case vide : title", messages(camp, "ATTENTION"))
 
     def test_sous_la_cible_en_information(self):
         camp = exemple()
@@ -407,7 +407,7 @@ class Annonces(unittest.TestCase):
     def test_image_vide_bloque(self):
         camp = exemple()
         camp["ads"][0]["image_link"] = ""
-        self.assertIn("image vide (image_url ou image_file_id obligatoire)", messages(camp, "BLOQUANT"))
+        self.assertIn("case vide : image_url", messages(camp, "ATTENTION"))
 
     def test_image_sans_extension_en_attention(self):
         camp = exemple()
@@ -671,7 +671,7 @@ class Fautive(unittest.TestCase):
         camp = json.loads(self.FIX.read_text(encoding="utf-8"))
         b = messages(camp, "BLOQUANT")
         for attendu in ("le code ISO est GB", "« plantea-noël » absent de l'onglet campaigns", "title de 35 caractères",
-                        "allégation non étayée : « n°1 »", "« gratuite »", "image vide",
+                        "allégation non étayée : « n°1 »", "« gratuite »",
                         "« offrir_plante » absent de l'onglet adgroups", "« 24 h »"):
             self.assertIn(attendu, b)
         self.assertNotIn("allégation « 1 »", b)
@@ -774,7 +774,7 @@ class ExportSchema(unittest.TestCase):
 
     def test_ecrit(self):
         self.assertIn(self.p.returncode, (0, 2), self.p.stdout)
-        self.assertIn("Classeur écrit", self.p.stdout)
+        self.assertIn("Fichier d'import écrit", self.p.stdout)
 
     def test_format_schema(self):
         cl = self.cl
@@ -789,7 +789,8 @@ class ExportSchema(unittest.TestCase):
         self.assertIn("ad_group_id à compléter pour 4 groupe(s)", self.p.stdout)
 
     def test_valeurs_par_defaut(self):
-        self.assertTrue(all(x["status"] == "paused" for x in self.lignes))
+        self.assertTrue(all(x["status"] == "active" for x in self.lignes))
+        self.assertTrue(all(x.get("image_file_id", "") == "" for x in self.lignes))
         self.assertEqual(self.lignes[0]["ad_name"], self.lignes[0]["adgroup_name"] + "-01")
         self.assertEqual(self.lignes[0]["image_url"], self.camp["ads"][0]["image_link"])
 
@@ -806,6 +807,19 @@ class ExportSchema(unittest.TestCase):
             a.pop("image_link")
             a["image_file_id"] = "file_42"
         self.assertNotIn("image", messages(camp, "BLOQUANT"))
+
+    def test_csv_par_defaut_et_cases_vides(self):
+        camp = exemple()
+        camp["ads"][0]["image_link"] = ""
+        camp["ads"][1]["link"] = ""
+        with tempfile.TemporaryDirectory() as d:
+            src, out = Path(d) / "c.json", Path(d) / "import.csv"
+            src.write_text(json.dumps(camp, ensure_ascii=False), encoding="utf-8")
+            p = lancer("exporter", src, "-o", out, "--aujourdhui", "2026-10-15")
+            self.assertTrue(out.exists(), p.stdout)
+            self.assertTrue(out.read_text(encoding="utf-8").startswith("ad_id,ad_group_id,adgroup_name"))
+        self.assertIn("Cases vides à vérifier, image_url : ligne(s) 2", p.stdout)
+        self.assertIn("Cases vides à vérifier, link : ligne(s) 3", p.stdout)
 
     def test_bloquant_de_format_refuse(self):
         camp = exemple()

@@ -22,9 +22,11 @@ Commandes :
       allégations non étayées, éligibilité de la catégorie selon les pays
       (règles publicitaires d'OpenAI v1.6), imitation de ChatGPT.
 
-  exporter SOURCE -o SORTIE.xlsx [--fiche FICHE.md] [--format schema|trois-onglets] [--limites import|api]
-      Valide, puis écrit le classeur d'annonces au format du schéma (un onglet,
-      10 colonnes : ad_id … image_file_id, commun/classeur.py) et la fiche de
+  exporter SOURCE -o SORTIE.csv [--fiche FICHE.md] [--format schema|trois-onglets] [--limites import|api]
+      Valide, puis écrit le fichier d'import au format du schéma, en CSV (10
+      colonnes : ad_id … image_file_id, commun/classeur.py ; .xlsx si le nom
+      le demande), status active par défaut, identifiants jamais ajoutés s'ils
+      ne sont pas fournis, cases vides listées ; et la fiche de
       paramétrage (campagnes et ad groups à créer dans Ads Manager, context
       hints prêts à coller). --format trois-onglets écrit l'ancien modèle
       d'import (campaigns, adgroups, ads) avec --modele. Refuse d'écrire s'il
@@ -594,7 +596,7 @@ def valider(camp, modele, aujourdhui=None, mode=None):
         for champ, val, maxi, cible in (("title", titre, lim["title"], 16), ("copy", copie, lim["copy"], 32)):
             n = longueur(val)
             if not val.strip():
-                r.ajoute(BLOQUANT, "ads", o, f"{champ} vide (obligatoire)")
+                r.ajoute(ATTENTION, "ads", o, f"case vide : {champ}", "à compléter avant l'import (le fichier est écrit quand même)")
             elif n > maxi:
                 r.ajoute(BLOQUANT, "ads", o, f"{champ} de {n} caractères (max {maxi}) : « {val} »",
                          f"retirer {n - maxi} caractère(s)")
@@ -654,7 +656,7 @@ def valider(camp, modele, aujourdhui=None, mode=None):
         if len(lien) > 2048:
             r.ajoute(BLOQUANT, "ads", o, f"link de {len(lien)} caractères (2 048 au plus, docs OpenAI)")
         if not lien:
-            r.ajoute(BLOQUANT, "ads", o, "link vide (obligatoire)")
+            r.ajoute(ATTENTION, "ads", o, "case vide : link", "à compléter avant l'import (le fichier est écrit quand même)")
         else:
             u = urllib.parse.urlsplit(lien)
             if " " in lien:
@@ -681,8 +683,9 @@ def valider(camp, modele, aujourdhui=None, mode=None):
                 r.ajoute(ATTENTION, "ads", o, f"image_file_id « {fichier_image} » ne commence pas par « file_ »",
                          "le recopier depuis Ads Manager ou l'API (/chatgpt-ads-ids)")
         elif not image:
-            r.ajoute(BLOQUANT, "ads", o, "image vide (image_url ou image_file_id obligatoire)",
-                     "image carrée 640 à 1200 px, PNG ou JPG, à une URL publique directe")
+            r.ajoute(ATTENTION, "ads", o, "case vide : image_url",
+                     "à compléter avant l'import : image carrée 640 à 1200 px, PNG ou JPG, à une URL publique directe "
+                     "(image_file_id seulement s'il est fourni)")
         else:
             u = urllib.parse.urlsplit(image)
             if u.scheme not in ("http", "https") or not u.netloc or " " in image:
@@ -890,7 +893,7 @@ def lignes_schema(camp):
             "ad_group_id": str(a.get("ad_group_id", "") or "").strip() or ids.get(g, ""),
             "adgroup_name": g,
             "ad_name": str(a.get("ad_name", "") or "").strip() or f"{g}-{compte[g]:02d}",
-            "status": str(a.get("status", "") or "paused").strip(),
+            "status": str(a.get("status", "") or cl.STATUT_DEFAUT).strip(),
             "title": str(a.get("title", "") or ""),
             "copy": str(a.get("copy", "") or ""),
             "link": str(a.get("link", "") or "").strip(),
@@ -903,10 +906,10 @@ def lignes_schema(camp):
 def fiche_parametrage(camp):
     """Ce qui ne passe pas par le classeur d'annonces : campagnes et ad groups à créer dans Ads Manager."""
     out = ["# Paramétrage dans Ads Manager", "",
-           "Le classeur d'annonces relie chaque annonce à un ad group **existant** (`ad_group_id`). Créer d'abord, "
-           "dans Ads Manager, les campagnes et les ad groups ci-dessous (en pause), récupérer les identifiants des "
-           "ad groups (/chatgpt-ads-ids), les reporter dans le JSON (`adgroups[].ad_group_id`), puis exporter "
-           "le classeur.", ""]
+           "Le fichier d'import relie chaque annonce à un ad group **existant** (`ad_group_id`). Créer d'abord, "
+           "dans Ads Manager, les campagnes et les ad groups ci-dessous, récupérer les identifiants des "
+           "ad groups (/chatgpt-ads-ids), les reporter dans le JSON (`adgroups[].ad_group_id`), puis exporter. "
+           "Un identifiant non fourni reste vide : il n'est jamais deviné.", ""]
     for c in camp.get("campaigns", []):
         pays, _ = liste_json(c.get("target_countries"))
         evts, _ = liste_json(c.get("conversion_event_setting_ids"))
@@ -917,13 +920,13 @@ def fiche_parametrage(camp):
                 f"| Dates | {c.get('launch_date') or 'dès l’activation'} → {c.get('end_date') or 'sans fin'} |",
                 f"| Pays | {', '.join(map(str, pays or [])) or '{{à compléter}} (vide = tous les pays disponibles)'} |",
                 f"| Événement de conversion | {', '.join(map(str, evts or [])) or 'aucun'} |",
-                "| Statut à la création | en pause |", ""]
+                "| Statut à la création | actif (à mettre en pause si l'annonceur veut relire d'abord) |", ""]
         for g in [x for x in camp.get("adgroups", []) if str(x.get("campaign_name", "")).strip() == str(c.get("campaign_name", "")).strip()]:
             hints, _ = liste_json(g.get("context_hints", g.get("context_hints_brut")))
             out += [f"### Ad group : {g.get('adgroup_name')}", "",
                     f"- Intention : {g.get('intention') or '{{à compléter}}'}",
                     f"- Enchère maximale : {g.get('max_bid') if g.get('max_bid') not in (None, '') else '{{à compléter}}'}",
-                    f"- Identifiant une fois créé : {g.get('ad_group_id') or '{{à compléter : adgrp_…}}'}",
+                    f"- Identifiant une fois créé : {g.get('ad_group_id') or 'à récupérer (/chatgpt-ads-ids), laissé vide dans le fichier'}",
                     "- Context hints (à coller tels quels) :", "",
                     "```json", json.dumps(hints or [], ensure_ascii=False), "```", ""]
     return "\n".join(out)
@@ -1031,11 +1034,15 @@ def main(argv=None):
             return 3
         if rf.points:
             print("\n" + rf.texte("Format du classeur"))
-        cl.ecrire_xlsx(a.sortie, lignes)
+        cl.ecrire(a.sortie, lignes)
         fiche = Path(a.fiche) if a.fiche else Path(a.sortie).with_name(Path(a.sortie).stem + "-parametrage.md")
         fiche.write_text(fiche_parametrage(camp), encoding="utf-8")
         sans_id = sorted({x["adgroup_name"] for x in lignes if not x["ad_group_id"]})
-        print(f"\nClasseur écrit : {a.sortie} (schéma d'annonces, {len(lignes)} annonce(s), statut paused par défaut).")
+        print(f"\nFichier d'import écrit : {a.sortie} (schéma d'annonces, {len(lignes)} annonce(s), status active "
+              "par défaut : les annonces diffusent dès l'import et l'approbation).")
+        vides = cl.resume_vides(lignes)
+        for c, nums in vides.items():
+            print(f"Cases vides à vérifier, {c} : ligne(s) {', '.join(map(str, nums[:15]))}{' …' if len(nums) > 15 else ''}")
         print(f"Fiche de paramétrage : {fiche}")
         if sans_id:
             print(f"ad_group_id à compléter pour {len(sans_id)} groupe(s) : {', '.join(sans_id)} "
