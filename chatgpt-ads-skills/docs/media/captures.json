@@ -1,0 +1,30 @@
+{
+  "note": "Captures des README, produites par outils/visuels/capture.py à partir des vraies sorties des scripts. Ne pas modifier les SVG à la main : relancer le script. « affiche » est la commande telle qu'on la tape depuis le dossier du Skill ; « commande » est celle que lance le générateur depuis le dossier du pack.",
+  "captures": [
+    {
+      "id": "corriger",
+      "titre": "chatgpt-ads-skills · valider_exporter.py",
+      "dossier": ".",
+      "commande": "python3 skills/chatgpt-ads-skills/scripts/valider_exporter.py valider evals/chatgpt-ads-skills/fixtures/campagne-a-corriger.json --aujourdhui 2026-10-15",
+      "affiche": "python3 scripts/valider_exporter.py valider campagne.json",
+      "lignes": [
+        1,
+        26
+      ]
+    },
+    {
+      "id": "pret",
+      "titre": "chatgpt-ads-skills · valider_exporter.py",
+      "dossier": ".",
+      "commande": "python3 skills/chatgpt-ads-skills/scripts/valider_exporter.py exporter skills/chatgpt-ads-skills/assets/exemple-campagne.json -o /tmp/import.csv --aujourdhui 2026-10-15",
+      "affiche": "python3 scripts/valider_exporter.py exporter assets/exemple-campagne.json -o /tmp/import.csv"
+    },
+    {
+      "id": "excel",
+      "titre": "chatgpt-ads-excel · classeur_ads.py",
+      "dossier": ".",
+      "commande": "python3 skills/chatgpt-ads-excel/scripts/classeur_ads.py verifier evals/chatgpt-ads-excel/fixtures/classeur-abime.xlsx",
+      "affiche": "python3 scripts/classeur_ads.py verifier classeur.xlsx"
+    }
+  ]
+}

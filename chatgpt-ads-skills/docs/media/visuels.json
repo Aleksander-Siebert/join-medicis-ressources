@@ -1,0 +1,64 @@
+{
+  "note": "Icônes et bannière du README, produites par outils/visuels/visuels.py. Ne pas modifier les SVG à la main.",
+  "pack": "ChatGPT Ads",
+  "surtitre": "Join Médicis · pack de Skills",
+  "accroche": [
+    "Des campagnes ChatGPT Ads ciblées par intention,",
+    "écrites juste, prêtes à importer."
+  ],
+  "puces": [
+    "5 Skills",
+    "245 tests",
+    "MIT",
+    "v0.2"
+  ],
+  "colonnes": 1,
+  "familles": {
+    "ChatGPT Ads": "#1F6F7A",
+    "Fichiers": "#34495E"
+  },
+  "icones": [
+    {
+      "nom": "chatgpt-ads-skills",
+      "glyphe": "cible",
+      "famille": "ChatGPT Ads"
+    },
+    {
+      "nom": "chatgpt-ads-bulk",
+      "glyphe": "barres",
+      "famille": "ChatGPT Ads"
+    },
+    {
+      "nom": "chatgpt-ads-exports",
+      "glyphe": "recycler",
+      "famille": "ChatGPT Ads"
+    },
+    {
+      "nom": "chatgpt-ads-ids",
+      "glyphe": "loupe",
+      "famille": "Fichiers"
+    },
+    {
+      "nom": "chatgpt-ads-excel",
+      "glyphe": "document",
+      "famille": "Fichiers"
+    }
+  ],
+  "piliers": [
+    {
+      "nom": "pilier-allegations",
+      "glyphe": "bouclier",
+      "couleur": "#0E3F2D"
+    },
+    {
+      "nom": "pilier-modele",
+      "glyphe": "document",
+      "couleur": "#34495E"
+    },
+    {
+      "nom": "pilier-hypotheses",
+      "glyphe": "loupe",
+      "couleur": "#B89253"
+    }
+  ]
+}

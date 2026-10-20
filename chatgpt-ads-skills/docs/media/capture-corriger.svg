@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="858" height="668" viewBox="0 0 858 668" role="img" aria-label="chatgpt-ads-skills · valider_exporter.py">
+<title>chatgpt-ads-skills · valider_exporter.py</title>
+<rect width="858" height="668" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h834a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="429" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">chatgpt-ads-skills · valider_exporter.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/valider_exporter.py valider campagne.json</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">CAMPAGNE · <tspan fill="#E58A7B">BLOQUÉ</tspan> · 1 campagne(s), 2 ad group(s), 4 annonce(s) · limites du modèle : titre 24,</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">  copie 48</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">  9 bloquant(s) · 6 attention · 4 info</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre"><tspan fill="#E58A7B">BLOQUANT</tspan></text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  [campaigns · campaigns[1]] pays « UK » : le code ISO est GB</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">  [adgroups · adgroups[2]] campaign_name « plantea-noël » absent de l'onglet campaigns</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">      → le nom doit être identique, caractère pour caractère</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">  [ads · ads[1]] title de 35 caractères (max 24) : « Plantes d'intérieur faciles à vivre »</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">      → retirer 11 caractère(s)</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">  [ads · ads[1]] copy de 49 caractères (max 48) : « Des plantes qui pardonnent les oublis</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">    d'arrosage. »</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">      → retirer 1 caractère(s)</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">  [ads · ads[2]] allégation non étayée : « n°1 »</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">      → l'ajouter à la liste des allégations avec sa source, ou la retirer</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre">  [ads · ads[2]] allégation non étayée : « gratuite »</text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">      → l'ajouter à la liste des allégations avec sa source, ou la retirer</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">  [ads · ads[4]] adgroup_name « offrir_plante » absent de l'onglet adgroups</text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">  [ads · ads[4]] copy de 51 caractères (max 48) : « Une plante emballée sans plastique, livrée en</text>
+<text x="20" y="458" xml:space="preserve" style="white-space:pre">    24 h. »</text>
+<text x="20" y="478" xml:space="preserve" style="white-space:pre">      → retirer 3 caractère(s)</text>
+<text x="20" y="498" xml:space="preserve" style="white-space:pre">  [ads · ads[4]] allégation non étayée : « 24 h »</text>
+<text x="20" y="518" xml:space="preserve" style="white-space:pre">      → l'ajouter à la liste des allégations avec sa source, ou la retirer</text>
+<text x="20" y="538" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="558" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">ATTENTION</tspan></text>
+<text x="20" y="578" xml:space="preserve" style="white-space:pre">  [adgroups · -] 2 ad group(s) : 5 au moins conseillés, une intention chacun</text>
+<text x="20" y="598" xml:space="preserve" style="white-space:pre">  [adgroups · adgroups[1]] hint très court : « plantes »</text>
+<text x="20" y="618" xml:space="preserve" style="white-space:pre">      → ressemble à un mot-clé ; viser 4 à 8 mots</text>
+<text x="20" y="638" xml:space="preserve" style="white-space:pre">  [ads · ads[2]] case vide : image_url</text>
+</g></svg>

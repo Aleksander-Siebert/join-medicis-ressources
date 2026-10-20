@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="875" height="468" viewBox="0 0 875 468" role="img" aria-label="chatgpt-ads-excel · classeur_ads.py">
+<title>chatgpt-ads-excel · classeur_ads.py</title>
+<rect width="875" height="468" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h851a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="438" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">chatgpt-ads-excel · classeur_ads.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/classeur_ads.py verifier classeur.xlsx</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">Contrôle de classeur-abime.xlsx : 4 bloquant(s), 4 attention, 2 info</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">[<tspan fill="#E58A7B">BLOQUANT</tspan>] classeur : onglets en trop : notes → le format n'a qu'un onglet ; « reparer » les retire</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">[<tspan fill="#E58A7B">BLOQUANT</tspan>] ligne 1 : en-tête « Title » au lieu de « title » → reprendre l'orthographe exacte du</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">  schéma</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">[<tspan fill="#E58A7B">BLOQUANT</tspan>] ligne 3 : adgroup_name « expat-preparer » relié à deux identifiants : adgrp_101 et</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  1234567890123</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">[<tspan fill="#E58A7B">BLOQUANT</tspan>] ligne 3 : title : 30 caractères pour 24 au plus → « Votre installation au Portugal »</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">[<tspan fill="#D4B681">ATTENTION</tspan>] ligne 2 : copy : en italique → texte normal attendu (« reparer » le fait)</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">[<tspan fill="#D4B681">ATTENTION</tspan>] ligne 3 : ad_group_id : enregistré comme nombre → Excel peut l'abîmer (zéros, notation</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">  1E+15) : le stocker en texte</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">[<tspan fill="#D4B681">ATTENTION</tspan>] ligne 3 : ad_group_id « 1234567890123 » ne commence pas par « adgrp_ » → copier</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">  l'identifiant depuis Ads Manager ou l'API (/chatgpt-ads-ids) ; format réel à vérifier</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">[<tspan fill="#D4B681">ATTENTION</tspan>] ligne 3 : status avec majuscules sur 1 ligne(s) → minuscules attendues : « reparer »</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">  corrige</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">[<tspan fill="#D4B681">INFO</tspan>] fichier : classeur XLSX : le format d'import retenu est le CSV → « reparer fichier.xlsx -o</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre">  fichier.csv » le convertit</text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">[<tspan fill="#D4B681">INFO</tspan>] ligne 2 : status paused sur 1 ligne(s) → ces annonces ne diffuseront pas après l'import ;</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">  active pour lancer directement</text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">Verdict : bloquant, à corriger avant import</text>
+</g></svg>
