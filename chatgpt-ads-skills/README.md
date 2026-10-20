@@ -98,19 +98,19 @@ chaque version (`outils/visuels/capture.py`).
 
 ```bash
 /plugin marketplace add Aleksander-Siebert/join-medicis-ressources
-/plugin install ads-skills@join-medicis
+/plugin install chatgpt-ads-skills@join-medicis
 ```
 
 Ou copie les Skills dans tes Skills personnels :
 
 ```bash
 git clone https://github.com/Aleksander-Siebert/join-medicis-ressources.git
-cp -r join-medicis-ressources/ads-skills/skills/* ~/.claude/skills/
+cp -r join-medicis-ressources/chatgpt-ads-skills/skills/* ~/.claude/skills/
 ```
 
 ### claude.ai
 
-Construis le ZIP avec `claude-ai/build.sh ads-skills.zip`, puis importe-le
+Construis le ZIP avec `claude-ai/build.sh chatgpt-ads-skills.zip`, puis importe-le
 dans Personnaliser → Skills : un seul Skill qui aiguille vers les 5
 modules. Avec l'exécution de code activée, les scripts écrivent les
 fichiers ; sans elle, le Skill livre les tableaux à coller et le dit.

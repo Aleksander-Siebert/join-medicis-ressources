@@ -1,5 +1,5 @@
 ---
-name: ads-skills
+name: chatgpt-ads-skills
 description: >-
   Pack ChatGPT Ads (OpenAI Ads) en français, spécialisé France, en un seul
   Skill de 5 modules : préparer une campagne de 40 à 50 annonces (entretien,

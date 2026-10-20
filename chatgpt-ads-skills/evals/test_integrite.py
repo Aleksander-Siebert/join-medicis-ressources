@@ -280,7 +280,7 @@ def _():
 @test("aiguilleur claude.ai : chaque Skill présent y figure, frontmatter valide")
 def _():
     t = (PACK / "claude-ai" / "SKILL.md").read_text(encoding="utf-8")
-    m = re.match(r"---\nname: ads-skills\ndescription: >-\n(.*?)\n---\n", t, re.S)
+    m = re.match(r"---\nname: chatgpt-ads-skills\ndescription: >-\n(.*?)\n---\n", t, re.S)
     assert m and len(" ".join(m.group(1).split())) <= 1024
     assert "Pas pour" in m.group(1)
     for s in SKILLS:
@@ -290,9 +290,9 @@ def _():
 @test("manifeste de plugin valide et marketplace à jour")
 def _():
     d = json.loads((PACK / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
-    assert d["name"] == "ads-skills" and d["license"] == "MIT"
+    assert d["name"] == "chatgpt-ads-skills" and d["license"] == "MIT"
     m = json.loads((PACK.parent / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
-    assert any(p["name"] == "ads-skills" and p["source"] == "./ads-skills" for p in m["plugins"])
+    assert any(p["name"] == "chatgpt-ads-skills" and p["source"] == "./chatgpt-ads-skills" for p in m["plugins"])
 
 
 @test("README : images, liens, version, icônes, captures et visuels conformes (outils/visuels/readme.py)")
