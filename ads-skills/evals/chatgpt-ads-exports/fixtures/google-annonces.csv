@@ -1,0 +1,8 @@
+"Rapport sur les annonces"
+"1 septembre 2026 - 30 septembre 2026"
+Campagne,Groupe d'annonces,État,Type d'annonce,Titre 1,Titre 2,Titre 3,Description 1,Description 2,URL finale,Chemin 1,Impr.,Clics,CTR,Conversions,Coût
+Assurly_Expat,Expatriation,Activée,Annonce responsive sur le Réseau de Recherche,Assurance expatrié,Devis en 2 minutes,{KeyWord:Assurance Expat},"Couverture santé à l'étranger, au premier euro ou en complément de la CFE.",Le n°1 de l'assurance expatrié — conseillers à Paris.,https://www.assurly.example/expatriation,expat,"1 250","48","3,84 %","6",112.40
+Assurly_Expat,Expatriation,Activée,Annonce responsive sur le Réseau de Recherche,Partir vivre à l'étranger,Garanties claires,Assurance santé expat,"Préparez votre départ : santé, rapatriement et responsabilité civile réunis.",Souscription en ligne sans engagement.,https://www.assurly.example/expatriation,,"640","12","1,88 %","1",40
+Assurly_Etudiants,Etudes a l'etranger,Activée,Annonce responsive sur le Réseau de Recherche,Assurance étudiant monde,Stage ou échange à l'étranger,VISA ÉTUDIANT OK,Attestation pour votre visa étudiant en quelques minutes.,Tarif étudiant dès 29 € par mois.,https://www.assurly.example/etudiants,,"90","4","4,44 %","0",9
+Assurly_Etudiants,Etudes a l'etranger,Suspendue,Annonce responsive sur le Réseau de Recherche,Assurance étudiant monde,Best student insurance,Get your quote now,Cover for your studies abroad with our team.,,https://www.assurly.example/,,"20","0","0,00 %","0",0
+Total: Compte,,,,,,,,,,,"2 000","64","3,20 %","7",161.40

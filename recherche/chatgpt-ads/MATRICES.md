@@ -131,3 +131,65 @@ Verdicts : ✅ reprendre · ⬆ reprendre en améliorant · ✖ écarter (avec l
    l'import ? (import d'essai recommandé dans la checklist)
 6. Caractères autorisés dans les noms (« no special characters ») : espaces
    et accents tolérés ou non.
+
+# v0.2 : collecte du 20 octobre 2026
+
+## Sources ajoutées
+
+| Code | Source | Lu | Statut |
+|---|---|---|---|
+| N | nowork-studio/NotFair v0.27.1 (MIT), via la sauvegarde manak-debug/claude-skills : `paid-ads-chatgpt` (19 lignes), les 12 Skills `paid-ads-*`, les 2 contrats partagés, `google-ads/copy`, `policy-registry.json`, CHANGELOG | intégral | public |
+| SD | Fiche skillsdirectory.com du même Skill (note de sécurité, pas de qualité) | intégral | public |
+| MCP | avyanshkatiyar/openai-ads-mcp (MIT, 21 fichiers) : client, schémas, analyseur de brief, 3 Skills, 52 tests (exécutés : réussis avec `mcp<2`, échec de collecte avec `mcp` 2.x non épinglé) | intégral, exécuté | public |
+| ST | studeria.fr, guide ChatGPT Ads France (22 sept., maj 28 sept. 2026) | intégral | presse ; plusieurs erreurs (date France, image 256 px, ciblage par historique dans l'EEE) |
+| LX | launchcodex.com, 9 formats (29 mai 2026) | intégral | presse ; 1 format sur 9 documenté, chiffres sans source |
+| DV2 | Documentation développeur, `llms-full.txt` du 20 oct. 2026 (8 485 lignes, journal au 30 sept.) | sections utiles en entier | officiel |
+| P2 | Ad Policies v1.6 du 10 sept. 2026, texte français fourni par l'utilisateur | intégral | officiel |
+| S | Schéma d'annonces à 10 colonnes fourni par l'utilisateur, « seul format compatible » | XML | format de sortie ; l'exemplaire (métadonnées d'un poste) n'est pas redistribué |
+| G2, D2 | Guide de scaling (EN, FR, 22 juin 2026) et présentation d'onboarding | intégral | **confidentiels** : compris, jamais repris (ni prompts, ni chiffres, ni études de cas) |
+| M2 | Exemple de campagne d'un annonceur réel | intégral | **non repris** : 4 titres sur 4 et 4 textes sur 4 au-delà des limites, produit d'assurance |
+
+## Matrice v0.2
+
+Verdicts : ✅ reprendre · ⬆ reprendre en améliorant · ✖ écarter (avec la raison) · ➕ nouveau.
+
+| Capacité | Source | Verdict | Ce que nous en faisons |
+|---|---|---|---|
+| Statuts d'un livrable, registre de règles daté | N | ⬆ | `commun/faits.md` daté, alerte qui reste dans « à vérifier » |
+| « Ne jamais inventer un identifiant » | N, MCP | ✅ | `/chatgpt-ads-ids` : identifiants lus, jamais devinés ; noms ambigus non remplis |
+| Client d'API à transport remplaçable, lecture paginée | MCP | ⬆ | `ids.py` : lecture seule, 500 par page, nouvel essai sur 429 ; tests sur API simulée |
+| Création, activation, archivage par l'API | MCP | ✖ | règle « rien n'est publié à la place de l'utilisateur » ; seule écriture : téléverser une image, sur confirmation |
+| Contrôles de l'API de juin 2026 (CPM seul, budget total seul) | MCP | ✖ | périmés (objectifs clics et conversions, budget quotidien) |
+| Format de sortie | S | ➕ | `commun/classeur.py` : lecture, contrôle cellule par cellule, réparation, écriture du schéma |
+| Campagnes et ad groups hors du classeur | S, DV2 | ➕ | fiche de paramétrage écrite par `exporter`, hints en JSON prêts à coller |
+| Secteur restreint : arrêt | v0.1 | ✖ | décision de l'utilisateur (20 oct.) : alerte datée, pistes conformes, puis le travail ; annonces véridiques seulement |
+| Règles d'OpenAI en entier | P2 | ➕ | `commun/politiques-openai.md`, mise en forme fidèle, pas une copie |
+| Droit français des annonces | (expertise) | ➕ | `commun/droit-francais.md` : langue, pratiques trompeuses, réduction, crédit, santé, allégations vertes, traceurs |
+| EEE sans personnalisation, audiences personnalisées exclues | DV2 | ➕ | faits § 2 bis, checklist France |
+| Pixel : consentement acquis par défaut | DV2 | ➕ | `consent: false` avant `init`, relié au bandeau |
+| Pays vide = tous les pays disponibles | DV2 | ➕ | ATTENTION du script, pays FR par défaut |
+| Volume : 100 au lancement | G2 | ⬆ | 40 à 50 par défaut, puis `/chatgpt-ads-bulk` par lots de 50 jusqu'à 120 ou plus (choix de l'utilisateur) |
+| Lots équilibrés, doublons, notes | G2 (méthode générique) | ⬆ | réécrit : `analyser_lot.py` (structures, facettes, mots répétés, quasi-doublons, remplissage par le bas, notes mesurées séparées du jugement) |
+| Exports Google, Meta, Microsoft comme source | G2 | ⬆ | `lire_exports.py` : lecture complète, en-têtes FR et EN, lignes de structure et de total ignorées, allégations avec ligne source, termes longs → situations |
+| 9 formats créatifs | LX | ✖ | 8 sur 9 non documentés par OpenAI |
+| Chiffres de CTR, CPM, revenus | LX, ST | ✖ | sans source vérifiable |
+| Limites 32 et 54, 16 à 24 et 32 à 48 | D2, G2 | ⬆ | le modèle d'import fait foi : 24 et 48 ; `--limites api` (50 et 100) sur décision |
+| Bulk API (JSON) | DV2 | ✖ pour l'instant | aperçu limité, ouvert sur demande ; l'Excel suffit (décision du 20 oct.) |
+| Macros de suivi `{campaign_id}`, `{ad_id}`, `{oppref}` | DV2 | ➕ | commande `utm` ; identifiants retrouvés aussi dans l'analyse d'audience |
+
+## Décisions de l'utilisateur (20 octobre 2026)
+
+1. Le nom `/chatgpt-ads-skills` reste ; 40 à 50 annonces par défaut.
+2. Un Skill bulk pour passer à 120 ou plus ; un Skill pour les exports ; un
+   Skill pour les identifiants ; un Skill pour le classeur.
+3. Spécialisé France ; ne pas bloquer les secteurs restreints : prévenir,
+   proposer des pistes, puis répondre à la demande.
+4. Le classeur final suit le schéma d'annonces fourni.
+5. Pas d'export JSON pour la Bulk API.
+
+## Reste à faire
+
+- Import d'essai du schéma : colonnes obligatoires, limites, `status`,
+  rôle d'`ad_id` (création ou modification).
+- Captures du compte pour les chemins d'interface marqués « à vérifier ».
+- Éval à l'aveugle de la v0.2 sur des cas réels anonymisés.

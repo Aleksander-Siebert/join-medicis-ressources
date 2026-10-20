@@ -1,13 +1,15 @@
 # Éligibilité : l'annonceur, le pays, les conversations
 
-Avant d'écrire une seule annonce, vérifie que l'annonceur peut faire de la
-publicité dans les pays visés. Source : règles publicitaires d'OpenAI (Ad
-Policies), version 1.6 de septembre 2026, relues le 15 oct. 2026
-(`commun/faits.md` § 3). Elles changent souvent : si la date a plus d'un
-mois au moment du lancement, l'annonceur les relit.
+Avant d'écrire une seule annonce, dis à l'annonceur ce que les règles
+permettent dans les pays visés. Source : règles publicitaires d'OpenAI (Ad
+Policies), version 1.6 du 10 sept. 2026, relues en entier le 20 oct. 2026
+(`commun/politiques-openai.md`, synthèse complète). Elles changent souvent :
+si la date a plus d'un mois au moment du lancement, l'annonceur les relit.
+Le droit français s'ajoute : `commun/droit-francais.md`.
 
-Le Skill **signale** et **renvoie à la règle** ; il ne promet jamais
-qu'une annonce sera acceptée. L'examen d'OpenAI porte sur le texte,
+Le Skill **alerte**, **renvoie à la règle**, puis **fait ce que demande
+l'annonceur** (`commun/regles.md` § 1 bis) ; il ne promet jamais qu'une
+annonce sera acceptée. L'examen d'OpenAI porte sur l'annonceur, le texte,
 l'image **et la page de destination**.
 
 ## 1. La catégorie de l'annonceur
@@ -16,7 +18,7 @@ Déclare-la dans le JSON (`"annonceur": {"categorie": "…"}`) : le script en
 tire un verdict, et cherche dans les annonces et les hints les mots qui
 signalent une autre catégorie.
 
-| Valeur | Ce que c'est | Statut au 15 oct. 2026 |
+| Valeur | Ce que c'est | Statut (v1.6, relue le 20 oct. 2026) |
 |---|---|---|
 | `consommation`, `maison`, `style_de_vie` | biens ménagers et de consommation, mode, équipement | autorisée |
 | `services_locaux` | artisans, réparation, services à domicile | autorisée |
@@ -50,14 +52,43 @@ Cas limites écrits dans les règles :
 | Verdict | Ce que tu fais |
 |---|---|
 | autorisée | continue ; rappelle que la page de destination est examinée aussi |
-| États-Unis seulement, pays hors US | **arrête la préparation** et dis-le en une phrase, avec la règle et sa date ; propose ce qui reste possible (un autre produit de l'annonceur dans une catégorie autorisée, une campagne aux États-Unis si l'annonceur y exerce légalement, ou attendre une nouvelle version des règles) |
+| États-Unis seulement, pays hors US (France comprise) | **alerte** en tête de réponse (modèle ci-dessous), propose les pistes conformes, **puis prépare la campagne demandée** ; l'alerte reste dans « à vérifier » |
 | États-Unis seulement, ciblage US | continue en signalant l'examen au cas par cas et le justificatif d'autorisation d'exercer |
-| interdite | arrête ; aucune annonce, aucun fichier |
-| doute (catégorie mixte) | écris la question précise pour l'annonceur, et continue seulement sur ce qui est clairement autorisé |
+| interdite | **alerte forte** (refus quasi certain), pistes, puis prépare seulement si l'annonceur maintient sa demande après l'alerte |
+| doute (catégorie mixte) | écris la question précise pour l'annonceur ; en attendant, prépare en signalant le doute |
 
-Ne cherche jamais à contourner une règle (euphémisme, page de destination
-différente du produit réel, hint qui masque le sujet) : les règles exigent
-une annonce cohérente de bout en bout et interdisent de tromper l'examen.
+### Modèle d'alerte (à adapter, 4 lignes au plus)
+
+> **Attention, règles d'OpenAI (v1.6, 10 sept. 2026) :** l'assurance fait
+> partie des services financiers, admis aux États-Unis seulement et
+> « généralement interdits » ailleurs, dont la France. Risque : refus des
+> annonces, voire de l'annonceur. Pistes ci-dessous ; je prépare la campagne
+> demandée, à soumettre à l'examen d'OpenAI en connaissance de cause.
+
+### Les pistes conformes, dans cet ordre
+
+1. **Les offres non restreintes de l'annonceur** : un service, un outil,
+   un contenu qui ne relève pas de la catégorie restreinte.
+2. **Un contenu pédagogique sans vente** : guide, calculateur, check-list,
+   avec une page qui ne vend pas le produit restreint (admis pour la finance
+   et l'information juridique ; l'éligibilité de l'annonceur reste examinée).
+3. **Des situations voisines dans les context hints** : viser « préparer un
+   départ à l'étranger » plutôt que « comparer des assurances », avec une
+   annonce qui dit clairement ce qu'elle propose. C'est une stratégie de
+   ciblage, pas un maquillage.
+4. **Demander un examen** à l'équipe commerciale d'OpenAI ou au
+   gestionnaire de compte, par écrit.
+5. **Un autre canal** si le refus est confirmé.
+
+### La limite du pack
+
+Le pack n'écrit pas d'annonce qui **cache le produit réel** : titre
+« voyage » et page qui vend une assurance, euphémisme qui masque un crédit,
+page différente pour l'examen. C'est trompeur pour l'utilisateur, contraire
+à la cohérence de bout en bout exigée par OpenAI et à l'interdiction de
+contourner les règles (§ 3 « Utilisation abusive »), et le motif de
+suspension de compte le plus probable. Dis-le en une phrase et propose une
+piste ci-dessus.
 
 ## 3. Les conversations exclues
 

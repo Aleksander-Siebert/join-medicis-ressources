@@ -1,39 +1,46 @@
 ---
 name: ads-skills
 description: >-
-  Pack ChatGPT Ads en français, en un seul Skill : préparer une campagne ChatGPT Ads
-  (OpenAI Ads) prête à importer. Entretien d'une question à la fois,
-  allégations étayées, carte des intentions, 5 ad groups ou plus, context
-  hints écrits comme des situations et testés sur des prompts simulés, 40 à
-  50 annonces aux limites du modèle d'import (titre 24, copie 48), idée de
-  visuel par groupe, contrôle par script et fichier XLSX au format du
-  modèle. Les pratiques non documentées sont données comme hypothèses.
-  Utilise-le pour « campagne ChatGPT Ads », « annonces ChatGPT », « context
-  hints », « ChatGPT ads campaign ». Pas pour lancer, piloter ou optimiser une
-  campagne, ni pour Google Ads, Meta Ads ou LinkedIn Ads, ni pour un avis
-  juridique.
+  Pack ChatGPT Ads (OpenAI Ads) en français, spécialisé France, en un seul
+  Skill de 5 modules : préparer une campagne de 40 à 50 annonces (entretien,
+  alerte datée si le secteur est restreint par OpenAI puis campagne quand
+  même, allégations étayées, intentions, context hints, titre 24 et copie
+  48), passer à 120 annonces ou plus sans doublons, réécrire des exports
+  Google Ads, Meta Ads ou Microsoft Ads, retrouver les identifiants
+  (ad_group_id, ad_id, image_file_id), contrôler et réparer le classeur
+  d'import au schéma d'annonces à 10 colonnes. Utilise-le pour « campagne
+  ChatGPT Ads », « annonces ChatGPT », « context hints », « fichier d'import
+  ChatGPT », « ChatGPT ads campaign ». Pas pour lancer, piloter ou optimiser
+  une campagne, ni pour un avis juridique.
 ---
 
 # ChatGPT Ads (Join Médicis)
 
 Ce Skill regroupe les modules du pack ChatGPT Ads. Chaque module est un mode
 d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
-(références, scripts, modèle d'import, socle `commun/`) dans le même
-dossier.
+(références, scripts, socle `commun/`) dans le même dossier.
 
 ## Choisir le module
 
 | Module | Quand l'utiliser |
 |---|---|
-| `chatgpt-ads-skills` | préparer une campagne ChatGPT Ads : intentions, ad groups, context hints, annonces, fichier d'import XLSX |
+| `chatgpt-ads-skills` | préparer une campagne : intentions, ad groups, context hints, 40 à 50 annonces, classeur au schéma d'annonces et fiche de paramétrage |
+| `chatgpt-ads-bulk` | passer de 40 à 50 annonces à 120 ou plus, par lots, sans doublons |
+| `chatgpt-ads-exports` | partir d'exports Google Ads, Meta Ads ou Microsoft Ads |
+| `chatgpt-ads-ids` | retrouver `ad_group_id`, `ad_id`, `image_file_id`, `conversion_event_setting_ids` |
+| `chatgpt-ads-excel` | contrôler ou réparer le classeur avant l'import dans Ads Manager |
 
 ## Comment travailler
 
 1. Lis le module en entier, puis son `commun/regles.md` et son
-   `commun/faits.md`.
-2. Le script `valider_exporter.py` (Python, sans dépendance) se lance
-   depuis le dossier du module. Sans exécution de code, applique ses règles
-   à la main, livre les tableaux à coller et écris « Contrôle manuel, non
-   vérifié par script ».
-3. Rien n'est importé ni lancé : le fichier produit est un brouillon à
+   `commun/faits.md` ; les règles d'OpenAI sont dans
+   `commun/politiques-openai.md`, le droit français dans
+   `commun/droit-francais.md`.
+2. Les scripts (Python, sans dépendance) se lancent depuis le dossier du
+   module. Sans exécution de code, applique leurs règles à la main et écris
+   « Contrôle manuel, non vérifié par script ».
+3. Secteur restreint par OpenAI (finance, assurance, santé, juridique) :
+   alerte datée, pistes conformes, puis le travail demandé, avec des
+   annonces véridiques.
+4. Rien n'est importé ni lancé : le fichier produit est un brouillon à
    relire par une personne qualifiée.

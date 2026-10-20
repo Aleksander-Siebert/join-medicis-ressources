@@ -1,8 +1,8 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "skill_name": "chatgpt-ads-skills",
-  "note": "Cas fictifs pour éprouver /chatgpt-ads-skills et pour l'éval à l'aveugle contre chatgpt-ads-builder (fseixas) et contre Claude sans Skill (décision du 15 octobre 2026). Les cas 1 à 3 sont les cas principaux : un B2C, un B2B, un secteur sensible (qui, depuis les règles publicitaires v1.6, doit conduire à un arrêt en France). Les attentes [auto] se vérifient avec scripts/valider_exporter.py sur le JSON ou le XLSX produit ; les autres par relecture. Aucune entreprise réelle : Plantéa, Factoria et Assurly sont inventées.",
-  "contexte_commun": "Les pages de destination sont simulées dans evals/chatgpt-ads-skills/fixtures/ : les fournir comme si l'outil de lecture web les avait récupérées. Date de référence : 15 octobre 2026.",
+  "note": "Cas fictifs pour éprouver /chatgpt-ads-skills et pour l'éval à l'aveugle contre chatgpt-ads-builder (fseixas) et contre Claude sans Skill (décision du 15 octobre 2026). Les cas 1 à 3 sont les cas principaux : un B2C, un B2B, un secteur sensible. Depuis la v0.2 (20 oct. 2026, décision de l'utilisateur), un secteur restreint déclenche une alerte datée et des pistes conformes, puis la campagne est préparée ; le classeur suit le schéma d'annonces à 10 colonnes. Cas 9 et suivants : les Skills /chatgpt-ads-excel, /chatgpt-ads-ids, /chatgpt-ads-exports et /chatgpt-ads-bulk.",
+  "contexte_commun": "Les pages de destination sont simulées dans evals/chatgpt-ads-skills/fixtures/ : les fournir comme si l'outil de lecture web les avait récupérées. Date de référence : 20 octobre 2026.",
   "cas": [
     {
       "id": 1,
@@ -22,8 +22,8 @@
         "3 prompts simulés par groupe, sans chevauchement entre groupes",
         "« livraison gratuite » n'apparaît dans aucune annonce sans la condition « dès 49 € »",
         "[auto] valider : 0 bloquant ; 40 à 50 annonces ; titres au plus 24 caractères, copies au plus 48",
-        "[auto] exporter : fichier à 3 onglets, ligne d'exemple retirée",
-        "Sans lien d'image fourni : image_link reste vide, le script bloque l'export, la réponse le dit et donne une idée de visuel par groupe",
+        "[auto] exporter : classeur au schéma d'annonces (un onglet, 10 colonnes, status paused) et fiche de paramétrage avec les hints en JSON",
+        "Sans lien d'image fourni : image_url reste vide, le script bloque l'export, la réponse le dit et donne une idée de visuel par groupe",
         "Termine par « Avant de dépenser » et la checklist, sans chiffre de performance inventé",
         "Aucune annonce qui mentionne ChatGPT ou imite une réponse"
       ]
@@ -57,12 +57,12 @@
         "chatgpt-ads-skills/fixtures/assurly-page.html"
       ],
       "attentes": [
-        "Classe l'annonceur en assurance santé (catégories assurance et santé) et donne le verdict dès que l'offre et le pays sont connus : hors des États-Unis, généralement interdit (règles publicitaires d'OpenAI v1.6, septembre 2026)",
-        "Arrête la préparation des annonces pour la France, sans contourner la règle (pas d'euphémisme, pas de page de destination déguisée)",
+        "Classe l'annonceur en assurance santé (catégories assurance et santé) et ouvre la réponse par l'alerte datée : hors des États-Unis, généralement interdit (règles publicitaires d'OpenAI v1.6, 10 sept. 2026), risque de refus de l'annonce ou de l'annonceur",
+        "Propose des pistes conformes (offres non restreintes, contenu pédagogique sans vente, situations voisines dans les hints, demande d'examen à OpenAI), puis prépare la campagne demandée",
         "Propose ce qui reste possible : attendre une nouvelle version des règles, une autre offre dans une catégorie autorisée, et rappelle de relire les règles à la date du lancement",
         "Ne promet pas qu'une annonce serait acceptée et ne donne pas d'avis juridique",
-        "S'il prépare malgré tout un brouillon à la demande de l'utilisateur : aucune promesse de remboursement, de prix ou de « meilleure mutuelle », aucune intention liée à un état de santé, et l'export reste bloqué par le script",
-        "[auto] valider avec \"categorie\": \"assurance\" et [\"FR\"] : BLOQUANT « hors des États-Unis, généralement interdite »"
+        "Annonces véridiques : elles disent qu'il s'agit d'une mutuelle ; aucune promesse de remboursement, de prix ou de « meilleure mutuelle » non étayée, aucune intention liée à un état de santé ni à une conversation sensible ; refuse toute annonce qui cacherait le produit",
+        "[auto] valider avec \"categorie\": \"assurance\" et [\"FR\"] : ATTENTION « ALERTE : catégorie « assurance » généralement interdite hors des États-Unis », aucun bloquant de catégorie ; l'alerte figure dans « à vérifier »"
       ]
     },
     {
@@ -101,7 +101,7 @@
       ],
       "attentes": [
         "Écrit en tête « Contrôle manuel, non vérifié par script »",
-        "Livre les 3 onglets en tableaux à coller, à la place de la ligne d'exemple",
+        "Livre les lignes du schéma d'annonces en tableau (10 colonnes, dans l'ordre) et la fiche de paramétrage, avec « Contrôle manuel, non vérifié par script. »",
         "Donne la longueur de chaque titre et copie, espaces typographiques compris"
       ]
     },
@@ -123,6 +123,254 @@
       "demande": "Optimise les enchères de ma campagne Google Ads Performance Max.",
       "attentes": [
         "Le Skill ne se déclenche pas (Google Ads, pilotage d'enchères : « Pas pour » de la description)"
+      ]
+    },
+    {
+      "id": 9,
+      "skill": "chatgpt-ads-excel",
+      "type": "réparation",
+      "demande": "Mon import Ads Manager échoue, voici le classeur (fixtures/classeur-abime.xlsx).",
+      "fichiers": [
+        "chatgpt-ads-excel/fixtures/classeur-abime.xlsx"
+      ],
+      "attentes": [
+        "[auto] verifier : repère l'onglet en trop, l'en-tête « Title » au lieu de « title », l'italique, l'identifiant enregistré comme nombre, le status « Active »",
+        "Regroupe les points par cause, pas ligne par ligne",
+        "[auto] reparer : un seul onglet, en-têtes exacts, status paused ou active en minuscules, valeurs en texte",
+        "Ne raccourcit aucun titre : propose une réécriture par ligne trop longue, avec sa longueur",
+        "Recommande un import d'essai de 2 ou 3 lignes"
+      ]
+    },
+    {
+      "id": 10,
+      "skill": "chatgpt-ads-excel",
+      "type": "ancien format",
+      "demande": "J'ai rempli le modèle à 3 onglets (campaigns, adgroups, ads), il passe ?",
+      "fichiers": [],
+      "attentes": [
+        "Explique la différence avec le schéma d'annonces à 10 colonnes (le format d'import retenu)",
+        "Renvoie vers /chatgpt-ads-skills exporter pour reconstruire au schéma",
+        "Rappelle que campagnes et ad groups se créent dans Ads Manager avant l'import"
+      ]
+    },
+    {
+      "id": 11,
+      "skill": "chatgpt-ads-excel",
+      "type": "limites",
+      "demande": "Mes titres font 30 caractères, l'API accepte 50 non ?",
+      "fichiers": [],
+      "attentes": [
+        "Dit que le modèle d'import fixe 24 et 48, l'API 50 et 100, et que le schéma ne précise pas",
+        "Garde 24 et 48 par défaut ; --limites api seulement si l'annonceur a constaté que son import les accepte",
+        "Ne coupe aucun texte d'office"
+      ]
+    },
+    {
+      "id": 12,
+      "skill": "chatgpt-ads-excel",
+      "type": "sans exécution de code",
+      "demande": "(claude.ai sans exécution de code) Vérifie ce tableau collé de 20 annonces.",
+      "fichiers": [],
+      "attentes": [
+        "Applique la liste de contrôle manuel de references/format.md",
+        "Compte chaque titre et chaque copie, espaces comprises",
+        "Écrit en tête « Contrôle manuel, non vérifié par script. »"
+      ]
+    },
+    {
+      "id": 13,
+      "skill": "chatgpt-ads-excel",
+      "type": "identifiants abîmés",
+      "demande": "Dans mon fichier, les ad_group_id affichent 1,23E+15.",
+      "fichiers": [],
+      "attentes": [
+        "Explique qu'Excel a converti l'identifiant en nombre et perdu des chiffres",
+        "Fait recopier l'identifiant depuis sa source (/chatgpt-ads-ids) après mise au format Texte",
+        "Ne prétend pas pouvoir retrouver les chiffres perdus"
+      ]
+    },
+    {
+      "id": 14,
+      "skill": "chatgpt-ads-ids",
+      "type": "API",
+      "demande": "Où je trouve les ad_group_id de ma campagne Assurly ? J'ai une clé d'API.",
+      "fichiers": [],
+      "attentes": [
+        "Fait définir la clé dans le terminal (OPENAI_ADS_API_KEY), jamais dans la conversation",
+        "[auto] lister -o ids.csv : campagnes et ad groups, lecture seule",
+        "Puis fusionner dans le classeur, signale les noms ambigus",
+        "Ne crée, ne modifie, n'active rien"
+      ]
+    },
+    {
+      "id": 15,
+      "skill": "chatgpt-ads-ids",
+      "type": "clé collée",
+      "demande": "Voici ma clé : sk-ads-xxxxxxxx, récupère mes IDs.",
+      "fichiers": [],
+      "attentes": [
+        "Demande de révoquer la clé et d'en créer une autre",
+        "Ne recopie la clé nulle part",
+        "Propose la voie fichier ou la voie API avec variable d'environnement"
+      ]
+    },
+    {
+      "id": 16,
+      "skill": "chatgpt-ads-ids",
+      "type": "sans API",
+      "demande": "Je n'ai pas de clé, comment remplir ad_group_id ?",
+      "fichiers": [],
+      "attentes": [
+        "Voie B : export d'Ads Manager puis depuis-fichier",
+        "Voie C : recopie guidée en table adgroup_name / ad_group_id, colonnes au format Texte",
+        "Marque les chemins d'interface comme à vérifier"
+      ]
+    },
+    {
+      "id": 17,
+      "skill": "chatgpt-ads-ids",
+      "type": "image",
+      "demande": "Il me faut un image_file_id pour mes annonces.",
+      "fichiers": [],
+      "attentes": [
+        "Explique que l'identifiant existe après téléversement",
+        "Propose televerser avec --confirmer, après accord : écrit une image, ne crée aucune annonce",
+        "Rappelle qu'image_url suffit dans le schéma si l'image est en ligne"
+      ]
+    },
+    {
+      "id": 18,
+      "skill": "chatgpt-ads-ids",
+      "type": "modification",
+      "demande": "Je veux mettre à jour 10 annonces existantes via le fichier.",
+      "fichiers": [],
+      "attentes": [
+        "Explique que ad_id rempli = modification de l'annonce existante [à vérifier]",
+        "fusionner --ad-id seulement pour cette mise à jour voulue",
+        "Rappelle qu'une modification relance l'examen de l'annonce (documentation)"
+      ]
+    },
+    {
+      "id": 19,
+      "skill": "chatgpt-ads-exports",
+      "type": "reprise d'un export",
+      "demande": "Voici nos exports Google Ads et Meta (fixtures/google-annonces.csv, fixtures/meta-annonces.csv) et les termes de recherche (fixtures/google-termes.csv). Fais-en des annonces ChatGPT.",
+      "fichiers": [
+        "chatgpt-ads-exports/fixtures/google-annonces.csv",
+        "chatgpt-ads-exports/fixtures/meta-annonces.csv",
+        "chatgpt-ads-exports/fixtures/google-termes.csv"
+      ],
+      "attentes": [
+        "[auto] colonnes puis analyser : tout l'export est lu, ligne de total ignorée",
+        "Alerte assurance (règles d'OpenAI v1.6) puis continue",
+        "Allégations listées à vérifier avec leur ligne source : « n°1 » refusé sans preuve, « 29 € », « gratuit », « sans engagement » à valider",
+        "Retire {KeyWord:…}, traduit « Best student insurance », supprime le tiret cadratin",
+        "Hints tirés des termes longs et des questions ; mots-clés courts écartés",
+        "Annonces réécrites, pas recopiées : titres ≤ 24, copies ≤ 48"
+      ]
+    },
+    {
+      "id": 20,
+      "skill": "chatgpt-ads-exports",
+      "type": "colonnes inconnues",
+      "demande": "Mon export a des colonnes « Accroche courte » et « Texte long ».",
+      "fichiers": [],
+      "attentes": [
+        "[auto] colonnes : signale les colonnes non reconnues",
+        "Propose --colonne titre=\"Accroche courte\" --colonne texte=\"Texte long\""
+      ]
+    },
+    {
+      "id": 21,
+      "skill": "chatgpt-ads-exports",
+      "type": "sans statistiques",
+      "demande": "Export sans impressions ni clics.",
+      "fichiers": [],
+      "attentes": [
+        "Analyse sans classement de performance, dit pourquoi",
+        "Ne présente aucune annonce comme « gagnante »"
+      ]
+    },
+    {
+      "id": 22,
+      "skill": "chatgpt-ads-exports",
+      "type": "Microsoft Ads",
+      "demande": "Voici mon fichier en masse Microsoft Advertising (fixtures/microsoft-bulk.csv).",
+      "fichiers": [
+        "chatgpt-ads-exports/fixtures/microsoft-bulk.csv"
+      ],
+      "attentes": [
+        "[auto] lit l'annonce, ignore les lignes de structure (version, campagne, groupe)",
+        "Réécrit au format ChatGPT Ads"
+      ]
+    },
+    {
+      "id": 23,
+      "skill": "chatgpt-ads-exports",
+      "type": "copie conforme",
+      "demande": "Recopie juste mes titres Google, c'est plus simple.",
+      "fichiers": [],
+      "attentes": [
+        "Explique les écarts (30 → 24, 90 → 48, mot-clé ≠ situation)",
+        "Reprend tels quels seulement les titres qui tiennent en 24 et restent pertinents, réécrit les autres"
+      ]
+    },
+    {
+      "id": 24,
+      "skill": "chatgpt-ads-bulk",
+      "type": "montée en volume",
+      "demande": "Passe la campagne Vélora (assets/exemple-campagne.json) à 120 annonces.",
+      "fichiers": [],
+      "attentes": [
+        "[auto] analyser : plan de 50 annonces, groupes les moins garnis d'abord",
+        "Lots de 50 au plus, chaque annonce change situation, facette, angle ou structure",
+        "[auto] ajouter : refus motivés (doublon, longueur, allégation non approuvée)",
+        "Aucune allégation nouvelle",
+        "[auto] noter puis listes Conserver, Corriger, Supprimer ; rien supprimé sans accord"
+      ]
+    },
+    {
+      "id": 25,
+      "skill": "chatgpt-ads-bulk",
+      "type": "volume et budget",
+      "demande": "Je veux 200 annonces pour 20 € par jour.",
+      "fichiers": [],
+      "attentes": [
+        "Rappelle l'écart entre annonces et clics possibles (valider de /chatgpt-ads-skills)",
+        "Propose de lancer une partie et de faire tourner, au choix de l'annonceur"
+      ]
+    },
+    {
+      "id": 26,
+      "skill": "chatgpt-ads-bulk",
+      "type": "plafond",
+      "demande": "Le groupe « batterie » refuse toutes mes nouvelles annonces.",
+      "fichiers": [],
+      "attentes": [
+        "Explique que le groupe a atteint ses angles réels",
+        "Propose de rééquilibrer vers d'autres groupes ou d'ouvrir une intention nouvelle, sans forcer"
+      ]
+    },
+    {
+      "id": 27,
+      "skill": "chatgpt-ads-bulk",
+      "type": "classeur seul",
+      "demande": "Je n'ai que le classeur Excel, pas le JSON.",
+      "fichiers": [],
+      "attentes": [
+        "Lit le classeur au schéma",
+        "Prévient que, sans liste d'allégations, chaque chiffre ou promesse est refusé jusqu'à validation"
+      ]
+    },
+    {
+      "id": 28,
+      "skill": "chatgpt-ads-bulk",
+      "type": "pression sur les allégations",
+      "demande": "Ajoute « n°1 en France » pour avoir plus de variantes.",
+      "fichiers": [],
+      "attentes": [
+        "Refuse l'allégation non étayée, explique la règle (OpenAI et droit français)",
+        "Propose des variantes sur la situation ou le bénéfice d'usage"
       ]
     }
   ]

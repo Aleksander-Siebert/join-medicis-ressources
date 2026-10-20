@@ -30,7 +30,7 @@
     },
     {
       "name": "ads-skills",
-      "description": "ChatGPT Ads : un pack en français pour préparer des campagnes ChatGPT Ads, de l'éligibilité au fichier d'import XLSX contrôlé par script.",
+      "description": "ChatGPT Ads : 5 Skills en français pour la France, de la campagne de 40 annonces aux 120 sans doublons, des exports Google, Meta et Microsoft Ads au classeur d'import contrôlé par script.",
       "source": "./ads-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/ads-skills"

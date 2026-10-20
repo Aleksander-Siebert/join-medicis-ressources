@@ -1,7 +1,7 @@
 {
   "name": "ads-skills",
-  "description": "Le pack ChatGPT Ads en français : éligibilité selon les règles d'OpenAI, carte des intentions, ad groups, context hints, annonces aux limites du fichier d'import, contrôle par script et fichier XLSX prêt à relire. Rien n'est lancé ni publié à ta place.",
-  "version": "0.1.0",
+  "description": "Le pack ChatGPT Ads en français, spécialisé France : 5 Skills pour préparer une campagne (alerte datée sur les secteurs restreints, puis la campagne), passer à 120 annonces sans doublons, réécrire des exports Google, Meta ou Microsoft Ads, retrouver les identifiants et contrôler le classeur d'import au schéma d'annonces. Rien n'est lancé ni publié à ta place.",
+  "version": "0.2.0",
   "author": {
     "name": "Aleksander Siebert",
     "url": "https://joinmedicis.com/auteurs/aleksander-siebert"
@@ -10,11 +10,15 @@
   "repository": "https://github.com/Aleksander-Siebert/join-medicis-ressources",
   "license": "MIT",
   "keywords": [
+    "annonces",
+    "bulk",
     "chatgpt-ads",
-    "openai-ads",
-    "publicité",
     "context-hints",
     "français",
-    "annonces"
+    "google-ads",
+    "meta-ads",
+    "microsoft-ads",
+    "openai-ads",
+    "publicité"
   ]
 }

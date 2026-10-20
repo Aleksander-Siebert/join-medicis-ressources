@@ -5,18 +5,39 @@ de vérification**. Un fait absent de ce fichier porte **[à vérifier]**. La
 plateforme change vite : on revérifie quand la date a plus de 3 mois, et les
 règles publicitaires à chaque lancement.
 
-Sources officielles relues le 15 oct. 2026 :
+Sources officielles :
 
 - **[H]** Help Center d'OpenAI, « Ads in ChatGPT: The Basics » (mise à jour
-  vers le 10 oct. 2026), https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics
-- **[P]** Règles publicitaires d'OpenAI (Ad Policies), version 1.6 de
-  septembre 2026, https://openai.com/fr-FR/policies/ad-policies/
+  vers le 10 oct. 2026, relue le 15 oct. 2026),
+  https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics
+- **[P]** Règles publicitaires d'OpenAI (Ad Policies), version 1.6 du
+  10 sept. 2026, version française relue en entier le 20 oct. 2026 :
+  https://openai.com/fr-FR/policies/ad-policies/ (synthèse complète :
+  `commun/politiques-openai.md`)
 - **[D]** Documentation développeur Ads, https://developers.openai.com/ads
-  (export complet `llms-full.txt`)
-- **[M]** Le modèle d'import d'Ads Manager, lu dans un exemplaire fourni par
-  un annonceur (non redistribué ; le pack fournit son propre modèle)
+  (export complet `llms-full.txt`, 8 485 lignes, journal des modifications
+  au 30 sept. 2026, relu le 20 oct. 2026)
+- **[M]** Le modèle d'import d'Ads Manager à 3 onglets, lu dans un
+  exemplaire fourni par un annonceur (non redistribué)
+- **[S]** Le schéma d'annonces « Schema - ChatGPT ads » (un onglet,
+  10 colonnes), fourni le 20 oct. 2026 comme seul format compatible avec
+  l'import d'Ads Manager ; le pack écrit sa propre copie vierge
+- **[R]** Presse et blogs spécialisés qui citent OpenAI (Blog du
+  Modérateur, 1er sept. 2026 ; AirOps, lu le 14 oct. 2026) : faits à
+  confirmer sur la page d'OpenAI quand elle est lisible
 
 ## 1. Le fichier d'import
+
+### Le schéma d'annonces (format de sortie du pack)
+
+| Fait | Source | Vérifié le |
+|---|---|---|
+| Un onglet (`Feuil1` dans l'exemplaire fourni), une ligne d'en-tête, puis une annonce par ligne. Colonnes, dans l'ordre : `ad_id`, `ad_group_id`, `adgroup_name`, `ad_name`, `status`, `title`, `copy`, `link`, `image_url`, `image_file_id`. | S | 20 oct. 2026 |
+| Le schéma ne contient ni campagne ni ad group : ils se créent dans Ads Manager (ou par l'API), puis chaque annonce est reliée à son ad group par `ad_group_id`. Les context hints se saisissent donc dans Ads Manager, au niveau de l'ad group. | S, D | 20 oct. 2026 |
+| Colonnes obligatoires, limites de caractères et valeurs de `status` propres à ce format : **non documentées**. Le pack applique les limites du modèle d'import (titre 24, copie 48), les statuts de l'API (`active`, `paused`) et demande au moins une image (`image_url` ou `image_file_id`). | S, M, D | 20 oct. 2026 **[à vérifier par un import d'essai]** |
+| Identifiants dans la documentation : `ad_…` (annonce), `adgrp_…` (ad group), `cmpn_…` (campagne), `file_…` (image téléversée) ; ce sont des exemples, le format réel peut différer. | D | 20 oct. 2026 |
+
+### Le modèle d'import à 3 onglets (ancien format)
 
 | Fait | Source | Vérifié le |
 |---|---|---|
@@ -52,21 +73,39 @@ Sources officielles relues le 15 oct. 2026 :
 | Le modèle d'import conseille le budget quotidien : le budget total n'a « pas encore » de lissage de diffusion. | M | 15 oct. 2026 |
 | Rapports : affichages, clics et CTR rafraîchis toutes les 15 minutes environ ; la dépense peut avoir 7 à 8 heures de retard. | H | 15 oct. 2026 |
 | Ciblage de campagne : pays ou zones (identifiants de lieux), plateformes (`ios_app`, `android_app`, `web`), audiences personnalisées (25 000 personnes reconnues au moins pour une inclusion). | D | 15 oct. 2026 |
-| Ouverture de 31 pays européens, dont la France, à partir du 24 août 2026. | officiel **[à vérifier : relire la page]**, annonce d'OpenAI « ChatGPT Ads expands across Europe » | 15 oct. 2026 |
+| Sans ciblage géographique, une campagne peut diffuser dans **tous les pays disponibles** : le pays se renseigne toujours. | D | 20 oct. 2026 |
+| Ciblage web séparé par appareil (`desktop_web`, `ios_web`, `android_web`) depuis le 10 sept. 2026. | D | 20 oct. 2026 |
+| Rapports de conversions : fenêtres d'attribution par défaut de 30 jours après clic et 1 jour après affichage depuis le 30 sept. 2026 ; les totaux diffèrent des anciens rapports. | D | 20 oct. 2026 |
+| Bulk API (création et mise à jour en masse par programme) : aperçu limité, ouvert compte par compte, 1 000 opérations par tâche, mode « validation seule ». | D | 20 oct. 2026 |
+| Limites par compte en libre-service : 5 000 campagnes, 5 000 ad groups, 5 000 annonces actives ou en pause. | D | 20 oct. 2026 |
 
-## 3. Règles publicitaires (Ad Policies v1.6, septembre 2026)
+## 2 bis. France et Europe
+
+| Fait | Source | Vérifié le |
+|---|---|---|
+| Annonce du 18 août 2026 : ChatGPT Ads s'ouvre à 31 marchés européens (les 27 pays de l'UE, Norvège, Islande, Liechtenstein, Suisse), dont la France ; diffusion à partir du 24 août par l'équipe commerciale d'OpenAI et des agences partenaires. | R (citant OpenAI) | 20 oct. 2026 **[à vérifier sur openai.com, page illisible par robot]** |
+| Ads Manager en libre-service ouvert en Europe le 31 août 2026, sans engagement minimum de dépense ; inscription avec vérification de l'entreprise et moyen de paiement. | R (citant OpenAI) | 20 oct. 2026 **[à vérifier]** |
+| **EEE et Suisse : pas de publicité personnalisée pour l'instant ; les audiences personnalisées ne s'appliquent pas aux campagnes qui ciblent ces pays.** La sélection repose sur la conversation en cours et un contexte limité (localisation générale, appareil, langue). | D (audiences), R (sélection) | 20 oct. 2026 |
+| Pixel : le consentement est considéré comme acquis par défaut ; `oaiq("consent", false)` avant `init` bloque l'envoi des événements jusqu'à l'accord. En France, le bandeau de consentement doit piloter ce réglage. | D | 20 oct. 2026 |
+| Le budget quotidien minimum dépend de la devise du compte ; montant en euros non trouvé. | D, H | 20 oct. 2026 **[à vérifier dans Ads Manager]** |
+
+## 3. Règles publicitaires (Ad Policies v1.6, 10 septembre 2026)
+
+Synthèse complète, section par section : `commun/politiques-openai.md`.
+
 
 | Fait | Source | Vérifié le |
 |---|---|---|
 | Pas d'annonce près des conversations sensibles : santé mentale et personnelle, dépendance émotionnelle, parcours sensibles, et 19 catégories dont sécurité des enfants, politique, vie privée, suicide, armes, biens réglementés. | P | 15 oct. 2026 |
 | Catégories de la phase de test : biens ménagers et de consommation, style de vie, services locaux, voyages et expériences, divertissement, produits numériques et éducation. | P | 15 oct. 2026 |
-| Services financiers (dont l'assurance), santé et juridique : admis **aux États-Unis seulement**, au cas par cas, pour des annonceurs approuvés ; **hors États-Unis, généralement interdits**. | P | 15 oct. 2026 |
+| Services financiers (dont l'assurance), santé et juridique : admis **aux États-Unis seulement**, au cas par cas, pour des annonceurs approuvés ; **hors États-Unis, généralement interdits**. Le pack **alerte** sans bloquer : la décision revient à l'annonceur et à l'examen d'OpenAI. | P | 20 oct. 2026 |
+| OpenAI peut refuser un annonceur ou une annonce « pour quelque raison que ce soit », y compris sa position concurrentielle (ajout de la v1.6). | P | 20 oct. 2026 |
 | Interdits : contenus adultes et rencontres, alcool (plus de 0,5%), tabac et vapotage, jeux d'argent, contrefaçons, substances récréatives, contenu politique, allégations de bien-être non étayées (détox, minceur), redressement de crédit et règlement de dettes, investissements alternatifs (or), offres d'emploi ou de logement individuelles. | P | 15 oct. 2026 |
 | Toute annonce doit être véridique : pas d'affirmation non étayée sur les capacités, les prix, les résultats, les affiliations ou les comparaisons. | P | 15 oct. 2026 |
 | L'annonce ne doit pas imiter l'apparence, les fonctions ou la voix de ChatGPT. | P | 15 oct. 2026 |
 | Les règles s'appliquent au texte, à l'image et à la page de destination, qui doivent être cohérents de bout en bout. | P | 15 oct. 2026 |
 | Examen par systèmes automatisés (dont des LLM) sous contrôle humain ; une annonce ou une page qui ne peut pas être vérifiée ne peut pas être diffusée. | P | 15 oct. 2026 |
-| Historique : v1.0 mars 2026, v1.1 avril (conseils médicaux, juridiques et financiers plus bloqués d'office pour le placement), v1.3 juillet (finance et santé précisées), v1.5 août (juridique admis aux États-Unis), v1.6 septembre. | P | 15 oct. 2026 |
+| Historique : v1.0 mars 2026, v1.1 avril (conseils médicaux, juridiques et financiers plus bloqués d'office pour le placement), v1.2 mai (examen et application), v1.3 juillet (politiques annonceurs, finance et santé précisées), v1.4 août (logement et emploi), v1.5 août (juridique admis aux États-Unis), v1.6 septembre (droit de refus). | P | 20 oct. 2026 |
 
 ## 4. Points à confirmer (choix par défaut du pack)
 
@@ -76,7 +115,8 @@ Sources officielles relues le 15 oct. 2026 :
 | Longueur d'un hint | la documentation donne des exemples de 5 à 8 mots ; d'autres sources parlent d'une ou deux phrases | **4 à 8 mots**, une situation par hint |
 | Volume d'annonces au lancement | 40 à 50, ou 100 au minimum ; plafond de 5 000 annonces actives par compte (D) ; l'éval à l'aveugle du 15 oct. 2026 a jugé 40 annonces illisibles pour 30 € par jour | **40 à 50** (5 groupes ou plus) quand le budget le permet ; sinon 2 ou 3 annonces par groupe, au choix de l'annonceur ; mode « grande échelle » : 100 |
 | Caractères autorisés dans les noms | « no special characters » sans liste | lettres non accentuées, chiffres, `_` et `-` |
-| Fichier d'import maison accepté par Ads Manager | mêmes onglets et colonnes que le modèle d'Ads Manager au 15 oct. 2026 | **tester l'import d'un petit fichier** avant la campagne ; sinon, `--modele` avec le modèle téléchargé dans Ads Manager |
+| Format d'import | schéma d'annonces à 10 colonnes (S, « seul format compatible » selon l'utilisateur) ; modèle à 3 onglets (M) | **schéma** par défaut ; 3 onglets en option ; import d'essai d'un petit fichier avant la campagne |
+| Limites de caractères du schéma | 24 et 48 (M) ; 50 et 100 (D) ; recommandations différentes selon les supports | **24 et 48** (passent partout) ; `--limites api` sur décision de l'annonceur |
 
 ## 5. Folklore (à reconnaître et écarter)
 

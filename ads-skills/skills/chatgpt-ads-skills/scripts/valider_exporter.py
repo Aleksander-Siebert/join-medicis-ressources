@@ -22,10 +22,12 @@ Commandes :
       allégations non étayées, éligibilité de la catégorie selon les pays
       (règles publicitaires d'OpenAI v1.6), imitation de ChatGPT.
 
-  exporter SOURCE -o SORTIE.xlsx [--modele M]
-      Valide, puis écrit le XLSX au format exact du modèle : 3 onglets, en-têtes,
-      mise en forme et contrôles de saisie conservés, ligne d'exemple retirée
-      s'il y en a une, texte normal (pas d'italique). Refuse d'écrire s'il
+  exporter SOURCE -o SORTIE.xlsx [--fiche FICHE.md] [--format schema|trois-onglets] [--limites import|api]
+      Valide, puis écrit le classeur d'annonces au format du schéma (un onglet,
+      10 colonnes : ad_id … image_file_id, commun/classeur.py) et la fiche de
+      paramétrage (campagnes et ad groups à créer dans Ads Manager, context
+      hints prêts à coller). --format trois-onglets écrit l'ancien modèle
+      d'import (campaigns, adgroups, ads) avec --modele. Refuse d'écrire s'il
       reste un point BLOQUANT.
 
   tableaux SOURCE
@@ -45,9 +47,13 @@ Format JSON de la campagne (champs facultatifs entre crochets) :
    "allegations": [{"texte": "Garantie 12 mois", "source": "https://…", "statut": "approuvée"}],
    "campaigns": [{"campaign_name", "budget_max", [budget_type, launch_date, end_date,
                   objective, conversion_event_setting_ids, target_countries]}],
-   "adgroups": [{"campaign_name", "adgroup_name", [max_bid], "context_hints": [...],
+   "adgroups": [{"campaign_name", "adgroup_name", [ad_group_id, max_bid], "context_hints": [...],
                  [intention, prompts_test, idee_visuel]}],
-   "ads": [{"adgroup_name", "title", "copy", "link", "image_link", [angle, allegation]}]}
+   "ads": [{"adgroup_name", "title", "copy", "link", "image_url" | "image_file_id",
+            [ad_name, status, ad_id, angle, allegation]}]}
+
+  ad_group_id : identifiant de l'ad group une fois créé dans Ads Manager (/chatgpt-ads-ids).
+  image_link (ancien nom) est accepté à la place d'image_url.
 
 Exemple complet : assets/exemple-campagne.json.
 """
@@ -63,6 +69,11 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 ICI = Path(__file__).resolve().parent
+for _base in (ICI.parent / "commun", ICI.parents[1] / "commun"):   # Skill seul, ou ZIP claude.ai
+    if (_base / "classeur.py").exists():
+        sys.path.insert(0, str(_base))
+        break
+import classeur as cl  # noqa: E402
 MODELE_DEFAUT = ICI.parent / "assets" / "modele-import.xlsx"
 ONGLETS = ("campaigns", "adgroups", "ads")
 BLOQUANT, ATTENTION, INFO = "BLOQUANT", "ATTENTION", "INFO"
@@ -122,6 +133,9 @@ SIGNAUX = {
     "politique": r"\b(?:élections?|référendum|candidats?|partis? politiques?|votez)\b",
     "offre_emploi": r"\b(?:offres? d'emploi|nous recrutons|on recrute|job offer)\b",
 }
+# Allégations environnementales génériques (directive (UE) 2024/825, commun/droit-francais.md).
+VERT = re.compile(r"\b(?:écologiques?|éco-?responsables?|respectueu(?:x|se|ses) de l'environnement|verts?|durables?|"
+                  r"neutres? en carbone|zéro carbone|green|eco-friendly|carbon neutral)\b", re.I)
 IMITATION = re.compile(r"\b(?:chat\s?gpt|openai|gpt-?\d\w*)\b|^\s*(?:réponse|answer)\s*:", re.I)
 GEO_HINT = re.compile(r"\b(?:en|à|au|aux|in)\s+(?:France|Belgique|Suisse|Luxembourg|Canada|Québec|Europe|Paris|Lyon|Marseille|"
                       r"Toulouse|Bordeaux|Lille|Nantes|Bruxelles|Genève|Montréal)\b", re.I)
@@ -424,7 +438,8 @@ def valider(camp, modele, aujourdhui=None, mode=None):
         if err:
             r.ajoute(BLOQUANT, "campaigns", o, f"target_countries : {err}")
         elif not pays:
-            r.ajoute(INFO, "campaigns", o, "aucun pays ciblé", "vérifier le comportement par défaut d'Ads Manager [à vérifier]")
+            r.ajoute(ATTENTION, "campaigns", o, "aucun pays ciblé",
+                     "sans ciblage, la campagne peut diffuser dans tous les pays disponibles (docs OpenAI) : renseigner FR")
         else:
             for p in pays:
                 code = str(p).strip()
@@ -448,14 +463,18 @@ def valider(camp, modele, aujourdhui=None, mode=None):
         r.ajoute(ATTENTION, "annonceur", "categorie", f"catégorie « {annonceur.get('categorie')} » inconnue du pack",
                  "la rapprocher d'une catégorie de references/politiques.md")
     elif statut_cat == "interdite":
-        r.ajoute(BLOQUANT, "annonceur", "categorie", f"catégorie « {categorie} » interdite par les règles publicitaires d'OpenAI",
-                 "Ad Policies v1.6 (sept. 2026) : ne pas lancer ; relire la page si elle a changé")
+        r.ajoute(ATTENTION, "annonceur", "categorie",
+                 f"ALERTE : catégorie « {categorie} » interdite par les règles publicitaires d'OpenAI (v1.6, 10 sept. 2026)",
+                 "refus très probable de l'annonce ou de l'annonceur ; décision de l'annonceur, alerte à garder dans « à vérifier » "
+                 "(commun/politiques-openai.md)")
     elif statut_cat == "restreinte_us":
         hors_us = sorted(pays_vises - {"US"}) or ["tous pays (aucun ciblage)"]
         if pays_vises != {"US"}:
-            r.ajoute(BLOQUANT, "annonceur", "categorie",
-                     f"catégorie « {categorie} » : hors des États-Unis, généralement interdite ({', '.join(hors_us)})",
-                     "Ad Policies v1.6 (sept. 2026) : ne pas lancer hors US sans accord écrit d'OpenAI")
+            r.ajoute(ATTENTION, "annonceur", "categorie",
+                     f"ALERTE : catégorie « {categorie} » généralement interdite hors des États-Unis ({', '.join(hors_us)}), "
+                     "Ad Policies v1.6 (10 sept. 2026)",
+                     "refus probable ; annonces véridiques uniquement (cacher le produit expose le compte) ; pistes conformes : "
+                     "commun/politiques-openai.md § 6, demande d'examen à l'équipe OpenAI")
         else:
             r.ajoute(ATTENTION, "annonceur", "categorie", f"catégorie « {categorie} » : approbation au cas par cas aux États-Unis",
                      "justificatif d'autorisation d'exercer possible ; examen manuel")
@@ -655,18 +674,23 @@ def valider(camp, modele, aujourdhui=None, mode=None):
                 r.ajoute(INFO, "ads", o, f"lien profond ou d'installation ({u.scheme}:)", "le modèle les accepte ; le tester sur mobile")
             else:
                 r.ajoute(BLOQUANT, "ads", o, f"link invalide : « {lien} »")
-        image = str(a.get("image_link", "") or "").strip()
-        if not image:
-            r.ajoute(BLOQUANT, "ads", o, "image_link vide (obligatoire)",
+        image = str(a.get("image_url") or a.get("image_link") or "").strip()
+        fichier_image = str(a.get("image_file_id", "") or "").strip()
+        if not image and fichier_image:
+            if not fichier_image.startswith("file_"):
+                r.ajoute(ATTENTION, "ads", o, f"image_file_id « {fichier_image} » ne commence pas par « file_ »",
+                         "le recopier depuis Ads Manager ou l'API (/chatgpt-ads-ids)")
+        elif not image:
+            r.ajoute(BLOQUANT, "ads", o, "image vide (image_url ou image_file_id obligatoire)",
                      "image carrée 640 à 1200 px, PNG ou JPG, à une URL publique directe")
         else:
             u = urllib.parse.urlsplit(image)
             if u.scheme not in ("http", "https") or not u.netloc or " " in image:
-                r.ajoute(BLOQUANT, "ads", o, f"image_link invalide : « {image} »")
+                r.ajoute(BLOQUANT, "ads", o, f"image_url invalide : « {image} »")
             elif re.search(r"\.webp$", u.path, re.I):
-                r.ajoute(ATTENTION, "ads", o, "image_link en WebP", "l'API l'accepte, le modèle d'import cite PNG ou JPG : préférer PNG ou JPG")
+                r.ajoute(ATTENTION, "ads", o, "image_url en WebP", "l'API l'accepte, le modèle d'import cite PNG ou JPG : préférer PNG ou JPG")
             elif not re.search(r"\.(png|jpe?g)$", u.path, re.I):
-                r.ajoute(ATTENTION, "ads", o, "image_link sans extension .png ou .jpg",
+                r.ajoute(ATTENTION, "ads", o, "image_url sans extension .png ou .jpg",
                          "vérifier que l'URL ouvre directement l'image")
 
     # signaux de catégories restreintes ou interdites (textes des annonces et des hints)
@@ -682,6 +706,16 @@ def valider(camp, modele, aujourdhui=None, mode=None):
                 vus_sig.add((cat, plier(m.group(0))))
                 r.ajoute(ATTENTION, onglet_t, "-", f"« {m.group(0)} » : signal de la catégorie {cat}",
                          "vérifier l'éligibilité (references/politiques.md) ; ignorer si l'usage est incident")
+
+    for onglet_t, t in textes:
+        m = VERT.search(t)
+        if m:
+            r.ajoute(ATTENTION, onglet_t, "-", f"« {m.group(0)} » : allégation environnementale",
+                     "interdite si générique et non démontrée (directive (UE) 2024/825, commun/droit-francais.md)")
+            break
+    if categorie == "finance" or any(re.search(r"\bcr[ée]dits?\b(?! d'imp)", t, re.I) for _, t in textes):
+        r.ajoute(ATTENTION, "ads", "-", "crédit à la consommation : la mention de l'art. L312-5 du Code de la consommation est obligatoire en France",
+                 "elle ne tient pas dans 24 + 48 caractères (commun/droit-francais.md)")
 
     # volume et équilibre
     for gn, lst in par_groupe.items():
@@ -842,6 +876,59 @@ def exporter(camp, modele_chemin, sortie):
             z.writestr(nom, contenu)
 
 
+# ---------------------------------------------------------------- export au format du schéma
+
+def lignes_schema(camp):
+    """Annonces de la campagne → lignes du schéma d'annonces (commun/classeur.py)."""
+    ids = {str(g.get("adgroup_name", "")).strip(): str(g.get("ad_group_id", "") or "").strip() for g in camp.get("adgroups", [])}
+    res, compte = [], {}
+    for a in camp.get("ads", []):
+        g = str(a.get("adgroup_name", "")).strip()
+        compte[g] = compte.get(g, 0) + 1
+        res.append({
+            "ad_id": str(a.get("ad_id", "") or "").strip(),
+            "ad_group_id": str(a.get("ad_group_id", "") or "").strip() or ids.get(g, ""),
+            "adgroup_name": g,
+            "ad_name": str(a.get("ad_name", "") or "").strip() or f"{g}-{compte[g]:02d}",
+            "status": str(a.get("status", "") or "paused").strip(),
+            "title": str(a.get("title", "") or ""),
+            "copy": str(a.get("copy", "") or ""),
+            "link": str(a.get("link", "") or "").strip(),
+            "image_url": str(a.get("image_url") or a.get("image_link") or "").strip(),
+            "image_file_id": str(a.get("image_file_id", "") or "").strip(),
+        })
+    return res
+
+
+def fiche_parametrage(camp):
+    """Ce qui ne passe pas par le classeur d'annonces : campagnes et ad groups à créer dans Ads Manager."""
+    out = ["# Paramétrage dans Ads Manager", "",
+           "Le classeur d'annonces relie chaque annonce à un ad group **existant** (`ad_group_id`). Créer d'abord, "
+           "dans Ads Manager, les campagnes et les ad groups ci-dessous (en pause), récupérer les identifiants des "
+           "ad groups (/chatgpt-ads-ids), les reporter dans le JSON (`adgroups[].ad_group_id`), puis exporter "
+           "le classeur.", ""]
+    for c in camp.get("campaigns", []):
+        pays, _ = liste_json(c.get("target_countries"))
+        evts, _ = liste_json(c.get("conversion_event_setting_ids"))
+        out += [f"## Campagne : {c.get('campaign_name', '{{à compléter}}')}", "",
+                "| Réglage | Valeur |", "|---|---|",
+                f"| Objectif | {_valeur('campaigns', 'objective', c)[0] or '{{à compléter}}'} |",
+                f"| Budget | {c.get('budget_max', '{{à compléter}}')} ({_valeur('campaigns', 'budget_type', c)[0] or 'Daily'}), devise du compte |",
+                f"| Dates | {c.get('launch_date') or 'dès l’activation'} → {c.get('end_date') or 'sans fin'} |",
+                f"| Pays | {', '.join(map(str, pays or [])) or '{{à compléter}} (vide = tous les pays disponibles)'} |",
+                f"| Événement de conversion | {', '.join(map(str, evts or [])) or 'aucun'} |",
+                "| Statut à la création | en pause |", ""]
+        for g in [x for x in camp.get("adgroups", []) if str(x.get("campaign_name", "")).strip() == str(c.get("campaign_name", "")).strip()]:
+            hints, _ = liste_json(g.get("context_hints", g.get("context_hints_brut")))
+            out += [f"### Ad group : {g.get('adgroup_name')}", "",
+                    f"- Intention : {g.get('intention') or '{{à compléter}}'}",
+                    f"- Enchère maximale : {g.get('max_bid') if g.get('max_bid') not in (None, '') else '{{à compléter}}'}",
+                    f"- Identifiant une fois créé : {g.get('ad_group_id') or '{{à compléter : adgrp_…}}'}",
+                    "- Context hints (à coller tels quels) :", "",
+                    "```json", json.dumps(hints or [], ensure_ascii=False), "```", ""]
+    return "\n".join(out)
+
+
 # ---------------------------------------------------------------- affichage
 
 def afficher(r, resume):
@@ -889,6 +976,9 @@ def main(argv=None):
                            help="pour un XLSX : reprendre annonceur et allégations d'un JSON de campagne")
         if nom == "exporter":
             s.add_argument("-o", "--sortie", required=True)
+            s.add_argument("--format", choices=["schema", "trois-onglets"], default="schema")
+            s.add_argument("--fiche", help="fiche de paramétrage Markdown (défaut : SORTIE-parametrage.md)")
+            s.add_argument("--limites", choices=["import", "api"], default="import")
     a = ap.parse_args(argv)
 
     if a.cmd == "modele":
@@ -926,10 +1016,32 @@ def main(argv=None):
             afficher(r, resume)
             print("\nFichier non écrit : corriger les points bloquants d'abord.")
             return 3
-        exporter(camp, a.modele, a.sortie)
+        if a.format == "trois-onglets":
+            exporter(camp, a.modele, a.sortie)
+            afficher(r, resume)
+            print(f"\nFichier écrit : {a.sortie} (onglets {', '.join(ONGLETS)}). À relire par une personne qualifiée avant import.")
+            return r.code()
+        lignes = lignes_schema(camp)
+        rf = cl.Rapport()
+        cl.verifier_annonces(lignes, rf, a.limites)
         afficher(r, resume)
-        print(f"\nFichier écrit : {a.sortie} (onglets {', '.join(ONGLETS)}). À relire par une personne qualifiée avant import.")
-        return r.code()
+        if rf.compte(cl.BLOQUANT):
+            print("\n" + rf.texte("Format du classeur"))
+            print("\nFichier non écrit : corriger les points bloquants du format.")
+            return 3
+        if rf.points:
+            print("\n" + rf.texte("Format du classeur"))
+        cl.ecrire_xlsx(a.sortie, lignes)
+        fiche = Path(a.fiche) if a.fiche else Path(a.sortie).with_name(Path(a.sortie).stem + "-parametrage.md")
+        fiche.write_text(fiche_parametrage(camp), encoding="utf-8")
+        sans_id = sorted({x["adgroup_name"] for x in lignes if not x["ad_group_id"]})
+        print(f"\nClasseur écrit : {a.sortie} (schéma d'annonces, {len(lignes)} annonce(s), statut paused par défaut).")
+        print(f"Fiche de paramétrage : {fiche}")
+        if sans_id:
+            print(f"ad_group_id à compléter pour {len(sans_id)} groupe(s) : {', '.join(sans_id)} "
+                  "(créer les groupes dans Ads Manager, puis /chatgpt-ads-ids).")
+        print("À relire par une personne qualifiée, puis import d'essai de 2 ou 3 lignes.")
+        return max(r.code(), rf.code())
 
     if a.cmd == "tableaux":
         for onglet in ONGLETS:

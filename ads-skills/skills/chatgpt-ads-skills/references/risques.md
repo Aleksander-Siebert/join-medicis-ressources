@@ -90,3 +90,21 @@ import :
 - [ ] Import d'essai réussi dans Ads Manager.
 - [ ] Le rapport du script est à 0 bloquant, et chaque point « attention »
       gardé a une raison.
+
+## France
+
+À ajouter à « Avant de dépenser » pour toute campagne qui vise la France
+(`commun/faits.md` § 2 bis, `commun/droit-francais.md`) :
+
+- **Pays toujours renseigné** : sans ciblage, une campagne peut diffuser
+  dans tous les pays disponibles (documentation développeur).
+- **Pas d'audiences personnalisées** ni de publicité personnalisée dans
+  l'Espace économique européen et en Suisse : pas de reciblage de clients,
+  tout passe par la conversation et les context hints.
+- **Pixel en `consent: false`** avant l'initialisation, puis `true` quand le
+  bandeau de consentement l'autorise : le pixel considère le consentement
+  acquis par défaut.
+- **Annonces en français** (loi n° 94-665 du 4 août 1994) ; un slogan
+  anglais se traduit.
+- **Secteur restreint** : l'alerte datée figure dans la liste « à vérifier »
+  remise à l'annonceur.

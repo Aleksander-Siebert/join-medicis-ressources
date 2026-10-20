@@ -23,7 +23,7 @@
 <text x="20" y="358" xml:space="preserve" style="white-space:pre">      → l'ajouter à la liste des allégations avec sa source, ou la retirer</text>
 <text x="20" y="378" xml:space="preserve" style="white-space:pre">  [ads · ads[2]] allégation non étayée : « gratuite »</text>
 <text x="20" y="398" xml:space="preserve" style="white-space:pre">      → l'ajouter à la liste des allégations avec sa source, ou la retirer</text>
-<text x="20" y="418" xml:space="preserve" style="white-space:pre">  [ads · ads[2]] image_link vide (obligatoire)</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">  [ads · ads[2]] image vide (image_url ou image_file_id obligatoire)</text>
 <text x="20" y="438" xml:space="preserve" style="white-space:pre">      → image carrée 640 à 1200 px, PNG ou JPG, à une URL publique directe</text>
 <text x="20" y="458" xml:space="preserve" style="white-space:pre">  [ads · ads[4]] adgroup_name « offrir_plante » absent de l'onglet adgroups</text>
 <text x="20" y="478" xml:space="preserve" style="white-space:pre">  [ads · ads[4]] copy de 51 caractères (max 48) : « Une plante emballée sans plastique, livrée en</text>

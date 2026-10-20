@@ -1,5 +1,14 @@
 # Résultats des évaluations : pack ChatGPT Ads
 
+> **Note du 20 octobre 2026 (v0.2).** Ces résultats portent sur la v0.1. Le
+> comportement attendu sur le cas 3 a changé à la demande de l'utilisateur :
+> un secteur restreint déclenche une alerte datée et des pistes conformes,
+> puis la campagne est préparée ; le classeur suit le schéma d'annonces à
+> 10 colonnes. Les 4 nouveaux Skills (bulk, exports, ids, excel) sont
+> couverts par 87 tests de scripts et 20 cas décrits dans `evals.json` ; leur
+> éval à l'aveugle reste à faire, de préférence sur des cas réels anonymisés
+> de l'utilisateur.
+
 ## Tests automatiques
 
 `python3 evals/tout_tester.py` : **142 tests** au 15 octobre 2026.

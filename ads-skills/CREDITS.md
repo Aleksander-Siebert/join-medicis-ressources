@@ -21,8 +21,17 @@ Nous tenons à remercier et créditer les auteurs des projets suivants, qui ont 
 - [claude-ads](https://github.com/AgriciDaniel/claude-ads), AgriciDaniel (MIT) : la validation mécanique séparée du jugement, les règles de budget données comme des heuristiques et non comme des lois ; aucun fichier repris
 - OpenAI, sources publiques relues le 15 octobre 2026 (voir `commun/faits.md`) : Help Center « Ads in ChatGPT: The Basics », règles publicitaires (Ad Policies, version 1.6 de septembre 2026), documentation développeur Ads (developers.openai.com/ads), annonce de l'ouverture européenne (août 2026)
 - Le format du fichier d'import d'Ads Manager (onglets et noms de colonnes) : le pack fournit son propre modèle, `modele-import.xlsx`, sans reprendre le fichier d'OpenAI
+- [openai-ads-mcp](https://github.com/avyanshkatiyar/openai-ads-mcp), Avyansh Katiyar (MIT) : l'idée d'un client d'API à transport remplaçable pour tester sans réseau, et la règle « ne jamais deviner un identifiant » ; aucun fichier repris (ses contrôles, écrits pour la documentation de juin 2026, refusent des campagnes au clic aujourd'hui valides)
+- [NotFair](https://github.com/nowork-studio/NotFair), Toprank Contributors (MIT) : les statuts d'un livrable (brouillon, prêt à relire) et le registre de règles daté ; aucun fichier repris
+- OpenAI, sources publiques relues le 20 octobre 2026 : règles publicitaires v1.6 du 10 septembre 2026 (texte français, synthèse complète dans `commun/politiques-openai.md`), documentation développeur Ads (journal des modifications au 30 septembre 2026), Bulk API, ciblage, audiences personnalisées et consentement du pixel
+- Le schéma d'annonces à 10 colonnes fourni par l'utilisateur le 20 octobre 2026 : le pack écrit ses propres classeurs à ce format
 
-Ce que le pack ajoute : la carte des intentions comme pivot, des context
+Ce que le pack ajoute : la spécialisation France (règles d'OpenAI et droit
+français datés, pas de personnalisation dans l'EEE, consentement du pixel),
+l'alerte suivie du travail pour les secteurs restreints, la montée en
+volume par lots contrôlés, la reprise d'exports Google, Meta et Microsoft
+Ads, la recherche d'identifiants en lecture seule, le contrôle cellule par
+cellule du classeur d'import, la carte des intentions comme pivot, des context
 hints écrits comme des situations et testés sur des prompts simulés, un
 contrôle des allégations contre une liste étayée, un export XLSX sans
 dépendance qui respecte le modèle (en-têtes, styles, ligne d'exemple
