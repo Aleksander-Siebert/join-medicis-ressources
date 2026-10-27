@@ -5,11 +5,11 @@
 <br>
 
 **Des campagnes ChatGPT Ads ciblées par intention, écrites juste, prêtes à importer.**<br>
-5 Skills spécialisés France : la campagne, la montée à 120 annonces sans doublons, la reprise d'exports Google, Meta et Microsoft Ads, les identifiants, le classeur d'import contrôlé par script. **Rien n'est lancé à ta place, rien n'est inventé.**
+5 Skills spécialisés France : la campagne, la montée à 120 annonces sans doublons, la reprise d'exports Google, Meta et Microsoft Ads, les identifiants, le fichier d'import contrôlé par script. **Rien n'est lancé à ta place, rien n'est inventé.**
 
 <!-- github-seulement -->
-[![Version](https://img.shields.io/badge/version-0.2.0-0E3F2D)](#versions)
-[![Tests](https://img.shields.io/badge/tests-245%20au%20vert-2D7259)](#preuves)
+[![Version](https://img.shields.io/badge/version-0.2.1-0E3F2D)](#versions)
+[![Tests](https://img.shields.io/badge/tests-246%20au%20vert-2D7259)](#preuves)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](LICENSE)
 [![Python](https://img.shields.io/badge/Python%203-sans%20d%C3%A9pendance-34495E?logo=python&logoColor=white)](#le-script)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white)](#claude-code)
@@ -46,7 +46,7 @@ nommée ou un identifiant abîmé par Excel.
 **Ce pack prépare la campagne, il ne la pilote pas.** Il part des
 intentions des clients, écrit des hints comme des situations, rédige des
 annonces dont chaque promesse a une source, contrôle tout ce qui se compte
-et écrit le classeur d'import. Pour un secteur restreint par OpenAI
+et écrit le fichier d'import. Pour un secteur restreint par OpenAI
 (finance, assurance, santé, juridique), il **alerte** avec la règle datée,
 propose des pistes conformes, **puis fait le travail demandé**, avec des
 annonces qui disent vraiment ce qu'elles vendent.
@@ -56,7 +56,7 @@ annonces qui disent vraiment ce qu'elles vendent.
 <table>
 <tr>
 <td width="64" align="center"><img src="docs/media/icones/chatgpt-ads-skills.svg" width="44" alt=""></td>
-<td><b><code>/chatgpt-ads-skills</code></b><br>La campagne de départ : entretien d'une question à la fois, alerte et pistes si le secteur est restreint, allégations étayées, carte des intentions, 5 ad groups ou plus avec leurs context hints, 40 à 50 annonces (titre 24, copie 48), puis le classeur au schéma d'annonces et la fiche de paramétrage pour Ads Manager.</td>
+<td><b><code>/chatgpt-ads-skills</code></b><br>La campagne de départ : entretien d'une question à la fois, alerte et pistes si le secteur est restreint, allégations étayées, carte des intentions, 5 ad groups ou plus avec leurs context hints, 40 à 50 annonces (titre 24, copie 48), puis le fichier d'import CSV au schéma d'annonces et la fiche de paramétrage pour Ads Manager.</td>
 <td width="150"><code>valider_exporter.py</code></td>
 </tr>
 <tr>
@@ -71,12 +71,12 @@ annonces qui disent vraiment ce qu'elles vendent.
 </tr>
 <tr>
 <td align="center"><img src="docs/media/icones/chatgpt-ads-ids.svg" width="44" alt=""></td>
-<td><b><code>/chatgpt-ads-ids</code></b><br>Retrouve <code>ad_group_id</code>, <code>ad_id</code>, <code>image_file_id</code> et les événements de conversion : par l'API d'OpenAI en lecture seule (clé dans le terminal, jamais dans la conversation) ou depuis un export, puis les reporte dans le classeur en signalant les noms ambigus.</td>
+<td><b><code>/chatgpt-ads-ids</code></b><br>Retrouve <code>ad_group_id</code>, <code>ad_id</code>, <code>image_file_id</code> et les événements de conversion : par l'API d'OpenAI en lecture seule (clé dans le terminal, jamais dans la conversation) ou depuis un export, puis les reporte dans le fichier d'import en signalant les noms ambigus.</td>
 <td><code>ids.py</code></td>
 </tr>
 <tr>
 <td align="center"><img src="docs/media/icones/chatgpt-ads-excel.svg" width="44" alt=""></td>
-<td><b><code>/chatgpt-ads-excel</code></b><br>Contrôle et répare le classeur avant l'import : onglets, en-têtes, ordre, fusions, formules, italique, identifiants devenus des nombres, statuts, longueurs, liens et images (en ligne : taille et format carré), doublons. Ne raccourcit jamais un texte.</td>
+<td><b><code>/chatgpt-ads-excel</code></b><br>Contrôle et répare le fichier d'import avant l'import : onglets, en-têtes, ordre, fusions, formules, italique, identifiants devenus des nombres, statuts, longueurs, liens et images (en ligne : taille et format carré), doublons. Ne raccourcit jamais un texte.</td>
 <td><code>classeur_ads.py</code></td>
 </tr>
 </table>
@@ -86,11 +86,11 @@ annonces qui disent vraiment ce qu'elles vendent.
 Sorties réelles des scripts, sur les fichiers d'exemple du pack, régénérées à
 chaque version (`outils/visuels/capture.py`).
 
-<p align="center"><img src="docs/media/capture-pret.svg" width="820" alt="valider_exporter.py exporter : 40 annonces, 0 bloquant, classeur au schéma d'annonces et fiche de paramétrage écrits"><br>
-<sub><b>Export</b> · l'exemple fictif Vélora (5 ad groups, 40 annonces) passe le contrôle ; le classeur suit le schéma d'annonces, la fiche liste ce qu'il faut créer dans Ads Manager et les identifiants à récupérer.</sub></p>
+<p align="center"><img src="docs/media/capture-pret.svg" width="820" alt="valider_exporter.py exporter : 40 annonces, 0 bloquant, fichier d'import CSV au schéma d'annonces et fiche de paramétrage écrits"><br>
+<sub><b>Export</b> · l'exemple fictif Vélora (5 ad groups, 40 annonces) passe le contrôle ; le fichier d'import suit le schéma d'annonces, la fiche liste ce qu'il faut créer dans Ads Manager et les identifiants à récupérer.</sub></p>
 
-<p align="center"><img src="docs/media/capture-excel.svg" width="820" alt="classeur_ads.py verifier : un classeur abîmé, onglet en trop, en-tête renommé, identifiant enregistré comme nombre"><br>
-<sub><b>Contrôle du classeur</b> · un fichier abîmé comme on en voit souvent : onglet de notes en trop, « Title » au lieu de « title », italique, identifiant transformé en nombre, titre trop long.</sub></p>
+<p align="center"><img src="docs/media/capture-excel.svg" width="820" alt="classeur_ads.py verifier : un fichier d'import abîmé, onglet en trop, en-tête renommé, identifiant enregistré comme nombre"><br>
+<sub><b>Contrôle du fichier d'import</b> · un fichier abîmé comme on en voit souvent : onglet de notes en trop, « Title » au lieu de « title », italique, identifiant transformé en nombre, titre trop long.</sub></p>
 
 ## Installer
 
@@ -150,7 +150,7 @@ Codes de sortie communs : 0 prêt · 2 à revoir · 3 bloqué · 1 erreur d'usag
 </tr>
 <tr>
 <td width="56" valign="top"><img src="docs/media/icones/pilier-modele.svg" width="44" alt=""></td>
-<td><b>Le classeur d'import fait foi.</b> Format du schéma d'annonces contrôlé cellule par cellule ; ce qui n'est pas documenté (colonnes obligatoires, limites propres à ce format) est dit, et se confirme par un import d'essai de 2 ou 3 lignes.</td>
+<td><b>Le fichier d'import fait foi.</b> Format du schéma d'annonces contrôlé cellule par cellule ; ce qui n'est pas documenté (colonnes obligatoires, limites propres à ce format) est dit, et se confirme par un import d'essai de 2 ou 3 lignes.</td>
 </tr>
 <tr>
 <td width="56" valign="top"><img src="docs/media/icones/pilier-hypotheses.svg" width="44" alt=""></td>
@@ -164,7 +164,7 @@ Codes de sortie communs : 0 prêt · 2 à revoir · 3 bloqué · 1 erreur d'usag
 python3 evals/tout_tester.py
 ```
 
-**245 tests** : chaque script (contrôles, exports, lectures de fichiers
+**246 tests** : chaque script (contrôles, exports, lectures de fichiers
 abîmés, API simulée en lecture seule, plan de lots, notes), l'intégrité du
 pack, et 28 cas d'éval décrits dans [`evals/evals.json`](evals/evals.json).
 
@@ -186,11 +186,16 @@ et verdict : [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
 Chaque version garde ce qui marche et ajoute ce que l'usage a demandé.
 
+- **0.2.1** · 27 octobre 2026 · Le fichier d'import sort toujours en CSV.
+  - Les scripts écrivent un `.csv` même si le nom demandé finit par `.xlsx` ;
+    un `.xlsx` seulement avec `--xlsx`, sur demande explicite.
+  - Le Skill ne passe plus par un outil de tableur : « classeur » devient
+    « fichier d'import CSV » dans toutes les consignes.
 - **0.2.0** · 20 octobre 2026 · Cinq Skills, spécialisés France.
   - Nouveaux : `/chatgpt-ads-bulk` (120 annonces ou plus sans doublons),
     `/chatgpt-ads-exports` (exports Google, Meta, Microsoft Ads),
-    `/chatgpt-ads-ids` (identifiants), `/chatgpt-ads-excel` (classeur).
-  - Le classeur d'import suit le schéma d'annonces à 10 colonnes, avec une
+    `/chatgpt-ads-ids` (identifiants), `/chatgpt-ads-excel` (fichier d'import CSV).
+  - Le fichier d'import suit le schéma d'annonces à 10 colonnes, avec une
     fiche de paramétrage pour Ads Manager.
   - Secteur restreint : alerte datée et pistes conformes, puis le travail
     demandé.
@@ -204,7 +209,7 @@ Chaque version garde ce qui marche et ajoute ce que l'usage a demandé.
 ## Crédits et licence
 
 MIT. Les sources d'inspiration sont dans [CREDITS.md](CREDITS.md), les
-mentions de licence dans [LICENSE](LICENSE). Les classeurs du pack sont
+mentions de licence dans [LICENSE](LICENSE). Les fichiers d'import du pack sont
 écrits par ses scripts ; seuls les noms d'onglets et de colonnes suivent
 les formats d'OpenAI.
 

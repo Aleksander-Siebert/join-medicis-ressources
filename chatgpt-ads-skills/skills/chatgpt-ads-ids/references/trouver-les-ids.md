@@ -43,7 +43,7 @@ point d'accès, documentation). La commande `televerser` est la seule qui
    s'affiche]** dans une table à deux colonnes : `adgroup_name`,
    `ad_group_id`.
 3. Coller cette table dans la conversation : l'assistant reporte les
-   identifiants dans les lignes du classeur et signale tout nom introuvable
+   identifiants dans les lignes du fichier d'import et signale tout nom introuvable
    ou en double.
 4. Mettre les colonnes d'identifiants au format Texte dans le tableur avant
    de coller (sinon Excel peut les abîmer, `/chatgpt-ads-excel`).

@@ -1,7 +1,7 @@
 ---
 name: chatgpt-ads-excel
 description: >-
-  Contrôle et répare le classeur d'annonces ChatGPT Ads (OpenAI Ads) avant
+  Contrôle et répare le fichier d'import CSV ChatGPT Ads (OpenAI Ads) avant
   l'import dans Ads Manager, au format du schéma d'annonces en CSV :
   10 colonnes (ad_id, ad_group_id, adgroup_name, ad_name, status, title,
   copy, link, image_url, image_file_id). Le script vérifie séparateur et
@@ -11,7 +11,7 @@ description: >-
   doublons ; il liste les cases vides colonne par colonne. Il écrit ensuite
   un CSV propre, sans ajouter d'identifiant ni raccourcir un texte. Utilise-le pour
   « vérifie mon fichier ChatGPT Ads », « l'import Ads Manager échoue »,
-  « nettoie le classeur », « convertis en format d'import ». Pas pour
+  « nettoie le fichier d'import », « convertis en format d'import ». Pas pour
   rédiger des annonces (/chatgpt-ads-skills, /chatgpt-ads-bulk), ni pour
   trouver les identifiants (/chatgpt-ads-ids).
 ---
@@ -20,7 +20,7 @@ description: >-
 
 Un import qui échoue fait perdre une demi-journée : une colonne renommée, un
 identifiant transformé en `1,23E+15` par Excel, une ligne en italique copiée
-d'un modèle, un titre de 26 caractères. Ce Skill contrôle le classeur
+d'un modèle, un titre de 26 caractères. Ce Skill contrôle le fichier d'import
 **avant** l'import et en écrit une copie propre. Il ne rédige pas et ne
 change jamais le sens d'une annonce.
 
@@ -103,7 +103,7 @@ l'annonceur a constaté que son import les accepte ; dis-le dans le rapport.
 1. Verdict en une phrase : bloquant, importable après relecture, ou
    conforme.
 2. Les points regroupés par cause, avec la correction.
-3. Le classeur réparé (ou les lignes à coller) et la liste de ce qui reste
+3. Le fichier d'import réparé (ou les lignes à coller) et la liste de ce qui reste
    à corriger à la main.
 4. « À vérifier » : ce que seul un import d'essai confirme.
 

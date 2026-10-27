@@ -296,6 +296,7 @@ def main(argv=None, transport=None):
     fu.add_argument("--ids", required=True)
     fu.add_argument("-o", "--sortie", required=True)
     fu.add_argument("--ad-id", action="store_true", help="reporter aussi ad_id : la ligne modifiera l'annonce existante")
+    fu.add_argument("--xlsx", action="store_true", help="écrire un .xlsx au lieu du CSV (seulement si l'utilisateur le demande)")
     sp.add_parser("utm")
     tv = sp.add_parser("televerser")
     tv.add_argument("source")
@@ -340,7 +341,7 @@ def main(argv=None, transport=None):
         else:
             _, lignes = cl.annonces(cl.lire(a.cible))
             journal, n = fusionner(lignes, ids, a.ad_id)
-            cl.ecrire(a.sortie, [{c: x.get(c, "") for c in cl.COLONNES} for x in lignes])
+            a.sortie = str(cl.ecrire(a.sortie, [{c: x.get(c, "") for c in cl.COLONNES} for x in lignes], a.xlsx))
         print("\n".join(journal) or "Rien à reporter.")
         print(f"\nÉcrit : {a.sortie} · {n} point(s) à revoir")
         return 2 if n else 0

@@ -98,6 +98,12 @@ qu'on ne sait pas.
   (`commun/classeur.py` : 10 colonnes, `ad_id` à `image_file_id`). Les
   notes, sources et scores vont dans la conversation ou un fichier à part,
   jamais dans le fichier d'import.
+- **Jamais de .xlsx**, ni par script, ni par un autre outil ou Skill de
+  création de fichiers (tableur, Excel) que l'environnement proposerait. Les
+  scripts écrivent un `.csv` même si le nom demandé finit par `.xlsx`. Un
+  `.xlsx` seulement si l'utilisateur l'écrit en toutes lettres, avec
+  l'option `--xlsx`. Sans exécution de code : le CSV est donné en bloc de
+  texte à enregistrer sous `import.csv`.
 - `status` : `active` par défaut, pour que l'import lance les annonces.
 - `ad_group_id`, `ad_id`, `image_file_id` : **jamais ajoutés** s'ils ne sont
   pas fournis par l'utilisateur ou lus à la source (/chatgpt-ads-ids) ; pas

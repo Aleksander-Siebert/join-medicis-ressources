@@ -982,6 +982,7 @@ def main(argv=None):
             s.add_argument("--format", choices=["schema", "trois-onglets"], default="schema")
             s.add_argument("--fiche", help="fiche de paramétrage Markdown (défaut : SORTIE-parametrage.md)")
             s.add_argument("--limites", choices=["import", "api"], default="import")
+            s.add_argument("--xlsx", action="store_true", help="écrire un .xlsx au lieu du CSV (seulement si l'utilisateur le demande)")
     a = ap.parse_args(argv)
 
     if a.cmd == "modele":
@@ -1029,12 +1030,12 @@ def main(argv=None):
         cl.verifier_annonces(lignes, rf, a.limites)
         afficher(r, resume)
         if rf.compte(cl.BLOQUANT):
-            print("\n" + rf.texte("Format du classeur"))
+            print("\n" + rf.texte("Format du fichier d'import"))
             print("\nFichier non écrit : corriger les points bloquants du format.")
             return 3
         if rf.points:
-            print("\n" + rf.texte("Format du classeur"))
-        cl.ecrire(a.sortie, lignes)
+            print("\n" + rf.texte("Format du fichier d'import"))
+        a.sortie = str(cl.ecrire(a.sortie, lignes, a.xlsx))
         fiche = Path(a.fiche) if a.fiche else Path(a.sortie).with_name(Path(a.sortie).stem + "-parametrage.md")
         fiche.write_text(fiche_parametrage(camp), encoding="utf-8")
         sans_id = sorted({x["adgroup_name"] for x in lignes if not x["ad_group_id"]})
