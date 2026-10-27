@@ -1,4 +1,4 @@
-# Le classeur d'annonces, colonne par colonne
+# Le fichier d'import CSV, colonne par colonne
 
 Format : le schéma d'annonces fourni le 20 oct. 2026 comme format
 compatible avec l'import d'Ads Manager. Ce qui n'y est pas écrit est marqué
@@ -17,7 +17,7 @@ compatible avec l'import d'Ads Manager. Ce qui n'y est pas écrit est marqué
 - **Lignes suivantes : une annonce par ligne**, sans ligne vide entre deux
   annonces, sans cellule fusionnée, sans formule, sans mise en forme
   particulière.
-- Notes, sources, scores, numéros de lot : **jamais dans le classeur**. Un
+- Notes, sources, scores, numéros de lot : **jamais dans le fichier d'import**. Un
   onglet de travail ou une colonne en plus peut faire échouer l'import.
 
 ## Colonnes

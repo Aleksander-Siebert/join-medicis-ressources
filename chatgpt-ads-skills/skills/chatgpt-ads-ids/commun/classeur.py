@@ -739,12 +739,30 @@ def ecrire_csv(chemin, lignes):
             w.writerow([texte(a.get(c, "")) for c in COLONNES])
 
 
-def ecrire(chemin, lignes):
-    """CSV par défaut ; XLSX si le nom finit par .xlsx."""
-    if str(chemin).lower().endswith(".xlsx"):
-        ecrire_xlsx(chemin, lignes)
+def chemin_sortie(chemin, xlsx=False):
+    """Le fichier d'import est un CSV. Un nom en .xlsx devient .csv, sauf demande
+    explicite (xlsx=True, option --xlsx). Renvoie (chemin retenu, avertissement ou None)."""
+    p = Path(chemin)
+    if p.suffix.lower() == ".xlsx" and not xlsx:
+        csv_ = p.with_suffix(".csv")
+        return csv_, (f"Format d'import retenu : CSV. Écrit sous {csv_.name} au lieu de {p.name} "
+                      "(ajoute --xlsx seulement si l'utilisateur a demandé un .xlsx).")
+    if p.suffix.lower() not in (".csv", ".xlsx"):
+        return p.with_name(p.name + ".csv"), f"Extension ajoutée : {p.name}.csv"
+    return p, None
+
+
+def ecrire(chemin, lignes, xlsx=False):
+    """Écrit le fichier d'import : CSV (UTF-8 sans BOM, virgule). XLSX seulement
+    si xlsx=True et que le nom finit par .xlsx. Renvoie le chemin réellement écrit."""
+    p, avertissement = chemin_sortie(chemin, xlsx)
+    if avertissement:
+        print(avertissement)
+    if p.suffix.lower() == ".xlsx":
+        ecrire_xlsx(p, lignes)
     else:
-        ecrire_csv(chemin, lignes)
+        ecrire_csv(p, lignes)
+    return p
 
 
 def resume_vides(lignes):

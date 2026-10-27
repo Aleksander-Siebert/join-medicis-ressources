@@ -32,7 +32,7 @@ Méthode des lots, banque d'angles et exemples : `references/lots.md`.
 ## Entrée
 
 Le JSON de campagne de `/chatgpt-ads-skills` (avec allégations, groupes,
-intentions et hints), contrôlé sans bloquant. Un classeur au schéma
+intentions et hints), contrôlé sans bloquant. Un fichier d'import CSV au schéma
 d'annonces se lit aussi, mais sans liste d'allégations : chaque chiffre ou
 promesse y est alors refusé jusqu'à validation.
 
@@ -68,7 +68,7 @@ promesse y est alors refusé jusqu'à validation.
    intention et clarté (1 à 5), puis présente les trois listes. Rien n'est
    supprimé sans l'accord de l'annonceur.
 6. **Contrôler et exporter** avec `/chatgpt-ads-skills` :
-   `valider` puis `exporter` (classeur au schéma d'annonces).
+   `valider` puis `exporter` (fichier d'import CSV au schéma d'annonces).
 
 ## Volume et budget
 
@@ -83,7 +83,7 @@ les faire tourner, au choix de l'annonceur.
 1. Le plan du lot (tableau par groupe) et les corrections préalables.
 2. Après chaque lot : acceptées, refusées avec leur raison, total.
 3. À la fin : les notes, les listes Conserver, Corriger, Supprimer, puis
-   le classeur exporté et la liste « à vérifier ».
+   le fichier d'import exporté et la liste « à vérifier ».
 
 ## Erreurs et limites
 
@@ -92,6 +92,6 @@ les faire tourner, au choix de l'annonceur.
 | Campagne de départ non validée | la valider d'abord (`/chatgpt-ads-skills`) |
 | Allégations trop peu nombreuses | des annonces sans chiffre ni promesse, sur la situation et le bénéfice d'usage ; jamais d'allégation nouvelle |
 | Un groupe plafonne (tout est refusé) | il a atteint ses angles réels : le dire, rééquilibrer vers les autres groupes ou ajouter un groupe d'intention nouvelle |
-| Classeur au schéma sans JSON | lecture possible, chaque allégation y est refusée faute de liste |
+| Fichier CSV au schéma sans JSON | lecture possible, chaque allégation y est refusée faute de liste |
 | Plus de 5 000 annonces par compte | limite de la documentation : impossible |
 | Conversation trop longue | un lot par message, le JSON fait foi entre deux lots |

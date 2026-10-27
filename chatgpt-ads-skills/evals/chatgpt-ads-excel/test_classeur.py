@@ -271,7 +271,7 @@ class TestCSV(Base):
     def test_reparer_xlsx_vers_csv(self):
         f, s = self.d / "c.xlsx", self.d / "c.csv"
         classeur_brut(f, [dict(BON, status="")])
-        p = subprocess.run([sys.executable, str(SCRIPT), "reparer", str(f), "-o", str(s)], capture_output=True, text=True)
+        p = subprocess.run([sys.executable, str(SCRIPT), "reparer", str(f), "-o", str(s), "--xlsx"], capture_output=True, text=True)
         self.assertEqual(p.returncode, 0, p.stdout)
         _, l = cl.annonces(cl.lire(s))
         self.assertEqual((l[0]["status"], l[0]["image_file_id"], l[0]["ad_id"]), ("active", "", ""))
@@ -283,7 +283,7 @@ class TestReparation(Base):
         lignes = [dict(BON, status="", ad_name="", title=" Partir vivre à Lisbonne ", copy="Démarches, budget et calendrier du départ."), dict(BON, status="Paused"),
                   dict(BON, status="Paused")]
         classeur_brut(f, lignes, onglets_en_plus=["brouillon"], italique={(2, 6)}, nombres=set())
-        p = subprocess.run([sys.executable, str(SCRIPT), "reparer", str(f), "-o", str(s)], capture_output=True, text=True)
+        p = subprocess.run([sys.executable, str(SCRIPT), "reparer", str(f), "-o", str(s), "--xlsx"], capture_output=True, text=True)
         self.assertIn("status vide → active", p.stdout)
         self.assertNotIn("déjà utilisé", p.stdout)
         self.assertIn("doublon exact retiré", p.stdout)
@@ -334,7 +334,8 @@ class TestCommandes(Base):
         f = self.d / "v.xlsx"
         p = self.run_("schema", "-o", f)
         self.assertEqual(p.returncode, 0)
-        r, _, _ = cl.verifier(f)
+        self.assertFalse(f.exists())  # le fichier d'import est un CSV, même si le nom demandé finit par .xlsx
+        r, _, _ = cl.verifier(f.with_suffix(".csv"))
         self.assertIn("aucune annonce", messages(r))
 
     def test_verifier_codes(self):
@@ -355,7 +356,9 @@ class TestCommandes(Base):
         j.write_text(json.dumps(camp), encoding="utf-8")
         p = self.run_("depuis-json", j, "-o", s)
         self.assertEqual(p.returncode, 0, p.stdout)
-        _, l = cl.annonces(cl.lire(s))
+        self.assertIn("Format d'import retenu : CSV", p.stdout)
+        self.assertFalse(s.exists())
+        _, l = cl.annonces(cl.lire(s.with_suffix(".csv")))
         self.assertEqual((l[0]["ad_group_id"], l[0]["status"], l[0]["image_url"], l[0].get("image_file_id", "")),
                          ("adgrp_101", "active", BON["image_url"], ""))
 

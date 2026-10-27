@@ -7,13 +7,13 @@ description: >-
   par OpenAI (finance, assurance, santé, juridique) avec des pistes
   conformes, puis la campagne quand même. Allégations étayées, carte des
   intentions, 5 ad groups ou plus, context hints écrits comme des situations,
-  40 à 50 annonces (titre 24, copie 48), contrôle par script, classeur au
+  40 à 50 annonces (titre 24, copie 48), contrôle par script, fichier d'import au
   schéma d'annonces (10 colonnes) et fiche de paramétrage Ads Manager.
   Utilise-le pour « campagne ChatGPT Ads », « annonces ChatGPT », « context
   hints », « fichier d'import ChatGPT », « write ads for ChatGPT ». Pas pour
   passer à 120 annonces (/chatgpt-ads-bulk), convertir des exports Google,
   Meta ou Microsoft (/chatgpt-ads-exports), trouver des identifiants
-  (/chatgpt-ads-ids), réparer un classeur (/chatgpt-ads-excel), ni pour
+  (/chatgpt-ads-ids), réparer un fichier d'import (/chatgpt-ads-excel), ni pour
   lancer ou piloter une campagne.
 ---
 
@@ -35,7 +35,7 @@ v1.6 en entier) et `commun/droit-francais.md`.
 
 **Le reste du pack :** `/chatgpt-ads-bulk` (de 40 à 50 annonces à 120 ou
 plus), `/chatgpt-ads-exports` (exports Google, Meta, Microsoft),
-`/chatgpt-ads-ids` (identifiants), `/chatgpt-ads-excel` (classeur).
+`/chatgpt-ads-ids` (identifiants), `/chatgpt-ads-excel` (fichier d'import CSV).
 
 ## Ce que tu livres
 
@@ -47,7 +47,7 @@ plus), `/chatgpt-ads-exports` (exports Google, Meta, Microsoft),
 | 4 | Carte des intentions | `references/intentions.md` |
 | 5 | Ad groups et context hints, prompts simulés | `references/context-hints.md` |
 | 6 | Annonces, idée de visuel par groupe | `references/annonces.md` |
-| 7 | Rapport du script, classeur au schéma d'annonces, fiche de paramétrage | ci-dessous |
+| 7 | Rapport du script, fichier d'import CSV au schéma d'annonces, fiche de paramétrage | ci-dessous |
 | 8 | « Avant de dépenser » et checklist de relecture | `references/risques.md` |
 
 Le brief se remplit dans `commun/modeles/brief-campagne.md` (exemple fictif
@@ -196,7 +196,7 @@ Corrige chaque **BLOQUANT** (rien n'est écrit tant qu'il en reste) et
 explique chaque **ATTENTION** gardée ; une alerte de secteur reste dans « à
 vérifier ». Les identifiants manquants n'empêchent pas l'écriture. Ancien
 modèle à 3 onglets : `--format trois-onglets [--modele modele.xlsx]`.
-Classeur modifié à la main : `/chatgpt-ads-excel`.
+Fichier d'import modifié à la main : `/chatgpt-ads-excel`.
 - **Sans exécution de code** : compte chaque titre et copie à la main,
   livre les lignes du schéma en tableau (10 colonnes, dans l'ordre) et
   écris en tête : « Contrôle manuel, non vérifié par script. »
@@ -223,7 +223,7 @@ Dans la conversation, dans cet ordre :
 3. Par ad group : intention, hints, 3 prompts simulés, idée de visuel, puis
    les annonces avec leurs longueurs (sortie de `relecture`).
 4. Verdict du script en une phrase, puis les points à revoir.
-5. Le classeur au schéma d'annonces et la fiche de paramétrage (ou les
+5. Le fichier d'import CSV au schéma d'annonces et la fiche de paramétrage (ou les
    lignes à coller).
 6. « Avant de dépenser », checklist, liste « à vérifier ».
 

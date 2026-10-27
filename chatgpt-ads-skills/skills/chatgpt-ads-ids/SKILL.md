@@ -1,14 +1,14 @@
 ---
 name: chatgpt-ads-ids
 description: >-
-  Retrouve les identifiants ChatGPT Ads (OpenAI Ads) que demande le classeur
+  Retrouve les identifiants ChatGPT Ads (OpenAI Ads) que demande le fichier
   d'import : ad_group_id, ad_id, image_file_id, campaign_id et
   conversion_event_setting_ids. Deux voies : l'API officielle d'OpenAI en
   lecture seule (clé du compte dans une variable d'environnement, jamais
   dans la conversation), ou un fichier exporté d'Ads Manager où les
   identifiants sont repérés par leur préfixe. Le script liste campagnes,
   ad groups et annonces, cherche par nom, puis reporte les identifiants
-  dans le classeur ou le JSON de campagne en signalant les noms ambigus.
+  dans le fichier d'import ou le JSON de campagne en signalant les noms ambigus.
   Il donne aussi le modèle d'UTM avec les macros de campagne et d'annonce
   et, sur confirmation, téléverse une image pour obtenir son
   image_file_id. Utilise-le pour « où trouver l'ad_group_id », « ID des ad
@@ -19,7 +19,7 @@ description: >-
 
 # chatgpt-ads-ids
 
-Le classeur d'annonces relie chaque annonce à un ad group **qui existe
+Le fichier d'import CSV relie chaque annonce à un ad group **qui existe
 déjà** par son `ad_group_id`. Ce Skill retrouve ces identifiants sans les
 recopier à la main un par un, et les reporte au bon endroit.
 
@@ -33,7 +33,7 @@ documentés). Guide pas à pas, sans et avec API :
 
 | Identifiant | Préfixe (docs) | Sert à | Où le trouver |
 |---|---|---|---|
-| `ad_group_id` | `adgrp_` | relier une annonce du classeur à son ad group | API `lister`, export d'Ads Manager |
+| `ad_group_id` | `adgrp_` | relier une annonce du fichier d'import à son ad group | API `lister`, export d'Ads Manager |
 | `ad_id` | `ad_` | **modifier** une annonce existante (vide pour en créer une) | API `lister --annonces` |
 | `image_file_id` | `file_` | réutiliser une image déjà téléversée | API `lister --annonces`, ou `televerser` |
 | `campaign_id` | `cmpn_` | filtrer, suivre (UTM `{campaign_id}`) | API `lister` |
@@ -62,7 +62,7 @@ réel peut différer, le script le signale sans bloquer.
    ```bash
    python3 scripts/ids.py depuis-fichier export.csv -o ids.csv
    ```
-4. **Reporter les identifiants** dans le classeur ou le JSON de campagne :
+4. **Reporter les identifiants** dans le fichier d'import ou le JSON de campagne :
    ```bash
    python3 scripts/ids.py fusionner import.csv --ids ids.csv -o import-ids.csv
    python3 scripts/ids.py fusionner campagne.json --ids ids.csv -o campagne-ids.json
@@ -90,7 +90,7 @@ rend son `image_file_id`, ne crée aucune annonce).
 
 | Situation | Conduite |
 |---|---|
-| Pas de terminal (claude.ai, ChatGPT) | voie B si l'annonceur peut exporter ; sinon recopie guidée de `references/trouver-les-ids.md`, puis contrôle du classeur |
+| Pas de terminal (claude.ai, ChatGPT) | voie B si l'annonceur peut exporter ; sinon recopie guidée de `references/trouver-les-ids.md`, puis contrôle du fichier d'import |
 | HTTP 401 | clé refusée : en recréer une dans Ads Manager > Settings |
 | HTTP 403 | la clé appartient à un autre compte, ou la fonction n'est pas ouverte au compte |
 | HTTP 429 | le script attend et réessaie 3 fois, puis s'arrête |

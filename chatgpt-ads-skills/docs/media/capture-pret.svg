@@ -15,7 +15,7 @@
 <text x="20" y="198" xml:space="preserve" style="white-space:pre">      → un code ISO valide n'est pas forcément ouvert à la publicité (docs OpenAI) : vérifier dans</text>
 <text x="20" y="218" xml:space="preserve" style="white-space:pre">        Ads Manager</text>
 <text x="20" y="238" xml:space="preserve" style="white-space:pre"></text>
-<text x="20" y="258" xml:space="preserve" style="white-space:pre">Format du classeur : 0 bloquant(s), 0 attention, 1 info</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">Format du fichier d'import : 0 bloquant(s), 0 attention, 1 info</text>
 <text x="20" y="278" xml:space="preserve" style="white-space:pre">[<tspan fill="#D4B681">INFO</tspan>] annonce 1, annonce 2, annonce 3 … : ad_group_id vide sur 40 ligne(s) → laissé vide : jamais</text>
 <text x="20" y="298" xml:space="preserve" style="white-space:pre">  ajouté sans identifiant fourni (/chatgpt-ads-ids pour le retrouver)</text>
 <text x="20" y="318" xml:space="preserve" style="white-space:pre"></text>

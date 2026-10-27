@@ -683,6 +683,21 @@ class Fautive(unittest.TestCase):
             self.assertEqual(p.returncode, 3)
 
 
+class SortieCSV(unittest.TestCase):
+    def test_xlsx_demande_devient_csv(self):
+        camp = exemple()
+        with tempfile.TemporaryDirectory() as d:
+            src = Path(d) / "c.json"
+            src.write_text(json.dumps(camp, ensure_ascii=False), encoding="utf-8")
+            p = lancer("exporter", src, "-o", Path(d) / "import.xlsx", "--aujourdhui", "2026-10-15")
+            self.assertIn("Format d'import retenu : CSV", p.stdout)
+            self.assertFalse((Path(d) / "import.xlsx").exists())
+            self.assertTrue((Path(d) / "import.csv").exists())
+            self.assertTrue((Path(d) / "import-parametrage.md").exists())
+            p = lancer("exporter", src, "-o", Path(d) / "x.xlsx", "--xlsx", "--aujourdhui", "2026-10-15")
+            self.assertTrue((Path(d) / "x.xlsx").exists())  # seulement sur demande explicite
+
+
 class Refus(unittest.TestCase):
     def test_export_refuse_si_bloquant(self):
         camp = exemple()
@@ -762,7 +777,7 @@ class ExportSchema(unittest.TestCase):
         camp["adgroups"][0]["ad_group_id"] = "adgrp_501"
         cls.src = d / "c.json"
         cls.src.write_text(json.dumps(camp, ensure_ascii=False), encoding="utf-8")
-        cls.sortie = d / "import.xlsx"
+        cls.sortie = d / "import.csv"
         cls.p = lancer("exporter", cls.src, "-o", cls.sortie, "--aujourdhui", "2026-10-15")
         _, cls.lignes = classeur.annonces(classeur.lire(cls.sortie))
         cls.fiche = (d / "import-parametrage.md").read_text(encoding="utf-8")
@@ -779,7 +794,9 @@ class ExportSchema(unittest.TestCase):
     def test_format_schema(self):
         cl = self.cl
         r, classeur, _ = cl.verifier(self.sortie)
-        self.assertEqual([o["nom"] for o in classeur["onglets"]], [cl.ONGLET])
+        self.assertEqual(Path(self.sortie).suffix, ".csv")
+        premiere = Path(self.sortie).read_text(encoding="utf-8").splitlines()[0]
+        self.assertEqual(premiere.split(","), cl.COLONNES)
         self.assertEqual(r.compte(cl.BLOQUANT), 0, r.texte())
         self.assertEqual(len(self.lignes), len(self.camp["ads"]))
 

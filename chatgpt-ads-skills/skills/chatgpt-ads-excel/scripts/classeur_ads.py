@@ -7,7 +7,7 @@ Le format attendu est le schéma d'annonces, en CSV (UTF-8, virgule) ; un XLSX �
 Commandes :
 
   schema [-o VIERGE.csv]
-      Affiche les colonnes et, avec -o, écrit un fichier vierge au format (.csv, ou .xlsx).
+      Affiche les colonnes et, avec -o, écrit un fichier vierge au format (.csv).
 
   verifier FICHIER [--limites import|api] [--en-ligne] [--json]
       FICHIER : .csv ou .xlsx. Contrôle la structure (séparateur, encodage, BOM ;
@@ -19,7 +19,7 @@ Commandes :
       --en-ligne ouvre chaque lien et chaque image (taille, format carré).
 
   reparer FICHIER -o SORTIE.csv [--limites import|api]
-      Réécrit un fichier propre (CSV UTF-8 sans BOM, virgule ; .xlsx si demandé) :
+      Réécrit un fichier propre (CSV UTF-8 sans BOM, virgule ; .xlsx seulement avec --xlsx) :
       colonnes dans l'ordre, valeurs en texte, espaces et invisibles retirés,
       status vide → active, ad_name vide → groupe-NN, doublons exacts retirés.
       N'ajoute jamais d'identifiant, ne raccourcit jamais un titre ni une copie.
@@ -84,7 +84,8 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sp = p.add_subparsers(dest="cmd", required=True)
     s = sp.add_parser("schema")
-    s.add_argument("-o", "--sortie", help="vierge.csv (ou .xlsx)")
+    s.add_argument("-o", "--sortie", help="vierge.csv")
+    s.add_argument("--xlsx", action="store_true", help="écrire un .xlsx au lieu du CSV (seulement si l'utilisateur le demande)")
     v = sp.add_parser("verifier")
     v.add_argument("fichier")
     v.add_argument("--limites", choices=("import", "api"), default="import")
@@ -94,10 +95,12 @@ def main(argv=None):
     rp.add_argument("fichier")
     rp.add_argument("-o", "--sortie", required=True)
     rp.add_argument("--limites", choices=("import", "api"), default="import")
+    rp.add_argument("--xlsx", action="store_true", help="écrire un .xlsx au lieu du CSV (seulement si l'utilisateur le demande)")
     dj = sp.add_parser("depuis-json")
     dj.add_argument("campagne")
     dj.add_argument("-o", "--sortie", required=True)
     dj.add_argument("--limites", choices=("import", "api"), default="import")
+    dj.add_argument("--xlsx", action="store_true", help="écrire un .xlsx au lieu du CSV (seulement si l'utilisateur le demande)")
     t = sp.add_parser("tableau")
     t.add_argument("fichier")
     a = p.parse_args(argv)
@@ -105,7 +108,7 @@ def main(argv=None):
     if a.cmd == "schema":
         print(" | ".join(cl.COLONNES))
         if a.sortie:
-            cl.ecrire(a.sortie, [])
+            a.sortie = str(cl.ecrire(a.sortie, [], a.xlsx))
             print(f"Fichier vierge écrit : {a.sortie}")
         return 0
 
@@ -129,7 +132,7 @@ def main(argv=None):
             afficher(avant, False, "Lecture impossible")
             return 3
         propres, journal = cl.reparer_lignes(lignes)
-        cl.ecrire(a.sortie, propres)
+        a.sortie = str(cl.ecrire(a.sortie, propres, a.xlsx))
         print(f"Avant : {avant.compte(cl.BLOQUANT)} bloquant(s), {avant.compte(cl.ATTENTION)} attention.")
         print(f"Corrections ({len(journal)}) :" if journal else "Aucune correction de cellule.")
         for j in journal:
@@ -147,7 +150,7 @@ def main(argv=None):
             afficher(r, False, "Contrôle avant écriture")
             print("Fichier non écrit : corriger les points bloquants.")
             return 3
-        cl.ecrire(a.sortie, lignes)
+        a.sortie = str(cl.ecrire(a.sortie, lignes, a.xlsx))
         afficher(r, False, f"Contrôle de {Path(a.sortie).name}")
         return r.code()
     return 1

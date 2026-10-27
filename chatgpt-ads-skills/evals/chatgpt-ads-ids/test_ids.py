@@ -192,7 +192,7 @@ class TestFichiers(unittest.TestCase):
         f = self.ecrire_ids([{"ad_group_id": "adgrp_11", "adgroup_name": "expat-preparer"},
                              {"ad_group_id": "adgrp_31", "adgroup_name": "double"},
                              {"ad_group_id": "adgrp_32", "adgroup_name": "Double"}])
-        code, out_txt, _ = lancer(["fusionner", str(src), "--ids", str(f), "-o", str(out)])
+        code, out_txt, _ = lancer(["fusionner", str(src), "--ids", str(f), "-o", str(out), "--xlsx"])
         self.assertEqual(code, 2)
         self.assertIn("ambigu", out_txt)
         self.assertIn("aucun ad group « inconnu »", out_txt)
