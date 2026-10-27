@@ -98,6 +98,14 @@ qu'on ne sait pas.
   (`commun/classeur.py` : 10 colonnes, `ad_id` à `image_file_id`). Les
   notes, sources et scores vont dans la conversation ou un fichier à part,
   jamais dans le fichier d'import.
+- Séparateur : **la virgule, jamais le point-virgule** (Ads Manager lit un
+  CSV à points-virgules comme une seule colonne et refuse les en-têtes).
+  Sans script, écris le CSV à virgules et mets entre guillemets toute
+  cellule qui contient une virgule.
+- En livrant le fichier, dis toujours : « Importe ce fichier tel quel, sans
+  l'ouvrir ni l'enregistrer dans Excel » (Excel en français remet des
+  points-virgules). Pour le relire : un éditeur de texte, ou Google Sheets
+  sans réexporter.
 - **Jamais de .xlsx**, ni par script, ni par un autre outil ou Skill de
   création de fichiers (tableur, Excel) que l'environnement proposerait. Les
   scripts écrivent un `.csv` même si le nom demandé finit par `.xlsx`. Un

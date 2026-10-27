@@ -8,8 +8,8 @@
 5 Skills spécialisés France : la campagne, la montée à 120 annonces sans doublons, la reprise d'exports Google, Meta et Microsoft Ads, les identifiants, le fichier d'import contrôlé par script. **Rien n'est lancé à ta place, rien n'est inventé.**
 
 <!-- github-seulement -->
-[![Version](https://img.shields.io/badge/version-0.2.1-0E3F2D)](#versions)
-[![Tests](https://img.shields.io/badge/tests-246%20au%20vert-2D7259)](#preuves)
+[![Version](https://img.shields.io/badge/version-0.2.2-0E3F2D)](#versions)
+[![Tests](https://img.shields.io/badge/tests-247%20au%20vert-2D7259)](#preuves)
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-B89253)](LICENSE)
 [![Python](https://img.shields.io/badge/Python%203-sans%20d%C3%A9pendance-34495E?logo=python&logoColor=white)](#le-script)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white)](#claude-code)
@@ -164,7 +164,7 @@ Codes de sortie communs : 0 prêt · 2 à revoir · 3 bloqué · 1 erreur d'usag
 python3 evals/tout_tester.py
 ```
 
-**246 tests** : chaque script (contrôles, exports, lectures de fichiers
+**247 tests** : chaque script (contrôles, exports, lectures de fichiers
 abîmés, API simulée en lecture seule, plan de lots, notes), l'intégrité du
 pack, et 28 cas d'éval décrits dans [`evals/evals.json`](evals/evals.json).
 
@@ -186,6 +186,13 @@ et verdict : [`evals/RESULTATS.md`](evals/RESULTATS.md).
 
 Chaque version garde ce qui marche et ajoute ce que l'usage a demandé.
 
+- **0.2.2** · 27 octobre 2026 · Le CSV ne repart plus avec des points-virgules.
+  - Un CSV à points-virgules est **bloquant** au contrôle : Ads Manager le
+    lit comme une seule colonne et refuse les en-têtes (constaté à l'import).
+  - Chaque fichier livré rappelle de l'importer tel quel, sans l'ouvrir ni
+    l'enregistrer dans Excel.
+  - Sans exécution de code, le CSV est donné à virgules, dans un bloc de
+    texte à enregistrer.
 - **0.2.1** · 27 octobre 2026 · Le fichier d'import sort toujours en CSV.
   - Les scripts écrivent un `.csv` même si le nom demandé finit par `.xlsx` ;
     un `.xlsx` seulement avec `--xlsx`, sur demande explicite.

@@ -33,7 +33,8 @@ Sources officielles :
 | Fait | Source | Vérifié le |
 |---|---|---|
 | Un onglet (`Feuil1` dans l'exemplaire fourni), une ligne d'en-tête, puis une annonce par ligne. Colonnes, dans l'ordre : `ad_id`, `ad_group_id`, `adgroup_name`, `ad_name`, `status`, `title`, `copy`, `link`, `image_url`, `image_file_id`. | S | 20 oct. 2026 |
-| Format de fichier à importer : **CSV** (pas XLSX), d'après les tests de l'utilisateur ; le pack écrit un CSV UTF-8 sans BOM, à virgules. Séparateurs et encodages acceptés par Ads Manager : non documentés. | S (usage) | 20 oct. 2026 **[à vérifier : autres séparateurs]** |
+| Format de fichier à importer : **CSV uniquement** (pas XLSX), d'après la plateforme d'import consultée par l'utilisateur ; le pack écrit un CSV UTF-8 sans BOM, à virgules. | S (usage) | 27 oct. 2026 |
+| Un CSV à **points-virgules** (enregistré par Excel en français) est refusé à l'import : « le fichier n'a pas les bonnes en-têtes », alors que les noms de colonnes sont exacts. Le même fichier à virgules passe le contrôle du pack. Encodages autres qu'UTF-8 : non documentés. | usage | 27 oct. 2026 |
 | Règles d'usage retenues par l'utilisateur : `status` à `active` pour lancer à l'import ; `ad_group_id`, `ad_id`, `image_file_id` laissés vides s'ils ne sont pas fournis ; toute case vide signalée pour vérification. | usage | 20 oct. 2026 |
 | Le schéma ne contient ni campagne ni ad group : ils se créent dans Ads Manager (ou par l'API), puis chaque annonce est reliée à son ad group par `ad_group_id`. Les context hints se saisissent donc dans Ads Manager, au niveau de l'ad group. | S, D | 20 oct. 2026 |
 | Colonnes obligatoires, limites de caractères et valeurs de `status` propres à ce format : **non documentées**. Le pack applique les limites du modèle d'import (titre 24, copie 48), les statuts de l'API (`active`, `paused`) et demande au moins une image (`image_url` ou `image_file_id`). | S, M, D | 20 oct. 2026 **[à vérifier par un import d'essai]** |
