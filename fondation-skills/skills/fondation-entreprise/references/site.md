@@ -29,7 +29,7 @@ Ne lis pas plus de 6 pages : au-delà, l'entretien est plus rapide.
 | Logos de clients | rien | ne prouvent ni la relation actuelle ni l'accord de les citer |
 | Mentions légales | §1 Identité | LIVE (page) après contrôle par `entreprise.py` |
 | Numéro professionnel (ORIAS, ordre, carte T…) | §8 Mentions obligatoires | LIVE (page) ; il signale un secteur réglementé |
-| Ton des pages | rien ici | matière pour `/fondation-voix` |
+| Ton des pages | rien ici | matière pour `/tone-of-voice` |
 | Témoignages, avis affichés | rien ici | matière pour `/fondation-preuves` |
 | Impression (« haut de gamme », « jeune », « technique ») | §3 ou §5 | À CONFIRMER, dite comme une déduction |
 | Concurrents | §4 Alternatives | jamais lus sur le site de l'entreprise : on les demande |

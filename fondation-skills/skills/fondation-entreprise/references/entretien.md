@@ -94,7 +94,7 @@ sortie) : hors sujet pour un fichier partagé, et trop intime.
 - **Les contradictions** entre deux réponses, ou entre une réponse et le
   site : les deux valeurs vont en `À CONFIRMER`.
 - **Les mots exacts** que la personne emploie pour son offre et ses clients :
-  ils servent à `/fondation-voix` et `/fondation-preuves`, pas ici.
+  ils servent à `/tone-of-voice` et `/fondation-preuves`, pas ici.
 
 ## 6. La clôture
 

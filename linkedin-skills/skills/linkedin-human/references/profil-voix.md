@@ -3,6 +3,11 @@
 Construit la section « Voix » de `contexte.md` pour que tous les Skills du
 pack écrivent comme l'utilisateur, et pas comme un « humain générique ».
 
+Si l'utilisateur a déjà un `tone-of-voice.md` (Skill `/tone-of-voice` de
+Join Médicis), ne refais pas le travail : lis-le, il prime sur cette section.
+S'il veut une voix complète (tous canaux, calibrage, Skill « ma-voix »),
+propose `/tone-of-voice` ; ce mode reste la version rapide, LinkedIn seulement.
+
 ## Entrée
 
 - **3 à 6 textes réels de l'utilisateur** (posts LinkedIn, commentaires,

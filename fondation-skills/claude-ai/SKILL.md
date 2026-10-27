@@ -24,9 +24,9 @@ d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 |---|---|
 | `fondation-entreprise` | premier usage, « voici mon site », fiche entreprise, positionnement, contraintes, mise à jour du contexte |
 
-Les modules `fondation-clients` (clients idéaux, personas étayés),
-`fondation-voix` (voix tirée de vrais textes) et `fondation-preuves` (mots
-des clients, promesses vérifiées) arrivent dans les prochaines versions.
+Les modules `fondation-clients` (clients idéaux, personas étayés) et
+`fondation-preuves` (mots des clients, promesses vérifiées) arrivent dans les
+prochaines versions. La voix a son propre pack : `/tone-of-voice`.
 
 ## Comment travailler
 

@@ -4,8 +4,8 @@
 Deux commandes :
 
   etat FICHIER [FICHIER…]
-      Compte ce qui est vraiment rempli dans entreprise.md, clients.md,
-      voix.md ou preuves.md : lignes étiquetées LIVE / À CONFIRMER / RETIRÉ,
+      Compte ce qui est vraiment rempli dans entreprise.md,
+      clients.md ou preuves.md : lignes étiquetées LIVE / À CONFIRMER / RETIRÉ,
       lignes sans étiquette, sans date, sans source, dates trop anciennes,
       trous {{à compléter}}. Un modèle vide n'a jamais de bonne note : seules
       les lignes LIVE datées et sourcées comptent comme utilisables.

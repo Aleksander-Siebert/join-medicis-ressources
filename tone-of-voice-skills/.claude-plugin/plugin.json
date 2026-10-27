@@ -1,0 +1,19 @@
+{
+  "name": "tone-of-voice-skills",
+  "description": "Crée ta voix d'écriture en français à partir de tes textes, d'un style à émuler ou de quelques questions, puis l'applique : un tone-of-voice.md lisible par toute IA ou un Skill « ma-voix » à importer, des textes réécrits et vérifiés par script, une voix qui se met à jour sans retouche à la main.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Aleksander Siebert",
+    "url": "https://joinmedicis.com/auteurs/aleksander-siebert"
+  },
+  "homepage": "https://joinmedicis.com/ressources/skills/tone-of-voice-skills",
+  "repository": "https://github.com/Aleksander-Siebert/join-medicis-ressources",
+  "license": "MIT",
+  "keywords": [
+    "tone of voice",
+    "voix de marque",
+    "charte éditoriale",
+    "rédaction",
+    "français"
+  ]
+}

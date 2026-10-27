@@ -30,8 +30,8 @@ Chaque fait dit d'où il vient, à quelle date, et s'il est encore vrai. **Rien 
 </div>
 
 > **Version 0.1 : Skill modèle.** `/fondation-entreprise` est prêt.
-> `/fondation-clients`, `/fondation-voix` et `/fondation-preuves` suivront sur
-> le même gabarit.
+> `/fondation-clients` et `/fondation-preuves` suivront sur le même gabarit.
+> La voix a son propre pack : [`/tone-of-voice`](../tone-of-voice-skills).
 
 ---
 
@@ -57,7 +57,7 @@ d'écrire. Chaque fait porte une étiquette, une date et une source.
 </tr>
 <tr>
 <td width="64" align="center"><sub>à venir</sub></td>
-<td><b><code>/fondation-clients</code></b> · clients idéaux déduits des vrais clients, personas étayés · <b><code>/fondation-voix</code></b> · la voix tirée de vrais textes · <b><code>/fondation-preuves</code></b> · mots des clients, promesses vérifiées</td>
+<td><b><code>/fondation-clients</code></b> · clients idéaux déduits des vrais clients, personas étayés · <b><code>/fondation-preuves</code></b> · mots des clients, promesses vérifiées</td>
 <td width="150"></td>
 </tr>
 </table>

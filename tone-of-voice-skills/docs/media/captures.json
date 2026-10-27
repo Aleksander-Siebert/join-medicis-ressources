@@ -1,0 +1,19 @@
+{
+  "note": "Captures du README, produites par outils/visuels/capture.py à partir des vraies sorties des scripts. Ne pas modifier les SVG à la main : relancer le script. « affiche » est la commande telle qu'on la tape depuis le dossier du Skill ; « commande » est celle que lance le générateur depuis le dossier du pack.",
+  "captures": [
+    {
+      "id": "voix",
+      "titre": "tone-of-voice · voix.py",
+      "dossier": ".",
+      "commande": "python3 skills/tone-of-voice/scripts/voix.py evals/fixtures/assurly/01-post-sinistre.txt evals/fixtures/assurly/02-post-chiffres.txt evals/fixtures/assurly/03-email-client.txt evals/fixtures/assurly/04-post-erreur.txt evals/fixtures/assurly/05-whatsapp-equipe.txt evals/fixtures/assurly-ia.txt evals/fixtures/assurly-autre-auteur.txt",
+      "affiche": "python3 scripts/voix.py textes/*.txt"
+    },
+    {
+      "id": "ecart",
+      "titre": "tone-of-voice · ecart.py",
+      "dossier": ".",
+      "commande": "python3 skills/tone-of-voice/scripts/ecart.py templates/exemple-tone-of-voice.md evals/fixtures/assurly-ia.txt",
+      "affiche": "python3 scripts/ecart.py tone-of-voice.md brouillon.txt"
+    }
+  ]
+}
