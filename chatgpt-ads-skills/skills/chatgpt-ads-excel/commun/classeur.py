@@ -308,8 +308,9 @@ def verifier_structure(classeur, r):
     if classeur.get("csv"):
         sep = classeur.get("separateur")
         if sep and sep != ",":
-            r.ajoute(ATTENTION, "fichier", f"séparateur « {'tabulation' if sep == chr(9) else sep} » au lieu de la virgule",
-                     "« reparer » écrit un CSV à virgules [à vérifier : séparateurs acceptés par Ads Manager]")
+            r.ajoute(BLOQUANT, "fichier", f"séparateur « {'tabulation' if sep == chr(9) else sep} » au lieu de la virgule",
+                     "Ads Manager lit alors une seule colonne et refuse les en-têtes (constaté le 27 oct. 2026) : "
+                     "« reparer » écrit un CSV à virgules. Cause habituelle : fichier ouvert puis enregistré dans Excel en français")
         if classeur.get("bom"):
             r.ajoute(ATTENTION, "fichier", "CSV avec BOM (marque d'ordre des octets)",
                      "peut coller un caractère invisible au premier en-tête : « reparer » écrit sans BOM")
@@ -739,6 +740,10 @@ def ecrire_csv(chemin, lignes):
             w.writerow([texte(a.get(c, "")) for c in COLONNES])
 
 
+CONSEIL_IMPORT = ("Importe ce fichier tel quel, sans l'ouvrir ni l'enregistrer dans Excel : Excel en français "
+                  "remplace les virgules par des points-virgules et Ads Manager refuse alors les en-têtes.")
+
+
 def chemin_sortie(chemin, xlsx=False):
     """Le fichier d'import est un CSV. Un nom en .xlsx devient .csv, sauf demande
     explicite (xlsx=True, option --xlsx). Renvoie (chemin retenu, avertissement ou None)."""
@@ -762,6 +767,7 @@ def ecrire(chemin, lignes, xlsx=False):
         ecrire_xlsx(p, lignes)
     else:
         ecrire_csv(p, lignes)
+        print(CONSEIL_IMPORT)
     return p
 
 

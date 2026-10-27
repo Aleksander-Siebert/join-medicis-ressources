@@ -42,8 +42,11 @@ d'emploi complet rangé dans `modules/<nom>/<nom>.md`, avec ses fichiers
 3. Secteur restreint par OpenAI (finance, assurance, santé, juridique) :
    alerte datée, pistes conformes, puis le travail demandé, avec des
    annonces véridiques.
-4. **Le fichier d'import est toujours un .csv** (UTF-8, virgule), jamais un
-   .xlsx : n'utilise pas d'outil ou de Skill de tableur pour le produire.
-   Un .xlsx seulement si l'utilisateur le demande en toutes lettres.
+4. **Le fichier d'import est toujours un .csv** (UTF-8, séparateur
+   **virgule**, jamais point-virgule), jamais un .xlsx : n'utilise pas
+   d'outil ou de Skill de tableur pour le produire. Un .xlsx seulement si
+   l'utilisateur le demande en toutes lettres. En le livrant, dis :
+   « Importe ce fichier tel quel, sans l'ouvrir ni l'enregistrer dans
+   Excel. »
 5. Rien n'est importé ni lancé : le fichier produit est un brouillon à
    relire par une personne qualifiée.

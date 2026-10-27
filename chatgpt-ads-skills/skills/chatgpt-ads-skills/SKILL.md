@@ -197,9 +197,10 @@ explique chaque **ATTENTION** gardée ; une alerte de secteur reste dans « à
 vérifier ». Les identifiants manquants n'empêchent pas l'écriture. Ancien
 modèle à 3 onglets : `--format trois-onglets [--modele modele.xlsx]`.
 Fichier d'import modifié à la main : `/chatgpt-ads-excel`.
-- **Sans exécution de code** : compte chaque titre et copie à la main,
-  livre les lignes du schéma en tableau (10 colonnes, dans l'ordre) et
-  écris en tête : « Contrôle manuel, non vérifié par script. »
+- **Sans exécution de code** : compte titres et copies à la main, donne le
+  CSV à virgules dans un bloc à enregistrer sous `import.csv` (10 colonnes,
+  guillemets si une cellule contient une virgule), en tête : « Contrôle
+  manuel, non vérifié par script. »
 
 ## 8. Avant de dépenser
 

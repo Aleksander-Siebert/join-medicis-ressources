@@ -244,7 +244,9 @@ class TestAnnonces(Base):
         f = self.d / "c.csv"
         f.write_text(";".join(cl.COLONNES) + "\n" + ";".join(BON[c] for c in cl.COLONNES) + "\n", encoding="utf-8")
         r, _, l = cl.verifier(f)
-        self.assertEqual(r.compte(cl.BLOQUANT), 0, r.texte())
+        # lu correctement pour être réparé, mais bloquant tel quel : seul le séparateur est en cause
+        self.assertEqual(messages(r, cl.BLOQUANT), [m for m in messages(r, cl.BLOQUANT) if "séparateur « ; »" in m])
+        self.assertEqual(r.compte(cl.BLOQUANT), 1, r.texte())
         self.assertEqual(l[0]["link"], BON["link"])
 
 
@@ -264,9 +266,18 @@ class TestCSV(Base):
         f.write_bytes(b"\xef\xbb\xbf" + (";".join(cl.COLONNES) + "\n" + ";".join(BON[c] for c in cl.COLONNES) + "\n").encode())
         r, _, l = cl.verifier(f)
         a = messages(r, cl.ATTENTION)
-        self.assertTrue(any("séparateur « ; »" in m for m in a))
+        self.assertTrue(any("séparateur « ; »" in m for m in messages(r, cl.BLOQUANT)))  # refusé par Ads Manager
+        self.assertEqual(r.code(), 3)
         self.assertTrue(any("BOM" in m for m in a))
         self.assertEqual(l[0]["ad_id"], "")
+
+    def test_point_virgule_repare_et_conseil(self):
+        f, s = self.d / "excel-fr.csv", self.d / "propre.csv"
+        f.write_bytes((";".join(cl.COLONNES) + "\r\n" + ";".join(BON[c] for c in cl.COLONNES) + "\r\n").encode())
+        p = subprocess.run([sys.executable, str(SCRIPT), "reparer", str(f), "-o", str(s)], capture_output=True, text=True)
+        self.assertEqual(p.returncode, 0, p.stdout)
+        self.assertIn("sans l'ouvrir ni l'enregistrer dans Excel", p.stdout)
+        self.assertTrue(s.read_text(encoding="utf-8").startswith(",".join(cl.COLONNES)))
 
     def test_reparer_xlsx_vers_csv(self):
         f, s = self.d / "c.xlsx", self.d / "c.csv"
