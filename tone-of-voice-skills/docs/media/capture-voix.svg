@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="858" height="1388" viewBox="0 0 858 1388" role="img" aria-label="tone-of-voice · voix.py">
+<title>tone-of-voice · voix.py</title>
+<rect width="858" height="1388" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h834a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="429" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">tone-of-voice · voix.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/voix.py textes/*.txt</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">VOIX : 7 texte(s), 568 mots, 58 phrases · confiance moyenne</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">RYTHME</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">  phrases : médiane 8 mots, écart-type 7.5, 52% de 8 mots ou moins, 3% de 25 mots ou plus</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">  paragraphes d'une seule phrase : 50%</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">ADRESSE ET REGISTRE</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">  vouvoiement (par texte : {'vouvoiement': 7})</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">  pour 1000 mots : je 17.6 · on 28.2 · nous 15.8 · négation sans « ne » 7</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">  « ça » ou « cela » : ça · chiffres pour 100 mots : 3.2</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">  marques d'oral (nombre de textes) : en fait (1), du coup (1)</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">PONCTUATION (par phrase · classe · textes)</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">  questions                     0.03  rare        2/7</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">  points d'exclamation          0.02  rare        1/7</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre">  points de suspension             0  jamais      0/7</text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">  parenthèses                      0  jamais      0/7</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">  deux-points                   0.07  rare        2/7</text>
+<text x="20" y="438" xml:space="preserve" style="white-space:pre">  points-virgules                  0  jamais      0/7</text>
+<text x="20" y="458" xml:space="preserve" style="white-space:pre">  tirets cadratins (—)             0  jamais      0/7</text>
+<text x="20" y="478" xml:space="preserve" style="white-space:pre">  guillemets droits (")            0  jamais      0/7</text>
+<text x="20" y="498" xml:space="preserve" style="white-space:pre">  guillemets « »                   0  jamais      0/7</text>
+<text x="20" y="518" xml:space="preserve" style="white-space:pre">  émojis                           0  jamais      0/7</text>
+<text x="20" y="538" xml:space="preserve" style="white-space:pre">  espace avant : ; ! ? → avec 7, sans 0 · pourcentage → « 15 % » 0, « 15% » 0</text>
+<text x="20" y="558" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="578" xml:space="preserve" style="white-space:pre">MOTS QUI REVIENNENT (occurrences · textes)</text>
+<text x="20" y="598" xml:space="preserve" style="white-space:pre">  dossier (5·5), client (4·4), jours (4·3), pièces (4·3), dossiers (3·2), monsieur (3·2), assurly</text>
+<text x="20" y="618" xml:space="preserve" style="white-space:pre">    (2·2), clients (2·2), connaît (2·2), dernier (2·2), dire (2·2), déclaration (2·2), délais</text>
+<text x="20" y="638" xml:space="preserve" style="white-space:pre">    (2·2), sinistre (2·2), sms (2·2)</text>
+<text x="20" y="658" xml:space="preserve" style="white-space:pre">EXPRESSIONS PRÉSENTES DANS PLUSIEURS TEXTES</text>
+<text x="20" y="678" xml:space="preserve" style="white-space:pre">  « des pièces » (3 textes)</text>
+<text x="20" y="698" xml:space="preserve" style="white-space:pre">  « votre dossier » (3 textes)</text>
+<text x="20" y="718" xml:space="preserve" style="white-space:pre">  « 48 h » (2 textes)</text>
+<text x="20" y="738" xml:space="preserve" style="white-space:pre">  « chez assurly » (2 textes)</text>
+<text x="20" y="758" xml:space="preserve" style="white-space:pre">  « la déclaration » (2 textes)</text>
+<text x="20" y="778" xml:space="preserve" style="white-space:pre">  « par sms » (2 textes)</text>
+<text x="20" y="798" xml:space="preserve" style="white-space:pre">  « un client » (2 textes)</text>
+<text x="20" y="818" xml:space="preserve" style="white-space:pre">OUVERTURES</text>
+<text x="20" y="838" xml:space="preserve" style="white-space:pre">  01-post-sinistre.txt : « Mardi 7 h 40… »</text>
+<text x="20" y="858" xml:space="preserve" style="white-space:pre">  02-post-chiffres.txt : « On a regardé nos 214 derniers… »</text>
+<text x="20" y="878" xml:space="preserve" style="white-space:pre">  03-email-client.txt : « Bonjour Monsieur Garnier… »</text>
+<text x="20" y="898" xml:space="preserve" style="white-space:pre">  04-post-erreur.txt : « On s'est plantés le mois dernier… »</text>
+<text x="20" y="918" xml:space="preserve" style="white-space:pre">  05-whatsapp-equipe.txt : « Hello l'équipe petit point rapide avant… »</text>
+<text x="20" y="938" xml:space="preserve" style="white-space:pre">  assurly-ia.txt : « Dans un monde où l'assurance évolue… »</text>
+<text x="20" y="958" xml:space="preserve" style="white-space:pre">  assurly-autre-auteur.txt : « Madame Monsieur… »</text>
+<text x="20" y="978" xml:space="preserve" style="white-space:pre">FINS : {'question': 1, 'affirmation': 5, 'exclamation': 1}</text>
+<text x="20" y="998" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="1018" xml:space="preserve" style="white-space:pre">RÈGLES JUSTIFIÉES PAR LES TEXTES</text>
+<text x="20" y="1038" xml:space="preserve" style="white-space:pre">  - Jamais de points de suspension (0 sur 7 textes).</text>
+<text x="20" y="1058" xml:space="preserve" style="white-space:pre">  - Jamais de parenthèses (0 sur 7 textes).</text>
+<text x="20" y="1078" xml:space="preserve" style="white-space:pre">  - Jamais de points-virgules (0 sur 7 textes).</text>
+<text x="20" y="1098" xml:space="preserve" style="white-space:pre">  - Jamais de tirets cadratins (—) (0 sur 7 textes).</text>
+<text x="20" y="1118" xml:space="preserve" style="white-space:pre">  - Jamais d’émojis (0 sur 7 textes).</text>
+<text x="20" y="1138" xml:space="preserve" style="white-space:pre">  - Vouvoiement (7 textes sur 7).</text>
+<text x="20" y="1158" xml:space="preserve" style="white-space:pre">  - « ça » plutôt que « cela ».</text>
+<text x="20" y="1178" xml:space="preserve" style="white-space:pre">  - Phrases de 8 mots en médiane, écart-type 7.5.</text>
+<text x="20" y="1198" xml:space="preserve" style="white-space:pre"></text>
+<text x="20" y="1218" xml:space="preserve" style="white-space:pre">ALERTES</text>
+<text x="20" y="1238" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">  !</tspan> assurly-ia.txt : marques d'écriture IA (ce-n-est-pas-c-est, delayage, fuite-assistant,</text>
+<text x="20" y="1258" xml:space="preserve" style="white-space:pre">    lexique-ia, ouverture-creuse, revelation). Demander si ce texte a été écrit à la main.</text>
+<text x="20" y="1278" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">  !</tspan> assurly-ia.txt : léger écart (« nous » partout alors que les autres textes disent « on »).</text>
+<text x="20" y="1298" xml:space="preserve" style="white-space:pre">    Demander s'il faut le garder.</text>
+<text x="20" y="1318" xml:space="preserve" style="white-space:pre"><tspan fill="#D4B681">  !</tspan> assurly-autre-auteur.txt : à part (phrases de 18 mots contre 6.5 ailleurs ; 7 formules</text>
+<text x="20" y="1338" xml:space="preserve" style="white-space:pre">    administratives (« veuillez », « conformément »…) ; « nous » partout alors que les autres</text>
+<text x="20" y="1358" xml:space="preserve" style="white-space:pre">    textes disent « on »). Demander s'il faut le garder.</text>
+</g></svg>

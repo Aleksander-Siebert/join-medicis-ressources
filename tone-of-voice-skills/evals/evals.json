@@ -1,0 +1,117 @@
+{
+  "version": "0.1.0",
+  "note": "Cas d'éval de /tone-of-voice. Les attentes marquées [auto] sont vérifiées par script ; les autres par un juge, à l'aveugle, contre la référence. Entreprise fictive : Assurly (assurly.example).",
+  "contexte_commun": "Textes d'entrée : evals/fixtures/assurly/ (5 textes de Camille, fondatrice d'Assurly), evals/fixtures/assurly-ia.txt (texte écrit par IA), evals/fixtures/assurly-autre-auteur.txt (lettre administrative d'un autre auteur).",
+  "cas": [
+    {
+      "id": 1,
+      "skill": "tone-of-voice",
+      "demande": "Voilà 5 de mes textes (fixtures/assurly). Crée mon tone of voice.",
+      "attentes": [
+        "Annonce le mode « Créer » et les étapes en une ligne, sans demander le mode",
+        "[auto] voix.py sur les 5 textes : confiance faible, alerte « corpus court », vouvoiement 5 sur 5",
+        "Dit que 405 mots c'est court, continue avec plus de questions, sans bloquer",
+        "Compare avec une version IA par défaut sur au moins un sujet et liste les différences",
+        "3 à 5 traits « X, pas Y », chacun avec une citation exacte tirée des textes",
+        "Aucun trait refusé par le test de spécificité (« authentique », « engageant », « professionnel mais accessible »)",
+        "5 à 7 questions au plus, aucune sur ce que les textes disent déjà (tu ou vous, émojis)",
+        "[auto] profil.py verifier sur le fichier produit : aucune erreur"
+      ]
+    },
+    {
+      "id": 2,
+      "skill": "tone-of-voice",
+      "demande": "Voici mes textes : les 5 de fixtures/assurly, plus assurly-ia.txt et assurly-autre-auteur.txt.",
+      "attentes": [
+        "[auto] voix.py signale assurly-ia.txt comme probablement écrit par IA",
+        "[auto] voix.py classe assurly-autre-auteur.txt « à part »",
+        "Demande si ces deux textes ont été écrits par la personne avant de les utiliser",
+        "Les écarte de l'analyse si la réponse est non, et le dit"
+      ]
+    },
+    {
+      "id": 3,
+      "skill": "tone-of-voice",
+      "demande": "Je n'ai aucun texte, je commence sur LinkedIn. Aide-moi à trouver ma voix.",
+      "attentes": [
+        "Explique que sans texte la voix est une hypothèse, confiance « faible »",
+        "Questions par blocs de 2 ou 3, fermées avec une proposition, 12 au plus",
+        "Calibrage sur 3 variantes d'un vrai premier post",
+        "Le fichier note en « Questions ouvertes » de recalculer après 5 posts",
+        "Aucune citation inventée présentée comme un extrait réel"
+      ]
+    },
+    {
+      "id": 4,
+      "skill": "tone-of-voice",
+      "demande": "J'adore comment écrit [une entrepreneuse connue]. Je veux écrire comme elle. Voici 4 de ses posts.",
+      "attentes": [
+        "Rappelle qu'on s'inspire de traits, pas de ses phrases signatures, et qu'on n'écrit pas en se faisant passer pour elle",
+        "Demande 2 textes de la personne pour mesurer l'écart avec sa propre voix",
+        "La section 2 décrit la voix de la personne ; l'écart voulu va en « Vers où je veux aller »"
+      ]
+    },
+    {
+      "id": 5,
+      "skill": "tone-of-voice",
+      "demande": "Réécris ce post dans ma voix : « Dans un monde où les sinistres se multiplient, nous plaçons nos clients au cœur de notre démarche ! N'hésitez pas à nous contacter 🚀 » (voix : exemples/assurly/tone-of-voice.md)",
+      "attentes": [
+        "Lit le fichier et prend la ligne LinkedIn de la section 8",
+        "N'ajoute aucun fait (pas de délai, de chiffre ni de nom inventés) ; un fait manquant devient {{à compléter}}",
+        "[auto] ecart.py sur la réécriture : DANS LA VOIX",
+        "Explique les changements en 3 lignes au plus"
+      ]
+    },
+    {
+      "id": 6,
+      "skill": "tone-of-voice",
+      "demande": "Est-ce que ce texte sonne comme moi ? (fixtures/assurly-ia.txt, voix : exemples/assurly/tone-of-voice.md)",
+      "attentes": [
+        "[auto] ecart.py : HORS VOIX, avec « au cœur de » et « n'hésitez pas » relevés",
+        "Sépare l'écart mesuré et le jugement des traits, notés de 1 à 5",
+        "Propose une version corrigée sans inventer de fait"
+      ]
+    },
+    {
+      "id": 7,
+      "skill": "tone-of-voice",
+      "demande": "J'ai corrigé ton post : j'ai remplacé « notre équipe » par « Inès et Théo » et retiré la phrase sur la satisfaction. Retiens-le.",
+      "attentes": [
+        "Liste les retouches et propose une règle en une phrase, avec sa section",
+        "Applique après « oui » : version + 1, date, ligne de journal avec la raison",
+        "Ne demande pas à la personne de modifier le fichier elle-même",
+        "[auto] profil.py verifier sur la nouvelle version : aucune erreur"
+      ]
+    },
+    {
+      "id": 8,
+      "skill": "tone-of-voice",
+      "demande": "Fais-moi un Skill avec ma voix que je peux mettre dans claude.ai.",
+      "attentes": [
+        "[auto] profil.py ma-voix --zip : un seul SKILL.md, nom égal au dossier, description de 1 024 caractères au plus",
+        "Signale les prénoms seuls restés dans les exemples et demande s'ils peuvent rester",
+        "Donne le chemin d'import, et les autres IA avec leur état de vérification",
+        "Sans exécution de code : donne SKILL.md et fichier en texte à copier, sans prétendre avoir créé un ZIP"
+      ]
+    },
+    {
+      "id": 9,
+      "skill": "tone-of-voice",
+      "demande": "Mets à jour ma voix avec ces 5 nouveaux posts.",
+      "attentes": [
+        "Relance voix.py sur l'ancien et le nouveau corpus et remplace le bloc de la section 12",
+        "Dit ce qui a bougé, en chiffres, et ce qui reste",
+        "La confiance peut passer de « faible » à « moyenne » : l'en-tête et la question ouverte sont mis à jour"
+      ]
+    },
+    {
+      "id": 10,
+      "skill": "tone-of-voice",
+      "demande": "Écris-moi un article de blog de 1 500 mots sur l'assurance des artisans.",
+      "attentes": [
+        "Ne se déclenche pas comme rédacteur d'article : renvoie vers le pack SEO, qui lit tone-of-voice.md",
+        "Propose seulement de vérifier ou réécrire le résultat dans la voix"
+      ]
+    }
+  ]
+}

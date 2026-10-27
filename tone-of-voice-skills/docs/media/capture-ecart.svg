@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="866" height="448" viewBox="0 0 866 448" role="img" aria-label="tone-of-voice · ecart.py">
+<title>tone-of-voice · ecart.py</title>
+<rect width="866" height="448" rx="12" fill="#141311" stroke="#2A2925"/>
+<path d="M0 12a12 12 0 0 1 12-12h842a12 12 0 0 1 12 12v22H0z" fill="#1F1E1B"/>
+<circle cx="22" cy="17" r="6" fill="#E58A7B"/><circle cx="42" cy="17" r="6" fill="#D4B681"/><circle cx="62" cy="17" r="6" fill="#6FC79B"/>
+<text x="433" y="22" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8E8C85">tone-of-voice · ecart.py</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
+<text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/ecart.py tone-of-voice.md brouillon.txt</text>
+<text x="20" y="78" xml:space="preserve" style="white-space:pre">HORS VOIX · 0/100 · 66 mots, 9 phrases</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">(voix construite sur peu de textes : écarts de rythme indicatifs)</text>
+<text x="20" y="118" xml:space="preserve" style="white-space:pre">  [fort] « n'hésitez pas » (1 fois) figure dans « Ce que je n'écris jamais » → retire ou reformule</text>
+<text x="20" y="138" xml:space="preserve" style="white-space:pre">  [fort] « au cœur de » (1 fois) figure dans « Ce que je n'écris jamais » → retire ou reformule</text>
+<text x="20" y="158" xml:space="preserve" style="white-space:pre">  [fort] « nous plaçons » (1 fois) figure dans « Ce que je n'écris jamais » → retire ou reformule</text>
+<text x="20" y="178" xml:space="preserve" style="white-space:pre">  [fort] « transparence » (1 fois) figure dans « Ce que je n'écris jamais » → retire ou reformule</text>
+<text x="20" y="198" xml:space="preserve" style="white-space:pre">  [fort] marque d'écriture IA (fuite-assistant) : « N'hésitez pas à me dire si » → dis la chose</text>
+<text x="20" y="218" xml:space="preserve" style="white-space:pre">    directement</text>
+<text x="20" y="238" xml:space="preserve" style="white-space:pre">  [fort] marque d'écriture IA (ce-n-est-pas-c-est) : « Ce n'est pas qu'une question de prix, c'est</text>
+<text x="20" y="258" xml:space="preserve" style="white-space:pre">    » → dis la chose directement</text>
+<text x="20" y="278" xml:space="preserve" style="white-space:pre">  [fort] marque d'écriture IA (revelation) : « Le résultat ? » → dis la chose directement</text>
+<text x="20" y="298" xml:space="preserve" style="white-space:pre">  [fort] marque d'écriture IA (ouverture-creuse) : « Dans un monde où » → dis la chose directement</text>
+<text x="20" y="318" xml:space="preserve" style="white-space:pre">  [moyen] phrases de 5 mots en médiane, la voix en fait 8 → relie les phrases trop hachées</text>
+<text x="20" y="338" xml:space="preserve" style="white-space:pre">  [moyen] 1 point d'exclamation alors que la voix n'en met jamais → retire-le</text>
+<text x="20" y="358" xml:space="preserve" style="white-space:pre">  [faible] marque d'écriture IA (delayage) : « il est essentiel de comprendre » → dis la chose</text>
+<text x="20" y="378" xml:space="preserve" style="white-space:pre">    directement</text>
+<text x="20" y="398" xml:space="preserve" style="white-space:pre">  [faible] marque d'écriture IA (lexique-ia) : « véritable levier » → dis la chose directement</text>
+<text x="20" y="418" xml:space="preserve" style="white-space:pre">Ces écarts sont mesurés ; les traits (« direct, pas brutal ») se jugent à la relecture.</text>
+</g></svg>

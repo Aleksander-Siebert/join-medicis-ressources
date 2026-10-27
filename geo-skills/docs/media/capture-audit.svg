@@ -7,7 +7,7 @@
 <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#E8E1D5" xml:space="preserve">
 <text x="20" y="58" xml:space="preserve" style="white-space:pre"><tspan fill="#B89253">$ </tspan>python3 scripts/audit.py page.html --url https://assurly.example/mutuelle-independant/ --robots</text>
 <text x="20" y="78" xml:space="preserve" style="white-space:pre">  robots.txt --marque Assurly</text>
-<text x="20" y="98" xml:space="preserve" style="white-space:pre">AUDIT GEO · https://assurly.example/mutuelle-independant/ · 2026-10-16</text>
+<text x="20" y="98" xml:space="preserve" style="white-space:pre">AUDIT GEO · https://assurly.example/mutuelle-independant/ · 2026-10-27</text>
 <text x="20" y="118" xml:space="preserve" style="white-space:pre">PRÉPARATION · 67/100 sur les contrôles mesurés (62/93 points ; 7 points non mesurés ou à vérifier,</text>
 <text x="20" y="138" xml:space="preserve" style="white-space:pre">  hors calcul)</text>
 <text x="20" y="158" xml:space="preserve" style="white-space:pre">  Dit si la page est prête à être lue et citée, pas si elle le sera.</text>

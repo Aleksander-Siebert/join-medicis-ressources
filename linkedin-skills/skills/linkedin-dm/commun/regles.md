@@ -81,7 +81,10 @@ informations sur des tiers : ils ne vont jamais dans un dépôt public.
 
 1. Ce que l'utilisateur dit dans la conversation.
 2. `apprentissages.md` (ce qui a marché pour lui, mesuré).
-3. `contexte.md` (sa voix, ses règles maison).
+3. `contexte.md` (sa voix, ses règles maison). Si un `tone-of-voice.md`
+   existe (créé par `/tone-of-voice`, souvent dans `~/.claude/fondation/`), il
+   remplace la section « Voix » : traits, « jamais » et ligne LinkedIn de ses
+   réglages par canal.
 4. Le SKILL.md et ses références.
 5. Les niveaux de preuve de `commun/preuves.md` : un fait officiel passe avant
    une étude tierce, qui passe avant un avis de praticien. Le folklore ne sert

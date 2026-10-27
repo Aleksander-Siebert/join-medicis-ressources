@@ -82,7 +82,9 @@ un dépôt public.
 
 1. Ce que l'utilisateur dit dans la conversation.
 2. `apprentissages.md` (mesuré sur son site).
-3. `site-context.md` (ses règles maison, son ton).
+3. `site-context.md` (ses règles maison, son ton). Si un `tone-of-voice.md`
+   existe (créé par `/tone-of-voice`, souvent dans `~/.claude/fondation/`),
+   ses traits, ses « jamais » et sa ligne « Site » s'appliquent aux textes.
 4. Le SKILL.md et ses références.
 5. Les niveaux de preuve de `commun/preuves.md` : la documentation officielle
    passe avant une étude d'éditeur, qui passe avant un avis de praticien. Le

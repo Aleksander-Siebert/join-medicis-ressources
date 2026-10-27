@@ -13,7 +13,7 @@ description: >-
   écrit sans « oui ». Export facultatif vers les packs SEO et LinkedIn.
   Utilise-le pour « présente mon entreprise à Claude », « fiche entreprise »,
   « positionnement », « mets à jour mon contexte ». Pas pour les clients et
-  personas (/fondation-clients), la voix (/fondation-voix), les témoignages et
+  personas (/fondation-clients), la voix (/tone-of-voice), les témoignages et
   promesses (/fondation-preuves), ni pour un avis juridique.
 ---
 
@@ -223,7 +223,7 @@ Exemple complet, avec les vraies sorties des scripts : `references/exemple.md`.
 
 Termine par la liste « à vérifier » (faits `À CONFIRMER`, trous, pages non
 lues), puis propose **un** Skill suivant : `/fondation-clients` si la section
-« Pour qui » repose sur une impression, sinon `/fondation-voix`.
+« Pour qui » repose sur une impression, sinon `/tone-of-voice`.
 
 ## Ressources
 
@@ -244,6 +244,6 @@ lues), puis propose **un** Skill suivant : `/fondation-clients` si la section
 
 ## Skills liés
 
-`/fondation-clients` (qui achète et pourquoi), `/fondation-voix` (comment
-l'entreprise écrit), `/fondation-preuves` (ce que disent les clients, et ce
+`/fondation-clients` (qui achète et pourquoi), `/tone-of-voice` (comment
+l'entreprise écrit, pack à part), `/fondation-preuves` (ce que disent les clients, et ce
 qu'on peut promettre).

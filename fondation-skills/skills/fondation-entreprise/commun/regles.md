@@ -60,7 +60,7 @@ sujet : un Skill ne lit que ce qui lui sert.
 |---|---|---|
 | `entreprise.md` | l'entreprise, l'offre, le marché, les alternatives, la différence, les objectifs, les contraintes, les outils | `/fondation-entreprise` |
 | `clients.md` | clients idéaux, personas étayés, jobs à accomplir, forces du changement, objections | `/fondation-clients` |
-| `voix.md` | voix et ton tirés de vrais textes, réglages par canal, interdits | `/fondation-voix` |
+| `tone-of-voice.md` | voix et ton tirés de vrais textes, réglages par canal, interdits | `/tone-of-voice` (pack à part) |
 | `preuves.md` | mots des clients, objections, promesses vérifiées | `/fondation-preuves` |
 
 Ces fichiers contiennent des informations internes : ils ne vont jamais dans

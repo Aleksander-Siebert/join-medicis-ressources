@@ -42,7 +42,11 @@ Retrouve des skills autour de LinkedIn, du SEO/GEO et prochainement : Paids, UX/
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-fondation.svg" width="52" alt=""></td>
-<td><b><a href="fondation-skills/">Fondation</a></b> · 1 Skill sur 4 · v0.1, en construction<br>Le contexte de ton entreprise que toute IA lit avant d'écrire : chaque fait étiqueté, daté et sourcé, mentions légales et numéros contrôlés, rien d'enregistré sans ton accord.</td>
+<td><b><a href="fondation-skills/">Fondation</a></b> · 1 Skill sur 3 · v0.1, en construction<br>Le contexte de ton entreprise que toute IA lit avant d'écrire : chaque fait étiqueté, daté et sourcé, mentions légales et numéros contrôlés, rien d'enregistré sans ton accord.</td>
+</tr>
+<tr>
+<td width="72" align="center"><img src="docs/media/icones/pack-voix.svg" width="52" alt=""></td>
+<td><b><a href="tone-of-voice-skills/">Tone of Voice</a></b> · 1 Skill · v0.1<br>Ta voix d'écriture tirée de tes vrais textes : mesures par script, questions ciblées, calibrage sur trois variantes. Un <code>tone-of-voice.md</code> que toute IA respecte, ou un Skill « ma-voix » à importer ; des textes réécrits et vérifiés ; une voix qui se met à jour sans retouche à la main.<br><sub><a href="tone-of-voice-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
 </tr>
 </table>
 
@@ -58,9 +62,10 @@ Chaque pack marche seul. Aucun n'a besoin d'un autre pour fonctionner.
 /plugin install seo-skills@join-medicis
 /plugin install geo-skills@join-medicis
 /plugin install chatgpt-ads-skills@join-medicis
+/plugin install tone-of-voice-skills@join-medicis
 ```
 
-La Fondation rejoindra le marketplace quand ses quatre Skills seront prêts ;
+La Fondation rejoindra le marketplace quand ses trois Skills seront prêts ;
 d'ici là, copie `fondation-skills/skills/fondation-entreprise/` dans
 `~/.claude/skills/`.
 

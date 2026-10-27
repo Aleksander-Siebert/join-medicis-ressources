@@ -34,6 +34,13 @@
       "source": "./chatgpt-ads-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/ads-skills"
+    },
+    {
+      "name": "tone-of-voice-skills",
+      "description": "Ta voix d'écriture tirée de tes vrais textes : mesures par script, questions ciblées, calibrage sur trois variantes. Un tone-of-voice.md lisible par toute IA ou un Skill « ma-voix » à importer, des textes réécrits et vérifiés, une voix qui se met à jour sans retouche à la main.",
+      "source": "./tone-of-voice-skills",
+      "category": "productivity",
+      "homepage": "https://joinmedicis.com/ressources/skills/tone-of-voice"
     }
   ]
 }
