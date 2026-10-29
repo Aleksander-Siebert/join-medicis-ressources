@@ -64,6 +64,8 @@ def main(argv=None):
     total = 0
     for nom in a.packs:
         pack = (RACINE / nom).resolve() if not Path(nom).is_absolute() else Path(nom)
+        if not pack.exists() and (RACINE / "plugins" / nom).exists():
+            pack = (RACINE / "plugins" / nom).resolve()
         ecarts = controler(pack)
         total += len(ecarts)
         print(f"{pack.name} : " + ("README conforme" if not ecarts else f"{len(ecarts)} écart(s)"))

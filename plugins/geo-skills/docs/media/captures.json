@@ -5,7 +5,7 @@
       "id": "audit",
       "titre": "geo-audit · audit.py",
       "dossier": ".",
-      "commande": "python3 skills/geo-audit/scripts/audit.py evals/geo-contenu/page-assurly.html --url https://assurly.example/mutuelle-independant/ --robots evals/geo-acces/robots-piege.txt --marque Assurly",
+      "commande": "python3 skills/geo-audit/scripts/audit.py evals/geo-contenu/page-assurly.html --url https://assurly.example/mutuelle-independant/ --robots evals/geo-acces/robots-piege.txt --marque Assurly --date 2026-10-27",
       "affiche": "python3 scripts/audit.py page.html --url https://assurly.example/mutuelle-independant/ --robots robots.txt --marque Assurly"
     },
     {

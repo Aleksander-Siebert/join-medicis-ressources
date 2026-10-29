@@ -16,6 +16,7 @@ import zipfile
 from pathlib import Path
 
 PACK = Path(__file__).resolve().parents[1]
+RACINE = next(d for d in PACK.parents if (d / ".claude-plugin" / "marketplace.json").exists())  # racine du dépôt
 SKILL = PACK / "skills" / "tone-of-voice"
 resultats = []
 
@@ -139,7 +140,7 @@ def _():
     m = json.loads((PACK / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
     assert m["name"] == PACK.name and m["license"] == "MIT"
     assert f"version-{m['version']}" in (PACK / "README.md").read_text(encoding="utf-8")
-    racine = json.loads((PACK.parent / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
+    racine = json.loads((RACINE / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
     assert any(p["name"] == PACK.name for p in racine["plugins"]), "absent du marketplace"
 
 
@@ -157,9 +158,9 @@ def _():
 
 @test("captures du README : à jour avec la sortie réelle des scripts")
 def _():
-    outil = PACK.parent / "outils" / "visuels" / "capture.py"
+    outil = RACINE / "outils" / "visuels" / "capture.py"
     r = subprocess.run([sys.executable, str(outil), "--manifeste", str(PACK / "docs" / "media" / "captures.json"),
-                        "--verifier"], capture_output=True, text=True, cwd=PACK.parent)
+                        "--verifier"], capture_output=True, text=True, cwd=RACINE)
     assert r.returncode == 0, r.stdout[-400:] + r.stderr[-400:]
 
 

@@ -331,7 +331,7 @@ def journal(chemin: str, r: dict) -> None:
 
 
 def auditer(html, entetes, url, robots_txt, statut_robots, erreur_robots, marque=None, question=None,
-            sondes=None, mesure=None, statut_page=200) -> dict:
+            sondes=None, mesure=None, statut_page=200, date=None) -> dict:
     ra = acces.analyser(robots_txt, statut_robots, erreur_robots, html, entetes, url or "https://exemple.fr/",
                         statut_page, sondes) if acces else None
     rc = contenu.analyser(url or "page", html, None, entetes, question) if contenu else None
@@ -339,7 +339,7 @@ def auditer(html, entetes, url, robots_txt, statut_robots, erreur_robots, marque
     rg = agentic.analyser(html, entetes, None) if agentic else None
     ctrls = couche_acces(ra, sondes is not None) + couche_page_contenu(rc, html, url) + couche_entite(re_) + couche_agents(rg)
     ctrls.sort(key=lambda c: (COUCHES.index(c["couche"]), c["id"]))
-    return {"url": url or "(fichier)", "date": dt.date.today().isoformat(), "controles": ctrls, "note": note(ctrls),
+    return {"url": url or "(fichier)", "date": date or dt.date.today().isoformat(), "controles": ctrls, "note": note(ctrls),
             "premiere": premiere_couche(ctrls), "familles": (rc or {}).get("couverture"), "mesure": mesure}
 
 
@@ -354,6 +354,7 @@ def main(argv=None) -> int:
     ap.add_argument("--sonder", action="store_true", help="appeler la page avec le user-agent des robots (pare-feu)")
     ap.add_argument("--journal", help="fichier CSV où ajouter cet audit")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--date", help="date de l'audit (AAAA-MM-JJ), par défaut aujourd'hui")
     a = ap.parse_args(argv)
     if acces is None and contenu is None and entite is None and agentic is None:
         print("Aucun script du pack trouvé à côté de geo-audit : installe le pack complet.", file=sys.stderr)
@@ -388,7 +389,7 @@ def main(argv=None) -> int:
             mesure = json.loads(Path(a.mesure).read_text(encoding="utf-8"))
         except (OSError, ValueError) as e:
             print(f"Mesure illisible ({e}) : ignorée.", file=sys.stderr)
-    r = auditer(html, entetes, url, robots_txt, st_r, err_r, a.marque, a.question, sondes, mesure, statut)
+    r = auditer(html, entetes, url, robots_txt, st_r, err_r, a.marque, a.question, sondes, mesure, statut, date=a.date)
     if a.journal:
         journal(a.journal, r)
     print(json.dumps(r, ensure_ascii=False, indent=2) if a.json else afficher(r))

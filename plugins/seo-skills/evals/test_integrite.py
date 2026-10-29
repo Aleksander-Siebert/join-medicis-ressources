@@ -15,6 +15,7 @@ import sys
 from pathlib import Path
 
 PACK = Path(__file__).resolve().parents[1]
+RACINE = next(d for d in PACK.parents if (d / ".claude-plugin" / "marketplace.json").exists())  # racine du dépôt
 SKILLS = sorted(p for p in (PACK / "skills").iterdir() if (p / "SKILL.md").exists())
 V2 = [s for s in SKILLS if "commun/regles.md" in (s / "SKILL.md").read_text(encoding="utf-8")]
 resultats = []
@@ -129,7 +130,7 @@ def _():
 
 @test("modèles : réserve identique à celle du pack LinkedIn, exemple marqué fictif, modèles vides")
 def _():
-    li = PACK.parent / "linkedin-skills" / "templates" / "reserve.md"
+    li = RACINE / "linkedin-skills" / "templates" / "reserve.md"
     if li.exists():
         assert (PACK / "templates" / "reserve.md").read_text(encoding="utf-8") == li.read_text(encoding="utf-8"), \
             "templates/reserve.md diffère de linkedin-skills/templates/reserve.md (réserve partagée)"
@@ -148,7 +149,7 @@ def _():
 
 @test("README : images, liens, version, icônes, captures et visuels conformes (outils/visuels/readme.py)")
 def _():
-    r = subprocess.run([sys.executable, str(PACK.parent / "outils" / "visuels" / "readme.py"), str(PACK)],
+    r = subprocess.run([sys.executable, str(RACINE / "outils" / "visuels" / "readme.py"), str(PACK)],
                        capture_output=True, text=True)
     assert r.returncode == 0, r.stdout[-800:] + r.stderr[-400:]
 

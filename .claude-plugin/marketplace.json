@@ -10,35 +10,35 @@
     {
       "name": "linkedin-skills",
       "description": "Quinze Skills en français pour LinkedIn, de la stratégie au message privé, avec des scripts testés et un humaniseur qui retire les marques d'écriture IA.",
-      "source": "./linkedin-skills",
+      "source": "./plugins/linkedin-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/linkedin-skills"
     },
     {
       "name": "seo-skills",
       "description": "Quatorze Skills SEO en français : de la stratégie à l'article publié en étapes validées, audit et photo avant / après, maillage interne, mises à jour pilotées par Search Console, veille, SEO local et social.",
-      "source": "./seo-skills",
+      "source": "./plugins/seo-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/seo-skills"
     },
     {
       "name": "geo-skills",
       "description": "Huit Skills GEO / AEO en français pour être lu, compris et cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et Google : audit, visibilité mesurée avec sa marge, robots d'IA, exactitude, entité, sites tiers, agents.",
-      "source": "./geo-skills",
+      "source": "./plugins/geo-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/geo-skills"
     },
     {
       "name": "chatgpt-ads-skills",
       "description": "ChatGPT Ads : 5 Skills en français pour la France, de la campagne de 40 annonces aux 120 sans doublons, des exports Google, Meta et Microsoft Ads au classeur d'import contrôlé par script.",
-      "source": "./chatgpt-ads-skills",
+      "source": "./plugins/chatgpt-ads-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/ads-skills"
     },
     {
       "name": "tone-of-voice-skills",
       "description": "Ta voix d'écriture tirée de tes vrais textes : mesures par script, questions ciblées, calibrage sur trois variantes. Un tone-of-voice.md lisible par toute IA ou un Skill « ma-voix » à importer, des textes réécrits et vérifiés, une voix qui se met à jour sans retouche à la main.",
-      "source": "./tone-of-voice-skills",
+      "source": "./plugins/tone-of-voice-skills",
       "category": "productivity",
       "homepage": "https://joinmedicis.com/ressources/skills/tone-of-voice-skills"
     }

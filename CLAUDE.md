@@ -97,14 +97,22 @@ sessions par pack, c'est normal.
 
 ## Mécanique du dépôt
 
-- Un dossier par pack :
+- Un dossier par pack, rangé dans **`plugins/<pack>/`** (structure des
+  plugins Claude Code, reconnue par `gh skill` de GitHub CLI :
+  `plugins/*/skills/*/SKILL.md`) :
   - `skills/<nom>/SKILL.md` et ses fichiers ;
   - `.claude-plugin/plugin.json` ;
   - `claude-ai/SKILL.md` (routeur) et `claude-ai/build.sh` ;
   - `templates/` ;
   - `evals/` ;
-  - `README.md`, `CREDITS.md`, `LICENSE`.
-- Marketplace racine : `.claude-plugin/marketplace.json` (nom `join-medicis`).
+  - `README.md`, `CREDITS.md`, `LICENSE` ;
+  - plus tard, les agents IA du pack dans `plugins/<pack>/agents/`.
+- Un nom de Skill est **unique dans tout le dépôt** : `gh skill install`
+  le cherche par son nom.
+- Marketplace racine : `.claude-plugin/marketplace.json` (nom `join-medicis`) ;
+  chaque `source` pointe vers `./plugins/<pack>`.
+- `recherche/`, `outils/` et `docs/` restent à la racine. Les tests d'un pack
+  trouvent la racine du dépôt en cherchant `.claude-plugin/marketplace.json`.
 - claude.ai refuse plusieurs SKILL.md et le manifeste de plugin :
   `claude-ai/build.sh` construit un ZIP avec un seul SKILL.md, et les modules
   sont rangés dans `modules/<nom>/`.
@@ -112,7 +120,7 @@ sessions par pack, c'est normal.
   - un fichier par pack dans `src/lib/` (`linkedin-pack.ts`, `seo-pack.ts`,
     `geo-pack.ts`, outil commun `skill-pack.ts`) ;
   - `scripts/sync-skill-packs.sh ../join-medicis-ressources` copie les
-    fichiers et construit les ZIP ;
+    fichiers (lus dans `plugins/<pack>/`) et construit les ZIP ;
   - vérifier avec `npx tsc --noEmit` et `npm run build` (`next lint` est
     cassé depuis Next 16).
 - Avant de publier : frontmatter valide, bundle claude.ai construit, tous les
