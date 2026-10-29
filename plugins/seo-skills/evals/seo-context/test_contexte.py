@@ -10,6 +10,7 @@ import unittest
 from pathlib import Path
 
 PACK = Path(__file__).resolve().parents[2]
+RACINE = next(d for d in PACK.parents if (d / ".claude-plugin" / "marketplace.json").exists())  # racine du dépôt
 MODELES = PACK / "templates"
 SKILL = (PACK / "skills" / "seo-context" / "SKILL.md").read_text(encoding="utf-8")
 
@@ -34,7 +35,7 @@ class Modeles(unittest.TestCase):
         self.assertTrue(re.search(r"\| LIVE \|", t), "l'exemple montre au moins une donnée LIVE")
 
     def test_reserve_partagee_avec_linkedin(self):
-        li = PACK.parent / "linkedin-skills" / "templates" / "reserve.md"
+        li = RACINE / "linkedin-skills" / "templates" / "reserve.md"
         if li.exists():
             self.assertEqual((MODELES / "reserve.md").read_text(encoding="utf-8"), li.read_text(encoding="utf-8"))
 

@@ -14,6 +14,7 @@ import sys
 from pathlib import Path
 
 PACK = Path(__file__).resolve().parents[1]
+RACINE = next(d for d in PACK.parents if (d / ".claude-plugin" / "marketplace.json").exists())  # racine du dépôt
 SKILLS = sorted(p for p in (PACK / "skills").iterdir() if p.is_dir())
 NOMS = {p.name for p in SKILLS}
 resultats = []
@@ -200,7 +201,7 @@ def _():
 
 # ---------- README et visuels ----------
 
-VISUELS = PACK.parent / "outils" / "visuels"
+VISUELS = RACINE / "outils" / "visuels"
 
 
 @test("README : images, liens, version, icônes, captures et visuels conformes (outils/visuels/readme.py)")

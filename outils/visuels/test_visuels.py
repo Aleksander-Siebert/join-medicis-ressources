@@ -84,14 +84,14 @@ class Visuels(unittest.TestCase):
             self.assertEqual(vis.main([str(p)]), 1)
 
     def test_manifestes_des_packs(self):
-        for manifeste in RACINE.glob("*-skills/docs/media/visuels.json"):
+        for manifeste in RACINE.glob("plugins/*-skills/docs/media/visuels.json"):
             m = json.loads(manifeste.read_text(encoding="utf-8"))
             for ic in m["icones"]:
                 if ic.get("a_venir"):
                     continue
                 self.assertIn(ic["glyphe"], vis.GLYPHES, f"{manifeste} : {ic['glyphe']}")
                 self.assertIn(ic["famille"], m["familles"], f"{manifeste} : {ic['famille']}")
-                self.assertTrue((RACINE / manifeste.parts[-4] / "skills" / ic["nom"]).is_dir(),
+                self.assertTrue((manifeste.parents[2] / "skills" / ic["nom"]).is_dir(),
                                 f"{manifeste} : aucun Skill « {ic['nom']} »")
 
 

@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 
 PACK = Path(__file__).resolve().parents[2]
+RACINE = next(d for d in PACK.parents if (d / ".claude-plugin" / "marketplace.json").exists())  # racine du dépôt
 SKILLS = sorted(d for d in (PACK / "skills").iterdir() if (d / "SKILL.md").exists())
 NOMS = ["geo-audit", "geo-acces", "geo-visibilite", "geo-exactitude", "geo-contenu", "geo-mentions", "geo-entite", "geo-agentic"]
 
@@ -14,7 +15,7 @@ NOMS = ["geo-audit", "geo-acces", "geo-visibilite", "geo-exactitude", "geo-conte
 def textes():
     """Tous les .md du pack livrés à l'utilisateur, sauf les copies de commun/ (contrôlées à la source)."""
     for f in sorted(PACK.rglob("*.md")):
-        if "/commun/" in str(f.relative_to(PACK.parent)) and f.parent.name in ("commun", "modeles") and "skills" in f.parts:
+        if "/commun/" in str(f.relative_to(RACINE)) and f.parent.name in ("commun", "modeles") and "skills" in f.parts:
             continue
         if "evals" in f.parts:
             continue
@@ -128,7 +129,7 @@ class Socle(unittest.TestCase):
         self.assertEqual(p.returncode, 0, p.stdout[-500:])
 
     def test_readme(self):
-        p = subprocess.run([sys.executable, str(PACK.parent / "outils" / "visuels" / "readme.py"), str(PACK)],
+        p = subprocess.run([sys.executable, str(RACINE / "outils" / "visuels" / "readme.py"), str(PACK)],
                            capture_output=True, text=True)
         self.assertEqual(p.returncode, 0, p.stdout[-600:])
 

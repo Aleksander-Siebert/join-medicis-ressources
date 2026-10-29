@@ -26,27 +26,27 @@ Retrouve des skills autour de LinkedIn, du SEO/GEO et prochainement : Paids, UX/
 <table>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-linkedin.svg" width="52" alt=""></td>
-<td><b><a href="linkedin-skills/">LinkedIn Skills</a></b> · 15 Skills · v2.1<br>De la stratégie au message privé : profil noté sur 100, posts sur 27 formules, humaniseur français, plan de la semaine, audit statistique de tes posts, prospection dans le cadre de la CNIL.<br><sub><a href="https://joinmedicis.com/ressources/skills/linkedin-skills">Fiche Join Médicis</a> · <a href="linkedin-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
+<td><b><a href="plugins/linkedin-skills/">LinkedIn Skills</a></b> · 15 Skills · v2.1<br>De la stratégie au message privé : profil noté sur 100, posts sur 27 formules, humaniseur français, plan de la semaine, audit statistique de tes posts, prospection dans le cadre de la CNIL.<br><sub><a href="https://joinmedicis.com/ressources/skills/linkedin-skills">Fiche Join Médicis</a> · <a href="plugins/linkedin-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-seo.svg" width="52" alt=""></td>
-<td><b><a href="seo-skills/">SEO Skills</a></b> · 14 Skills · v2.0<br>Du mot-clé à l'article publié : plan validé avant la rédaction, couverture des requêtes mesurée, article en étapes avec portail qualité, affirmations sans source bloquées, audit (robots.txt, photo avant / après), maillage interne, mises à jour pilotées par Search Console, veille, SEO local et social.<br><sub><a href="https://joinmedicis.com/ressources/skills/seo-skills">Fiche Join Médicis</a> · <a href="seo-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
+<td><b><a href="plugins/seo-skills/">SEO Skills</a></b> · 14 Skills · v2.0<br>Du mot-clé à l'article publié : plan validé avant la rédaction, couverture des requêtes mesurée, article en étapes avec portail qualité, affirmations sans source bloquées, audit (robots.txt, photo avant / après), maillage interne, mises à jour pilotées par Search Console, veille, SEO local et social.<br><sub><a href="https://joinmedicis.com/ressources/skills/seo-skills">Fiche Join Médicis</a> · <a href="plugins/seo-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-geo.svg" width="52" alt=""></td>
-<td><b><a href="geo-skills/">GEO Skills</a></b> · 8 Skills · v2.0<br>Être lu, compris et cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et Google : audit couche par couche, visibilité avec sa marge d'erreur, robots d'IA, exactitude de ce que disent les IA, entité, sites tiers, agents.<br><sub><a href="https://joinmedicis.com/ressources/skills/geo-skills">Fiche Join Médicis</a> · <a href="geo-skills/evals/RESULTATS.md">Comparaison avec les Skills GEO publics</a></sub></td>
+<td><b><a href="plugins/geo-skills/">GEO Skills</a></b> · 8 Skills · v2.0<br>Être lu, compris et cité par ChatGPT, Perplexity, Gemini, Claude, Mistral et Google : audit couche par couche, visibilité avec sa marge d'erreur, robots d'IA, exactitude de ce que disent les IA, entité, sites tiers, agents.<br><sub><a href="https://joinmedicis.com/ressources/skills/geo-skills">Fiche Join Médicis</a> · <a href="plugins/geo-skills/evals/RESULTATS.md">Comparaison avec les Skills GEO publics</a></sub></td>
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-ads.svg" width="52" alt=""></td>
-<td><b><a href="chatgpt-ads-skills/">ChatGPT Ads</a></b> · 5 Skills · v0.2<br>Campagnes ChatGPT Ads pour la France : intentions, context hints, annonces dont chaque promesse a une source, passage à 120 annonces sans doublons, reprise d'exports Google, Meta et Microsoft Ads, identifiants, fichier d'import CSV contrôlé. Rien n'est lancé à ta place.<br><sub><a href="chatgpt-ads-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
+<td><b><a href="plugins/chatgpt-ads-skills/">ChatGPT Ads</a></b> · 5 Skills · v0.2<br>Campagnes ChatGPT Ads pour la France : intentions, context hints, annonces dont chaque promesse a une source, passage à 120 annonces sans doublons, reprise d'exports Google, Meta et Microsoft Ads, identifiants, fichier d'import CSV contrôlé. Rien n'est lancé à ta place.<br><sub><a href="plugins/chatgpt-ads-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-fondation.svg" width="52" alt=""></td>
-<td><b><a href="fondation-skills/">Fondation</a></b> · 1 Skill sur 3 · v0.1, en construction<br>Le contexte de ton entreprise que toute IA lit avant d'écrire : chaque fait étiqueté, daté et sourcé, mentions légales et numéros contrôlés, rien d'enregistré sans ton accord.</td>
+<td><b><a href="plugins/fondation-skills/">Fondation</a></b> · 1 Skill sur 3 · v0.1, en construction<br>Le contexte de ton entreprise que toute IA lit avant d'écrire : chaque fait étiqueté, daté et sourcé, mentions légales et numéros contrôlés, rien d'enregistré sans ton accord.</td>
 </tr>
 <tr>
 <td width="72" align="center"><img src="docs/media/icones/pack-voix.svg" width="52" alt=""></td>
-<td><b><a href="tone-of-voice-skills/">Tone of Voice</a></b> · 1 Skill · v0.1<br>Ta voix d'écriture tirée de tes vrais textes : mesures par script, questions ciblées, calibrage sur trois variantes. Un <code>tone-of-voice.md</code> que toute IA respecte, ou un Skill « ma-voix » à importer ; des textes réécrits et vérifiés ; une voix qui se met à jour sans retouche à la main.<br><sub><a href="tone-of-voice-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
+<td><b><a href="plugins/tone-of-voice-skills/">Tone of Voice</a></b> · 1 Skill · v0.1<br>Ta voix d'écriture tirée de tes vrais textes : mesures par script, questions ciblées, calibrage sur trois variantes. Un <code>tone-of-voice.md</code> que toute IA respecte, ou un Skill « ma-voix » à importer ; des textes réécrits et vérifiés ; une voix qui se met à jour sans retouche à la main.<br><sub><a href="plugins/tone-of-voice-skills/evals/RESULTATS.md">Résultats des évaluations</a></sub></td>
 </tr>
 </table>
 
@@ -66,7 +66,7 @@ Chaque pack marche seul. Aucun n'a besoin d'un autre pour fonctionner.
 ```
 
 La Fondation rejoindra le marketplace quand ses trois Skills seront prêts ;
-d'ici là, copie `fondation-skills/skills/fondation-entreprise/` dans
+d'ici là, copie `plugins/fondation-skills/skills/fondation-entreprise/` dans
 `~/.claude/skills/`.
 
 ### claude.ai, ChatGPT, Gemini, Mistral
