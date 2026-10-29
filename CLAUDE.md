@@ -109,6 +109,11 @@ sessions par pack, c'est normal.
   - plus tard, les agents IA du pack dans `plugins/<pack>/agents/`.
 - Un nom de Skill est **unique dans tout le dépôt** : `gh skill install`
   le cherche par son nom.
+- Ne pas renommer `plugins/` (en `skills/` par exemple) : testé le 29 octobre
+  2026, `gh skill` 2.90 ne trouve plus aucun Skill dans
+  `skills/<pack>/skills/<nom>/`. Les futurs plugins vont dans
+  `plugins/<nom>/`, à côté des packs, avec un nom qui ne reprend pas celui
+  d'un pack.
 - Marketplace racine : `.claude-plugin/marketplace.json` (nom `join-medicis`) ;
   chaque `source` pointe vers `./plugins/<pack>`.
 - `recherche/`, `outils/` et `docs/` restent à la racine. Les tests d'un pack
