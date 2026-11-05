@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 import mail as m  # noqa: E402
 
-A_TRAITER = {"sujets": [{"sources": [{"nom": "Le Média Un", "url": "https://media-un.example/article-1"}]}], "pages_modifiees": [{"url": "https://concurrent-a.example/tarifs"}]}
+A_TRAITER = {"sujets": [{"sources": [{"nom": "Le Média Un", "url": "https://news.google.com/rss/articles/abc", "domaine": "media-un.example"}]}], "pages_modifiees": [{"url": "https://concurrent-a.example/tarifs"}]}
 RESUME = {
     "objet": "Concurrent A baisse son offre d'entrée à 9 €",
     "periode": "du 2 au 9 novembre 2026",
@@ -25,6 +25,16 @@ class Mail(unittest.TestCase):
         r = {**RESUME, "sections": [{"titre": "X", "infos": [{"titre": "Info", "texte": "t", "pourquoi": "p", "sources": [{"nom": "?", "url": "https://ailleurs.example"}]}]}]}
         err, _ = m.verifier(r, A_TRAITER)
         self.assertTrue(any("ne vient pas de la collecte" in e for e in err))
+
+    def test_article_d_origine_du_meme_media_accepte(self):
+        info = {"titre": "Info", "texte": "t", "pourquoi": "p", "sources": [{"nom": "Le Média Un", "url": "https://www.media-un.example/2026/11/article-complet"}]}
+        err, _ = m.verifier({**RESUME, "sections": [{"titre": "X", "infos": [info]}]}, A_TRAITER)
+        self.assertEqual(err, [])
+
+    def test_google_ne_couvre_pas_tout_le_web(self):
+        info = {"titre": "Info", "texte": "t", "pourquoi": "p", "sources": [{"nom": "?", "url": "https://news.google.com/autre"}]}
+        err, _ = m.verifier({**RESUME, "sections": [{"titre": "X", "infos": [info]}]}, A_TRAITER)
+        self.assertTrue(err)
 
     def test_info_sans_source_bloquee(self):
         r = {**RESUME, "sections": [{"titre": "X", "infos": [{"titre": "Info", "texte": "t", "pourquoi": "p", "sources": []}]}]}

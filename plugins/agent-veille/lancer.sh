@@ -13,10 +13,10 @@ if [ -f .env ]; then set -a; . ./.env; set +a; fi
 
 python3 scripts/collecte.py
 
-claude -p "Mode automatique. Suis AGENT.md, étapes 3 à 6 seulement : sortie/a-traiter.json est prêt. \
+claude -p "Mode automatique. Suis AGENT.md, étapes 3 à 6 seulement (dont 3 bis) : sortie/a-traiter.json est prêt. \
 Écris sortie/resume.json, lance python3 scripts/mail.py et corrige jusqu'à ce qu'il réussisse. \
 N'envoie rien et ne lance pas --valider : le script lancer.sh s'en charge." \
-  --allowedTools "Read,Write,Edit,Bash(python3 scripts/mail.py:*)"
+  --allowedTools "Read,Write,Edit,WebSearch,WebFetch,Bash(python3 scripts/mail.py:*)"
 
 python3 scripts/mail.py --envoyer
 python3 scripts/collecte.py --valider

@@ -100,6 +100,12 @@ def url_canonique(url: str) -> str:
     return urllib.parse.urlunsplit(("https", hote, chemin, urllib.parse.urlencode(params), ""))
 
 
+def domaine(url: str) -> str:
+    """« https://www.lesechos.fr/x » devient « lesechos.fr »."""
+    hote = urllib.parse.urlsplit(url.strip()).netloc.lower().split(":")[0]
+    return hote[4:] if hote.startswith("www.") else hote
+
+
 def empreinte(texte: str) -> str:
     return hashlib.sha256(texte.encode("utf-8")).hexdigest()[:16]
 
@@ -191,8 +197,10 @@ def lire_flux(xml_texte: str, origine: str) -> list[dict]:
         corps = next((champs[k] for k in ("description", "summary", "content", "encoded") if champs.get(k) is not None), None)
         resume = nettoyer_html(_texte(corps))
         source = _texte(champs.get("source")) or origine
+        src_el = champs.get("source")
+        src_url = (src_el.get("url") if src_el is not None else None) or lien
         if titre or lien:
-            articles.append({"titre": titre, "lien": lien.strip(), "date": date, "extrait": resume[:600], "source": source})
+            articles.append({"titre": titre, "lien": lien.strip(), "date": date, "extrait": resume[:600], "source": source, "domaine": domaine(src_url or "")})
     if not articles and _local(racine.tag) not in ("rss", "feed", "rdf"):
         raise ValueError("ce n'est pas un flux RSS ou Atom")
     return articles
@@ -234,7 +242,7 @@ class _Texte(HTMLParser):
             self.ignore += 1
         if tag == "link":
             a = dict(attrs)
-            if (a.get("rel") or "").lower() == "alternate" and "xml" in (a.get("type") or "") and a.get("href"):
+            if (a.get("rel") or "").lower() == "alternate" and re.search(r"rss|atom", a.get("type") or "") and a.get("href"):
                 self.flux.append(a["href"])
         if tag == "a":
             self._lien = dict(attrs).get("href")
@@ -378,7 +386,7 @@ def regrouper(articles: list[dict]) -> list[dict]:
             if (url and url in s["_urls"]) or titres_proches(cle, s["_cle"]):
                 cible = s
                 break
-        source = {"nom": a["source"], "url": a["lien"]}
+        source = {"nom": a["source"], "url": a["lien"], "domaine": a.get("domaine") or domaine(a["lien"])}
         if cible:
             if url and url in cible["_urls"]:
                 continue
@@ -402,6 +410,51 @@ def regrouper(articles: list[dict]) -> list[dict]:
     for s in sujets:
         s["doublons"] = len(s["sources"]) - 1
     return sujets
+
+
+# ------------------------------------------------------------------ articles d'origine
+
+
+def retrouver_originaux(sujets: list[dict], telecharge, max_medias: int = 15) -> int:
+    """Pour les sujets connus seulement par Google Actualités, cherche l'article dans le flux RSS du média :
+    vrai lien et chapeau à la place du seul titre. Renvoie le nombre d'articles retrouvés."""
+    flux_par_media: dict[str, list[dict] | None] = {}
+    trouves = 0
+    for s in sujets:
+        if s["extrait"] and len(s["extrait"]) > len(s["titre"]) + 40:
+            continue
+        for src in s["sources"]:
+            dom = src.get("domaine")
+            if not dom or dom == "news.google.com" or "news.google.com" not in src.get("url", ""):
+                continue
+            if dom not in flux_par_media:
+                if len(flux_par_media) >= max_medias:
+                    continue
+                flux_par_media[dom] = None
+                candidats = []
+                try:
+                    _, annonces = texte_de_page(telecharge(f"https://{dom}/"))
+                    candidats += [urllib.parse.urljoin(f"https://{dom}/", f) for f in annonces[:2]]
+                except Exception:
+                    pass
+                candidats += [f"https://{dom}/feed", f"https://{dom}/rss"]
+                for url in candidats:
+                    try:
+                        flux_par_media[dom] = lire_flux(telecharge(url), dom)
+                        break
+                    except Exception:
+                        continue
+            articles = flux_par_media.get(dom) or []
+            cle = cle_titre(s["titre"])
+            for a in articles:
+                if titres_proches(cle, cle_titre(a["titre"])):
+                    src["url_google"] = src["url"]
+                    src["url"] = a["lien"]
+                    if len(a["extrait"]) > len(s["extrait"]):
+                        s["extrait"] = a["extrait"]
+                    trouves += 1
+                    break
+    return trouves
 
 
 # ------------------------------------------------------------------ collecte
@@ -514,6 +567,7 @@ def collecter(config: dict, memoire: dict, dossier: Path, maintenant: datetime, 
             erreurs.append({"source": "Flux du secteur", "url": url, "erreur": str(e)[:200]})
 
     sujets = regrouper(gardes)
+    stats["articles_retrouves"] = retrouver_originaux(sujets, telecharge) if config.get("retrouver_articles", True) else 0
     stats["doublons_regroupes"] = sum(s["doublons"] for s in sujets)
     sujets.sort(key=lambda s: (s["date"] is None, -(s["date"].timestamp() if s["date"] else 0)))
     coupes = max(0, len(sujets) - int(config["max_sujets"]))

@@ -39,10 +39,13 @@ def verifier(resume: dict, a_traiter: dict | None) -> tuple[list[str], list[str]
     erreurs: list[str] = []
     avert: list[str] = []
     urls_connues = set()
+    domaines_connus = set()
     if a_traiter:
         for s in a_traiter.get("sujets", []):
             for src in s.get("sources", []):
                 urls_connues.add(src.get("url", ""))
+                if src.get("domaine") and src["domaine"] != "news.google.com":
+                    domaines_connus.add(src["domaine"])
         for p in a_traiter.get("pages_modifiees", []):
             urls_connues.add(p.get("url", ""))
 
@@ -62,8 +65,11 @@ def verifier(resume: dict, a_traiter: dict | None) -> tuple[list[str], list[str]
             url = src.get("url", "")
             if not url.startswith("http"):
                 erreurs.append(f"« {nom} » : lien de source invalide ({url or 'vide'}).")
-            elif a_traiter is not None and url not in urls_connues:
-                erreurs.append(f"« {nom} » : la source {url} ne vient pas de la collecte (a-traiter.json). Rien d'autre ne doit entrer dans le mail.")
+            elif a_traiter is not None and url not in urls_connues and domaine(url) not in domaines_connus:
+                erreurs.append(
+                    f"« {nom} » : la source {url} ne vient pas de la collecte (a-traiter.json), ni d'un média qu'elle a repéré. "
+                    "Rien d'autre ne doit entrer dans le mail."
+                )
         if len(info.get("texte", "")) > MAX_INFO_CARACTERES:
             avert.append(f"« {nom} » dépasse {MAX_INFO_CARACTERES} caractères : resserre en 2 ou 3 phrases.")
         if not info.get("pourquoi"):
@@ -79,6 +85,13 @@ def verifier(resume: dict, a_traiter: dict | None) -> tuple[list[str], list[str]
     if not infos and not resume.get("rien_de_neuf"):
         erreurs.append("Aucune info et « rien_de_neuf » absent : le mail ne dit rien.")
     return erreurs, avert
+
+
+def domaine(url: str) -> str:
+    from urllib.parse import urlsplit
+
+    hote = urlsplit(url.strip()).netloc.lower().split(":")[0]
+    return hote[4:] if hote.startswith("www.") else hote
 
 
 # ------------------------------------------------------------------ rendu

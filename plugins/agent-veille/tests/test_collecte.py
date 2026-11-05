@@ -62,6 +62,7 @@ class Outils(unittest.TestCase):
             c.lire_flux("<html><body>pas un flux</body></html>", "x")
         rss = c.lire_flux((FX / "google.xml").read_text("utf-8"), "g")
         self.assertEqual(rss[0]["extrait"], "Concurrent A annonce une offre santé.")
+        self.assertEqual(rss[0]["domaine"], "media-un.example")
         self.assertEqual(atom[0]["extrait"], "Nous lançons l'application.")
 
     def test_texte_de_page_ignore_scripts_et_trouve_le_flux(self):
@@ -138,6 +139,16 @@ class Collecte(unittest.TestCase):
         s = self.run_collecte(web2)
         self.assertEqual(len(s["pages_modifiees"]), 1)
         self.assertIn("9 € par mois", s["pages_modifiees"][0]["ajouts"])
+
+    def test_article_d_origine_retrouve_dans_le_flux_du_media(self):
+        web = faux_web({"media-un.example/feed": "media-un.xml", "news.google.com": "google.xml", "concurrent-a.example/feed": "blog.atom", "/tarifs": "tarifs-v1.html"})
+        web_ordre = lambda url: web(url) if "media-un.example" not in url or url.endswith("/feed") else (_ for _ in ()).throw(OSError("pas d'accueil"))
+        s = self.run_collecte(web_ordre)
+        offre = [x for x in s["sujets"] if "offre santé" in x["titre"]][0]
+        urls = [src["url"] for src in offre["sources"]]
+        self.assertIn("https://media-un.example/2026/11/offre-sante", urls)
+        self.assertIn("contre 12 euros", offre["extrait"])
+        self.assertGreaterEqual(s["stats"]["articles_retrouves"], 1)
 
     def test_source_en_panne_n_arrete_pas_la_veille(self):
         web = faux_web({"news.google.com": "google.xml"})

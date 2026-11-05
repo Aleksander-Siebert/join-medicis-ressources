@@ -110,7 +110,11 @@ sont **[à vérifier]** dans sa documentation avant la première exécution.
   `actualites_google` et donne les flux RSS des médias et des blogs
   concernés, ou des alertes Google en flux RSS.
 - **Extraits courts** : les actualités Google ne donnent souvent que le
-  titre. L'agent l'écrit alors (« D'après le titre… ») et ne complète rien.
+  titre. Le script cherche alors l'article dans le flux RSS du média (un
+  sur trois environ lors de nos essais), puis l'agent tente une recherche
+  web pour les infos importantes. Sinon, il écrit « D'après le titre… »
+  et ne complète rien. Certains médias bloquent les robots (Les Echos,
+  ZDNet lors de nos essais).
 - **Sites protégés** : certains sites refusent les robots (erreur 403).
   L'agent ne contourne rien et propose de suivre ce concurrent par ses
   actualités seulement.
