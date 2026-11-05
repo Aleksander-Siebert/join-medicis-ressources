@@ -52,6 +52,20 @@ class Mail(unittest.TestCase):
         self.assertEqual(m.date_fr(None), "")
         self.assertIn("6 novembre", m.rendre_html(RESUME))
 
+    def test_modele_par_defaut(self):
+        h = m.rendre_html(RESUME)
+        self.assertIn("À retenir", h)
+        self.assertIn("Offre Essentiel à 9 €", h)
+        self.assertIn('href="https://concurrent-a.example/tarifs"', h)
+        self.assertNotIn("DEBUT:", h)
+        self.assertNotIn("{{", h)
+        self.assertNotIn("À surveiller", h)  # bloc vide retiré
+
+    def test_modele_personnalise(self):
+        modele = "<h1>{{objet}}</h1><!-- DEBUT:section --><h2>{{section}}</h2><!-- DEBUT:info --><p>{{titre}}<!-- DEBUT:source --> [{{nom}}]<!-- FIN:source --></p><!-- FIN:info --><!-- FIN:section -->"
+        h = m.rendre_html(RESUME, modele)
+        self.assertEqual(h, "<h1>Concurrent A baisse son offre d&#x27;entrée à 9 €</h1><h2>Prix et offres</h2><p>Offre Essentiel à 9 € [Page tarifs]</p>")
+
     def test_rendu_echappe_le_html(self):
         r = {**RESUME, "objet": "<script>alert(1)</script>"}
         self.assertNotIn("<script>alert", m.rendre_html(r))

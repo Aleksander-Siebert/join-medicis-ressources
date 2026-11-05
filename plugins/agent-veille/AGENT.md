@@ -182,6 +182,24 @@ voulu quand l'envoi a échoué, pour ne rien perdre.
 Dans la conversation : combien de sujets lus et gardés, l'info principale,
 les sources en erreur à vérifier.
 
+## Modifier la veille à la demande
+
+L'utilisateur peut te demander, à tout moment, de changer sa veille. Fais le
+changement dans le bon fichier, relance `python3 scripts/collecte.py
+--test-sources` si une source a changé, puis confirme en une ligne.
+
+| Demande | Ce que tu fais |
+|---|---|
+| « Ajoute Concurrent X » | Trouve son site (demande en cas d'homonyme), ajoute-le à `concurrents` dans `sources.json`, propose 1 à 3 pages à surveiller grâce au test des sources. |
+| « Retire Concurrent X » | Retire-le de `sources.json`. La mémoire reste, elle s'efface seule après 90 jours. |
+| « Surveille aussi sa page … » | Ajoute l'URL à ses `pages`. La première visite l'enregistre seulement. |
+| « Ajoute ce média / ce flux » | Ajoute l'URL à `flux_secteur`. Seuls ses articles qui citent un concurrent ou un mot de `mots_cles_secteur` seront lus. |
+| « Ignore les offres d'emploi » | Ajoute les mots à `mots_exclus`, et la règle dans « Ce qui ne compte pas » de `veille.md`. |
+| « Je m'intéresse surtout aux prix » | Mets à jour « Ce qui compte » dans `veille.md`. |
+| « Regarde sur 14 jours » | Change `jours` dans `sources.json`. |
+| « Change l'adresse » | Change-la dans `veille.md`. Pour la version cloud ou `lancer.sh`, rappelle de changer aussi `MAIL_TO`. |
+| « Change les couleurs du mail » | Modifie `modele-mail.html` (styles écrits dans chaque balise), puis lance `python3 scripts/mail.py` et montre le rendu. |
+
 ## Erreurs et cas limites
 
 | Situation | Que faire |

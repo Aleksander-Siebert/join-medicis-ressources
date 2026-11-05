@@ -44,12 +44,42 @@ Python 3 doit être installé (il l'est déjà sur macOS et Linux). Sans exécut
 de code (claude.ai, autres IA), l'agent fait la collecte par recherche web et
 le signale dans le mail : les dates et doublons sont alors moins fiables.
 
+## Recevoir le mail : les connecteurs
+
+L'agent n'embarque aucun accès à ta messagerie. Il utilise ce que tu as déjà
+branché :
+
+- **Dans Claude** : le connecteur Gmail (ou Microsoft 365 pour Outlook
+  **[à vérifier]**), à activer une fois dans les réglages des connecteurs de
+  Claude. L'agent l'utilise s'il est là. Sinon, il affiche le mail dans la
+  conversation.
+- **En automatique** (`lancer.sh` ou GitHub Actions) : un envoi SMTP
+  classique, réglé dans `.env` ou dans les secrets GitHub. Pour Gmail, il
+  faut un « mot de passe d'application » Google.
+
 ## Lancer à la main ou automatiquement
 
-- **À la main** : colle `LANCER.md` dans la conversation.
-- **Automatiquement** : une tâche planifiée dans Claude, avec le texte de
-  `LANCER.md`. L'ordinateur doit être allumé et Claude ouvert à l'heure
-  prévue **[à vérifier]**.
+L'agent ne tourne pas tout seul tant que tu ne l'as pas programmé. Trois
+façons, de la plus simple à la plus autonome :
+
+| Façon | Comment | Il faut |
+|---|---|---|
+| **À la main** | Colle `LANCER.md` dans Claude, quand tu veux. | Rien de plus |
+| **Tâche planifiée de Claude** | Dans l'application Claude, crée une tâche planifiée avec le texte de `LANCER.md` **[à vérifier : menu exact]**. `CONFIGURE-MOI.md` le propose à la fin. | Ordinateur allumé, application ouverte à l'heure prévue **[à vérifier]** |
+| **Lanceur `lancer.sh`** (macOS, Linux) | `crontab -e`, puis la ligne `0 8 * * 1 /chemin/vers/agent-veille/lancer.sh` (chaque lundi à 8 h). Le journal est dans `sortie/journal.log`. | Claude Code installé, `.env` rempli (copie `.env.exemple`), ordinateur allumé |
+| **GitHub Actions** | Voir plus bas : tourne dans le cloud. | Un compte GitHub, une clé API, les secrets SMTP |
+
+## Personnaliser
+
+- **Concurrents, sources, sujets, adresse** : dis-le à l'agent (« ajoute
+  tel concurrent », « surveille sa page nouveautés », « ignore les offres
+  d'emploi »). Il modifie `sources.json` et `veille.md` et vérifie la
+  source. La liste des demandes comprises est dans `AGENT.md`.
+- **Apparence du mail** : `modele-mail.html` est un fichier HTML ordinaire.
+  Change les couleurs, les polices, les textes et l'ordre des blocs, sans
+  toucher à Python. Le mode d'emploi est en tête du fichier.
+- **Méthode** (rubriques, règles d'importance, longueur) : `AGENT.md`, en
+  français.
 
 ## Version cloud (GitHub Actions, ordinateur éteint)
 
@@ -71,21 +101,6 @@ le signale dans le mail : les dates et doublons sont alors moins fiables.
 
 Les noms exacts des paramètres de l'action `anthropics/claude-code-action`
 sont **[à vérifier]** dans sa documentation avant la première exécution.
-
-## Modifier la veille
-
-Dis-le à l'agent : « ajoute tel concurrent », « surveille aussi sa page
-nouveautés », « ignore les offres d'emploi », « passe à deux fois par
-semaine ». Ou modifie `veille.md` et `sources.json` à la main.
-
-| Réglage | Fichier | Par défaut |
-|---|---|---|
-| Période couverte | `sources.json` → `jours` | 7 jours |
-| Nombre max de sujets lus par l'IA | `sources.json` → `max_sujets` | 40 |
-| Actualités Google | `sources.json` → `actualites_google` | activé |
-| Mots à exclure | `sources.json` → `mots_exclus` | aucun |
-| Médias du secteur | `sources.json` → `flux_secteur` (+ `mots_cles_secteur`) | aucun |
-| Ce qui compte, ton, adresse | `veille.md` | à remplir |
 
 ## Limites à connaître
 
@@ -122,7 +137,9 @@ python3 scripts/collecte.py --test-sources
 | `veille.md` | ton profil et tes préférences |
 | `sources.json` | concurrents, pages, flux, réglages |
 | `scripts/collecte.py` | collecte, dates, doublons, mémoire, pages |
-| `scripts/mail.py` | contrôle, mise en forme, envoi SMTP (cloud) |
+| `scripts/mail.py` | contrôle, mise en forme, envoi SMTP (automatique) |
+| `modele-mail.html` | apparence du mail, en HTML |
+| `lancer.sh`, `.env.exemple` | lancement automatique sur ton ordinateur |
 | `memoire/` | ce qui a été envoyé, état des pages |
 | `exemples/` | exemple de résumé et de mail (Assurly, fictif) |
 | `evals/` | cas de test de l'agent |

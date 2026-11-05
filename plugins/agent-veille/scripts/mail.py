@@ -83,13 +83,6 @@ def verifier(resume: dict, a_traiter: dict | None) -> tuple[list[str], list[str]
 
 # ------------------------------------------------------------------ rendu
 
-VERT = "#0E3F2D"
-OR = "#B88F45"
-ENCRE = "#2A211B"
-GRIS = "#6B655D"
-CREME = "#FBF5EA"
-
-
 MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
 
 
@@ -110,55 +103,62 @@ def e(t: str) -> str:
     return html.escape(t or "", quote=True)
 
 
-def liens_html(sources: list[dict]) -> str:
-    return " · ".join(f'<a href="{e(s["url"])}" style="color:{VERT};">{e(s.get("nom") or "source")}</a>' for s in sources)
+BLOC = re.compile(r"<!--\s*DEBUT:(\w+)\s*-->(.*?)<!--\s*FIN:\1\s*-->", re.S)
+VARIABLE = re.compile(r"\{\{\s*(\w+)\s*\}\}")
 
 
-def rendre_html(r: dict) -> str:
-    p = []
-    p.append(f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>{e(r.get("objet"))}</title></head>')
-    p.append(f'<body style="margin:0;background:#f3eee4;font-family:Georgia,serif;color:{ENCRE};">')
-    p.append('<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 12px;">')
-    p.append(f'<table role="presentation" width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;background:{CREME};border:1px solid #e3d6b8;border-radius:10px;">')
-    p.append(f'<tr><td style="padding:22px 26px 6px;font-family:Arial,sans-serif;font-size:12px;color:{OR};letter-spacing:.08em;text-transform:uppercase;">Veille concurrentielle · {e(r.get("periode", ""))}</td></tr>')
-    p.append(f'<tr><td style="padding:0 26px 14px;font-size:24px;font-weight:bold;">{e(r.get("objet"))}</td></tr>')
+def remplir(modele: str, ctx: dict) -> str:
+    """Mini-gabarit : blocs <!-- DEBUT:x --> … <!-- FIN:x --> répétés ou retirés, puis {{x}} remplacés (texte protégé)."""
 
-    if r.get("rien_de_neuf"):
-        p.append(f'<tr><td style="padding:0 26px 18px;font-family:Arial,sans-serif;font-size:15px;line-height:1.55;">{e(r["rien_de_neuf"])}</td></tr>')
+    def bloc(m: re.Match) -> str:
+        nom, interieur = m.group(1), m.group(2)
+        val = ctx.get(nom)
+        if isinstance(val, list):
+            return "".join(remplir(interieur, {**ctx, **(v if isinstance(v, dict) else {nom: v, "point": v})}) for v in val)
+        return remplir(interieur, ctx) if val else ""
 
-    if r.get("a_retenir"):
-        p.append(f'<tr><td style="padding:4px 26px 18px;"><div style="background:#fff;border-left:4px solid {OR};padding:12px 16px;">')
-        p.append(f'<div style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:{VERT};text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">À retenir</div><ol style="margin:0;padding-left:20px;font-family:Arial,sans-serif;font-size:15px;line-height:1.5;">')
-        for point in r["a_retenir"]:
-            p.append(f'<li style="margin:4px 0;">{e(point)}</li>')
-        p.append("</ol></div></td></tr>")
+    texte = BLOC.sub(bloc, modele)
+    return VARIABLE.sub(lambda m: e(str(ctx.get(m.group(1), "") or "")), texte)
 
-    for sec in r.get("sections", []):
-        if not sec.get("infos"):
-            continue
-        p.append(f'<tr><td style="padding:10px 26px 4px;font-size:18px;font-weight:bold;color:{VERT};border-top:1px solid #e3d6b8;">{e(sec.get("titre"))}</td></tr>')
-        for info in sec["infos"]:
-            date = f' <span style="color:{GRIS};font-weight:normal;">· {e(date_fr(info["date"]))}</span>' if info.get("date") else ""
-            p.append('<tr><td style="padding:8px 26px 10px;font-family:Arial,sans-serif;">')
-            p.append(f'<div style="font-size:15px;font-weight:bold;">{e(info.get("titre"))}{date}</div>')
-            p.append(f'<div style="font-size:14px;line-height:1.55;margin-top:3px;">{e(info.get("texte"))}</div>')
-            if info.get("pourquoi"):
-                p.append(f'<div style="font-size:14px;line-height:1.5;margin-top:4px;color:{VERT};"><b>Pour toi :</b> {e(info["pourquoi"])}</div>')
-            p.append(f'<div style="font-size:12px;margin-top:4px;color:{GRIS};">Sources : {liens_html(info.get("sources", []))}</div></td></tr>')
 
-    if r.get("a_surveiller"):
-        p.append(f'<tr><td style="padding:12px 26px 4px;font-size:16px;font-weight:bold;color:{VERT};border-top:1px solid #e3d6b8;">À surveiller</td></tr><tr><td style="padding:0 26px 10px;"><ul style="margin:0;padding-left:20px;font-family:Arial,sans-serif;font-size:14px;line-height:1.5;">')
-        for point in r["a_surveiller"]:
-            p.append(f"<li>{e(point)}</li>")
-        p.append("</ul></td></tr>")
-
+def contexte(r: dict) -> dict:
     st = r.get("stats", {})
-    bas = f'{st.get("lus", "?")} articles lus, {st.get("sujets", "?")} sujets trouvés, {nb_infos(r)} retenus dans ce mail, {st.get("pages_modifiees", 0)} pages modifiées.'
+    pied = f'{st.get("lus", "?")} articles lus, {st.get("sujets", "?")} sujets trouvés, {nb_infos(r)} retenus dans ce mail, {st.get("pages_modifiees", 0)} pages modifiées.'
     if r.get("erreurs"):
-        bas += " Sources injoignables : " + ", ".join(e(x) for x in r["erreurs"]) + "."
-    p.append(f'<tr><td style="padding:14px 26px 20px;font-family:Arial,sans-serif;font-size:12px;color:{GRIS};border-top:1px solid #e3d6b8;">{bas}<br>Préparé par ton agent de veille, modèle Join Médicis. Chaque info renvoie à sa source : vérifie avant de la reprendre.</td></tr>')
-    p.append("</table></td></tr></table></body></html>")
-    return "\n".join(p)
+        pied += " Sources injoignables : " + ", ".join(r["erreurs"]) + "."
+    sections = []
+    for sec in r.get("sections", []):
+        infos = [
+            {
+                "titre": i.get("titre", ""),
+                "date": f"· {date_fr(i['date'])}" if i.get("date") else "",
+                "texte": i.get("texte", ""),
+                "pourquoi": i.get("pourquoi", ""),
+                "source": [{"nom": s.get("nom") or "source", "url": s.get("url", "")} for s in i.get("sources", [])],
+            }
+            for i in sec.get("infos", [])
+        ]
+        if infos:
+            sections.append({"section": sec.get("titre", ""), "info": infos})
+    return {
+        "objet": r.get("objet", ""),
+        "periode": r.get("periode", ""),
+        "pied": pied,
+        "rien_de_neuf": r.get("rien_de_neuf", ""),
+        "a_retenir": bool(r.get("a_retenir")),
+        "point": r.get("a_retenir", []),
+        "section": sections,
+        "a_surveiller": bool(r.get("a_surveiller")),
+        "surveiller": r.get("a_surveiller", []),
+    }
+
+
+def rendre_html(r: dict, modele: str | None = None) -> str:
+    """Remplit modele-mail.html (à la racine de l'agent) avec le résumé."""
+    if modele is None:
+        modele = (Path(__file__).resolve().parent.parent / "modele-mail.html").read_text("utf-8")
+    modele = re.sub(r"<!--(?!\s*(DEBUT|FIN):).*?-->", "", modele, flags=re.S)  # retire les commentaires d'aide
+    return remplir(modele, contexte(r))
 
 
 def rendre_texte(r: dict) -> str:
@@ -244,7 +244,8 @@ def main(argv: list[str] | None = None) -> int:
     if a.verifier:
         print("Contrôle réussi.")
         return 0
-    corps_html = rendre_html(resume)
+    modele_f = Path(a.dossier) / "modele-mail.html"
+    corps_html = rendre_html(resume, modele_f.read_text("utf-8") if modele_f.exists() else None)
     corps_txt = rendre_texte(resume)
     (d / "mail.html").write_text(corps_html, "utf-8")
     (d / "mail.txt").write_text(corps_txt, "utf-8")
