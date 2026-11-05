@@ -1,0 +1,58 @@
+# Version cloud de l'agent de veille : tourne sur GitHub, ordinateur éteint.
+# À placer dans .github/workflows/ à la racine de TON dépôt (copie de ce dossier).
+# Secrets à créer (Settings → Secrets and variables → Actions) :
+#   ANTHROPIC_API_KEY (ou CLAUDE_CODE_OAUTH_TOKEN, voir README)
+#   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, MAIL_TO
+# Noms des paramètres de l'action Claude : [à vérifier] dans la doc de anthropics/claude-code-action avant usage.
+name: Veille concurrentielle
+
+on:
+  schedule:
+    - cron: "0 7 * * 1" # chaque lundi à 7 h UTC (8 h ou 9 h à Paris selon la saison)
+  workflow_dispatch: {} # bouton « Run workflow » pour lancer à la main
+
+permissions:
+  contents: write # pour enregistrer la mémoire (ce qui a déjà été envoyé)
+
+concurrency:
+  group: veille
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Collecte
+        run: python3 scripts/collecte.py
+
+      - name: Analyse et résumé par Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Mode cloud. Suis AGENT.md, étapes 3 à 6 seulement : sortie/a-traiter.json est prêt.
+            Écris sortie/resume.json, lance python3 scripts/mail.py et corrige jusqu'à ce qu'il réussisse.
+            N'envoie rien et ne lance pas --valider : le workflow s'en charge.
+          claude_args: >-
+            --allowedTools "Read,Write,Edit,Bash(python3 scripts/mail.py:*)"
+
+      - name: Envoi du mail
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python3 scripts/mail.py --envoyer
+
+      - name: Mémoire (seulement si le mail est parti)
+        run: |
+          python3 scripts/collecte.py --valider
+          git config user.name "agent-veille"
+          git config user.email "agent-veille@users.noreply.github.com"
+          git add memoire
+          git diff --cached --quiet || git commit -m "Veille : mémoire du $(date +%F)"
+          git push

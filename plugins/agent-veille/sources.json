@@ -1,0 +1,21 @@
+{
+  "jours": 7,
+  "langue": "fr",
+  "pays": "FR",
+  "actualites_google": true,
+  "max_sujets": 40,
+  "mots_exclus": [],
+  "mots_cles_secteur": [],
+  "flux_secteur": [],
+  "concurrents": [
+    {
+      "nom": "{{à compléter}}",
+      "alias": [],
+      "mots_cles": [],
+      "site": "",
+      "flux": [],
+      "pages": [],
+      "exclure": []
+    }
+  ]
+}
