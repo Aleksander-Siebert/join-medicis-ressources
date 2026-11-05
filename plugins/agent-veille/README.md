@@ -40,7 +40,9 @@ GitHub Actions. Modèle Join Médicis, gratuit, licence MIT.
    - fait un essai à blanc, puis t'envoie un mail de test ;
    - te propose la tâche planifiée.
 
-Python 3 doit être installé (il l'est déjà sur macOS et Linux). Sans exécution
+Python 3 doit être installé. Sur Mac, tape `python3 --version` dans le
+Terminal : s'il manque, macOS propose d'installer les outils Apple. Sur
+Windows, installe-le depuis python.org. Sans exécution
 de code (claude.ai, autres IA), l'agent fait la collecte par recherche web et
 le signale dans le mail : les dates et doublons sont alors moins fiables.
 
