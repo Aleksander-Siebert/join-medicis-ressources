@@ -1,0 +1,53 @@
+{
+ "objet": "Couvrio baisse son offre d'entrée à 9 € par mois",
+ "periode": "du 2 au 9 novembre 2026",
+ "a_retenir": [
+  "Couvrio passe son offre Essentiel de 12 € à 9 € par mois et lance une offre Premium à 39 €.",
+  "Protecta lance une application mobile pour les indépendants."
+ ],
+ "sections": [
+  {
+   "titre": "Prix et offres",
+   "infos": [
+    {
+     "titre": "Couvrio : Essentiel à 9 €, nouvelle offre Premium",
+     "texte": "La page tarifs de Couvrio affiche l'offre Essentiel à 9 € par mois au lieu de 12 €. Une offre Premium à 39 € par mois apparaît.",
+     "pourquoi": "L'offre Solo d'Assurly est à 11 € : elle n'est plus la moins chère du marché.",
+     "date": "2026-11-08",
+     "sources": [
+      {
+       "nom": "Page tarifs de Couvrio",
+       "url": "https://couvrio.example/tarifs"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "titre": "Produit",
+   "infos": [
+    {
+     "titre": "Protecta lance une application pour les indépendants",
+     "texte": "D'après le blog de Protecta, l'application permet de déclarer un sinistre depuis son téléphone.",
+     "pourquoi": "La déclaration mobile est sur ta feuille de route du premier trimestre.",
+     "date": "2026-11-05",
+     "sources": [
+      {
+       "nom": "Blog de Protecta",
+       "url": "https://protecta.example/blog/application"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "a_surveiller": [
+  "Couvrio recrute un responsable des partenariats bancaires (offre d'emploi du 4 novembre)."
+ ],
+ "stats": {
+  "lus": 52,
+  "sujets": 6,
+  "pages_modifiees": 1
+ },
+ "erreurs": []
+}
