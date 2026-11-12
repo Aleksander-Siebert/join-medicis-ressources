@@ -17,6 +17,11 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         python: ["3.9", "3.13"]
+        exclude:
+          # Python 3.9 n'est plus proposé sur les machines Ubuntu de GitHub.
+          # Il reste testé sur macOS (c'est la version livrée par Apple) et sur Windows.
+          - os: ubuntu-latest
+            python: "3.9"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
