@@ -1,10 +1,12 @@
-# Version cloud de l'agent de veille : tourne sur GitHub, ordinateur éteint.
-# À placer dans .github/workflows/ à la racine de TON dépôt (copie de ce dossier).
+# Autre voie cloud : la veille tourne par GitHub Actions, sans tâche planifiée Claude.
+# Plus technique que references/installation.md, partie 1 : à réserver à qui connaît GitHub Actions.
+# Pour l'activer : copie ce fichier dans .github/workflows/veille.yml à la racine de TON dépôt.
+# L'envoi se fait par SMTP (mail seulement), pas par les connecteurs.
 # Secrets à créer (Settings → Secrets and variables → Actions) :
 #   ANTHROPIC_API_KEY (ou CLAUDE_CODE_OAUTH_TOKEN, voir README)
 #   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, MAIL_TO
 # Noms des paramètres de l'action Claude : [à vérifier] dans la doc de anthropics/claude-code-action avant usage.
-name: Veille concurrentielle
+name: Veille
 
 on:
   schedule:
@@ -33,11 +35,12 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
-            Mode cloud. Suis AGENT.md, étapes 3 à 6 seulement (dont 3 bis) : sortie/a-traiter.json est prêt.
-            Écris sortie/resume.json, lance python3 scripts/mail.py et corrige jusqu'à ce qu'il réussisse.
+            Mode cloud. Suis AGENT.md, étapes 2 bis à 6 : sortie/a-traiter.json est prêt.
+            Fais les recherches web demandées et intègre-les, écris sortie/resume.json,
+            lance python3 scripts/mail.py et corrige jusqu'à ce qu'il réussisse.
             N'envoie rien et ne lance pas --valider : le workflow s'en charge.
           claude_args: >-
-            --allowedTools "Read,Write,Edit,WebSearch,WebFetch,Bash(python3 scripts/mail.py:*)"
+            --allowedTools "Read,Write,Edit,WebSearch,WebFetch,Bash(python3 scripts/mail.py:*),Bash(python3 scripts/collecte.py --integrer:*)"
 
       - name: Envoi du mail
         env:

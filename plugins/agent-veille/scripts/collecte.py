@@ -15,6 +15,7 @@ Utilisation :
   python3 scripts/collecte.py --test-sources  # vérifie chaque source, cherche les flux RSS des sites
   python3 scripts/collecte.py --valider       # après l'envoi du mail : mémorise ce qui a été envoyé
   python3 scripts/collecte.py --diagnostic    # vérifie l'installation, étape par étape
+  python3 scripts/collecte.py --integrer      # ajoute les articles trouvés par recherche web (sortie/trouvailles.json)
   python3 scripts/collecte.py --dossier CHEMIN --maintenant 2026-11-09T08:00:00+01:00
 """
 
@@ -1162,6 +1163,82 @@ def valider(dossier: Path, maintenant: datetime) -> str:
     return f"Mémoire mise à jour : {n} sujets et {p} pages enregistrés."
 
 
+AXES = ("concurrents", "tendances", "reglementation", "appels_offres")
+
+
+def integrer(dossier: Path, maintenant: datetime) -> str:
+    """Fait entrer dans a-traiter.json les articles que l'agent a trouvés par recherche web
+    (sortie/trouvailles.json), avec les mêmes contrôles que le reste : vraie date dans la période,
+    pas déjà envoyé, regroupé avec le sujet existant s'il s'agit de la même info."""
+    f = dossier / "sortie" / "a-traiter.json"
+    t = dossier / "sortie" / "trouvailles.json"
+    if not f.exists():
+        raise SystemExit("Lance d'abord la collecte : sortie/a-traiter.json n'existe pas.")
+    if not t.exists():
+        raise SystemExit("sortie/trouvailles.json introuvable : écris-y d'abord les articles trouvés.")
+    try:
+        trouvailles = json.loads(t.read_text("utf-8"))
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"trouvailles.json n'est pas un JSON valide (ligne {e.lineno}) : {e.msg}")
+    if not isinstance(trouvailles, list):
+        raise SystemExit("trouvailles.json doit être une liste d'articles.")
+    data = json.loads(f.read_text("utf-8"))
+    memoire = nettoyer_memoire(charger_memoire(dossier), maintenant)
+    limite = maintenant - timedelta(days=int(data["periode"]["jours"]))
+    bilan = {"ajoutes": 0, "regroupes": 0, "trop_vieux": 0, "deja_envoyes": 0, "invalides": 0, "deja_la": 0}
+    sujets = data["sujets"]
+    for a in trouvailles:
+        titre, url = str(a.get("titre") or "").strip(), str(a.get("url") or "").strip()
+        try:
+            verifier_adresse(url)
+        except AdresseRefusee:
+            titre = ""
+        if not titre:
+            bilan["invalides"] += 1
+            continue
+        date = lire_date(a.get("date"))
+        if date and date < limite:
+            bilan["trop_vieux"] += 1
+            continue
+        if deja_vu({"lien": url, "titre": titre}, memoire):
+            bilan["deja_envoyes"] += 1
+            continue
+        source = {"nom": a.get("media") or domaine(url), "url": url, "domaine": domaine(url), "origine": "recherche web"}
+        cle, canon = cle_titre(titre), url_canonique(url)
+        existant = next((x for x in sujets if any(url_canonique(src.get("url", "")) == canon for src in x["sources"])), None)
+        if existant:
+            bilan["deja_la"] += 1
+            continue
+        proche = next((x for x in sujets if titres_proches(cle, cle_titre(x["titre"]))), None)
+        if proche:
+            proche["sources"].append(source)
+            if len(str(a.get("extrait") or "")) > len(proche.get("extrait") or ""):
+                proche["extrait"] = str(a["extrait"])
+            bilan["regroupes"] += 1
+            continue
+        concurrents = [c for c in (a.get("concurrents") or []) if isinstance(c, str)]
+        sujets.append(
+            {
+                "id": f"t{sum(1 for x in sujets if x['id'].startswith('t')) + 1}",
+                "axe": a.get("axe") if a.get("axe") in AXES else ("concurrents" if concurrents else "tendances"),
+                "titre": titre,
+                "date": date.date().isoformat() if date else None,
+                "date_inconnue": date is None,
+                "concurrents": concurrents,
+                "extrait": str(a.get("extrait") or ""),
+                "sources": [source],
+            }
+        )
+        bilan["ajoutes"] += 1
+    data["stats"]["sujets"] = len(sujets)
+    data["stats"]["trouvailles"] = bilan
+    f.write_text(json.dumps(data, ensure_ascii=False, indent=1), "utf-8")
+    return (
+        f"Recherche web intégrée : {bilan['ajoutes']} sujets ajoutés, {bilan['regroupes']} regroupés avec un sujet existant, "
+        f"{bilan['trop_vieux']} trop vieux, {bilan['deja_envoyes']} déjà envoyés, {bilan['deja_la']} déjà présents, {bilan['invalides']} sans titre ou sans lien valide."
+    )
+
+
 def tester_sources(config: dict, telecharge=telecharger) -> list[str]:
     """Vérifie chaque source et propose les flux RSS trouvés sur les sites des concurrents."""
     rapport = []
@@ -1291,6 +1368,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--valider", action="store_true", help="mémorise ce qui vient d'être envoyé")
     ap.add_argument("--test-sources", action="store_true", help="vérifie les sources sans rien collecter")
     ap.add_argument("--diagnostic", action="store_true", help="vérifie l'installation étape par étape")
+    ap.add_argument("--integrer", action="store_true", help="ajoute à la collecte les articles de sortie/trouvailles.json")
     ap.add_argument("--maintenant", help="date et heure de référence (ISO 8601), pour les tests")
     a = ap.parse_args(argv)
     dossier = Path(a.dossier)
@@ -1298,6 +1376,9 @@ def main(argv: list[str] | None = None) -> int:
 
     if a.valider:
         print(valider(dossier, now))
+        return 0
+    if a.integrer:
+        print(integrer(dossier, now))
         return 0
     if a.diagnostic:
         lignes = diagnostic(dossier)

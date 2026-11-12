@@ -82,5 +82,64 @@ class Mail(unittest.TestCase):
         self.assertIn("Pour toi : Ton offre", m.rendre_texte(r))
 
 
+
+class ModelesEtReglages(unittest.TestCase):
+    RACINE = Path(__file__).resolve().parent.parent
+
+    def _modele(self, nom):
+        return (self.RACINE / "modeles" / f"{nom}.html").read_text("utf-8")
+
+    def test_les_trois_modeles_se_remplissent_sans_reste(self):
+        for nom in m.MODELES:
+            h = m.rendre_html(RESUME, self._modele(nom), {"modele": nom})
+            self.assertNotIn("{{", h, nom)
+            self.assertNotIn("DEBUT:", h, nom)
+            self.assertIn("https://concurrent-a.example/tarifs", h, nom)
+
+    def test_reglages_appliques(self):
+        h = m.rendre_html(RESUME, self._modele("recap"), {"titre": "Veille Assurly", "couleur": "#112233", "logo": "https://assurly.example/logo.png", "signature": "Équipe marketing"})
+        for attendu in ("Veille Assurly", "#112233", "https://assurly.example/logo.png", "Équipe marketing"):
+            self.assertIn(attendu, h)
+
+    def test_sans_logo_pas_d_image(self):
+        self.assertNotIn("<img", m.rendre_html(RESUME, self._modele("themes"), {}))
+
+    def test_reglages_invalides_remplaces_et_signales(self):
+        import json, shutil, tempfile
+        d = Path(tempfile.mkdtemp())
+        (d / "mail.json").write_text(json.dumps({"couleur": "rouge\"><script>", "logo": "javascript:alert(1)", "canaux": ["mail", "fax"], "modele": "recap"}), "utf-8")
+        r, avert = m.lire_reglages(d)
+        self.assertEqual((r["couleur"], r["logo"], r["canaux"], r["modele"]), (m.REGLAGES["couleur"], "", ["mail"], "recap"))
+        self.assertEqual(len(avert), 3)
+        shutil.rmtree(d)
+
+    def test_points_cles_selon_le_modele(self):
+        r = {**RESUME, "a_retenir": ["a", "b", "c", "d", "e"]}
+        self.assertTrue(m.verifier(r, A_TRAITER, m.MODELES["themes"])[0])
+        self.assertEqual(m.verifier(r, A_TRAITER, m.MODELES["recap"])[0], [])
+
+    def test_appel_d_offres_et_offre_d_emploi_sont_des_sources_connues(self):
+        at = {"sujets": [], "appels_offres": [{"url": "https://www.boamp.fr/pages/avis/?q=idweb:26-1"}], "emplois": [{"url": "https://jobs.lever.co/a", "nouvelles": [{"url": "https://jobs.lever.co/a/3"}]}]}
+        infos = [{"titre": "Marché", "texte": "t", "pourquoi": "p", "sources": [{"nom": "BOAMP", "url": "https://www.boamp.fr/pages/avis/?q=idweb:26-1"}]},
+                 {"titre": "Recrutement", "texte": "t", "pourquoi": "p", "sources": [{"nom": "Offre", "url": "https://jobs.lever.co/a/3"}]}]
+        self.assertEqual(m.verifier({**RESUME, "sections": [{"titre": "X", "infos": infos}]}, at)[0], [])
+
+    def test_markdown_et_slack(self):
+        md = m.rendre_markdown(RESUME, {"modele": "recap"})
+        self.assertIn("1. [Offre Essentiel à 9 €](https://concurrent-a.example/tarifs)", md)
+        sl = m.rendre_slack({**RESUME, "objet": "A < B & C"}, {})
+        self.assertIn("*A &lt; B &amp; C*", sl)
+        self.assertIn("<https://concurrent-a.example/tarifs|Offre Essentiel à 9 €>", sl)
+
+    def test_veille_deja_envoyee_bloquee(self):
+        import json, shutil, tempfile
+        d = Path(tempfile.mkdtemp())
+        (d / "memoire").mkdir()
+        (d / "memoire" / "dernier-envoi.json").write_text(json.dumps({"genere_le": "G1", "valide_le": "2026-11-09T08:00:00"}), "utf-8")
+        self.assertEqual(m.deja_envoye(d, {"genere_le": "G1"}), "2026-11-09")
+        self.assertIsNone(m.deja_envoye(d, {"genere_le": "G2"}))
+        shutil.rmtree(d)
+
+
 if __name__ == "__main__":
     unittest.main()

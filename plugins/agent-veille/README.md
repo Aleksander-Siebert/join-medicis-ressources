@@ -1,151 +1,139 @@
-# Agent de veille concurrentielle
+# Agent de veille concurrentielle et stratégique
 
-Un agent qui surveille tes concurrents et t'envoie chaque semaine un mail
-court, exact et sourcé : leurs prix, leurs nouveautés, ce que la presse dit
-d'eux. Il tourne dans Claude, sur ton ordinateur, ou dans le cloud avec
-GitHub Actions. Modèle Join Médicis, gratuit, licence MIT.
+Un agent IA gratuit et open-source qui surveille tes concurrents et ton
+marché, puis t'envoie une veille courte, exacte et sourcée : leurs prix,
+leurs nouveautés, leurs recrutements, la réglementation de ton secteur, les
+appels d'offres publics. Il fonctionne dans Claude, sur Mac et sur PC, ou
+dans le cloud, ordinateur éteint. Modèle Join Médicis, licence MIT.
 
-> Statut : en test (novembre 2026). Les étapes marquées **[à vérifier]**
-> dépendent des menus de Claude et de GitHub, qui changent souvent.
+> Statut : en test (novembre 2026). Ce qui n'a pas encore été essayé en
+> conditions réelles est listé à la fin de `references/installation.md`.
 
-## Ce qu'il fait
+## Ce qu'il surveille
 
-1. **Collecte** (script `scripts/collecte.py`, sans IA) :
-   - les actualités qui citent chaque concurrent ;
-   - les flux de leurs blogs ;
-   - les pages que tu surveilles (tarifs, offres, nouveautés), comparées à la visite précédente.
-2. **Tri mécanique** :
-   - garde seulement ce qui est daté de la période, d'après la vraie date ;
-   - écarte ce qui a déjà été envoyé (mémoire de 90 jours) ;
-   - regroupe la même info reprise par plusieurs médias.
-3. **Analyse par l'IA** (`AGENT.md`) :
-   - écarte les homonymes et le bruit ;
-   - classe par importance ;
-   - résume avec les seuls faits des sources ;
-   - explique « pourquoi c'est pour toi ».
-4. **Contrôle** (`scripts/mail.py`) : chaque info doit renvoyer à une source trouvée par la collecte. Sinon, le mail est bloqué.
-5. **Envoi à toi seul**, puis mémorisation. Si l'envoi échoue, rien n'est perdu.
-
-## Installer dans Claude (10 minutes)
-
-1. **Télécharge ce dossier** et ouvre-le dans Claude :
-   - Cowork : choisis le dossier comme espace de travail **[à vérifier]** ;
-   - Claude Code : `cd agent-veille` puis `claude`.
-2. **Relie Gmail** dans les connecteurs de Claude si tu veux recevoir le
-   mail. Sans connecteur, le mail s'affiche dans la conversation.
-3. **Ouvre `CONFIGURE-MOI.md`** et colle son contenu dans la conversation.
-   L'agent :
-   - pose 6 questions ;
-   - trouve les sites et les pages tarifs de tes concurrents et vérifie chaque source ;
-   - fait un essai à blanc, puis t'envoie un mail de test ;
-   - te propose la tâche planifiée.
-
-Python 3 doit être installé. Sur Mac, tape `python3 --version` dans le
-Terminal : s'il manque, macOS propose d'installer les outils Apple. Sur
-Windows, installe-le depuis python.org. Sans exécution
-de code (claude.ai, autres IA), l'agent fait la collecte par recherche web et
-le signale dans le mail : les dates et doublons sont alors moins fiables.
-
-## Recevoir le mail : les connecteurs
-
-L'agent n'embarque aucun accès à ta messagerie. Il utilise ce que tu as déjà
-branché :
-
-- **Dans Claude** : le connecteur Gmail (ou Microsoft 365 pour Outlook
-  **[à vérifier]**), à activer une fois dans les réglages des connecteurs de
-  Claude. L'agent l'utilise s'il est là. Sinon, il affiche le mail dans la
-  conversation.
-- **En automatique** (`lancer.sh` ou GitHub Actions) : un envoi SMTP
-  classique, réglé dans `.env` ou dans les secrets GitHub. Pour Gmail, il
-  faut un « mot de passe d'application » Google.
-
-## Lancer à la main ou automatiquement
-
-L'agent ne tourne pas tout seul tant que tu ne l'as pas programmé. Trois
-façons, de la plus simple à la plus autonome :
-
-| Façon | Comment | Il faut |
+| Axe | Ce qu'il lit | Ce que tu reçois |
 |---|---|---|
-| **À la main** | Colle `LANCER.md` dans Claude, quand tu veux. | Rien de plus |
-| **Tâche planifiée de Claude** | Dans l'application Claude, crée une tâche planifiée avec le texte de `LANCER.md` **[à vérifier : menu exact]**. `CONFIGURE-MOI.md` le propose à la fin. | Ordinateur allumé, application ouverte à l'heure prévue **[à vérifier]** |
-| **Lanceur `lancer.sh`** (macOS, Linux) | `crontab -e`, puis la ligne `0 8 * * 1 /chemin/vers/agent-veille/lancer.sh` (chaque lundi à 8 h). Le journal est dans `sortie/journal.log`. | Claude Code installé, `.env` rempli (copie `.env.exemple`), ordinateur allumé |
-| **GitHub Actions** | Voir plus bas : tourne dans le cloud. | Un compte GitHub, une clé API, les secrets SMTP |
+| Concurrents | leurs actualités, leurs blogs, leurs pages tarifs et offres, leurs offres d'emploi | « Couvrio passe son offre de 12 € à 9 € », « 6 postes commerciaux ouverts à Lyon » |
+| Tendances du marché | les médias de ton secteur, les mots-clés que tu suis | les sujets qui montent, avec leurs sources |
+| Réglementation | les flux officiels (CNIL, DGCCRF, EUR-Lex et ceux que tu ajoutes) | les textes et sanctions qui te concernent |
+| Appels d'offres | le BOAMP (France) et TED (Europe), sans clé | les marchés ouverts, et qui a gagné les marchés attribués |
 
-## Personnaliser
+Brevets et marques : pas encore, les sources officielles demandent une clé.
 
-- **Concurrents, sources, sujets, adresse** : dis-le à l'agent (« ajoute
-  tel concurrent », « surveille sa page nouveautés », « ignore les offres
-  d'emploi »). Il modifie `sources.json` et `veille.md` et vérifie la
-  source. La liste des demandes comprises est dans `AGENT.md`.
-- **Apparence du mail** : `modele-mail.html` est un fichier HTML ordinaire.
-  Change les couleurs, les polices, les textes et l'ordre des blocs, sans
-  toucher à Python. Le mode d'emploi est en tête du fichier.
-- **Méthode** (rubriques, règles d'importance, longueur) : `AGENT.md`, en
-  français.
+## Ce qui le rend fiable
 
-## Version cloud (GitHub Actions, ordinateur éteint)
+La plupart des agents de veille confient tout à l'IA. Celui-ci sépare ce
+qui se mesure de ce qui se juge.
 
-1. Crée un dépôt **privé** sur GitHub et copie-y le contenu de ce dossier.
-   Ta config et ta mémoire ne doivent pas être publiques.
-2. Le workflow `.github/workflows/veille.yml` doit être à la racine du
-   dépôt : c'est déjà le cas si tu copies le dossier tel quel.
-3. Dans *Settings → Secrets and variables → Actions*, crée :
-   - `ANTHROPIC_API_KEY` : clé de la console Anthropic, facturée à l'usage.
-     Un abonnement Claude peut servir à la place via un jeton
-     `CLAUDE_CODE_OAUTH_TOKEN` **[à vérifier]**.
-   - Pour Gmail : `SMTP_HOST` = `smtp.gmail.com`, `SMTP_PORT` = `465`,
-     `SMTP_USER` = ton adresse, `SMTP_PASSWORD` = un mot de passe
-     d'application Google (pas ton mot de passe), `MAIL_TO` = ton adresse.
-4. Configure `veille.md` et `sources.json` avec `CONFIGURE-MOI.md` sur ton
-   ordinateur, puis envoie-les dans le dépôt.
-5. Onglet *Actions* → « Veille concurrentielle » → *Run workflow* pour un
-   premier essai. Ensuite, il tourne chaque lundi.
+**Fait par script, sans IA** (`scripts/collecte.py`) :
 
-Les noms exacts des paramètres de l'action `anthropics/claude-code-action`
-sont **[à vérifier]** dans sa documentation avant la première exécution.
+- la vraie date de chaque article, pas celle que l'IA croit lire ;
+- la mémoire de 90 jours : une info envoyée ne revient pas ;
+- le regroupement d'une même info reprise par plusieurs médias ;
+- la comparaison ligne à ligne des pages suivies ;
+- le respect du fichier `robots.txt` de chaque site.
 
-## Limites à connaître
+**Fait par l'IA** (`AGENT.md`) : écarter les homonymes et le bruit, noter
+l'importance avec une règle écrite, résumer avec les seuls faits des
+sources, dire pourquoi l'info compte pour toi.
 
-- **Google Actualités** : le flux RSS de Google est réservé à un usage
-  personnel et non commercial, d'après la mention de copyright du flux
-  (relevée le 5 novembre 2026). Pour une veille d'entreprise, désactive
-  `actualites_google` et donne les flux RSS des médias et des blogs
-  concernés, ou des alertes Google en flux RSS.
-- **Extraits courts** : les actualités Google ne donnent souvent que le
-  titre. Le script cherche alors l'article dans le flux RSS du média (un
-  sur trois environ lors de nos essais), puis l'agent tente une recherche
-  web pour les infos importantes. Sinon, il écrit « D'après le titre… »
-  et ne complète rien. Certains médias bloquent les robots (Les Echos,
-  ZDNet lors de nos essais).
-- **Sites protégés** : certains sites refusent les robots (erreur 403).
-  L'agent ne contourne rien et propose de suivre ce concurrent par ses
-  actualités seulement.
-- **Pages refaites** : une refonte de site donne beaucoup de changements
-  d'un coup. L'agent le signale sans détailler.
-- **Ce n'est pas une veille exhaustive** : réseaux sociaux, publicités et
-  sources payantes ne sont pas lus.
+**Contrôlé avant l'envoi** (`scripts/mail.py`) : chaque info doit renvoyer à
+une source que la collecte a trouvée. Sinon, l'envoi est bloqué. Une veille
+ne part jamais deux fois.
 
-## Tester les scripts
+## Installer en 15 minutes
 
-```bash
-python3 -m unittest discover -s tests
-python3 scripts/collecte.py --test-sources
+Trois façons, détaillées dans `references/installation.md` :
+
+| | Cloud | Local, sans rien installer | Local, version complète |
+|---|---|---|---|
+| Tourne ordinateur éteint | oui | non | non |
+| À installer | rien | rien | Python, installé par l'agent |
+| Il faut | un compte GitHub gratuit | l'application Claude | l'application Claude |
+
+1. **Récupère l'agent** : « Use this template » sur GitHub pour la version
+   cloud, ou « Code » → « Download ZIP » pour la version locale.
+2. **Ouvre le dossier dans Claude** (onglet Code).
+3. **Colle le texte de `CONFIGURE-MOI.md`.** L'agent pose ses questions,
+   trouve et teste tes sources, te montre les 3 formats de mail, fait un
+   essai sans rien envoyer, puis programme la veille.
+
+Il faut une offre Claude payante (pour les tâches planifiées) et, pour le
+mail, le connecteur Gmail ou Outlook activé dans Claude.
+
+## Personnaliser sans ouvrir un fichier
+
+Tout se demande à l'agent, en une phrase :
+
+| Tu dis | Il fait |
+|---|---|
+| « Ajoute Protecta » | trouve son site, teste ses sources, propose ses pages à suivre |
+| « Surveille sa page tarifs, seulement les prix » | suit la page et ne te prévient que si un prix change |
+| « Suis la réglementation sur la facturation électronique » | ajoute les mots-clés et les flux officiels |
+| « Passe au format récap » | change le modèle de mail |
+| « Mets notre vert et notre logo » | règle `mail.json` et montre le rendu |
+| « Plus court, et vouvoie-moi » | l'écrit dans `veille.md` |
+| « Envoie aussi sur Slack » | ajoute le canal |
+
+**Trois formats de mail** : `themes` (3 points à retenir, puis les infos par
+rubrique avec « pour toi »), `recap` (5 points clés, puis toutes les sources
+numérotées), `flash` (l'essentiel en 5 lignes). Un modèle sur mesure se
+crée en copiant un fichier de `modeles/`.
+
+**Quatre destinations** : mail (Gmail, Outlook), Slack, Notion, fichier.
+
+## Les fichiers
+
+```
+agent-veille/
+├── CONFIGURE-MOI.md      le texte à coller pour tout paramétrer
+├── LANCER.md             le texte de la tâche planifiée
+├── AGENT.md              la méthode que l'agent suit
+├── veille.md             qui tu es, ce qui compte, où envoyer
+├── sources.json          concurrents, sujets, pages, flux
+├── mail.json             format, couleurs, logo, canaux
+├── modeles/              les 3 modèles de mail
+├── scripts/              collecte et mise en forme (Python sans dépendance)
+├── references/           installation, sources officielles, mode sans Python
+├── memoire/              ce qui a déjà été envoyé
+├── exemples/             une veille fictive complète (Assurly)
+└── tests/                67 tests automatiques
 ```
 
-## Fichiers
+## Deux modes de collecte
 
-| Fichier | Rôle |
-|---|---|
-| `AGENT.md` | méthode de l'agent (lue à chaque lancement) |
-| `CLAUDE.md` | point d'entrée pour Claude Code et Cowork |
-| `CONFIGURE-MOI.md` | prompt de configuration guidée |
-| `LANCER.md` | prompt de lancement et de la tâche planifiée |
-| `veille.md` | ton profil et tes préférences |
-| `sources.json` | concurrents, pages, flux, réglages |
-| `scripts/collecte.py` | collecte, dates, doublons, mémoire, pages |
-| `scripts/mail.py` | contrôle, mise en forme, envoi SMTP (automatique) |
-| `modele-mail.html` | apparence du mail, en HTML |
-| `lancer.sh`, `.env.exemple` | lancement automatique sur ton ordinateur |
-| `memoire/` | ce qui a été envoyé, état des pages |
-| `exemples/` | exemple de résumé et de mail (Assurly, fictif) |
-| `evals/` | cas de test de l'agent |
+- **Standard, par défaut** : flux RSS, pages publiques, sources officielles
+  et recherche web de l'IA. Aucun agrégateur d'actualités.
+- **Étendu, à activer toi-même** : ajoute les flux de Google Actualités et
+  de Bing Actualités. Plus complet, mais ces flux sont prévus pour un usage
+  personnel : lis `references/sources-officielles.md` avant.
+
+Dans les deux modes, l'agent ne contourne aucune protection : pas de
+navigateur furtif, pas de CAPTCHA résolu, pas de compte connecté, pas de
+réseaux sociaux.
+
+## Limites
+
+- L'agent lit ce qui est public. Un mur payant, une page interdite aux
+  robots ou un site qui bloque les serveurs restent fermés.
+- Sans Python, les dates et les doublons sont vérifiés par l'IA : c'est
+  moins sûr, et la veille le dit.
+- Le résumé est écrit par une IA : chaque info porte sa source, vérifie-la
+  avant de la reprendre.
+- Les tâches planifiées cloud de Claude sont en aperçu : leur
+  fonctionnement peut changer.
+
+## Vérifier et contribuer
+
+```bash
+python3 -m unittest discover -s tests        # 67 tests, sans réseau
+python3 scripts/collecte.py --diagnostic     # ton installation, étape par étape
+```
+
+Les tests tournent sur Linux, macOS et Windows à chaque modification.
+Méthode et sources étudiées : `CREDITS.md`. Cas d'évaluation de l'agent :
+`evals/CAS.md`.
+
+Un bug, une source officielle à ajouter ? Ouvre une issue sur GitHub.
+Fait par [Join Médicis](https://joinmedicis.com), pour les marketeurs
+francophones.

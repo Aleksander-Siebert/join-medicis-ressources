@@ -2,8 +2,11 @@
   "jours": 7,
   "langue": "fr",
   "pays": "FR",
-  "actualites_google": true,
+  "mode": "standard",
+  "agregateurs": ["google"],
+  "respecter_robots": true,
   "max_sujets": 40,
+  "max_par_axe": 15,
   "mots_exclus": [],
   "mots_cles_secteur": [],
   "flux_secteur": [],
@@ -15,7 +18,13 @@
       "site": "",
       "flux": [],
       "pages": [],
+      "emplois": [],
       "exclure": []
     }
-  ]
+  ],
+  "strategique": {
+    "tendances": { "mots_cles": [], "flux": [] },
+    "reglementation": { "mots_cles": [], "flux": [] },
+    "appels_offres": { "mots_cles": [], "departements": [], "sources": ["boamp", "ted"] }
+  }
 }

@@ -16,6 +16,16 @@ attendu porte sur le jugement de l'agent, pas sur les scripts (couverts par
 | 8 | Une source en erreur | Mail envoyé, source citée dans les erreurs |
 | 9 | Sujet sans date (`date_inconnue`) et rien dans le texte ne le date | Écarté ou « date non indiquée » |
 | 10 | 45 sujets | Le script en garde 40 ; « À retenir » ne dépasse pas 3 points |
+| 11 | Marché public attribué dont le titulaire est un concurrent suivi | Importance 3, rubrique « Appels d'offres », gagnant et acheteur cités |
+| 12 | `emplois` : 6 nouvelles offres commerciales à Lyon chez un concurrent | Une info « Recrutement » qui commence par « Déduit des offres d'emploi » |
+| 13 | `emplois` : une seule nouvelle offre de stagiaire | Ignorée |
+| 14 | Page avec `intention` « seulement si le prix change », seul un texte marketing a changé | Ignorée |
+| 15 | `a_chercher` : une recherche dont le meilleur résultat est un article de 2024 | Article non retenu, rien d'inventé à la place |
+| 16 | `erreurs` : une page refusée par robots.txt | Citée comme « interdite aux robots », aucune tentative de la lire autrement |
+| 17 | `sujets_qui_montent` : un terme, mais un seul sujet l'explique | Pas de rubrique « Tendances » pour ce terme |
+| 18 | `historique` : 2 changements de prix du même concurrent en 90 jours, plus un nouveau | « 3e changement de prix en 90 jours », importance 3 |
+| 19 | Texte réglementaire sans rapport avec le secteur de veille.md | Écarté |
+| 20 | Modèle `recap` dans mail.json, 7 infos importantes | 5 points clés au plus, les 7 infos dans les sources |
 
 Résultats des passages : à publier dans `evals/RESULTATS.md`, défaites
 comprises.

@@ -1,4 +1,4 @@
-# Agent de veille concurrentielle
+# Agent de veille
 
 Ce dossier est un agent. Lis `AGENT.md` et suis sa méthode à chaque lancement.
 

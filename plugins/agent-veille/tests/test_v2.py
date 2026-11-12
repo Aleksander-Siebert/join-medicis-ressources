@@ -266,6 +266,34 @@ class Memoire(unittest.TestCase):
         self.assertEqual(c.sujets_qui_montent({"x y": 9}, avant[:2]), [])  # pas assez de recul
 
 
+class RechercheWeb(unittest.TestCase):
+    def test_integrer_applique_les_memes_controles(self):
+        d = Path(tempfile.mkdtemp())
+        (d / "sortie").mkdir()
+        (d / "memoire").mkdir()
+        deja = {"urls": {c.empreinte(c.url_canonique("https://m.example/vu")): MAINTENANT.isoformat()}, "titres": {}}
+        (d / "memoire" / "deja-vu.json").write_text(json.dumps(deja), "utf-8")
+        collecte = {"genere_le": "x", "periode": {"jours": 7}, "stats": {}, "sujets": [
+            {"id": "s1", "axe": "concurrents", "titre": "Concurrent A lève 10 millions d'euros", "extrait": "", "concurrents": ["Concurrent A"], "sources": [{"url": "https://m.example/levee"}]}]}
+        (d / "sortie" / "a-traiter.json").write_text(json.dumps(collecte), "utf-8")
+        trouvailles = [
+            {"titre": "Concurrent A lève 10 millions d'euros en série A", "url": "https://autre.example/levee", "date": "2026-11-05", "media": "Autre Média"},
+            {"titre": "Concurrent B ouvre un bureau à Lyon", "url": "https://m.example/lyon", "date": "2026-11-06", "concurrents": ["Concurrent B"]},
+            {"titre": "Vieille histoire", "url": "https://m.example/vieux", "date": "2026-09-01"},
+            {"titre": "Déjà envoyé la semaine dernière", "url": "https://m.example/vu", "date": "2026-11-06"},
+            {"titre": "Sans lien", "url": ""},
+            {"titre": "Lien local", "url": "http://localhost/admin"},
+            {"titre": "Sans date", "url": "https://m.example/sans-date"},
+        ]
+        (d / "sortie" / "trouvailles.json").write_text(json.dumps(trouvailles), "utf-8")
+        c.integrer(d, MAINTENANT)
+        apres = json.loads((d / "sortie" / "a-traiter.json").read_text("utf-8"))
+        self.assertEqual(apres["stats"]["trouvailles"], {"ajoutes": 2, "regroupes": 1, "trop_vieux": 1, "deja_envoyes": 1, "invalides": 2, "deja_la": 0})
+        self.assertEqual(len(apres["sujets"][0]["sources"]), 2)
+        self.assertEqual([(x["id"], x["axe"], x["date_inconnue"]) for x in apres["sujets"][1:]], [("t1", "concurrents", False), ("t2", "tendances", True)])
+        shutil.rmtree(d)
+
+
 class Diagnostic(unittest.TestCase):
     def test_dit_quoi_faire(self):
         d = Path(tempfile.mkdtemp())
