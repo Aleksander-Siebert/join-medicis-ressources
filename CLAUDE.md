@@ -178,10 +178,20 @@ sessions par pack, c'est normal.
 
   Une variante pour ChatGPT, Gemini ou Mistral d'un Skill externe est notre
   adaptation, créditée, sous la licence de l'auteur.
-- **État des imports** (16 octobre 2026) :
-  - Gemini : Personnaliser → Compétences → Importer ; ZIP LinkedIn testé, il
-    fonctionne.
-  - ChatGPT : chatgpt.com/skills, en bêta.
-  - Mistral : chat.mistral.ai/skills ne reconnaît ni dossier ni ZIP, et les
-    .md doivent suivre un format propre à Mistral, à documenter. En
-    attendant, le site dit de coller le SKILL.md.
+- **État des imports** (12 novembre 2026, captures du compte de
+  l'utilisateur et pages d'aide officielles) :
+  - Claude : Personnalisation → Skills → « + Ajouter », import du ZIP ; appel
+    d'un Skill par `/`.
+  - ChatGPT : Plugins → Skills → « Ajouter », import d'un fichier ou d'un
+    dossier. Skills affichés sur Free, Go, Plus et Pro (page de tarifs
+    d'OpenAI) ; l'utilisateur y a accès avec Plus. Scripts exécutés.
+  - Gemini : Personnaliser → Compétences → Créer → Importer (SKILL.md,
+    dossier ou ZIP ; 100 Mo ; comptes personnels de 18 ans et plus). Scripts
+    exécutés sans accès à Internet. Gems en lecture seule le 17 novembre
+    2026, supprimés le 17 décembre 2026.
+  - Mistral : l'assistant s'appelle Vibe (ex-Le Chat) depuis mai 2026.
+    chat.mistral.ai/skills (Work → Contexte → Skills) propose un bouton
+    « Importer ». Exécution de scripts non documentée.
+  - GPT personnalisés retirés par OpenAI le 11 décembre 2026 : ne plus les
+    proposer comme solution de repli.
+  - Guide public : joinmedicis.com/blog/collections/skills-mcp/installer-skill-ia.

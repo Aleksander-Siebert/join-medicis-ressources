@@ -159,9 +159,14 @@ n'importez pas le dépôt tel quel.
 
 ### ChatGPT, Gemini, Mistral
 
-Importez le ZIP dans les compétences de Gemini ou de ChatGPT, ou collez le
-`SKILL.md` voulu dans Mistral. Sans exécution de code, les Skills font les
-contrôles à la lecture, et le disent.
+Importez le ZIP de la fiche du pack sur
+[joinmedicis.com](https://joinmedicis.com/ressources/skills) : dans ChatGPT
+(Plugins → Skills → Ajouter), Gemini (Personnaliser → Compétences → Créer →
+Importer) ou Mistral Vibe (Work → Contexte → Skills → Importer). Le [guide
+d'installation](https://joinmedicis.com/blog/collections/skills-mcp/installer-skill-ia) détaille chaque parcours. ChatGPT exécute les scripts ; Gemini
+aussi, sauf ceux qui ont besoin d'Internet ; la documentation de Mistral Vibe
+n'en parle pas. Sans exécution de code, les Skills font les contrôles à la
+lecture, et le disent.
 
 **Ensuite** : lancez `/geo-audit` sur votre page la plus importante, puis
 `/geo-visibilite` sur vos dix questions clés.

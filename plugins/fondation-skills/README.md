@@ -99,9 +99,13 @@ les connaissances de ton Projet.
 
 ### ChatGPT, Gemini, Mistral
 
-Colle le contenu de `skills/fondation-entreprise/SKILL.md` dans les
-instructions de ton Projet (GPT, Gem, agent) et mets `templates/entreprise.md`
-dans ses connaissances.
+Importe le ZIP de la fiche du pack sur
+[joinmedicis.com](https://joinmedicis.com/ressources/skills) : dans ChatGPT
+(Plugins → Skills → Ajouter), Gemini (Personnaliser → Compétences → Créer →
+Importer) ou Mistral Vibe (Work → Contexte → Skills → Importer). Le [guide
+d'installation](https://joinmedicis.com/blog/collections/skills-mcp/installer-skill-ia) détaille chaque parcours. Sans import, colle le contenu de
+`skills/fondation-entreprise/SKILL.md` dans les instructions d'un Projet et
+mets `templates/entreprise.md` dans ses connaissances.
 
 ## Les scripts
 

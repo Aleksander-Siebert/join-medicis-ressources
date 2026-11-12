@@ -222,9 +222,15 @@ n'importe pas le dépôt tel quel.
 
 ### ChatGPT, Gemini, Mistral
 
-Colle le `SKILL.md` voulu dans les instructions d'un Projet, d'un GPT, d'un
-Gem ou d'un agent, avec `commun/regles.md` et tes fichiers. Sans exécution de
-code, chaque Skill applique ses grilles écrites et dit que le contrôle
+Importe le ZIP de la fiche du pack sur
+[joinmedicis.com](https://joinmedicis.com/ressources/skills) : dans ChatGPT
+(Plugins → Skills → Ajouter), Gemini (Personnaliser → Compétences → Créer →
+Importer) ou Mistral Vibe (Work → Contexte → Skills → Importer). Le [guide
+d'installation](https://joinmedicis.com/blog/collections/skills-mcp/installer-skill-ia) détaille chaque parcours. Sans import, colle le `SKILL.md` voulu
+dans les instructions d'un Projet, avec `commun/regles.md` et tes fichiers.
+ChatGPT exécute les scripts ; Gemini aussi, sauf ceux qui ont besoin
+d'Internet ; la documentation de Mistral Vibe n'en parle pas. Sans exécution
+de code, chaque Skill applique ses grilles écrites et dit que le contrôle
 automatique n'a pas tourné.
 
 ## Démarrer en vingt minutes

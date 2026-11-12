@@ -111,10 +111,16 @@ ton Projet, ou dans ton Skill « ma-voix ».
 
 ### ChatGPT, Gemini, Mistral
 
-Colle le contenu de `skills/tone-of-voice/SKILL.md` dans les instructions de
-ton Projet (GPT, Gem, agent) et mets `templates/tone-of-voice.md` dans ses
-connaissances. Sans exécution de code, les mesures sont estimées à la main
-et le Skill le dit.
+Importe le ZIP de la fiche du pack sur
+[joinmedicis.com](https://joinmedicis.com/ressources/skills) : dans ChatGPT
+(Plugins → Skills → Ajouter), Gemini (Personnaliser → Compétences → Créer →
+Importer) ou Mistral Vibe (Work → Contexte → Skills → Importer). Le [guide
+d'installation](https://joinmedicis.com/blog/collections/skills-mcp/installer-skill-ia) détaille chaque parcours. Sans import, colle le contenu de
+`skills/tone-of-voice/SKILL.md` dans les instructions d'un Projet et mets
+`templates/tone-of-voice.md` dans ses connaissances. ChatGPT exécute les
+scripts ; Gemini aussi, sauf ceux qui ont besoin d'Internet ; la documentation
+de Mistral Vibe n'en parle pas. Sans exécution de code, les mesures sont
+estimées à la main et le Skill le dit.
 
 ## Les scripts
 

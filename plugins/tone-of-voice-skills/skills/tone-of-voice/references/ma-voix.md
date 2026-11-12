@@ -37,11 +37,11 @@ prévient.
 
 | Outil | Comment | État |
 |---|---|---|
-| claude.ai | Personnaliser → Skills → importer le ZIP | chemin utilisé par les autres packs Join Médicis ; [à vérifier] à chaque changement d'interface |
+| claude.ai | Personnalisation → Skills → « + Ajouter » → importer le ZIP | vu le 12 novembre 2026 ; à revérifier à chaque changement d'interface |
 | Claude Code | copier le dossier `ma-voix-<nom>/` dans `~/.claude/skills/` | format de dossier standard |
-| Gemini | Personnaliser → Compétences → Importer le ZIP | testé avec le ZIP LinkedIn le 16 octobre 2026 |
-| ChatGPT | chatgpt.com/skills (bêta) | [à vérifier] |
-| Mistral | coller le contenu du SKILL.md et du fichier de voix dans les instructions de l'agent | l'import de Skills n'accepte ni dossier ni ZIP au 16 octobre 2026 |
+| Gemini | Personnaliser → Compétences → Créer → Importer le ZIP | testé avec le ZIP LinkedIn le 16 octobre 2026 ; comptes personnels de 18 ans et plus |
+| ChatGPT | Plugins → Skills → Ajouter, puis importer le ZIP | offres Free, Go, Plus et Pro (page de tarifs d'OpenAI, 12 novembre 2026) |
+| Mistral Vibe | Work → Contexte → Skills → Importer | bouton vu le 12 novembre 2026 ; à défaut, « Nouveau skill » et coller le SKILL.md |
 
 ## 3. Sans exécution de code
 
