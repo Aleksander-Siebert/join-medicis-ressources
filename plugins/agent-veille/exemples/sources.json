@@ -1,0 +1,33 @@
+{
+  "jours": 7,
+  "mode": "standard",
+  "mots_exclus": ["top 10", "comparatif sponsorisé"],
+  "mots_cles_secteur": ["assurance des indépendants", "RC pro"],
+  "flux_secteur": ["https://media-assurance.example/feed"],
+  "concurrents": [
+    {
+      "nom": "Couvrio",
+      "site": "https://couvrio.example",
+      "flux": ["https://couvrio.example/blog/feed"],
+      "pages": [
+        { "url": "https://couvrio.example/tarifs", "intention": "seulement si un prix ou une offre change", "seulement_si": ["€", "offre"] }
+      ],
+      "emplois": ["https://jobs.lever.co/couvrio"]
+    },
+    {
+      "nom": "Protecta",
+      "alias": ["Protecta Assurances"],
+      "mots_cles": ["assurance"],
+      "site": "https://protecta.example",
+      "pages": ["https://protecta.example/offres"]
+    }
+  ],
+  "strategique": {
+    "tendances": { "mots_cles": ["assurance des indépendants"], "flux": [] },
+    "reglementation": {
+      "mots_cles": ["assurance", "démarchage", "courtier"],
+      "flux": ["https://www.cnil.fr/fr/rss.xml", "https://www.economie.gouv.fr/dgccrf/rss"]
+    },
+    "appels_offres": { "mots_cles": ["assurance responsabilité civile"], "departements": [], "sources": ["boamp", "ted"] }
+  }
+}

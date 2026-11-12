@@ -1,0 +1,11 @@
+{
+  "modele": "themes",
+  "titre": "Veille concurrentielle",
+  "couleur": "#0E3F2D",
+  "accent": "#B88F45",
+  "fond": "#f3eee4",
+  "carte": "#FBF5EA",
+  "logo": "",
+  "signature": "Préparé par ton agent de veille. Chaque info renvoie à sa source : vérifie avant de la reprendre.",
+  "canaux": ["mail"]
+}
