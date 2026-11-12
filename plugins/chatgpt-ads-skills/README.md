@@ -117,9 +117,16 @@ fichiers ; sans elle, le Skill livre les tableaux à coller et le dit.
 
 ### ChatGPT, Gemini, Mistral
 
-Colle le contenu du `SKILL.md` voulu dans les instructions de ton Projet et
-ajoute ses dossiers `references/` et `commun/` à ses connaissances. Les
-contrôles par script demandent un environnement qui exécute Python.
+Importe le ZIP de la fiche du pack sur
+[joinmedicis.com](https://joinmedicis.com/ressources/skills) : dans ChatGPT
+(Plugins → Skills → Ajouter), Gemini (Personnaliser → Compétences → Créer →
+Importer) ou Mistral Vibe (Work → Contexte → Skills → Importer). Le [guide
+d'installation](https://joinmedicis.com/blog/collections/skills-mcp/installer-skill-ia) détaille chaque parcours. Sans import, colle le contenu du
+`SKILL.md` voulu dans les instructions d'un Projet et ajoute ses dossiers
+`references/` et `commun/` à ses connaissances. ChatGPT exécute les scripts ;
+Gemini aussi, sauf ceux qui ont besoin d'Internet ; la documentation de
+Mistral Vibe n'en parle pas. Ailleurs, les contrôles par script demandent un
+environnement qui exécute Python.
 
 ## Les scripts
 
