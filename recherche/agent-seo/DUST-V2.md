@@ -120,7 +120,7 @@ Ryan.
 | `@SEO-Veille` | 1 sujets, 1c Sheet « Sujets », 2 priorité | lundi 8 h |
 | `@SEO-Plan` | 3 « pour nous ? » et relevé, 4 références, 5 plan BLUF, 6 mentions, ⏸ validation | par le chef |
 | `@SEO-Redacteur` | 7 brouillon ; après la vérif : 9 aperçu Frame, 10 format CMS, Google Doc | par le chef (2 passages) |
-| `@SEO-Maillage` | sitemap → onglet « Pages » du Sheet ; liens sortants du plan et du brouillon | par le chef ; sitemap relu chaque mois |
+| `@SEO-Maillage` | sitemap → onglet « Pages » du Sheet ; liens sortants du plan et du brouillon ; recommandation de liens entrants (rien n'est modifié) | par le chef ; sitemap relu chaque mois |
 | `@SEO-Verif` | 8 sources, vérité produit, critères qualité ; autre modèle | par le chef |
 | `@SEO-Suivi` | tableau de bord + chaîne de mise à jour | 1er du mois, ou à la demande |
 
@@ -129,9 +129,13 @@ Ryan.
 
 ### Maillage interne (décision du 16 novembre 2026)
 
-- **Liens sortants seulement** : des liens dans le nouvel article vers les pages
-  du site. Pas de modification des pages existantes (liens entrants écartés
-  par l'utilisateur pour cette version).
+- **Liens sortants** : des liens dans le nouvel article vers les pages du site.
+- **Liens entrants, recommandés seulement** (ajout de l'utilisateur, 16 novembre
+  2026) : 3 à 5 articles existants à modifier pour pointer vers le nouvel
+  article (règle de travail), même groupe thématique, ceux qui ont des clics
+  d'abord. Pour chacun : adresse, section où placer le lien, ancre proposée,
+  pourquoi. L'agent ne modifie aucune page et ne réécrit pas de phrase :
+  la liste est livrée à la fin, l'utilisateur fait les changements lui-même.
 - **Onglet « Pages »** du Sheet, rempli depuis le sitemap : adresse, titre,
   groupe thématique, requête principale et clics (Search Console). Pages en
   erreur, redirigées ou en noindex écartées. Les autres agents lisent cet
