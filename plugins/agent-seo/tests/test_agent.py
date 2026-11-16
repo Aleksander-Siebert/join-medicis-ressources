@@ -114,11 +114,12 @@ class Exporter(unittest.TestCase):
     def test_docx_valide(self):
         d = Path(tempfile.mkdtemp())
         sortie = exporter.convertir((FX / "article.md").read_text("utf-8"), d / "a.docx")
-        z = zipfile.ZipFile(sortie)
-        for n in z.namelist():
-            xml.dom.minidom.parseString(z.read(n))
-        doc = z.read("word/document.xml").decode("utf-8")
-        rels = z.read("word/_rels/document.xml.rels").decode("utf-8")
+        with zipfile.ZipFile(sortie) as z:  # fermé avant la suppression : Windows refuse d'effacer un fichier ouvert
+            for n in z.namelist():
+                xml.dom.minidom.parseString(z.read(n))
+            doc = z.read("word/document.xml").decode("utf-8")
+            rels = z.read("word/_rels/document.xml.rels").decode("utf-8")
+            core = z.read("docProps/core.xml").decode("utf-8")
         self.assertIn("Assurance décennale en micro-entreprise", doc)
         self.assertIn('w:pStyle w:val="Titre"', doc)
         self.assertIn('w:pStyle w:val="Titre1"', doc)
@@ -127,7 +128,7 @@ class Exporter(unittest.TestCase):
         self.assertIn("&lt;tout&gt;", doc)
         self.assertIn("https://assurly.example/?a=1&amp;b=2", rels)
         self.assertNotIn("title: test", doc)  # en-tête YAML retiré
-        self.assertIn("Assurance décennale", z.read("docProps/core.xml").decode("utf-8"))
+        self.assertIn("Assurance décennale", core)
         shutil.rmtree(d)
 
 
