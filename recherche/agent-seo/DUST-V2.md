@@ -112,7 +112,7 @@ Ryan.
 ## 4. Décisions de l'utilisateur (16 novembre 2026)
 
 - **Base partagée : Google Sheet.**
-- **5 agents + le chef**, pour limiter les crédits :
+- **6 agents + le chef** (5 au départ, plus `@SEO-Maillage` ajouté le même jour) :
 
 | Agent | Étapes | Lancement |
 |---|---|---|
@@ -120,11 +120,35 @@ Ryan.
 | `@SEO-Veille` | 1 sujets, 1c Sheet « Sujets », 2 priorité | lundi 8 h |
 | `@SEO-Plan` | 3 « pour nous ? » et relevé, 4 références, 5 plan BLUF, 6 mentions, ⏸ validation | par le chef |
 | `@SEO-Redacteur` | 7 brouillon ; après la vérif : 9 aperçu Frame, 10 format CMS, Google Doc | par le chef (2 passages) |
+| `@SEO-Maillage` | sitemap → onglet « Pages » du Sheet ; liens sortants du plan et du brouillon | par le chef ; sitemap relu chaque mois |
 | `@SEO-Verif` | 8 sources, vérité produit, critères qualité ; autre modèle | par le chef |
 | `@SEO-Suivi` | tableau de bord + chaîne de mise à jour | 1er du mois, ou à la demande |
 
 - **Données : mode gratuit construit et testé ; mode Ahrefs/Semrush décrit,
   marqué non testé** (l'utilisateur n'a pas d'outil payant).
+
+### Maillage interne (décision du 16 novembre 2026)
+
+- **Liens sortants seulement** : des liens dans le nouvel article vers les pages
+  du site. Pas de modification des pages existantes (liens entrants écartés
+  par l'utilisateur pour cette version).
+- **Onglet « Pages »** du Sheet, rempli depuis le sitemap : adresse, titre,
+  groupe thématique, requête principale et clics (Search Console). Pages en
+  erreur, redirigées ou en noindex écartées. Les autres agents lisent cet
+  onglet : aucune adresse hors de l'onglet ne peut être liée.
+- **Au plan** : 3 à 6 pages cibles (règle de travail), en priorité les pages à
+  pousser, chacune rattachée à la section où elle sert le lecteur.
+- **Au brouillon** : ancre et phrase pour chaque lien.
+- **Règles d'ancre** (pack SEO, `/seo-maillage`) : ancre descriptive qui
+  reprend la requête de la cible ou une variante, jamais « cliquez ici » ; une
+  même ancre sur 40% au plus des liens vers une page ; un lien par cible et par
+  article.
+- **Sources** : Ryan 2025 (adresses inventées corrigées en fournissant les
+  vraies) ; pack SEO `/seo-maillage`.
+- **À tester** : lecture d'un `sitemap.xml` par l'outil web de Dust. Plans B :
+  source « Websites » de Dust, ou sitemap exporté et collé dans le Sheet.
+- Sur Dust, pas de script : groupes thématiques jugés à la lecture, moins
+  constants qu'avec `/seo-maillage`.
 
 ## 5. Vérifié dans la doc de Dust (16 novembre 2026)
 
