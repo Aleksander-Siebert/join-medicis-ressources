@@ -1,0 +1,13 @@
+{
+  "marques": ["{{à compléter : nom de la marque, variantes}}"],
+  "search_console": {
+    "propriete": "{{à compléter : sc-domain:exemple.fr ou https://www.exemple.fr/}}",
+    "source": "connecteur"
+  },
+  "positions": "8-40",
+  "min_impressions": 20,
+  "exclure": [],
+  "ymyl": false,
+  "livraison": ["md", "docx"],
+  "rythme": "chaque lundi à 8 h : propose 5 sujets et écrit le premier en brouillon"
+}
