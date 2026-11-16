@@ -1,27 +1,10 @@
 # @SEO-Chef
 
-**Name :** SEO-Chef
+Le chef d'orchestre : appelle les 4 autres agents et livre un brouillon vérifié. À créer en dernier. Les rubriques suivent l'écran « Créer un agent » de Dust, dans l'ordre.
 
-**Description :** Chef d'orchestre de la veille SEO : appelle les agents
-Sujets, SERP, Rédacteur et Vérif, livre un brouillon d'article vérifié et
-garde la liste des sujets traités. À lancer chaque lundi, ou à la demande.
+## Instructions
 
-**Model (Advanced) :** un modèle de raisonnement (Claude Sonnet ou Opus, ou
-équivalent).
-
-**Skills :** Zéro invention.
-
-**Tools :**
-- `run_agent`, une fois par agent, en mode **arrière-plan** (background) :
-  SEO-Sujets, SEO-SERP, SEO-Redacteur, SEO-Verif ;
-- Agent Memory.
-
-**Knowledge :** la page du contexte du site.
-
-**Déclencheur :** Triggers → Schedule, « chaque lundi à 8 h », fuseau
-Europe/Paris, message « Lance la veille SEO de la semaine ».
-
-**Instructions (à coller) :**
+À coller dans **Instructions** :
 
 ```
 Tu orchestres la création d'un article SEO, du mot-clé au brouillon vérifié,
@@ -66,3 +49,46 @@ Deux demandes possibles :
 Ne transmets à un agent que ce dont il a besoin. N'invente aucune donnée
 pour combler une réponse vide d'un agent : dis ce qui manque.
 ```
+
+**Modèle** (en haut à droite des instructions) : Claude Sonnet 5.5 en raisonnement « moyen ». Laisse **Réponse
+JSON** désactivé.
+
+## Prompts suggérés
+
+**Ajouter un prompt**, un par ligne :
+
+- `Lance la veille SEO de la semaine.`
+- `Propose des sujets.`
+- `Écris le prochain article.`
+- `Écris un article sur « assurance décennale micro-entreprise ».`
+
+## Données et accès
+
+**Gérer** : ajoute l'espace qui contient tes connaissances (contexte du
+site, source « site web »). Garde un seul espace, celui de l'équipe
+marketing : seuls ses membres pourront utiliser l'agent.
+
+## Capacités et connaissances
+
+- **Ajouter des capacités** :
+  - le Skill **Zéro invention** (`dust/skills/zero-invention.md`)
+  - l'outil **Run agent**, ajouté 4 fois, une fois par agent, en mode arrière-plan : SEO-Sujets, SEO-SERP, SEO-Redacteur, SEO-Verif
+  - l'outil **Agent Memory**, pour se souvenir des sujets déjà traités
+- **Ajouter des connaissances** :
+  - la page Notion ou le document Google Drive du **contexte du site**
+
+## Déclencheurs
+
+**Ajouter des déclencheurs** → planification : « chaque lundi à 8 h », fuseau
+Europe/Paris, message « Lance la veille SEO de la semaine ». Choisis l'espace
+d'équipe (« Pod ») où créer la conversation si l'équipe doit la voir.
+
+## Paramètres
+
+- **Nom** : `SEO-Chef`
+- **Description** : `Chef d'orchestre de la veille SEO : appelle les agents Sujets, SERP, Rédacteur et Vérif, livre un brouillon vérifié chaque lundi ou à la demande.`
+- **Éditeurs et accès** : toi et un second éditeur, puis « publié » pour
+  l'équipe une fois la chaîne testée.
+- **Tags** : `SEO`, `Automatisation`.
+- **Gestion des coûts** : laisse désactivé « Ignorer l'alerte de seuil de
+  dépenses de crédits ».

@@ -79,13 +79,17 @@ page du contexte du site.
 
 ### 4. Créer les 4 agents spécialisés, puis le chef
 
-Pour chacun : **Create → Create an agent from scratch**, puis remplis avec le
-fichier de `agents/` :
+Pour chacun : **Créer → Créer un agent de zéro**, puis remplis l'écran de
+haut en bas avec le fichier de `agents/`, qui suit le même ordre :
 
-- **Name** et **Description** ;
-- **Instructions** : le bloc à coller ;
-- **Tools**, **Knowledge** et **Skills** : la liste à cocher ;
-- **Advanced → Model** : le modèle conseillé.
+1. **Instructions** : le bloc à coller, et le **modèle** en haut à droite ;
+2. **Prompts suggérés** ;
+3. **Données et accès** : l'espace de l'équipe marketing ;
+4. **Capacités et connaissances** : **Ajouter des capacités** (Skills et
+   outils) puis **Ajouter des connaissances** ;
+5. **Déclencheurs** : seulement pour `@SEO-Chef` ;
+6. **Paramètres** : nom, description, éditeurs et accès, tags, gestion des
+   coûts.
 
 Crée d'abord `@SEO-Sujets`, `@SEO-SERP`, `@SEO-Redacteur` et `@SEO-Verif`,
 teste chacun seul dans l'aperçu, puis `@SEO-Chef`, qui doit pouvoir les
@@ -93,6 +97,12 @@ choisir dans `run_agent`.
 
 Tu préfères Sidekick ? Colle-lui le contenu du fichier de l'agent, avec :
 « Crée cet agent exactement comme décrit, sans changer les instructions. »
+Sidekick écrit sinon ses propres consignes, en anglais et plus génériques :
+sans Search Console, sans règle pour les faits sur la marque, sans
+vérification des sources.
+
+Pour un premier essai, `@SEO-Redacteur` marche seul : il fait lui-même le
+relevé de SERP quand on ne lui donne qu'un mot-clé.
 
 ### 5. Le déclencheur
 

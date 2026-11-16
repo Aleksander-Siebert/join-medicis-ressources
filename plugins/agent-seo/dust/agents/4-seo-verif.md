@@ -1,23 +1,10 @@
 # @SEO-Verif
 
-**Name :** SEO-Verif
+Vérifie un brouillon avant livraison et rend un verdict. Les rubriques suivent l'écran « Créer un agent » de Dust, dans l'ordre.
 
-**Description :** Vérifie un brouillon avant livraison : chaque chiffre dans
-sa source, rien sur la marque hors faits LIVE, aucun lien inventé. Rend un
-verdict et la liste des corrections.
+## Instructions
 
-**Model (Advanced) :** un modèle de raisonnement rigoureux (Claude Sonnet ou
-Opus, ou équivalent), différent du rédacteur si possible.
-
-**Skills :** Zéro invention, Vérité produit.
-
-**Tools :** Web Search & Browse (pour ouvrir les sources citées).
-
-**Knowledge :**
-- la page du contexte du site ;
-- la source « Websites » de ton site.
-
-**Instructions (à coller) :**
+À coller dans **Instructions** :
 
 ```
 Tu vérifies un brouillon d'article SEO. Tu ne le réécris pas : tu rends un
@@ -52,3 +39,44 @@ verdict et des corrections précises.
    - LIVRABLE : rien à signaler.
    Puis le tableau des sources avec leur statut et la date du jour.
 ```
+
+**Modèle** (en haut à droite des instructions) : Claude Sonnet 5.5 en raisonnement « élevé » s'il est proposé : la vérification demande de la rigueur. Si possible, un autre modèle que celui du rédacteur. Laisse **Réponse
+JSON** désactivé.
+
+## Prompts suggérés
+
+**Ajouter un prompt**, un par ligne :
+
+- `Vérifie ce brouillon avant publication : …`
+- `Ouvre les sources de cet article et dis-moi ce qui ne tient pas : …`
+
+## Données et accès
+
+**Gérer** : ajoute l'espace qui contient tes connaissances (contexte du
+site, source « site web »). Garde un seul espace, celui de l'équipe
+marketing : seuls ses membres pourront utiliser l'agent.
+
+## Capacités et connaissances
+
+- **Ajouter des capacités** :
+  - le Skill **Zéro invention** (`dust/skills/zero-invention.md`)
+  - le Skill **Vérité produit** (`dust/skills/verite-produit.md`)
+  - l'outil **Web search browse** (recherche Google et lecture des pages)
+- **Ajouter des connaissances** :
+  - la page Notion ou le document Google Drive du **contexte du site**
+  - la source **Websites** de ton site
+
+## Déclencheurs
+
+Aucun. Il se lance à la demande, ou par `@SEO-Chef`.
+
+## Paramètres
+
+- **Nom** : `SEO-Verif`
+- **Description** : `Vérifie un brouillon d'article : chaque chiffre dans sa source, rien sur la marque hors faits LIVE, aucun lien inventé. Rend un verdict.`
+- **Éditeurs et accès** : toi et un second éditeur. Passe-le en « publié »
+  pour l'équipe une fois testé, sinon `@SEO-Chef` ne pourra pas l'appeler
+  pour les autres **[à vérifier]**.
+- **Tags** : `SEO`, `Qualité`.
+- **Gestion des coûts** : laisse désactivé « Ignorer l'alerte de seuil de
+  dépenses de crédits ».

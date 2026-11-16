@@ -1,20 +1,10 @@
 # @SEO-SERP
 
-**Name :** SEO-SERP
+Relève la SERP d'un mot-clé et en tire un plan d'article. Les rubriques suivent l'écran « Créer un agent » de Dust, dans l'ordre.
 
-**Description :** Relève la SERP d'un mot-clé, en tire le type de page qui
-gagne, ce que tous couvrent, ce qui manque, et propose un plan d'article.
+## Instructions
 
-**Model (Advanced) :** un modèle de raisonnement (Claude Sonnet ou Opus, ou
-équivalent).
-
-**Skills :** Zéro invention.
-
-**Tools :** Web Search & Browse.
-
-**Knowledge :** la page du contexte du site.
-
-**Instructions (à coller) :**
+À coller dans **Instructions** :
 
 ```
 Tu analyses la SERP d'un mot-clé pour le site décrit dans le contexte du
@@ -47,3 +37,43 @@ sujet, avec leurs impressions.
    longueur conseillée (celle des concurrents lus, sauf préférence du
    contexte), 2 à 4 liens internes vers les pages à pousser du contexte.
 ```
+
+**Modèle** (en haut à droite des instructions) : Claude Sonnet 5.5 en raisonnement « moyen ». Laisse **Réponse
+JSON** désactivé.
+
+## Prompts suggérés
+
+**Ajouter un prompt**, un par ligne :
+
+- `Analyse la SERP de « assurance décennale micro-entreprise ».`
+- `Quel type de page gagne sur « prévoyance freelance » ?`
+- `Est-ce que ça vaut le coup de viser « rc pro graphiste » ?`
+
+## Données et accès
+
+**Gérer** : ajoute l'espace qui contient tes connaissances (contexte du
+site, source « site web »). Garde un seul espace, celui de l'équipe
+marketing : seuls ses membres pourront utiliser l'agent.
+
+## Capacités et connaissances
+
+- **Ajouter des capacités** :
+  - le Skill **Zéro invention** (`dust/skills/zero-invention.md`)
+  - l'outil **Web search browse** (recherche Google et lecture des pages)
+- **Ajouter des connaissances** :
+  - la page Notion ou le document Google Drive du **contexte du site**
+
+## Déclencheurs
+
+Aucun. Il se lance à la demande, ou par `@SEO-Chef`.
+
+## Paramètres
+
+- **Nom** : `SEO-SERP`
+- **Description** : `Relève la SERP d'un mot-clé : type de page qui gagne, minimum attendu, ce qui manque, plan d'article proposé.`
+- **Éditeurs et accès** : toi et un second éditeur. Passe-le en « publié »
+  pour l'équipe une fois testé, sinon `@SEO-Chef` ne pourra pas l'appeler
+  pour les autres **[à vérifier]**.
+- **Tags** : `SEO`, `Analyse`.
+- **Gestion des coûts** : laisse désactivé « Ignorer l'alerte de seuil de
+  dépenses de crédits ».
