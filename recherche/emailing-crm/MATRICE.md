@@ -3,6 +3,13 @@
 Statut : **proposition** (20 novembre 2026). Rien n'est écrit dans
 `plugins/emailing-skills/` avant la validation de l'utilisateur.
 
+Décisions de l'utilisateur (20 novembre 2026) :
+
+- un 6e Skill, **SMS et WhatsApp** ;
+- **rien n'est rédigé** pour l'instant : matrice, structure et infos seulement ;
+- **sans connecteur** par défaut (voir « Données ») ;
+- exemple d'entreprise : **Join Médicis**, plus Assurly.
+
 ## Sources lues
 
 **Dépôts (clonés en entier)**
@@ -34,6 +41,9 @@ Statut : **proposition** (20 novembre 2026). Rien n'est écrit dans
 | CNIL, [Q/R référentiels gestion commerciale](https://cnil.fr/fr/questions-reponses-sur-les-referentiels-relatifs-la-gestion-des-activites-commerciales-et-des) | 28 janvier 2022 | prospects : 3 ans après la collecte ou le dernier contact venant du prospect (un clic compte), puis relance ou suppression ; clients : durée de la relation puis 3 ans |
 | Google, [sender guidelines](https://support.google.com/a/answer/81126) et [FAQ](https://support.google.com/a/answer/14229414) | pas de date | tous : SPF ou DKIM, DNS inverse, TLS, plaintes sous 0,3% ; envoi en masse (environ 5 000 messages par jour vers des comptes Gmail personnels, statut définitif) : SPF et DKIM, DMARC `p=none` au minimum, alignement, désabonnement en un clic (RFC 8058) et lien visible, traitement sous 48 h ; objectif de plaintes sous 0,1% |
 | Yahoo, [sender best practices](https://senders.yahooinc.com/best-practices/) | pas de date | mêmes règles ; désabonnements traités sous 2 jours ; seuil d'envoi en masse non chiffré |
+| CNIL, même page que la première ligne | 10 juin 2026 | le SMS et le MMS suivent les mêmes règles que l'email ; SMS indésirables signalés au 33700 ; aucune mention « STOP » ni plage horaire imposée sur cette page |
+| WhatsApp, [Business Messaging Policy](https://whatsappbusiness.com/policy/) | 23 septembre 2026 | accord (opt-in) obligatoire avant tout message ; hors de la fenêtre de 24 h après le dernier message du client, seulement des modèles approuvés ; toute demande d'arrêt respectée, même faite hors WhatsApp ; sanctions : limitation d'envoi, blocage, exclusion |
+| Meta, [Getting opt-in](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) | pas de date | l'accord nomme l'entreprise et dit clairement à quoi la personne s'inscrit ; il peut être recueilli hors de WhatsApp (site, SMS, papier) ; débit limité si la qualité reste basse |
 | Microsoft, [Outlook.com high-volume senders](https://techcommunity.microsoft.com/blog/microsoftdefenderforoffice365blog/strengthening-email-ecosystem-outlook%E2%80%99s-new-requirements-for-high%E2%80%90volume-senders/4399730) | 30 avril 2025 (v4.0) | plus de 5 000 courriels par jour : SPF, DKIM, DMARC `p=none` aligné ; d'abord en indésirables, refus `550 5.7.515` annoncé, date contradictoire sur la page |
 
 **Non vérifié (reste [à vérifier] tant que la source n'est pas lue)**
@@ -48,6 +58,31 @@ Statut : **proposition** (20 novembre 2026). Rien n'est écrit dans
   source Google lue.
 - MCP officiels HubSpot (annoncé « GA le 13 avril 2026 » par marketingskills)
   et Brevo : à vérifier aux pages des éditeurs.
+- SMS : mention « STOP » (avec ou sans le 36111) et interdiction d'envoyer
+  la nuit, le dimanche et les jours fériés. Ce sont des pratiques courantes,
+  mais aucune source n'a été trouvée : ni la CNIL ni le site de la
+  Fédération française des télécoms ne les donnent.
+- WhatsApp : définition des catégories de messages (marketing, utilitaire,
+  authentification) et tarifs : pages produit non lues.
+- SMS : 160 caractères par message en alphabet GSM 7 bits, 70 dès qu'un
+  caractère hors de cet alphabet apparaît (en français : ê, â, ô, î, û, ç
+  minuscule…). Norme 3GPP TS 23.038, pas encore lue à la source.
+
+**Dépôts repérés par la recherche des Skills externes, en dissection**
+
+La recherche du 20 novembre (`recherche/skills-externes/REPERAGE-2026-11-20.md`, 24 dépôts)
+a repéré trois références directes pour ce pack. Leur lecture complète est
+en cours ; leurs lignes seront ajoutées à la matrice ensuite :
+
+- `getbrevo/brevo-skills` (`88db934`, MIT, officiel Brevo) : rédaction de
+  modèles d'email HTML, contrôle du modèle, automatisation créée en
+  brouillon et jamais activée sans accord ; aucune règle de consentement ;
+  pied de page en anglais.
+- `AgriciDaniel/claude-email` (`182270a`, MIT) : 3 scripts (score d'objet,
+  analyse HTML) ; très lié à Claude (sous-agents, hooks) ; adresse postale
+  CAN-SPAM imposée.
+- `sendx/email-skills` (`ae6f6ce`, MIT) : délivrabilité détaillée ; écrit à
+  tort que le double opt-in est obligatoire en Europe.
 
 ## Ce que les Skills existants font bien, et où ils cassent pour un public français
 
@@ -87,7 +122,7 @@ nouveau ; le message de rupture qui est ensuite respecté.
    d'autres Skills du même dépôt, guides en ligne. Utilisable ailleurs, mais
    pas pensé pour.
 
-## Skills prévus (5), préfixe `/email-*`
+## Skills prévus (6), préfixe `/email-*`
 
 Chaque Skill lit `entreprise.md` (pack Fondation) s'il existe, ne publie et
 n'envoie rien, et rend du texte dans la conversation par défaut.
@@ -99,10 +134,16 @@ n'envoie rien, et rend du texte dans la conversation par défaut.
 | `/email-prospection` | email à froid B2B dans le cadre CNIL : tri des contacts (professionnel, adresse générique, particulier exclu), premier message, 3 à 4 relances, message de rupture, mention de la source des données, réponses classées (reprise de reply-handler), opposition appliquée partout | `base.py --prospection` |
 | `/email-delivrabilite` | vérifier le domaine d'envoi (SPF, DKIM, DMARC, MX, en-têtes de désabonnement), contrôler un email avant envoi (.eml ou HTML : poids, liens, pixels, mentions, texte brut), lire un rapport de campagne (rebonds, plaintes, désinscriptions) face aux seuils Google et Yahoo | `domaine.py`, `controle_email.py`, `rapport.py` |
 | `/email-base` | nettoyer et mettre en conformité une base exportée (CSV) : syntaxe, doublons, adresses génériques et jetables, webmails (probables particuliers), contacts de plus de 3 ans sans clic ni réponse, base légale manquante, segments actifs et inactifs, plan de fusion pour HubSpot ou Brevo | `base.py` |
+| `/email-sms-whatsapp` | SMS et WhatsApp marketing : accord à recueillir (texte de la case, preuve), messages courts (promo, rappel, relance de rendez-vous), identité de l'émetteur et moyen simple de refuser dans chaque SMS, modèles WhatsApp à faire approuver, fenêtre de 24 h, conversation après réponse du client | `sms.py` : alphabet (GSM 7 bits ou Unicode), nombre de caractères et de segments facturés, liens raccourcis, présence de l'émetteur et du refus |
+
+Exemples de tous les Skills : **Join Médicis** (newsletter du site, séquence
+de bienvenue après téléchargement d'un Skill, invitation à un événement de
+l'agenda, prospection d'une agence vers des marques). Aucun chiffre réel
+de Join Médicis n'est inventé : les taux et volumes restent
+`{{à compléter}}` ou sont marqués « exemple ».
 
 Écartés pour ce pack, avec la raison :
 
-- **SMS et WhatsApp** : autre canal, autres règles ; plus tard si demandé.
 - **Lead scoring et routage RevOps** : utile aux équipes commerciales, pas au
   marketeur qui envoie ; `revops` de marketingskills le couvre déjà.
 - **Envoi par API** : contraire à la règle « rien n'est publié à la place de
@@ -137,7 +178,83 @@ n'envoie rien, et rend du texte dans la conversation par défaut.
 | 23 | Durées de conservation | absent | **ajout** | `base.py` signale les prospects sans contact depuis 3 ans (référentiel CNIL) ; l'ouverture ne compte pas comme contact |
 | 24 | Hygiène et champs obligatoires du CRM | `revops` (Data Hygiene) | reprendre en partie | champs `source`, `date de collecte`, `base légale` exigés pour la prospection |
 | 25 | Connecteurs | `tools/integrations/` (HubSpot, Brevo, Mailchimp…) | améliorer | mode gratuit par défaut : export CSV ; HubSpot et Brevo en lecture par MCP ou API **[à vérifier]** ; jamais d'écriture ni d'envoi |
-| 26 | Évaluations | `evals/evals.json` (assertions) | reprendre la forme | tâches françaises, éval à l'aveugle contre `emails` et `cold-email` |
+| 26 | Évaluations | `evals/evals.json` (assertions) | reprendre la forme | tâches françaises sur Join Médicis, éval à l'aveugle contre `emails`, `cold-email` et `sms` de marketingskills |
+| 27 | SMS : consentement, identité, refus | CNIL (10 juin 2026) ; `sms` de marketingskills (règles américaines TCPA, non lu en entier) | **ajout** | mêmes règles que l'email, appliquées au SMS ; signalement 33700 |
+| 28 | SMS : longueur et coût | absent | **ajout** | `sms.py` compte les caractères et les segments ; propose une version sans accent coûteux si un segment est gagné, avec l'accord de l'utilisateur |
+| 29 | SMS : « STOP » et horaires | pratique courante | garder avec **[à vérifier]** | proposés par défaut comme bonne pratique, jamais présentés comme une obligation tant que la source n'est pas lue |
+| 30 | WhatsApp : accord, modèles, fenêtre de 24 h | WhatsApp Business Messaging Policy (23 sept. 2026), page Meta « opt-in » | **ajout** | texte d'accord qui nomme l'entreprise ; modèles prêts à soumettre ; réponses libres seulement dans les 24 h |
+| 31 | WhatsApp : qualité et sanctions | mêmes sources | **ajout** | rappel : blocages et signalements font baisser la qualité, puis limitent l'envoi |
+
+## Données : sans connecteur par défaut
+
+Aucun Skill n'exige de connecteur. Trois niveaux, du plus simple au plus
+outillé :
+
+1. **Coller** : l'email, le SMS, quelques lignes de la base ou les chiffres
+   d'une campagne, directement dans la conversation. Marche sur toutes les
+   IA.
+2. **Joindre un export CSV** : Brevo, Mailchimp et HubSpot
+   exportent contacts et statistiques. Le Skill dit quelles colonnes
+   exporter et où les trouver **[à vérifier : chemins des menus par outil]**.
+   Les scripts lisent ce fichier.
+3. **Connecteur en lecture** (facultatif) : MCP HubSpot ou Brevo si
+   l'utilisateur l'a déjà. Jamais d'écriture, de fusion ni d'envoi par le
+   Skill.
+
+La vérification du domaine (`domaine.py`) lit le DNS public : aucun compte
+n'est nécessaire. Sans réseau, le Skill donne les enregistrements à
+vérifier à la main (`dig`, ou un vérificateur en ligne au choix de
+l'utilisateur).
+
+## Structure du pack
+
+```
+plugins/emailing-skills/
+├── .claude-plugin/plugin.json
+├── README.md, CREDITS.md, LICENSE
+├── skills/
+│   ├── email-sequence/
+│   │   ├── SKILL.md
+│   │   ├── references/  sequences-types.md, audit-cycle-de-vie.md,
+│   │   │                redaction.md, mesure-sans-pixel.md
+│   │   └── commun/      regles-fr.md, faits.md (règles datées, partagées)
+│   ├── email-newsletter/
+│   │   ├── SKILL.md
+│   │   ├── references/  ligne-editoriale.md, rubriques.md, recyclage.md
+│   │   ├── modeles/     numero.md, numero.html
+│   │   └── commun/
+│   ├── email-prospection/
+│   │   ├── SKILL.md
+│   │   ├── references/  cadre-cnil.md, premier-message.md, relances.md,
+│   │   │                reponses.md, pays.md
+│   │   └── commun/
+│   ├── email-delivrabilite/
+│   │   ├── SKILL.md
+│   │   ├── references/  regles-messageries.md, domaine.md, controle.md,
+│   │   │                seuils-et-arret.md
+│   │   ├── scripts/     domaine.py, controle_email.py, rapport.py
+│   │   └── commun/
+│   ├── email-base/
+│   │   ├── SKILL.md
+│   │   ├── references/  colonnes-par-outil.md, doublons.md,
+│   │   │                conservation.md, fusion.md
+│   │   ├── scripts/     base.py
+│   │   └── commun/
+│   └── email-sms-whatsapp/
+│       ├── SKILL.md
+│       ├── references/  sms.md, whatsapp.md, accord.md
+│       ├── scripts/     sms.py
+│       └── commun/
+├── tests/               un fichier de tests par script, données d'exemple
+├── templates/           exemples Join Médicis (entrée et sortie)
+├── evals/               taches.md, RESULTATS.md
+└── claude-ai/           SKILL.md (routeur), build.sh, modules/<nom>/
+```
+
+`commun/` est recopié dans chaque Skill (même mécanique que les packs
+LinkedIn et Fondation), pour que chaque dossier marche seul une fois
+installé. Les règles datées sont dans `commun/faits.md`, revérifiées tous
+les 6 mois.
 
 ## Compatibilité multi-IA (demande du 20 novembre 2026)
 
@@ -158,9 +275,14 @@ Kiro, OpenClaw).
 
 ## Points à valider
 
-1. Les 5 Skills ci-dessus, et leurs noms.
-2. Le Skill modèle à écrire en premier : je propose `/email-prospection`,
-   le plus risqué juridiquement et le plus demandé.
-3. Le connecteur prioritaire : Brevo (français, très utilisé) ou HubSpot.
-4. Des tâches réelles pour l'éval à l'aveugle (une séquence à écrire, une
-   base anonymisée, un email à contrôler), sinon j'utilise Assurly.
+1. Les 6 Skills ci-dessus, et leurs noms (`/email-sms-whatsapp` garde le
+   préfixe du pack ; autre nom possible : `/email-sms`).
+2. Le Skill modèle à écrire en premier, une fois la rédaction lancée : je
+   propose `/email-prospection`, le plus risqué juridiquement.
+3. Les lignes ajoutées après la dissection de Brevo Skills, claude-email et
+   sendx.
+4. Des tâches réelles de Join Médicis pour l'éval à l'aveugle (la vraie
+   newsletter, un export anonymisé de la base, un email envoyé).
+5. La règle « l'exemple d'entreprise est Assurly » du `CLAUDE.md` : la
+   remplacer par Join Médicis pour tous les packs, ou seulement pour
+   celui-ci.
