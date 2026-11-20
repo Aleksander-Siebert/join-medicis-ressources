@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Blog Concurrent A</title>
+<entry><title>Notre nouvelle application mobile</title><link rel="alternate" href="https://concurrent-a.example/blog/app"/><updated>2026-11-05T12:00:00Z</updated><summary type="html">&lt;p&gt;Nous lançons l'application.&lt;/p&gt;</summary></entry>
+<entry><title>Sans date</title><link href="https://concurrent-a.example/blog/sans-date"/><summary>Texte</summary></entry>
+</feed>

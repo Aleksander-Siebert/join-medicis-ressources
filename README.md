@@ -52,6 +52,15 @@ Retrouve des skills autour de LinkedIn, du SEO/GEO et prochainement : Paids, UX/
 
 Chaque pack marche seul. Aucun n'a besoin d'un autre pour fonctionner.
 
+## Les agents
+
+- **[Agent de veille concurrentielle](plugins/agent-veille/)** · v0.1, en test.
+  - Surveille tes concurrents : actualités, blogs, pages tarifs.
+  - Garde seulement le récent et le jamais envoyé, regroupe les doublons.
+  - Envoie chaque semaine un mail où chaque info renvoie à sa source.
+  - Fonctionne dans Claude (tâche planifiée) ou dans le cloud avec GitHub Actions.
+  - Se configure en 10 minutes avec `CONFIGURE-MOI.md`.
+
 ## Installer
 
 ### Claude Code

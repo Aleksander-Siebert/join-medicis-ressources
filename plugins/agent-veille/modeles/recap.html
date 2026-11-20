@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- Modèle « récap » : les points clés, puis toutes les sources numérotées avec un lien direct.
+     Réglages (couleurs, titre, logo, signature) : mail.json. Blocs et valeurs disponibles : voir modeles/themes.html. -->
+<html lang="fr">
+<head><meta charset="utf-8"><title>{{objet}}</title></head>
+<body style="margin:0;background:{{fond}};font-family:Arial,sans-serif;color:#2A211B;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;background:{{carte}};border:1px solid #e3d6b8;border-radius:10px;">
+
+  <!-- DEBUT:logo -->
+  <tr><td style="padding:22px 26px 0;"><img src="{{logo}}" alt="" height="36" style="height:36px;border:0;"></td></tr>
+  <!-- FIN:logo -->
+  <tr><td style="padding:22px 26px 6px;font-size:12px;color:{{accent}};letter-spacing:.08em;text-transform:uppercase;">{{titre_veille}} · {{periode}}</td></tr>
+  <tr><td style="padding:0 26px 14px;font-family:Georgia,serif;font-size:24px;font-weight:bold;">{{objet}}</td></tr>
+
+  <!-- DEBUT:rien_de_neuf -->
+  <tr><td style="padding:0 26px 18px;font-size:15px;line-height:1.55;">{{rien_de_neuf}}</td></tr>
+  <!-- FIN:rien_de_neuf -->
+
+  <!-- DEBUT:a_retenir -->
+  <tr><td style="padding:6px 26px 4px;font-family:Georgia,serif;font-size:18px;font-weight:bold;color:{{couleur}};">Les points clés</td></tr>
+  <tr><td style="padding:0 26px 14px;"><ol style="margin:0;padding-left:20px;font-size:15px;line-height:1.55;">
+    <!-- DEBUT:point --><li style="margin:6px 0;">{{point}}</li><!-- FIN:point -->
+  </ol></td></tr>
+  <!-- FIN:a_retenir -->
+
+  <!-- DEBUT:a_des_infos -->
+  <tr><td style="padding:12px 26px 4px;font-family:Georgia,serif;font-size:18px;font-weight:bold;color:{{couleur}};border-top:1px solid #e3d6b8;">Les sources</td></tr>
+  <!-- DEBUT:liste -->
+  <tr><td style="padding:6px 26px 8px;font-size:14px;line-height:1.5;">
+    <b>{{n}}.</b> <a href="{{url}}" style="color:{{couleur}};font-weight:bold;">{{titre}}</a>
+    <span style="color:#6B655D;">· {{media}} {{date}}</span><br>{{texte}}
+  </td></tr>
+  <!-- FIN:liste -->
+  <!-- FIN:a_des_infos -->
+
+  <!-- DEBUT:a_surveiller -->
+  <tr><td style="padding:12px 26px 4px;font-size:15px;font-weight:bold;color:{{couleur}};border-top:1px solid #e3d6b8;">À surveiller</td></tr>
+  <tr><td style="padding:0 26px 10px;"><ul style="margin:0;padding-left:20px;font-size:14px;line-height:1.5;">
+    <!-- DEBUT:surveiller --><li>{{point}}</li><!-- FIN:surveiller -->
+  </ul></td></tr>
+  <!-- FIN:a_surveiller -->
+
+  <tr><td style="padding:14px 26px 20px;font-size:12px;color:#6B655D;border-top:1px solid #e3d6b8;">{{pied}}<br>{{signature}}</td></tr>
+
+</table>
+</td></tr></table>
+</body>
+</html>
