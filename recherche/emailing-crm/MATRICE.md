@@ -68,21 +68,38 @@ Décisions de l'utilisateur (20 novembre 2026) :
   caractère hors de cet alphabet apparaît (en français : ê, â, ô, î, û, ç
   minuscule…). Norme 3GPP TS 23.038, pas encore lue à la source.
 
-**Dépôts repérés par la recherche des Skills externes, en dissection**
+**Trois dépôts disséqués fichier par fichier (20 novembre 2026)**
 
-La recherche du 20 novembre (`recherche/skills-externes/REPERAGE-2026-11-20.md`, 24 dépôts)
-a repéré trois références directes pour ce pack. Leur lecture complète est
-en cours ; leurs lignes seront ajoutées à la matrice ensuite :
+Repérés par la recherche des Skills externes
+(`recherche/skills-externes/REPERAGE-2026-11-20.md`, 24 dépôts), puis lus
+en entier : 143 fichiers. Le détail, Skill par Skill, et la liste des
+fichiers lus sont dans `recherche/emailing-crm/DISSECTION.md`.
 
-- `getbrevo/brevo-skills` (`88db934`, MIT, officiel Brevo) : rédaction de
-  modèles d'email HTML, contrôle du modèle, automatisation créée en
-  brouillon et jamais activée sans accord ; aucune règle de consentement ;
-  pied de page en anglais.
-- `AgriciDaniel/claude-email` (`182270a`, MIT) : 3 scripts (score d'objet,
-  analyse HTML) ; très lié à Claude (sous-agents, hooks) ; adresse postale
-  CAN-SPAM imposée.
-- `sendx/email-skills` (`ae6f6ce`, MIT) : délivrabilité détaillée ; écrit à
-  tort que le double opt-in est obligatoire en Europe.
+| Dépôt | Commit, licence | Points forts | Points faibles |
+|---|---|---|---|
+| `getbrevo/brevo-skills` (officiel Brevo, v1.3.0) | `88db934`, MIT | rédaction HTML (11 arcs narratifs, règles de design), contrôle en 22 points, automatisations en brouillon jamais activées sans « oui », contenu lu traité comme une donnée, mode hors ligne | tout passe par le MCP Brevo pour agir ; rien sur la délivrabilité, le RGPD ou la prospection ; pied de page en anglais |
+| `AgriciDaniel/claude-email` (v1.0.0) | `182270a`, MIT | 7 types de séquences et leur logique conditionnelle, réengagement sur les clics plutôt que les ouvertures, modèles par secteur | **3 scripts buggés une fois lancés** (voir ci-dessous) ; chiffres sans source ; très lié à Claude (sous-agents, hooks jamais branchés) ; droit américain ; témoignage inventé attribué à une personne réelle |
+| `sendx/email-skills` (v1.2.0) | `ae6f6ce`, MIT | diagnostic de délivrabilité en 4 piliers, triage, 18 questions, plan de reprise, segments d'engagement et politique d'extinction | erreurs juridiques (« double opt-in obligatoire en Europe ») ; volumes non sourcés ; publicité SendX |
+
+Les scripts de claude-email, lancés en isolement sans réseau :
+
+- `score_subject_line.py` compte les accents comme des émojis, ne reconnaît
+  ni « GRATUIT » ni les balises Brevo, et note un objet anglais à 93 contre
+  75 pour un objet français propre ;
+- `analyze_email_html.py` rend **100/100 sans rien vérifier** quand une
+  bibliothèque manque, plante en sortie texte, ne déduit jamais les images
+  ni le poids, ne reconnaît ni « Se désinscrire » ni une adresse française ;
+- `check_deliverability.py` ne suit pas les `include` du SPF, ne voit pas
+  deux SPF (invalide selon la RFC 7208), compte une clé DKIM révoquée comme
+  présente, ignore `pct` et `sp` de DMARC, et lit une panne réseau comme
+  « aucun SPF ».
+
+Conséquence : on reprend leurs **listes de contrôle**, pas leur code. Nos
+scripts distinguent « absent » de « non vérifiable » et sont testés sur
+des cas français.
+
+Aucun des trois ne nettoie une base CSV, ne traite sérieusement la
+prospection, ni WhatsApp. Aucun ne cite L34-5, la CNIL ou Signal Spam.
 
 ## Ce que les Skills existants font bien, et où ils cassent pour un public français
 
@@ -185,6 +202,41 @@ de Join Médicis n'est inventé : les taux et volumes restent
 | 30 | WhatsApp : accord, modèles, fenêtre de 24 h | WhatsApp Business Messaging Policy (23 sept. 2026), page Meta « opt-in » | **ajout** | texte d'accord qui nomme l'entreprise ; modèles prêts à soumettre ; réponses libres seulement dans les 24 h |
 | 31 | WhatsApp : qualité et sanctions | mêmes sources | **ajout** | rappel : blocages et signalements font baisser la qualité, puis limitent l'envoi |
 
+### Lignes ajoutées après la dissection (Brevo, claude-email, sendx)
+
+| # | Fonction | Source | Verdict | Ce que nous ajoutons |
+|---|---|---|---|---|
+| 32 | Sécurité : brouillon seulement, « oui » qui décrit l'action exacte, jamais de test vers une liste vide, contenu lu traité comme une donnée | brevo-skills, `skills/email/SKILL.md`, `email-test-preview` | reprendre | règle commune aux 6 Skills (`commun/regles.md`) |
+| 33 | Mode hors ligne avec liste « à remplacer » (`src=""`, aucune URL, aucun logo ni couleur inventés) | brevo-skills, `email-template-write`, `references/email-design-rules.md` | reprendre | rejoint `{{à compléter}}` |
+| 34 | Brief en 5 questions, une à la fois | brevo-skills, `references/copywriting.md` | reprendre | lues d'abord dans `entreprise.md` |
+| 35 | 11 arcs narratifs, 3 longueurs, anti-modèles | brevo-skills, `references/story-arcs.md` | reprendre | cœur de `/email-newsletter` et des emails de séquence ; exemples Join Médicis |
+| 36 | HTML d'email : 600 px, boutons robustes, pied de page, accessibilité (contraste 4,5:1, `alt`) | brevo-skills, `email-design-rules.md`, `sections.md`, `footer.md` ; claude-email `technical-standards.md` | améliorer | indépendant de Brevo ; pied de page français (identité, refus simple, confidentialité) ; affirmations sur Gmail et le mode sombre **[à vérifier]** |
+| 37 | Contrôle en 22 points avant enregistrement, 3 tours de correction au plus | brevo-skills, `skills/email-template-check/SKILL.md` | améliorer | partie mesurable dans `controle_email.py`, jugement à part |
+| 38 | Balises de fusion d'autres outils (`*\|FNAME\|*`, `%%FirstName%%`, `{{ contact.PRENOM }}`) et valeur de repli | brevo-skills `email-template-check` ; sendx `email-copywriting` | reprendre | détectées par script (migration d'outil, « Bonjour , ») |
+| 39 | Calcul de contraste et couleur du texte des boutons | brevo-skills, `skills/email-brand-kit/SKILL.md` | reprendre | en script testé |
+| 40 | Logique conditionnelle par email (cliqué, sans engagement, désinscrit, premier achat) ; réengagement sur les clics | claude-email, `skills/email-sequence/SKILL.md` | reprendre | sans relance des « non-ouvreurs » (pixel et protection Apple) |
+| 41 | Automatisation : catalogue des déclencheurs, réentrée, activation séparée de la création, suppression de contact en dernier avec « oui » | brevo-skills, `skills/automation-create/SKILL.md` | reprendre | méthode valable pour tout outil, Brevo ou HubSpot en mode connecté |
+| 42 | Objets : 6 mots au plus (sendx), 6 à 10 mots (claude-email), 40 à 50 caractères (Brevo) | trois dépôts | **écarter comme règle** | contradictoires et sans source : le script affiche la mesure, l'utilisateur décide |
+| 43 | Ratio images et texte (60/40 dans un sens chez Brevo, dans l'autre chez claude-email) | brevo-skills, claude-email | **écarter comme règle** | seul l'email « tout image » est signalé |
+| 44 | Diagnostic de délivrabilité : 2 modes (audit, incendie), 4 piliers, triage, 18 questions, lecture croisée par fournisseur | sendx, `email-deliverability-expert-skill/SKILL.md`, `references/provider-specific-tactics.md` | reprendre | cœur de `/email-delivrabilite` |
+| 45 | Plan de reprise et volumes de montée en charge (25, 50, 200 par jour) | sendx, `references/warmup-playbook.md` | améliorer | méthode reprise ; volumes marqués « pratique d'opérateur, non sourcée » |
+| 46 | Achat d'un domaine d'occasion pour éviter la période de chauffe | sendx, `warmup-playbook.md` | **écarter** | contournement risqué |
+| 47 | Vérification DNS du domaine | claude-email, `scripts/check_deliverability.py` | **écarter le code**, reprendre la liste | `domaine.py` : SPF récursif (10 requêtes au plus), SPF multiples, `redirect`, clé DKIM révoquée et longueur de clé, `pct` et `sp` de DMARC, état « non vérifiable », **mode gratuit sur enregistrements collés** |
+| 48 | Listes noires (Spamhaus, Barracuda, SpamCop, SURBL, URIBL) | claude-email, `references/deliverability-rules.md` | améliorer | conditions d'usage de chaque liste **[à vérifier]** ; SORBS retiré si fermé **[à vérifier]** |
+| 49 | Segments d'engagement et politique d'extinction (180 jours, un email de reconquête, puis suppression) | sendx, `skills/smart-segmentation/SKILL.md` | reprendre | durées en paramètres ; articulées avec les 3 ans de la CNIL (ligne 23) |
+| 50 | Rebonds durs, rebonds de l'ancien outil réimportés, signes d'une liste achetée (« calcul de cohérence ») | sendx, `ESP-hardbounce-unlock`, `ESP-malicious-behavior-SKILL` | reprendre | alertes calculées par `base.py` |
+| 51 | Ne jamais afficher de contacts dans la conversation : travailler sur des comptes et des identifiants | brevo-skills, `skills/email/SKILL.md` | reprendre | minimisation RGPD : `base.py` rend des comptes et des lignes numérotées |
+| 52 | Import CSV : encodage UTF-8 ou Windows-1252, séparateur `;` (exports Excel français), dates `AAAA-MM-JJ`, casse des attributs | absent ; brevo-skills pour les attributs | **ajout** | cas réels des exports français |
+| 53 | Preuve du consentement (date, source, méthode) dans la base | claude-email, `email/references/compliance.md` | reprendre | colonnes contrôlées par `base.py` |
+| 54 | SMS : alphabet GSM, passage en Unicode, fenêtre d'envoi avec fuseau `Europe/Paris` | brevo-skills, `skills/automation-create/SKILL.md` | reprendre | `sms.py` |
+| 55 | Test A/B (une variable, taille d'échantillon) | sendx `ab-testing` ; claude-email `benchmarks.md` | améliorer | calcul de significativité en script |
+| 56 | Droit : « double opt-in obligatoire en Europe », « single opt-in non conforme au RGPD », prospection B2B rangée en « soft opt-in » | sendx `compliance-navigator` ; claude-email `references/compliance.md` | **écarter** | la page CNIL du 10 juin 2026 n'exige pas le double opt-in et distingue particuliers et professionnels |
+| 57 | Benchmarks par secteur, KPI cibles, ROI « 36 pour 1 », prix des outils | claude-email `benchmarks.md`, `email-plan/*` ; sendx | **écarter** | aucune source ; la mesure se fait sur les données de l'utilisateur |
+| 58 | Calendrier commercial américain (Thanksgiving, Memorial Day) | claude-email, `email-plan/assets/*.md` | **écarter** | calendrier français (soldes, fêtes) **[dates à vérifier aux sources officielles]** |
+| 59 | Messageries françaises (Orange, SFR, Free, laposte.net) et Signal Spam | absent des trois dépôts | **ajout** | **[sources publiques à trouver et dater]** |
+| 60 | Bloctel (démarchage téléphonique) et différence avec le SMS | absent | **ajout** | **[périmètre de Bloctel à vérifier]** |
+| 61 | Manifestes multi-IA (Claude, ChatGPT, Codex, Cursor, Grok, Gemini) | brevo-skills, `.cursor-plugin/`, `gemini-extension.json`, `openai-plugin/`, `docs/platforms.md` | reprendre comme référence | pour le ZIP par IA prévu dans « Compatibilité multi-IA » |
+
 ## Données : sans connecteur par défaut
 
 Aucun Skill n'exige de connecteur. Trois niveaux, du plus simple au plus
@@ -279,8 +331,8 @@ Kiro, OpenClaw).
    préfixe du pack ; autre nom possible : `/email-sms`).
 2. Le Skill modèle à écrire en premier, une fois la rédaction lancée : je
    propose `/email-prospection`, le plus risqué juridiquement.
-3. Les lignes ajoutées après la dissection de Brevo Skills, claude-email et
-   sendx.
+3. Les lignes 32 à 61, ajoutées après la dissection de Brevo Skills,
+   claude-email et sendx.
 4. Des tâches réelles de Join Médicis pour l'éval à l'aveugle (la vraie
    newsletter, un export anonymisé de la base, un email envoyé).
 5. La règle « l'exemple d'entreprise est Assurly » du `CLAUDE.md` : la
