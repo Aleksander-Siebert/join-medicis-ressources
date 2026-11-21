@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 scripts/sujets.py:*)",
+      "Bash(python3 scripts/verite.py:*)",
+      "Bash(python3 scripts/exporter.py:*)",
+      "Bash(python3 .claude/skills/*/scripts/*:*)",
+      "Bash(python3 .claude/skills/*/commun/*:*)",
+      "WebSearch",
+      "WebFetch"
+    ],
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(rm -rf *)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  }
+}
