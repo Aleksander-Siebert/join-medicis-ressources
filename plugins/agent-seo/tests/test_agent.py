@@ -150,3 +150,87 @@ class Copies(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Lancement(unittest.TestCase):
+    """Version locale : lanceurs, planificateurs et garde-fous (local/)."""
+
+    LOCAL = AGENT / "local"
+
+    def test_consigne_ne_publie_rien(self):
+        texte = (self.LOCAL / "prompt.md").read_text(encoding="utf-8")
+        self.assertIn("Ne publie rien", texte)
+        self.assertIn("{{à compléter}}", texte)
+
+    def test_plist_mac_valide(self):
+        import plistlib
+        with open(self.LOCAL / "fr.joinmedicis.agent-seo.plist", "rb") as f:
+            d = plistlib.load(f)
+        self.assertEqual(d["Label"], "fr.joinmedicis.agent-seo")
+        self.assertEqual(d["StartCalendarInterval"], {"Weekday": 1, "Hour": 8, "Minute": 0})
+        self.assertTrue(d["ProgramArguments"][1].endswith("/local/lancer.sh"))
+
+    def test_reglages_refusent_le_force_push(self):
+        reglages = json.loads((AGENT / ".claude" / "settings.json").read_text(encoding="utf-8"))
+        refus = reglages["permissions"]["deny"]
+        self.assertIn("Bash(git push --force *)", refus)
+        self.assertIn("Read(./.env)", refus)
+
+    def test_journaux_ignores_par_git(self):
+        self.assertIn("journaux/", (AGENT / ".gitignore").read_text(encoding="utf-8"))
+
+    @unittest.skipIf(sys.platform == "win32" or shutil.which("bash") is None, "lanceur bash : Mac et Linux")
+    def test_lancer_sh_avec_un_faux_claude(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as t:
+            dossier = Path(t) / "agent"
+            shutil.copytree(self.LOCAL, dossier / "local")
+            faux = Path(t) / "claude"
+            faux.write_text(
+                "#!/usr/bin/env bash\n"
+                "if [ \"$1\" = \"--version\" ]; then echo '9.9.9 (Claude Code)'; exit 0; fi\n"
+                "printf '%s\\n' \"$@\" > \"$(dirname \"$0\")/args.txt\"\n"
+                "cat > \"$(dirname \"$0\")/entree.txt\"\n"
+                "echo 'bilan : 1 article livré'\n",
+                encoding="utf-8",
+            )
+            faux.chmod(0o755)
+            env = {**__import__("os").environ, "CLAUDE_BIN": str(faux)}
+
+            def lancer(*args):
+                return subprocess.run(["bash", "local/lancer.sh", *args], cwd=dossier, env=env, capture_output=True, text=True)
+
+            essai = lancer("--essai")
+            self.assertEqual(essai.returncode, 0, essai.stderr)
+            self.assertFalse((Path(t) / "args.txt").exists(), "l'essai ne doit pas lancer Claude")
+
+            r = lancer()
+            self.assertEqual(r.returncode, 0, r.stderr)
+            args = (Path(t) / "args.txt").read_text(encoding="utf-8").split("\n")
+            self.assertIn("-p", args)
+            self.assertEqual(args[args.index("--permission-mode") + 1], "dontAsk")
+            self.assertNotIn("--dangerously-skip-permissions", args)
+            self.assertIn("Ne publie rien", (Path(t) / "entree.txt").read_text(encoding="utf-8"))
+            journal = sorted((dossier / "journaux").glob("*.log"))[-1].read_text(encoding="utf-8")
+            self.assertIn("bilan : 1 article livré", journal)
+            self.assertIn("Fin, code 0", journal)
+            self.assertFalse((dossier / "journaux" / ".en-cours").exists(), "verrou retiré")
+
+            (dossier / "journaux" / ".en-cours").mkdir()
+            self.assertEqual(lancer().returncode, 3, "un seul passage à la fois")
+            (dossier / "journaux" / ".en-cours").rmdir()
+
+            env["CLAUDE_BIN"] = str(Path(t) / "absent")
+            env["PATH"] = "/usr/bin:/bin"
+            self.assertEqual(lancer().returncode, 2, "Claude Code introuvable")
+
+    @unittest.skipUnless(sys.platform == "win32" and shutil.which("powershell"), "lanceur PowerShell : Windows")
+    def test_lancer_ps1_syntaxe(self):
+        import subprocess
+        chemin = str(self.LOCAL / "lancer.ps1")
+        commande = (
+            "$e = $null; [System.Management.Automation.Language.Parser]::ParseFile("
+            f"'{chemin}', [ref]$null, [ref]$e) | Out-Null; if ($e.Count) {{ $e | ForEach-Object {{ $_.Message }}; exit 1 }}"
+        )
+        r = subprocess.run(["powershell", "-NoProfile", "-Command", commande], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)

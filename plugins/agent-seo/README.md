@@ -96,6 +96,15 @@ pour relever la SERP. Jamais requis.
   preview ») : leur fonctionnement peut changer. Chaque passage compte dans
   l'usage de ton offre Claude.
 
+## Sur ton ordinateur, sans le cloud
+
+L'agent peut aussi tourner seul sur ton Mac, ton PC Windows ou un serveur
+Linux, chaque lundi à 8 h : avec l'application Claude (tâche planifiée
+« Only on this computer »), ou avec le planificateur de ton système
+(launchd, Planificateur de tâches, cron) qui lance `local/lancer.sh` ou
+`local/lancer.ps1`. Pas à pas : `LANCER.md`, « Sur ton ordinateur ». Les
+journaux de chaque passage vont dans `journaux/`.
+
 ## À la demande
 
 Ouvre une session sur ton dépôt et colle un texte de `LANCER.md` :
@@ -109,6 +118,7 @@ garder la mémoire.
 agent-seo/
 ├── CONFIGURE-MOI.md       le texte à coller pour tout paramétrer
 ├── LANCER.md              les textes pour lancer l'agent ou la tâche planifiée
+├── local/                 version locale : consigne, lanceurs Mac/Linux et Windows, modèle launchd
 ├── AGENT.md               la méthode que l'agent suit
 ├── site-context.md        ton site, tes lecteurs, ton ton, tes faits produit
 ├── reserve.md             tes preuves et ton expérience
@@ -147,6 +157,8 @@ Pas encore testé en conditions réelles :
 
 - le connecteur seoskill dans claude.ai/code et dans une tâche planifiée ;
 - le push sur la branche principale depuis une tâche planifiée ;
+- la version locale avec un vrai Claude Code (le lanceur Mac et Linux est
+  testé avec un faux `claude` ; le lanceur Windows, seulement sur sa syntaxe) ;
 - la lecture des sources par la session cloud, selon le réseau de
   l'environnement : si la lecture des pages échoue, crée un environnement en
   accès réseau « Full » ou ajoute les domaines utiles.
