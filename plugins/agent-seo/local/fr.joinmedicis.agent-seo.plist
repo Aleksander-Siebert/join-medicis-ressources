@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Agent SEO Join Médicis : passage chaque lundi à 8 h (Mac).
+  1. Remplace les deux CHEMIN_DU_DOSSIER par le chemin du dossier de l'agent.
+  2. Copie ce fichier dans ~/Library/LaunchAgents/
+  3. launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/fr.joinmedicis.agent-seo.plist
+  Si le Mac dort à 8 h, launchd lance le passage au réveil.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>fr.joinmedicis.agent-seo</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>CHEMIN_DU_DOSSIER/local/lancer.sh</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>CHEMIN_DU_DOSSIER</string>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Weekday</key>
+    <integer>1</integer>
+    <key>Hour</key>
+    <integer>8</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+</dict>
+</plist>
