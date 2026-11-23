@@ -31,7 +31,8 @@ articles suivants. Aucun texte ni code n'a été recopié. Matrice complète :
 - Ahrefs, « Les agents SEO IA » (Louise Linehan) : commencer par un seul
   workflow, des Skills séparés, un fichier mémoire.
 
-Pour la version Dust 3 (23 novembre 2026), nous avons aussi lu :
+Pour la version Dust 3 et la mise à jour de la version Claude (23 novembre
+2026), nous avons aussi lu :
 
 - Anthropic, « Building always-on agents » (William Hu, 13 novembre 2026) :
   la mémoire des consignes et des corrections de l'utilisateur, le droit de

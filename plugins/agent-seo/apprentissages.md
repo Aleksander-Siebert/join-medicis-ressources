@@ -1,11 +1,12 @@
 # apprentissages.md
 
-Copie ce fichier dans `~/.claude/seo/apprentissages.md`. C'est la mémoire
-du pack : ce qui marche ou non **pour ton site**, appris à l'usage.
+La mémoire de l'agent : ce qui marche ou non **pour ton site**, appris à
+l'usage. Il reste à la racine du dossier, l'agent le lit à chaque lancement.
 
 Règles :
 
-- Un Skill propose une ligne, **tu valides** avant qu'elle soit écrite.
+- L'agent propose une ligne quand tu le corriges, **tu valides** avant
+  qu'elle soit écrite.
 - Chaque ligne est datée et dit d'où elle vient (audit, correction, essai).
 - Quand un audit contredit une ligne, on la retire. Un apprentissage non
   vérifié finit par faire dériver le pack.

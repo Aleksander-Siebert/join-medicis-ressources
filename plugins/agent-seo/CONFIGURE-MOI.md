@@ -5,7 +5,7 @@ ci-dessous. Compte 15 minutes. Tu ne remplis aucun fichier à la main.
 
 ---
 
-Tu vas configurer l'agent SEO de ce dépôt. Lis d'abord `AGENT.md`,
+Tu vas configurer l'agent SEO de ce dépôt. Lis d'abord `AGENTS.md`,
 `config.json` et `site-context.md`.
 
 Pose tes questions par groupes de 2 à 4, avec l'outil AskUserQuestion s'il
@@ -29,6 +29,9 @@ mon site. Il lit mon site, pose ses questions et remplit le fichier. Insiste
 sur deux sections :
 
 - §4, les pages à pousser : les articles mèneront vers elles ;
+- §5, les paragraphes modèles : demande-moi 2 ou 3 paragraphes de mon blog
+  que je trouve réussis (ou les adresses des articles, et tu les lis) ;
+  l'agent imitera leur voix ;
 - §7, les données produit : seuls les faits marqués LIVE, avec leur source,
   pourront être écrits sur ma marque. Ce que je ne confirme pas reste
   À CONFIRMER.
@@ -45,10 +48,11 @@ sur deux sections :
 
 **4. Fais un premier passage, sans rien écrire.**
 
-Suis `AGENT.md`, étapes 1 à 3. Montre-moi les 5 premiers sujets et les
+Suis `AGENTS.md`, étapes 1 à 3. Montre-moi les 5 premiers sujets et les
 requêtes écartées parce qu'une page les couvre déjà. Demande-moi si le
 classement me parle, et reporte mes retours dans `config.json` ou
-`site-context.md`.
+`site-context.md`. Une règle qui vaut pour la suite (« jamais de sujets sur
+… ») va dans `apprentissages.md`, après mon accord.
 
 **5. Écris un premier article avec moi**, sur le sujet que je choisis, en
 suivant `/seo-article` étape par étape (sans `--autonome`) : je valide le
