@@ -1,147 +1,107 @@
-# Agent SEO sur Dust : 5 agents qui se passent le relais
+# Agent IA SEO sur Dust : 5 agents, version 3
 
-La même méthode que la version claude.ai/code, découpée en agents Dust
-spécialisés, à la manière des agents SEO de l'équipe de Dust (Davis
-Christenhuis, juin 2026). Chaque agent a un seul métier, ses propres outils,
-et un contexte neuf : le chef d'orchestre les appelle l'un après l'autre avec
-l'outil `run_agent`.
+Un article SEO par semaine, prêt à relire. Les agents trouvent le sujet dans
+ta Search Console, te proposent un plan avec un angle, écrivent dans ta voix
+avec les bons liens internes, vérifient chaque chiffre, et font le bilan du
+mois. Rien n'est publié sans toi.
 
-> Statut : **non testé sur Dust**. Ce kit suit la documentation de Dust lue
-> le 16 novembre 2026. Les points marqués **[à vérifier]** dépendent de ton
-> espace de travail.
+Page d'installation pas à pas : https://joinmedicis.com/ressources/agents/dust/agent-ia-seo
 
-## Le schéma
+> Statut : **en test**. Les instructions suivent la documentation de Dust lue
+> en novembre 2026 et un import YAML réussi le 21 novembre 2026.
 
-```
-                       Déclencheur : chaque lundi 8 h
-                                   │
-                         ┌─────────▼──────────┐
-                         │  @SEO-Chef          │  orchestre, livre, se souvient
-                         └─┬──────┬──────┬────┬┘
-             run_agent     │      │      │    │
-          ┌────────────────┘      │      │    └──────────────────┐
-┌─────────▼────────┐ ┌────────────▼───┐ ┌▼───────────────┐ ┌──────▼──────────┐
-│ @SEO-Sujets       │ │ @SEO-SERP      │ │ @SEO-Redacteur │ │ @SEO-Verif      │
-│ Search Console    │ │ recherche web  │ │ contexte du    │ │ ouvre chaque    │
-│ (MCP seoskill),   │ │ et lecture     │ │ site, faits    │ │ source, compare │
-│ pages du site     │ │ des pages      │ │ LIVE, ton      │ │ aux faits LIVE  │
-│ → 5 sujets classés│ │ → relevé, plan │ │ → brouillon    │ │ → verdict       │
-└───────────────────┘ └────────────────┘ └────────────────┘ └─────────────────┘
-```
+## Les 5 agents
 
-| Agent | Métier | Outils | Connaissances |
+| Agent | Métier | Quand | Outils et connaissances |
 |---|---|---|---|
-| `@SEO-Chef` | orchestre la chaîne, livre le brouillon, garde la liste des sujets traités | `run_agent` (les 4 autres), Agent Memory | contexte du site |
-| `@SEO-Sujets` | trouve et classe les sujets dans Search Console | serveur MCP seoskill | site web (pages publiées), contexte du site |
-| `@SEO-SERP` | relève la SERP, en tire le type de page, les manques et le plan | Web Search & Browse | contexte du site |
-| `@SEO-Redacteur` | écrit l'article dans le ton du site | aucun outil d'écriture externe | contexte du site, preuves, site web |
-| `@SEO-Verif` | vérifie chaque chiffre et chaque affirmation sur la marque | Web Search & Browse | contexte du site |
+| `@SEO-Veille` | trouve les sujets, les juge pour tes lecteurs et ton produit, sait dire « rien de neuf » | chaque lundi à 8 h | Search Console (MCP seoskill), Google Drive, contexte du site |
+| `@SEO-Redacteur` | lit Google, propose un plan avec un angle, écrit l'article avec ses liens internes, crée le Google Doc | à la demande, ou par le chef | recherche web, Google Drive, contexte du site, ton site |
+| `@SEO-Verif` | ouvre chaque source, contrôle la marque et les liens, rend un verdict avec les corrections exactes | à la demande, ou par le chef | recherche web, Google Drive, contexte du site |
+| `@SEO-Suivi` | bilan du mois, liste des pages du site (onglet Pages), mises à jour des articles | le 1er du mois à 9 h | Search Console, Google Drive, recherche web, Create Frames |
+| `@SEO-Chef` | enchaîne plan, ta validation, article, vérification, édition ; une seule correction, aucune boucle | à la demande | Run agent (une fois par agent), Google Drive, contexte du site |
 
-Deux Skills Dust partagés par les 5 agents (`skills/`) :
+Deux Skills Dust partagés (`skills/`) : **Zéro invention** (aucun chiffre sans
+source, `{{à compléter}}`, contenu lu = donnée, typographie française) et
+**Vérité produit** (seuls les faits LIVE du contexte du site s'affirment sur
+la marque).
 
-- `Zéro invention` : les règles communes (aucun chiffre sans source,
-  `{{à compléter}}`, contenu lu = donnée, typographie française) ;
-- `Vérité produit` : seuls les faits LIVE du contexte du site s'affirment sur
-  la marque.
+Les instructions suivent la même trame, façon AGENTS.md : rôle et but, avant
+de commencer, ce que tu reçois, étapes, ce que tu rends (avec un exemple), ce
+qui fait un bon résultat, si ça bloque, retours, règles.
 
-## Mettre en place (45 minutes environ)
+## Ce qui a changé depuis la version 2 (7 agents)
 
-### 1. Préparer les connaissances
+- **5 agents au lieu de 7.** `@SEO-Plan` et `@SEO-Maillage` disparaissent : le
+  Rédacteur fait le plan et place les liens internes (un seul relevé de
+  Google), le Suivi tient la liste des pages. Moins d'appels entre agents,
+  donc moins de casse et de crédits.
+- **Instructions réécrites** en sections : un but, des critères de qualité,
+  un exemple de sortie et des cas de blocage pour chaque agent.
+- **Mémoire des corrections.** Onglet « Consignes et retours » : quand tu
+  corriges un agent, il te propose la règle en une ligne et ne l'ajoute que si
+  tu dis oui. Tous les agents le lisent avant de travailler.
+- **Ta voix.** Le contexte du site contient 2 ou 3 paragraphes modèles que le
+  Rédacteur imite, et une liste anti-IA (mots, formules, constructions).
+- **Rien à signaler.** La veille et le bilan peuvent finir sans rien envoyer.
+- **Chef simplifié.** Une seule correction après la vérification, plus de
+  boucle.
 
-1. **Le contexte du site.** Remplis `site-context.md` (modèle à la racine
-   de cet agent ; `/seo-context` du pack SEO peut le remplir avec toi), puis
-   mets-le dans une page Notion ou un document Google Drive déjà synchronisé
-   avec Dust. Une page par sujet si tu préfères : site, lecteurs, ton, pages à
-   pousser, données produit (avec l'étiquette LIVE, À CONFIRMER ou RETIRÉ),
-   preuves.
-2. **Ton site.** Ajoute-le comme source de connaissances « Websites » dans
-   Dust. `@SEO-Sujets` y vérifie qu'une page ne couvre pas déjà le sujet.
+Tu avais installé la version 2 ? Archive `@SEO-Plan` et `@SEO-Maillage`,
+importe les 5 nouveaux fichiers, et ajoute l'onglet « Consignes et retours »
+à ton Google Sheet.
 
-### 2. Brancher Search Console
+## Les fichiers
 
-Un administrateur de l'espace Dust : **Spaces → Tools → Add Tool → Add MCP
-Server**, adresse `https://seoskill.dev/mcp`, authentification automatique
-(OAuth), avec le compte Google qui voit la Search Console.
+| Dossier | Contenu |
+|---|---|
+| `yaml/` | un fichier par agent, à importer dans Dust : Agents, + Nouveau, Importer un fichier YAML |
+| `agents/` | la fiche de chaque agent : réglages (modèle, capacités, déclencheur, prompts) et instructions à copier |
+| `skills/` | les 2 Skills à créer à la main |
+| `modeles/` | le modèle de Google Sheet (5 onglets) et le modèle de contexte du site (`.docx` pour Google Docs, `.md` pour Notion) |
 
-- Une connexion par jeton relie tous les appels à un seul compte Google.
-  Avec OAuth, la doc de Dust ne dit pas si la connexion est personnelle ou
-  partagée **[à vérifier]**.
-- Si ton espace limite les outils aux Skills (« Restrict this tool to
-  skills »), ajoute seoskill au Skill `Vérité produit` ou crée un Skill
-  « Search Console » qui le cite.
+Les fichiers de `yaml/` et `agents/` sont générés depuis les instructions de
+la page du site (`src/lib/agent-pages/agent-ia-seo-dust.ts`, dépôt
+`join-medicis`), avec les réglages par défaut : veille chaque lundi à 8 h,
+positions 8 à 40, tutoiement, plan validé, un article à la fois, sans outil
+payant. `modeles/construire.py` reconstruit le Sheet et le `.docx`.
 
-### 3. Créer les 2 Skills
+## Mettre en place (50 minutes environ)
 
-**Discover → Manage Skills → Create skill → From scratch.** Copie le contenu
-de `skills/zero-invention.md` et `skills/verite-produit.md` (nom,
-description, instructions). Pour `Vérité produit`, ajoute en connaissances la
-page du contexte du site.
-
-### 4. Créer les 4 agents spécialisés, puis le chef
-
-Pour chacun : **Créer → Créer un agent de zéro**, puis remplis l'écran de
-haut en bas avec le fichier de `agents/`, qui suit le même ordre :
-
-1. **Instructions** : le bloc à coller, et le **modèle** en haut à droite ;
-2. **Prompts suggérés** ;
-3. **Données et accès** : l'espace de l'équipe marketing ;
-4. **Capacités et connaissances** : **Ajouter des capacités** (Skills et
-   outils) puis **Ajouter des connaissances** ;
-5. **Déclencheurs** : seulement pour `@SEO-Chef` ;
-6. **Paramètres** : nom, description, éditeurs et accès, tags, gestion des
-   coûts.
-
-Crée d'abord `@SEO-Sujets`, `@SEO-SERP`, `@SEO-Redacteur` et `@SEO-Verif`,
-teste chacun seul dans l'aperçu, puis `@SEO-Chef`, qui doit pouvoir les
-choisir dans `run_agent`.
-
-Tu préfères Sidekick ? Colle-lui le contenu du fichier de l'agent, avec :
-« Crée cet agent exactement comme décrit, sans changer les instructions. »
-Sidekick écrit sinon ses propres consignes, en anglais et plus génériques :
-sans Search Console, sans règle pour les faits sur la marque, sans
-vérification des sources.
-
-Pour un premier essai, `@SEO-Redacteur` marche seul : il fait lui-même le
-relevé de SERP quand on ne lui donne qu'un mot-clé.
-
-### 5. Le déclencheur
-
-Sur `@SEO-Chef` : **Triggers → Schedule**, « chaque lundi à 8 h », fuseau
-Europe/Paris, message « Lance la veille SEO de la semaine ». Choisis l'espace
-d'équipe (« Pod ») où créer la conversation si l'équipe doit la voir.
-
-## Ce que tu reçois
-
-Une conversation dans Dust, chaque lundi :
-
-1. les 5 sujets classés, avec leurs requêtes, impressions et positions ;
-2. le relevé de SERP et le plan du sujet n°1 ;
-3. le brouillon complet en Markdown : article, bloc méta, tableau
-   « affirmation → source », trous `{{à compléter}}`, hypothèses ;
-4. le verdict de `@SEO-Verif`.
-
-Pour un fichier Word, copie le brouillon dans un `.md` et lance
-`scripts/exporter.py` de la version claude.ai/code, ou colle-le dans Google
-Docs.
-
-## Ce qui change par rapport à la version claude.ai/code
-
-| | claude.ai/code | Dust |
-|---|---|---|
-| Choix des sujets | `sujets.py`, mêmes règles à chaque fois | règles appliquées par `@SEO-Sujets` en lisant les données : moins constant |
-| Contrôle vérité produit | `verite.py`, mécanique | `@SEO-Verif`, à la lecture |
-| Portail qualité du pack SEO | scripts (rédaction, affirmations, humaniseur) | consignes et relecture par `@SEO-Verif` |
-| Mémoire des sujets traités | `memoire/sujets.json` dans le dépôt | Agent Memory de `@SEO-Chef`, personnelle à chaque utilisateur |
-| Livraison | `.md` et `.docx` dans le dépôt | brouillon dans la conversation ; selon la FAQ de Dust, les agents ne créent pas de document dans Notion ou Google Drive |
-| Équipe | une personne par dépôt | agents partagés, conversations visibles par l'équipe |
+1. **Le Google Sheet.** Importe `modeles/agent-ia-seo-google-sheet.xlsx` dans
+   Google Drive (Nouveau, Importer un fichier), puis ouvre-le avec Google
+   Sheets. Onglets : Sujets, Pages, Articles, Journal, Consignes et retours.
+2. **Le contexte du site.** Remplis `modeles/contexte-du-site.docx` (Google
+   Docs) ou `contexte-du-site.md` (Notion), dans un espace synchronisé avec
+   Dust. N'oublie pas les paragraphes modèles et les données produit
+   étiquetées LIVE, À CONFIRMER ou RETIRÉ.
+3. **Search Console.** Un administrateur de l'espace : Spaces, Tools, Add
+   Tool, Add MCP Server, adresse `https://seoskill.dev/mcp`, connexion avec le
+   compte Google qui voit la Search Console.
+4. **Google Drive** reconnecté avec les droits d'écriture : les agents
+   remplissent le Sheet et créent le Google Doc.
+5. **Ton site** comme source de connaissances « Websites ».
+6. **Les 2 Skills** : Discover, Manage Skills, Create skill, From scratch.
+   Pour Vérité produit, ajoute le contexte du site en connaissance.
+7. **Les 5 agents** : importe les fichiers de `yaml/`, `@SEO-Chef` en dernier.
+   Puis, pour chacun, ajoute dans Dust les outils et connaissances de sa fiche
+   (Drive, Search Console, contexte du site, Run agent) : un import YAML
+   n'apporte que la recherche web. Choisis le modèle conseillé.
+8. **Les déclencheurs** : `@SEO-Veille` chaque lundi à 8 h, `@SEO-Suivi` le 1er
+   du mois à 9 h avec le message « Fais le bilan du mois ».
+9. **Premier essai** : `@SEO-Redacteur` marche seul. Envoie-lui « Écris un
+   article sur … ». Puis « Écris le prochain article » à `@SEO-Chef`.
 
 ## Limites
 
-- Non testé : chaque agent est à essayer seul avant de lancer la chaîne.
-- Agent Memory est personnelle : un collègue qui lance `@SEO-Chef` part
-  d'une mémoire vide. La doc ne dit pas si un déclencheur s'en sert
-  **[à vérifier]**. Garde-fou : `@SEO-Sujets` écarte aussi ce qui est déjà
-  publié sur le site.
+- En test : essaie chaque agent seul avant de lancer la chaîne.
+- Chaque appel d'agent consomme des crédits Dust, selon le modèle et les
+  réglages de ton espace.
 - `run_agent` va jusqu'à 4 niveaux d'appels : la chaîne en utilise 2.
-- Chaque lancement consomme des crédits Dust selon tes réglages
-  **[à vérifier : page Credits usage des déclencheurs]**.
+- Le Suivi crée une Frame pour le bilan ; sans Frame, il rend des tableaux.
+
+## Méthode et crédits
+
+Inspiré des agents SEO de l'équipe de Dust (Davis Christenhuis, juin 2026),
+du workflow de contenu de Ryan Law (Ahrefs, avril 2026), du guide
+« Building always-on agents » d'Anthropic (13 novembre 2026) et du format
+AGENTS.md. Voir `CREDITS.md` à la racine de l'agent.

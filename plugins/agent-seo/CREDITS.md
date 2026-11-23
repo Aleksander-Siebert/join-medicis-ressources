@@ -31,6 +31,20 @@ articles suivants. Aucun texte ni code n'a été recopié. Matrice complète :
 - Ahrefs, « Les agents SEO IA » (Louise Linehan) : commencer par un seul
   workflow, des Skills séparés, un fichier mémoire.
 
+Pour la version Dust 3 (23 novembre 2026), nous avons aussi lu :
+
+- Anthropic, « Building always-on agents » (William Hu, 13 novembre 2026) :
+  la mémoire des consignes et des corrections de l'utilisateur, le droit de
+  ne rien envoyer, démarrer discret.
+- Le format [AGENTS.md](https://agents.md) et le guide CLAUDE.md d'Anthropic :
+  des instructions courtes, en sections titrées, mises à jour comme une
+  documentation vivante.
+- Google, « Rédiger des instructions Gem de qualité » : persona, tâche,
+  contexte, format.
+- France Num, « Comment créer des prompts efficaces » (mis à jour le
+  28 juillet 2026) : des exemples et des modèles à imiter, des contraintes
+  dans une section à part.
+
 Écartés : la publication automatique, les sous-agents rédacteur et relecteur
 (coût sans gain mesuré), les connecteurs hébergés aux coûts de données non
 précisés.
