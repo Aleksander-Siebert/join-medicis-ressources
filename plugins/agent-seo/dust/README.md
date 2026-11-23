@@ -46,10 +46,6 @@ qui fait un bon résultat, si ça bloque, retours, règles.
 - **Chef simplifié.** Une seule correction après la vérification, plus de
   boucle.
 
-Tu avais installé la version 2 ? Archive `@SEO-Plan` et `@SEO-Maillage`,
-importe les 5 nouveaux fichiers, et ajoute l'onglet « Consignes et retours »
-à ton Google Sheet.
-
 ## Les fichiers
 
 | Dossier | Contenu |
@@ -65,7 +61,10 @@ la page du site (`src/lib/agent-pages/agent-ia-seo-dust.ts`, dépôt
 positions 8 à 40, tutoiement, plan validé, un article à la fois, sans outil
 payant. `modeles/construire.py` reconstruit le Sheet et le `.docx`.
 
-## Mettre en place (50 minutes environ)
+## Mettre en place (moins de 15 minutes)
+
+L'import des agents, des Skills et des modèles prend moins de 15 minutes. Brancher
+Search Console et Google Drive dépend des outils déjà connectés à ton espace Dust.
 
 1. **Le Google Sheet.** Importe `modeles/agent-ia-seo-google-sheet.xlsx` dans
    Google Drive (Nouveau, Importer un fichier), puis ouvre-le avec Google
