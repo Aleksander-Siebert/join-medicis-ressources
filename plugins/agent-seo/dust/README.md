@@ -46,10 +46,6 @@ qui fait un bon résultat, si ça bloque, retours, règles.
 - **Chef simplifié.** Une seule correction après la vérification, plus de
   boucle.
 
-Tu avais installé la version 2 ? Archive `@SEO-Plan` et `@SEO-Maillage`,
-importe les 5 nouveaux fichiers, et ajoute l'onglet « Consignes et retours »
-à ton Google Sheet.
-
 ## Les fichiers
 
 | Dossier | Contenu |
