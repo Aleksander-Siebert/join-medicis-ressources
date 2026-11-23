@@ -5,7 +5,7 @@ ci-dessous. Compte 15 minutes. Tu ne remplis aucun fichier à la main.
 
 ---
 
-Tu vas configurer l'agent SEO de ce dépôt. Lis d'abord `AGENT.md`,
+Tu vas configurer l'agent SEO de ce dépôt. Lis d'abord `AGENTS.md`,
 `config.json` et `site-context.md`.
 
 Pose tes questions par groupes de 2 à 4, avec l'outil AskUserQuestion s'il
@@ -45,7 +45,7 @@ sur deux sections :
 
 **4. Fais un premier passage, sans rien écrire.**
 
-Suis `AGENT.md`, étapes 1 à 3. Montre-moi les 5 premiers sujets et les
+Suis `AGENTS.md`, étapes 1 à 3. Montre-moi les 5 premiers sujets et les
 requêtes écartées parce qu'une page les couvre déjà. Demande-moi si le
 classement me parle, et reporte mes retours dans `config.json` ou
 `site-context.md`.

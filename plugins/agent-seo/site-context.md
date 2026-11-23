@@ -4,12 +4,13 @@ Le contexte de ton site. Les Skills des packs SEO et GEO le lisent avant de
 travailler : sans lui, ils écrivent pour « un site en général » ; avec lui,
 ils écrivent pour toi.
 
-Copie ce fichier dans `~/.claude/seo/site-context.md` (Claude Code) ou mets-le
-dans les connaissances de ton Projet (claude.ai, ChatGPT, Gemini, Mistral).
-Pas envie de le remplir ? Lance `/seo-context` avec l'URL de ton site : il
-pose les questions et le remplit avec toi.
+Dans cet agent, il reste à la racine du dossier : l'agent le lit à chaque
+lancement. Pas envie de le remplir ? Suis `CONFIGURE-MOI.md`, ou lance
+`/seo-context` avec l'URL de ton site : il pose les questions et le remplit
+avec toi.
 
-Un exemple rempli est dans `exemple-site-context.md`.
+Un exemple rempli est dans
+`.claude/skills/seo-context/commun/modeles/exemple-site-context.md`.
 
 > **Ne le mets jamais dans un dépôt public** : il contient des informations
 > internes (offres, règles, données produit).
@@ -76,6 +77,13 @@ URL. C'est la base du maillage.
   « il semblerait »).
 - **Exemples de phrases qui nous ressemblent :**
 - **Exemples de phrases qui ne nous ressemblent pas :**
+- **Paragraphes modèles :** colle 2 ou 3 paragraphes réels de ton blog que
+  tu trouves réussis, chacun avec son adresse. L'agent imite leur longueur
+  de phrase, leurs tournures et leur ton : c'est le moyen le plus sûr
+  d'éviter un texte qui sonne comme une IA.
+  1.
+  2.
+  3.
 
 ## 6. Les règles maison
 

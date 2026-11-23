@@ -31,6 +31,14 @@ MIT.
    hypothèses. Rien n'est publié.
 5. **Se souvient** de ce qu'il a proposé, écrit ou abandonné, et fait le bilan
    des articles livrés après 28 jours.
+6. **Apprend de tes corrections** : quand tu le corriges, il propose la règle
+   en une ligne et ne l'écrit dans `apprentissages.md` que si tu dis oui.
+7. **Écrit dans ta voix** à partir de 2 ou 3 paragraphes modèles de ton blog
+   (`site-context.md`, §5), et **sait ne rien écrire** quand aucun sujet ne
+   vaut un article cette semaine.
+
+`AGENTS.md` porte la méthode : c'est le nom standard que lisent aussi Codex,
+Cursor ou Jules (agents.md). `CLAUDE.md` l'importe pour Claude Code.
 
 ## Ce qu'il faut
 
@@ -119,7 +127,7 @@ agent-seo/
 ├── CONFIGURE-MOI.md       le texte à coller pour tout paramétrer
 ├── LANCER.md              les textes pour lancer l'agent ou la tâche planifiée
 ├── local/                 version locale : consigne, lanceurs Mac/Linux et Windows, modèle launchd
-├── AGENT.md               la méthode que l'agent suit
+├── AGENTS.md              la méthode que l'agent suit
 ├── site-context.md        ton site, tes lecteurs, ton ton, tes faits produit
 ├── reserve.md             tes preuves et ton expérience
 ├── apprentissages.md      ce qui marche pour ton site
